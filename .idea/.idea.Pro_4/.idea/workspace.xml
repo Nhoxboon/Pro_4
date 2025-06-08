@@ -5,10 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Player.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Struct.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Struct/WaveDetails.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Struct/WaveDetails.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint/WaypointManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint/WaypointManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Materials/Emission_blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Materials/Emission_blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/NhoxBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/NhoxBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/NhoxBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/NhoxBehaviour.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene/NavMesh-Level_Ground.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene/NavMesh-Level_Ground.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Icons.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Icons/URP.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Icons/URP.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Layout.wlt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Layout.wlt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts/Editor/ReadmeEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts/Readme.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts/Readme.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,34 +59,40 @@
     &quot;accountId&quot;: &quot;190acd58-fc23-40a6-992b-83a1bdee699c&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2xzznMVOqcNxRxfuujHsvYxZOwQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "rider.code.cleanup.on.save": "true",
-    "rider.code.cleanup.on.save.profile": "Built-in: Reformat Code",
-    "settings.editor.selected.configurable": "preferences.general",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rider.code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;rider.code.cleanup.on.save.profile&quot;: &quot;Built-in: Reformat Code&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\6000.0.47f1\Editor\Unity.exe" />
@@ -122,6 +156,11 @@
       <workItem from="1749045436517" duration="19000" />
       <workItem from="1749132894517" duration="305000" />
       <workItem from="1749133221325" duration="3682000" />
+      <workItem from="1749201938236" duration="8000" />
+      <workItem from="1749364022068" duration="111000" />
+      <workItem from="1749364148983" duration="5185000" />
+      <workItem from="1749375229984" duration="330000" />
+      <workItem from="1749378874242" duration="1341000" />
     </task>
     <servers />
   </component>

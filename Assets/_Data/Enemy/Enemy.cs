@@ -4,7 +4,6 @@ using UnityEngine.AI;
 public class Enemy : NhoxBehaviour
 {
     [SerializeField] protected float turnSpeed = 10f;
-    [SerializeField] protected Transform[] waypoints;
     [SerializeField] protected int currentWpIndex;
     [SerializeField] protected NavMeshAgent agent;
 
@@ -19,6 +18,13 @@ public class Enemy : NhoxBehaviour
         if (agent != null) return;
         agent = GetComponent<NavMeshAgent>();
         Debug.Log(transform.name + "LoadNavMeshAgent", gameObject);
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        agent.updateRotation = false;
+        agent.avoidancePriority = Mathf.RoundToInt(agent.speed * 10);
     }
 
     protected void Update()
@@ -47,9 +53,9 @@ public class Enemy : NhoxBehaviour
 
     protected Vector3 GetNextWaypoint()
     {
-        if (currentWpIndex >= waypoints.Length) return transform.position;
+        if (currentWpIndex >= WaypointManager.Instance.Waypoints.Length) return transform.position;
 
-        Vector3 targetPoint = waypoints[currentWpIndex].position;
+        Vector3 targetPoint = WaypointManager.Instance.Waypoints[currentWpIndex].position;
         currentWpIndex++;
 
         return targetPoint;

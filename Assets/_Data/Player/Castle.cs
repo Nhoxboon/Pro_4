@@ -1,0 +1,14 @@
+﻿
+using System;
+using UnityEngine;
+
+public class Castle : NhoxBehaviour
+{
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+}
