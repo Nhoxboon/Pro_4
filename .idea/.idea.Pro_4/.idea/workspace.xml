@@ -5,39 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Player.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Struct.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Struct/WaveDetails.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Struct/WaveDetails.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint/WaypointManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint/WaypointManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawnPoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawnPoint.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyTypeCount.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyTypeCount.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/NhoxBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/NhoxBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/NhoxBehaviour.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/NhoxBehaviour.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/EnemySpawner.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/EnemySpawner.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Struct/WaveDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Struct/WaveDetails.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene/NavMesh-Level_Ground.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene/NavMesh-Level_Ground.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Icons.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Icons/URP.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Icons/URP.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Layout.wlt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Layout.wlt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts/Editor/ReadmeEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts/Editor/ReadmeEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts/Readme.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_TutorialInfo/Scripts/Readme.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +38,14 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -161,6 +147,7 @@
       <workItem from="1749364148983" duration="5185000" />
       <workItem from="1749375229984" duration="330000" />
       <workItem from="1749378874242" duration="1341000" />
+      <workItem from="1749482368993" duration="4263000" />
     </task>
     <servers />
   </component>

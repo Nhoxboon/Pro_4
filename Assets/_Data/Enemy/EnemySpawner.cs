@@ -1,67 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-public class EnemySpawner : NhoxBehaviour
+public class EnemySpawner : Spawner
 {
-    //Note: Just for testing purposes
-    [SerializeField] protected WaveDetails currentWave;
-    [SerializeField] protected float spawnCooldown = 5f;
-    protected float spawnTimer;
+    private static EnemySpawner instance;
+    public static EnemySpawner Instance => instance;
 
-    [SerializeField] protected List<GameObject> enemies;
-    [SerializeField] protected GameObject basicEnemyPrefab;
-    [SerializeField] protected GameObject fastEnemyPrefab;
-
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
-
-        enemies = NewEnemyWave();
-    }
-
-    protected void Update()
-    {
-        spawnTimer -= Time.deltaTime;
-
-        if (spawnTimer <= 0f && enemies.Count > 0)
+        base.Awake();
+        if (instance != null)
         {
-            SpawnEnemy();
-            spawnTimer = spawnCooldown;
+            Debug.LogError("Only one instance of EnemySpawner allow to exist");
+            return;
         }
+
+        instance = this;
     }
 
-    protected void SpawnEnemy()
+    public string GetEnemyNameByType(EnemyType enemyType)
     {
-        GameObject randomEnemy = GetRandomEnemy();
-        GameObject newEnemy = Instantiate(randomEnemy, transform.position, Quaternion.identity);
-    }
-    
-    protected GameObject GetRandomEnemy()
-    {
-        if (enemies.Count == 0) return null;
-
-        int randomIndex = Random.Range(0, enemies.Count);
-        GameObject enemyToSpawn = enemies[randomIndex];
-        enemies.RemoveAt(randomIndex);
-
-        return enemyToSpawn;
+        return enemyType.ToString();
     }
 
-    protected List<GameObject> NewEnemyWave()
+    public Transform SpawnRandom(List<string> enemyPool, Vector3 spawnPos, Quaternion rotation)
     {
-        List<GameObject> newEnemyList = new List<GameObject>();
-        
-        for (int i = 0; i < currentWave.basicEnemy; i++)
+        if (enemyPool == null || enemyPool.Count == 0)
         {
-            newEnemyList.Add(basicEnemyPrefab);
+            Debug.LogWarning("Enemy pool is empty!");
+            return null;
         }
-        
-        for (int i = 0; i < currentWave.fastEnemy; i++)
-        {
-            newEnemyList.Add(fastEnemyPrefab);
-        }
-        return newEnemyList;
+
+        int randomIndex = Random.Range(0, enemyPool.Count);
+        string enemyToSpawn = enemyPool[randomIndex];
+        enemyPool.RemoveAt(randomIndex);
+
+        Transform newEnemy = Spawn(enemyToSpawn, spawnPos, rotation);
+
+        newEnemy.gameObject.SetActive(true);
+
+        return newEnemy;
     }
+}
+
+public enum EnemyType
+{
+    BasicEnemy,
+    FastEnemy
 }
