@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,17 +8,9 @@ public class Enemy : NhoxBehaviour
     [SerializeField] protected int currentWpIndex;
     [SerializeField] protected NavMeshAgent agent;
 
-    protected override void LoadComponents()
+    protected void OnEnable()
     {
-        base.LoadComponents();
-        LoadNavMeshAgent();
-    }
-
-    protected void LoadNavMeshAgent()
-    {
-        if (agent != null) return;
-        agent = GetComponent<NavMeshAgent>();
-        Debug.Log(transform.name + "LoadNavMeshAgent", gameObject);
+        ResetEnemy();
     }
 
     protected override void Awake()
@@ -30,6 +23,19 @@ public class Enemy : NhoxBehaviour
     protected void Update()
     {
         EnemyMove();
+    }
+    
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadNavMeshAgent();
+    }
+
+    protected void LoadNavMeshAgent()
+    {
+        if (agent != null) return;
+        agent = GetComponent<NavMeshAgent>();
+        Debug.Log(transform.name + "LoadNavMeshAgent", gameObject);
     }
 
     protected void EnemyMove()
@@ -59,5 +65,21 @@ public class Enemy : NhoxBehaviour
         currentWpIndex++;
 
         return targetPoint;
+    }
+    
+    public void ResetEnemy()
+    {
+        currentWpIndex = 0;
+    
+        if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+        {
+            agent.ResetPath();
+            agent.velocity = Vector3.zero;
+        
+            if (WaypointManager.Instance.Waypoints.Length > 0)
+            {
+                agent.SetDestination(WaypointManager.Instance.Waypoints[0].position);
+            }
+        }
     }
 }

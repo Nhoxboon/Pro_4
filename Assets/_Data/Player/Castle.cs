@@ -8,7 +8,7 @@ public class Castle : NhoxBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            EnemySpawner.Instance.Despawn(other.gameObject);
         }
     }
 }
