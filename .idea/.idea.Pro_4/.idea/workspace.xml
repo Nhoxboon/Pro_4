@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy_Basic.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy_Basic.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy_Fast.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy_Fast.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Struct.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Struct/WaveDetails.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Struct/WaveDetails.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Materials/Emission_blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Materials/Emission_blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,24 +55,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "rider.code.cleanup.on.save": "true",
-    "rider.code.cleanup.on.save.profile": "Built-in: Reformat Code",
-    "settings.editor.selected.configurable": "RiderUnityFileTemplatesSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rider.code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;rider.code.cleanup.on.save.profile&quot;: &quot;Built-in: Reformat Code&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;RiderUnityFileTemplatesSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="E:\Unity\6000.0.47f1\Editor\Unity.exe" />
@@ -143,6 +144,8 @@
       <workItem from="1749482368993" duration="4263000" />
       <workItem from="1749637724710" duration="648000" />
       <workItem from="1749638844296" duration="4134000" />
+      <workItem from="1749721968733" duration="3498000" />
+      <workItem from="1749736521137" duration="2529000" />
     </task>
     <servers />
   </component>
