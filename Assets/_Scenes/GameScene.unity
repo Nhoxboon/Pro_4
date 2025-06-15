@@ -1242,6 +1242,10 @@ MonoBehaviour:
   tower: {fileID: 1276969957}
   attackVisual: {fileID: 1062771978}
   attackVisualDuration: 0.1
+  meshRenderer: {fileID: 3451365512625138007}
+  maxIntensity: 150
+  startColor: {r: 0, g: 0, b: 0, a: 1}
+  endColor: {r: 0.015686275, g: 0.43137255, b: 1, a: 1}
 --- !u!1 &520486287
 GameObject:
   m_ObjectHideFlags: 0
@@ -3248,7 +3252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
-  attacleCooldown: 1
+  attacleCooldown: 2
   towerHead: {fileID: 8965254229736433727}
   canRotate: 0
   rotationSpeed: 10
