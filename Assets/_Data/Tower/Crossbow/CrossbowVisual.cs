@@ -1,110 +1,203 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-public class CrossbowVisual : NhoxBehaviour
+public class CrossbowVisual : TowerVisual
 {
-    [SerializeField] protected CrossbowTower tower;
-    
-    [SerializeField] protected LineRenderer attackVisual;
-    [SerializeField] protected float attackVisualDuration = 0.1f;
+    [Header("Rotor Visual")]
+    [SerializeField] protected Transform rotor;
+    [SerializeField] protected Transform rotorUnloaded;
+    [SerializeField] protected Transform rotorLoaded;
 
-    [Header("Glow Effect")]
-    [SerializeField] protected MeshRenderer meshRenderer;
-    protected Material material;
-    protected float currentIntensity;
-    [SerializeField] protected float maxIntensity = 150f;
-    [SerializeField] protected Color startColor;
-    [SerializeField] protected Color endColor;
+    [Header("Front Glow String")]
+    [SerializeField] protected LineRenderer frontStringL;
+    [SerializeField] protected LineRenderer frontStringR;
+    [SerializeField] protected Transform frontStartPointL;
+    [SerializeField] protected Transform frontEndPointL;
+    [SerializeField] protected Transform frontStartPointR;
+    [SerializeField] protected Transform frontEndPointR;
+
+    [Header("Back Glow String")]
+    [SerializeField] protected LineRenderer backStringL;
+    [SerializeField] protected LineRenderer backStringR;
+    [SerializeField] protected Transform backStartPointL;
+    [SerializeField] protected Transform backEndPointL;
+    [SerializeField] protected Transform backStartPointR;
+    [SerializeField] protected Transform backEndPointR;
+
+    [SerializeField] protected LineRenderer[] stringRenderers;
 
     protected override void Awake()
     {
         base.Awake();
-        CloneAndAssignMaterial();
-        StartCoroutine(ChangeEmissionIntensity(1f));
+        CloneStringMaterial();
     }
 
-    protected void Update()
+    protected override void Update()
     {
-        UpdateEmissionColor();
+        base.Update();
+        UpdateString();
     }
 
+    #region LoadComponents
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadTower();
-        LoadAttackVisual();
-        LoadMeshRenderer();
+        LoadRotorVisual();
+
+        LoadFrontStringLeftVisual();
+        LoadFrontStringRightVisual();
+        LoadFrontStartPointLeft();
+        LoadFrontEndPointLeft();
+        LoadFrontStartPointRight();
+        LoadFrontEndPointRight();
+        LoadBackStringLeftVisual();
+        LoadBackStringRightVisual();
+        LoadBackStartPointLeft();
+        LoadBackEndPointLeft();
+        LoadBackStartPointRight();
+        LoadBackEndPointRight();
     }
     
-    protected void LoadTower()
+    protected override void LoadMeshRenderer()
     {
-        if (tower != null) return;
-        tower = GetComponentInParent<CrossbowTower>();
-        Debug.Log(transform.name + " :LoadTower", gameObject);
-    }
-
-    protected void LoadAttackVisual()
-    {
-        if (attackVisual != null) return;
-        attackVisual = GetComponentInChildren<LineRenderer>();
-        Debug.Log(transform.name + " :LoadAttackVisual", gameObject);
-    }
-
-    protected void LoadMeshRenderer()
-    {
-        if(meshRenderer != null) return;
-        meshRenderer = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_emissionPart_2")
-            .GetComponent<MeshRenderer>();
+        if (meshRenderer != null) return;
+        meshRenderer = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_emissionPart_2").GetComponent<MeshRenderer>();
         Debug.Log(transform.name + " :LoadMeshRenderer", gameObject);
     }
 
-    protected void CloneAndAssignMaterial()
+    protected void LoadRotorVisual()
     {
-        material = new Material(meshRenderer.material);
-        meshRenderer.material = material;
+        if (rotor != null) return;
+        rotor = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor");
+        rotorUnloaded = transform.parent.Find("Model/CrossbowTower/TowerHead/RotorPositionUnloaded");
+        rotorLoaded = transform.parent.Find("Model/CrossbowTower/TowerHead/RotorPositionLoaded");
+        Debug.Log(transform.name + " :LoadRotorVisual", gameObject);
     }
 
-    public void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint)
+    protected void LoadFrontStringLeftVisual()
     {
-        StartCoroutine(FXCoroutine(startPoint, endPoint));
+        if (frontStringL != null) return;
+        frontStringL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/front_string_L").GetComponent<LineRenderer>();
+        Debug.Log(transform.name + " :LoadStringLeftVisual", gameObject);
     }
 
-    private IEnumerator FXCoroutine(Vector3 startPoint, Vector3 endPoint)
+    protected void LoadFrontStringRightVisual()
     {
-        tower.EnableRotation(false);
-        attackVisual.enabled = true;
-        attackVisual.SetPosition(0, startPoint);
-        attackVisual.SetPosition(1, endPoint);
-        
-        yield return new WaitForSeconds(attackVisualDuration);
-        attackVisual.enabled = false;
-        tower.EnableRotation(true);
+        if (frontStringR != null) return;
+        frontStringR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/front_string_R").GetComponent<LineRenderer>();
+        Debug.Log(transform.name + " :LoadStringRightVisual", gameObject);
     }
 
-    protected void UpdateEmissionColor()
+    protected void LoadBackStringLeftVisual()
     {
-        Color emissionColor = Color.Lerp(startColor, endColor, currentIntensity / maxIntensity);
-        emissionColor *= Mathf.LinearToGammaSpace(currentIntensity);
-        material.SetColor("_EmissionColor", emissionColor);
+        if (backStringL != null) return;
+        backStringL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/back_string_L").GetComponent<LineRenderer>();
+        Debug.Log(transform.name + " :LoadBackStringLeftVisual", gameObject);
     }
 
-    public void ReloadFX(float duration)
+    protected void LoadBackStringRightVisual()
     {
-        StartCoroutine(ChangeEmissionIntensity(duration / 2));
+        if (backStringR != null) return;
+        backStringR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/back_string_R").GetComponent<LineRenderer>();
+        Debug.Log(transform.name + " :LoadBackStringRightVisual", gameObject);
     }
 
-    private IEnumerator ChangeEmissionIntensity(float duration)
+    protected void LoadFrontStartPointLeft()
+    {
+        if (frontStartPointL != null) return;
+        frontStartPointL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/front_start_point_L").GetComponent<Transform>();
+        Debug.Log(transform.name + " :LoadFrontStartPointLeft", gameObject);
+    }
+
+    protected void LoadFrontEndPointLeft()
+    {
+        if (frontEndPointL != null) return;
+        frontEndPointL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/front_end_point_L").GetComponent<Transform>();
+        Debug.Log(transform.name + " :LoadFrontEndPointLeft", gameObject);
+    }
+
+    protected void LoadFrontStartPointRight()
+    {
+        if (frontStartPointR != null) return;
+        frontStartPointR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/front_start_point_R").GetComponent<Transform>();
+        Debug.Log(transform.name + " :LoadFrontStartPointRight", gameObject);
+    }
+
+    protected void LoadFrontEndPointRight()
+    {
+        if (frontEndPointR != null) return;
+        frontEndPointR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/front_end_point_R").GetComponent<Transform>();
+        Debug.Log(transform.name + " :LoadFrontEndPointRight", gameObject);
+    }
+
+    protected void LoadBackStartPointLeft()
+    {
+        if (backStartPointL != null) return;
+        backStartPointL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/back_start_point_L").GetComponent<Transform>();
+        Debug.Log(transform.name + " :LoadBackStartPointLeft", gameObject);
+    }
+
+    protected void LoadBackEndPointLeft()
+    {
+        if (backEndPointL != null) return;
+        backEndPointL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/back_end_point_L").GetComponent<Transform>();
+        Debug.Log(transform.name + " :LoadBackEndPointLeft", gameObject);
+    }
+
+    protected void LoadBackStartPointRight()
+    {
+        if (backStartPointR != null) return;
+        backStartPointR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/back_start_point_R").GetComponent<Transform>();
+        Debug.Log(transform.name + " :LoadBackStartPointRight", gameObject);
+    }
+
+    protected void LoadBackEndPointRight()
+    {
+        if (backEndPointR != null) return;
+        backEndPointR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/back_end_point_R").GetComponent<Transform>();
+        Debug.Log(transform.name + " :LoadBackEndPointRight", gameObject);
+    }
+    #endregion
+
+    protected void CloneStringMaterial()
+    {
+        foreach (var sR in stringRenderers)
+        {
+            sR.material = material;
+        }
+    }
+
+    protected void UpdateString()
+    {
+        UpdateStringVisuals(frontStringL, frontStartPointL, frontEndPointL);
+        UpdateStringVisuals(frontStringR, frontStartPointR, frontEndPointR);
+
+        UpdateStringVisuals(backStringL, backStartPointL, backEndPointL);
+        UpdateStringVisuals(backStringR, backStartPointR, backEndPointR);
+    }
+
+    protected void UpdateStringVisuals(LineRenderer lineRenderer, Transform startPoint, Transform endPoint)
+    {
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, startPoint.position);
+        lineRenderer.SetPosition(1, endPoint.position);
+    }
+
+    public override void ReloadFX(float duration)
+    {
+        base.ReloadFX(duration);
+        StartCoroutine(UpdateRotorPosition(duration / 2));
+    }
+
+    private IEnumerator UpdateRotorPosition(float duration)
     {
         float startTime = Time.time;
-        float startIntensity = 0f;
-
         while (Time.time - startTime < duration)
         {
-            //Calculates the proportion of the duration that has elapsed since the start of coroutine
-            currentIntensity = Mathf.Lerp(startIntensity, maxIntensity, (Time.time - startTime) / duration);
+            float tValue = (Time.time - startTime) / duration;
+            rotor.position = Vector3.Lerp(rotorUnloaded.position, rotorLoaded.position, tValue);
             yield return null;
         }
-        currentIntensity = maxIntensity;
+        rotor.position = rotorLoaded.position;
     }
 }

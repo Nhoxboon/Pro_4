@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public abstract class Tower : NhoxBehaviour
 {
     public Transform currentTarget;
-    [SerializeField] protected float attacleCooldown = 1f;
+    [SerializeField] protected float attacleCooldown = 2f;
     protected float lastAttackTime;
 
     [Header("Tower Setup")] [SerializeField]

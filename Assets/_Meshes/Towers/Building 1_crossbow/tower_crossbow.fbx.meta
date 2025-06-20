@@ -3,17 +3,7 @@ guid: 5bcdbf35bfe661b4aaf5e053a2b033e8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: TD_main_texture_palette
-    second: {fileID: 2100000, guid: d8115d715ec56be409567dea2d618ae5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: blue_emission
-    second: {fileID: 2100000, guid: becbb4dde857e67428161d08a1fdbac9, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -26,8 +16,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 

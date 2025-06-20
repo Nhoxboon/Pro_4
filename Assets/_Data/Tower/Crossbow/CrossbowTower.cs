@@ -17,7 +17,7 @@ public class CrossbowTower : Tower
     protected void LoadGunPoint()
     {
         if (gunPoint != null) return;
-        gunPoint = transform.Find("Model/CrossbowTower/GunPoint");
+        gunPoint = towerHead.Find("GunPoint");
         Debug.Log(transform.name + " :LoadGunPoint", gameObject);
     }
 
