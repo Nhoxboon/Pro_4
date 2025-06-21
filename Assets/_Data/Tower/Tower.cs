@@ -11,6 +11,7 @@ public abstract class Tower : NhoxBehaviour
 
     [Header("Tower Setup")] [SerializeField]
     protected Transform towerHead;
+
     [SerializeField] protected bool canRotate;
 
     [SerializeField] protected float rotationSpeed = 10f;
@@ -21,7 +22,7 @@ public abstract class Tower : NhoxBehaviour
 
     protected virtual void Update()
     {
-        if (currentTarget == null)
+        if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy)
         {
             currentTarget = FindRandomTargetWithinRange();
             return;
@@ -71,9 +72,9 @@ public abstract class Tower : NhoxBehaviour
     protected virtual void RotateTowardsTarget()
     {
         if (!canRotate) return;
-        
-        if (currentTarget == null) return;
-        
+
+        if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy) return;
+
         Vector3 dirToTarget = currentTarget.position - towerHead.position;
         Quaternion lookRotation = Quaternion.LookRotation(dirToTarget);
         Vector3 rotation = Quaternion.Slerp(towerHead.rotation, lookRotation, rotationSpeed * Time.deltaTime)
@@ -99,10 +100,10 @@ public abstract class Tower : NhoxBehaviour
 
     protected Vector3 DirectionToTarget(Transform startPoint)
     {
-        if (currentTarget == null) return Vector3.zero;
+        if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy) return Vector3.zero;
         return (currentTarget.position - startPoint.position).normalized;
     }
-    
+
     public void EnableRotation(bool enable)
     {
         canRotate = enable;

@@ -3,7 +3,9 @@
 public class CrossbowTower : Tower
 {
     [Header("Crossbow Tower Setup")] [SerializeField]
-    protected Transform gunPoint;
+    protected int damage = 2;
+
+    [SerializeField] protected Transform gunPoint;
 
     [SerializeField] protected CrossbowVisual visual;
 
@@ -33,10 +35,15 @@ public class CrossbowTower : Tower
         if (Physics.Raycast(gunPoint.position, DirectionToTarget(gunPoint), out RaycastHit hitInfo, Mathf.Infinity))
         {
             towerHead.forward = DirectionToTarget(gunPoint);
-            Debug.DrawLine(gunPoint.position, hitInfo.point);
+            // Debug.DrawLine(gunPoint.position, hitInfo.point);
 
             visual.PlayAttackVFX(gunPoint.position, hitInfo.point);
             visual.ReloadFX(attacleCooldown);
+
+            if (hitInfo.collider.TryGetComponentInChildren<IDamageable>(out IDamageable damageable))
+            {
+                damageable.TakeDamage(damage);
+            }
         }
     }
 }
