@@ -42,9 +42,3 @@ public class EnemySpawner : Spawner
         return newEnemy;
     }
 }
-
-public enum EnemyType
-{
-    BasicEnemy,
-    FastEnemy
-}

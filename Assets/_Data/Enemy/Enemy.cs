@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Enemy : NhoxBehaviour
 {
+    [SerializeField] protected EnemyType enemyType = EnemyType.None;
+    [SerializeField] protected Transform centerPoint;
     [SerializeField] protected Core core;
-
+    public Core Core => core;
     
-
     protected void OnEnable()
     {
         ResetEnemy();
@@ -15,6 +16,8 @@ public class Enemy : NhoxBehaviour
     {
         base.LoadComponents();
         LoadCore();
+        LoadCenterPoint();
+        LoadEnemyType();
     }
 
     protected void LoadCore()
@@ -24,10 +27,28 @@ public class Enemy : NhoxBehaviour
         Debug.Log(transform.name + " LoadCore", gameObject);
     }
 
+    protected void LoadCenterPoint()
+    {
+        if (centerPoint != null) return;
+        centerPoint = transform.Find("CenterPoint");
+        Debug.Log(transform.name + " :LoadCenterPoint", gameObject);
+    }
+    
+    protected void LoadEnemyType()
+    {
+        if (enemyType != EnemyType.None) return;
+        if (System.Enum.TryParse(transform.name, out EnemyType parsedType)) enemyType = parsedType;
+        Debug.Log(transform.name + " :LoadEnemyType", gameObject);
+    }
+
     protected void Update()
     {
         core.LogicUpdate();
     }
+    
+    public EnemyType GetEnemyType() => enemyType;
+    
+    public Vector3 GetCenterPoint() => centerPoint.position;
     
     public void ResetEnemy()
     {

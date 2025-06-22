@@ -5,16 +5,17 @@ using Random = UnityEngine.Random;
 
 public abstract class Tower : NhoxBehaviour
 {
-    public Transform currentTarget;
+    public Enemy currentTarget;
     [SerializeField] protected float attacleCooldown = 2f;
     protected float lastAttackTime;
 
     [Header("Tower Setup")] [SerializeField]
     protected Transform towerHead;
-
+    [SerializeField] protected EnemyType enemyPriorityType = EnemyType.None;
+    [Header("Rotation Settings")]
     [SerializeField] protected bool canRotate;
-
     [SerializeField] protected float rotationSpeed = 10f;
+    [Header("Attack Settings")]
     [SerializeField] protected float attackRange = 2.5f;
     [SerializeField] protected LayerMask whatIsEnemy;
 
@@ -22,7 +23,7 @@ public abstract class Tower : NhoxBehaviour
 
     protected virtual void Update()
     {
-        if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy)
+        if (currentTarget is null || !currentTarget.gameObject.activeInHierarchy)
         {
             currentTarget = FindRandomTargetWithinRange();
             return;
@@ -30,7 +31,7 @@ public abstract class Tower : NhoxBehaviour
 
         if (CanAttack()) Attack();
 
-        if (Vector3.Distance(AttackCenter, currentTarget.position) > attackRange) currentTarget = null;
+        if (Vector3.Distance(AttackCenter, currentTarget.GetCenterPoint()) > attackRange) currentTarget = null;
 
         RotateTowardsTarget();
     }
@@ -71,11 +72,9 @@ public abstract class Tower : NhoxBehaviour
 
     protected virtual void RotateTowardsTarget()
     {
-        if (!canRotate) return;
+        if (!canRotate || currentTarget is null || !currentTarget.gameObject.activeInHierarchy) return;
 
-        if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy) return;
-
-        Vector3 dirToTarget = currentTarget.position - towerHead.position;
+        Vector3 dirToTarget = DirectionToTarget(towerHead);
         Quaternion lookRotation = Quaternion.LookRotation(dirToTarget);
         Vector3 rotation = Quaternion.Slerp(towerHead.rotation, lookRotation, rotationSpeed * Time.deltaTime)
             .eulerAngles;
@@ -83,34 +82,48 @@ public abstract class Tower : NhoxBehaviour
         towerHead.rotation = Quaternion.Euler(rotation);
     }
 
-    protected Transform FindRandomTargetWithinRange()
+    protected Enemy FindRandomTargetWithinRange()
     {
-        List<Transform> possibleTargets = new List<Transform>();
-        Collider[] enemiesAround = Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy);
-        foreach (Collider enemy in enemiesAround)
+        List<Enemy> priorityTargets = new List<Enemy>();
+        List<Enemy> possibleTargets = new List<Enemy>();
+        
+        foreach (Collider enemy in Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy))
         {
-            possibleTargets.Add(enemy.transform);
+            if (!enemy.TryGetComponent<Enemy>(out var newEnemy)) continue;
+            
+            (newEnemy.GetEnemyType() == enemyPriorityType ? priorityTargets : possibleTargets).Add(newEnemy);
         }
 
-        if (possibleTargets.Count == 0) return null;
+        return GetMostAdvancedEnemy(priorityTargets.Count > 0 ? priorityTargets : possibleTargets);
+    }
 
-        int ramdomIndex = Random.Range(0, possibleTargets.Count);
-        return possibleTargets[ramdomIndex];
+    protected Enemy GetMostAdvancedEnemy(List<Enemy> targets)
+    {
+        Enemy mostAdvancedEnemy = null;
+        float minRemainingDistance = float.MaxValue;
+        
+        foreach (Enemy enemy in targets)
+        {
+            if (!enemy.gameObject.activeInHierarchy) continue;
+
+            float remainingDistance = enemy.Core.Movement.DistanceToFinishLine();
+            if (remainingDistance < minRemainingDistance)
+            {
+                minRemainingDistance = remainingDistance;
+                mostAdvancedEnemy = enemy;
+            }
+        }
+        return mostAdvancedEnemy;
     }
 
     protected Vector3 DirectionToTarget(Transform startPoint)
     {
-        if (currentTarget == null || !currentTarget.gameObject.activeInHierarchy) return Vector3.zero;
-        return (currentTarget.position - startPoint.position).normalized;
+        if (currentTarget is null || !currentTarget.gameObject.activeInHierarchy) return Vector3.zero;
+        return (currentTarget.GetCenterPoint() - startPoint.position).normalized;
     }
 
-    public void EnableRotation(bool enable)
-    {
-        canRotate = enable;
-    }
-
-    protected virtual void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(AttackCenter, attackRange);
-    }
+    public void EnableRotation(bool enable) => canRotate = enable;
+    
+    protected virtual void OnDrawGizmos() => Gizmos.DrawWireSphere(AttackCenter, attackRange);
+    
 }

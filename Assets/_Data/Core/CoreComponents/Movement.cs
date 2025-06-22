@@ -89,7 +89,7 @@ public class Movement : CoreComponent
         }
     }
     
-    protected float DistanceToFinishLine() => totalDistance + agent.remainingDistance;
+    public float DistanceToFinishLine() => totalDistance + agent.remainingDistance;
 
     public void ResetMovement()
     {

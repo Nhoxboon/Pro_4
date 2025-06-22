@@ -13,7 +13,6 @@ public abstract class TowerVisual : NhoxBehaviour
     [SerializeField] protected Color endColor = new Color(0x04 / 255f, 0x6E / 255f, 0xFF / 255f, 1f);
 
     [Header("Attack Visual")]
-    [SerializeField] protected LineRenderer attackVisual;
     [SerializeField] protected float attackVisualDuration = 0.1f;
 
     protected Material material;
@@ -24,6 +23,7 @@ public abstract class TowerVisual : NhoxBehaviour
         base.Awake();
         CloneAndAssignMaterial();
         StartCoroutine(ChangeEmissionIntensity(1f));
+        tower.EnableRotation(true);
     }
 
     protected virtual void Update()
@@ -37,7 +37,6 @@ public abstract class TowerVisual : NhoxBehaviour
         base.LoadComponents();
         LoadTower();
         LoadMeshRenderer();
-        LoadAttackVisual();
     }
 
     protected void LoadTower()
@@ -48,13 +47,6 @@ public abstract class TowerVisual : NhoxBehaviour
     }
 
     protected abstract void LoadMeshRenderer();
-
-    protected void LoadAttackVisual()
-    {
-        if (attackVisual != null) return;
-        attackVisual = GetComponentInChildren<LineRenderer>();
-        Debug.Log(transform.name + " :LoadAttackVisual", gameObject);
-    }
     #endregion
 
     protected void CloneAndAssignMaterial()
@@ -75,10 +67,7 @@ public abstract class TowerVisual : NhoxBehaviour
         StartCoroutine(ChangeEmissionIntensity(duration / 2));
     }
 
-    public virtual void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint)
-    {
-        StartCoroutine(FXCoroutine(startPoint, endPoint));
-    }
+    public abstract void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint);
 
     protected IEnumerator ChangeEmissionIntensity(float duration)
     {
@@ -94,15 +83,5 @@ public abstract class TowerVisual : NhoxBehaviour
         currentIntensity = maxIntensity;
     }
 
-    private IEnumerator FXCoroutine(Vector3 startPoint, Vector3 endPoint)
-    {
-        tower.EnableRotation(false);
-        attackVisual.enabled = true;
-        attackVisual.SetPosition(0, startPoint);
-        attackVisual.SetPosition(1, endPoint);
-
-        yield return new WaitForSeconds(attackVisualDuration);
-        attackVisual.enabled = false;
-        tower.EnableRotation(true);
-    }
+    protected abstract IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint);
 }

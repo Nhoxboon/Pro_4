@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CrossbowVisual : TowerVisual
 {
+    [SerializeField] protected LineRenderer attackVisual;
+    
     [Header("Rotor Visual")]
     [SerializeField] protected Transform rotor;
     [SerializeField] protected Transform rotorUnloaded;
@@ -36,12 +38,15 @@ public class CrossbowVisual : TowerVisual
     {
         base.Update();
         UpdateString();
+        if (attackVisual.enabled && tower.currentTarget != null)
+            attackVisual.SetPosition(1, tower.currentTarget.transform.position);
     }
 
     #region LoadComponents
     protected override void LoadComponents()
     {
         base.LoadComponents();
+        LoadAttackVisual();
         LoadRotorVisual();
 
         LoadFrontStringLeftVisual();
@@ -63,6 +68,13 @@ public class CrossbowVisual : TowerVisual
         if (meshRenderer != null) return;
         meshRenderer = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_emissionPart_2").GetComponent<MeshRenderer>();
         Debug.Log(transform.name + " :LoadMeshRenderer", gameObject);
+    }
+    
+    protected void LoadAttackVisual()
+    {
+        if (attackVisual != null) return;
+        attackVisual = GetComponentInChildren<LineRenderer>();
+        Debug.Log(transform.name + " :LoadAttackVisual", gameObject);
     }
 
     protected void LoadRotorVisual()
@@ -187,6 +199,21 @@ public class CrossbowVisual : TowerVisual
     {
         base.ReloadFX(duration);
         StartCoroutine(UpdateRotorPosition(duration / 2));
+    }
+    
+    public override void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint)
+    {
+        StartCoroutine(VFXCoroutine(startPoint, endPoint));
+    }
+    
+    protected override IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint)
+    {
+        attackVisual.enabled = true;
+        attackVisual.SetPosition(0, startPoint);
+        attackVisual.SetPosition(1, endPoint);
+
+        yield return new WaitForSeconds(attackVisualDuration);
+        attackVisual.enabled = false;
     }
 
     private IEnumerator UpdateRotorPosition(float duration)
