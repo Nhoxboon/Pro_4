@@ -4,22 +4,25 @@ using UnityEngine;
 public class CrossbowVisual : TowerVisual
 {
     [SerializeField] protected LineRenderer attackVisual;
-    
-    [Header("Rotor Visual")]
-    [SerializeField] protected Transform rotor;
+
+    [Header("Rotor Visual")] [SerializeField]
+    protected Transform rotor;
+
     [SerializeField] protected Transform rotorUnloaded;
     [SerializeField] protected Transform rotorLoaded;
 
-    [Header("Front Glow String")]
-    [SerializeField] protected LineRenderer frontStringL;
+    [Header("Front Glow String")] [SerializeField]
+    protected LineRenderer frontStringL;
+
     [SerializeField] protected LineRenderer frontStringR;
     [SerializeField] protected Transform frontStartPointL;
     [SerializeField] protected Transform frontEndPointL;
     [SerializeField] protected Transform frontStartPointR;
     [SerializeField] protected Transform frontEndPointR;
 
-    [Header("Back Glow String")]
-    [SerializeField] protected LineRenderer backStringL;
+    [Header("Back Glow String")] [SerializeField]
+    protected LineRenderer backStringL;
+
     [SerializeField] protected LineRenderer backStringR;
     [SerializeField] protected Transform backStartPointL;
     [SerializeField] protected Transform backEndPointL;
@@ -38,11 +41,11 @@ public class CrossbowVisual : TowerVisual
     {
         base.Update();
         UpdateString();
-        if (attackVisual.enabled && tower.currentTarget != null)
-            attackVisual.SetPosition(1, tower.currentTarget.transform.position);
+        UpdateAttackVisuals();
     }
 
     #region LoadComponents
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -62,14 +65,15 @@ public class CrossbowVisual : TowerVisual
         LoadBackStartPointRight();
         LoadBackEndPointRight();
     }
-    
+
     protected override void LoadMeshRenderer()
     {
         if (meshRenderer != null) return;
-        meshRenderer = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_emissionPart_2").GetComponent<MeshRenderer>();
+        meshRenderer = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_emissionPart_2")
+            .GetComponent<MeshRenderer>();
         Debug.Log(transform.name + " :LoadMeshRenderer", gameObject);
     }
-    
+
     protected void LoadAttackVisual()
     {
         if (attackVisual != null) return;
@@ -89,86 +93,107 @@ public class CrossbowVisual : TowerVisual
     protected void LoadFrontStringLeftVisual()
     {
         if (frontStringL != null) return;
-        frontStringL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/front_string_L").GetComponent<LineRenderer>();
+        frontStringL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/front_string_L")
+            .GetComponent<LineRenderer>();
         Debug.Log(transform.name + " :LoadStringLeftVisual", gameObject);
     }
 
     protected void LoadFrontStringRightVisual()
     {
         if (frontStringR != null) return;
-        frontStringR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/front_string_R").GetComponent<LineRenderer>();
+        frontStringR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/front_string_R")
+            .GetComponent<LineRenderer>();
         Debug.Log(transform.name + " :LoadStringRightVisual", gameObject);
     }
 
     protected void LoadBackStringLeftVisual()
     {
         if (backStringL != null) return;
-        backStringL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/back_string_L").GetComponent<LineRenderer>();
+        backStringL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/back_string_L")
+            .GetComponent<LineRenderer>();
         Debug.Log(transform.name + " :LoadBackStringLeftVisual", gameObject);
     }
 
     protected void LoadBackStringRightVisual()
     {
         if (backStringR != null) return;
-        backStringR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/back_string_R").GetComponent<LineRenderer>();
+        backStringR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/back_string_R")
+            .GetComponent<LineRenderer>();
         Debug.Log(transform.name + " :LoadBackStringRightVisual", gameObject);
     }
 
     protected void LoadFrontStartPointLeft()
     {
         if (frontStartPointL != null) return;
-        frontStartPointL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/front_start_point_L").GetComponent<Transform>();
+        frontStartPointL = transform.parent
+            .Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/front_start_point_L")
+            .GetComponent<Transform>();
         Debug.Log(transform.name + " :LoadFrontStartPointLeft", gameObject);
     }
 
     protected void LoadFrontEndPointLeft()
     {
         if (frontEndPointL != null) return;
-        frontEndPointL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/front_end_point_L").GetComponent<Transform>();
+        frontEndPointL = transform.parent
+            .Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/front_end_point_L")
+            .GetComponent<Transform>();
         Debug.Log(transform.name + " :LoadFrontEndPointLeft", gameObject);
     }
 
     protected void LoadFrontStartPointRight()
     {
         if (frontStartPointR != null) return;
-        frontStartPointR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/front_start_point_R").GetComponent<Transform>();
+        frontStartPointR = transform.parent
+            .Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/front_start_point_R")
+            .GetComponent<Transform>();
         Debug.Log(transform.name + " :LoadFrontStartPointRight", gameObject);
     }
 
     protected void LoadFrontEndPointRight()
     {
         if (frontEndPointR != null) return;
-        frontEndPointR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/front_end_point_R").GetComponent<Transform>();
+        frontEndPointR = transform.parent
+            .Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/front_end_point_R")
+            .GetComponent<Transform>();
         Debug.Log(transform.name + " :LoadFrontEndPointRight", gameObject);
     }
 
     protected void LoadBackStartPointLeft()
     {
         if (backStartPointL != null) return;
-        backStartPointL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/back_start_point_L").GetComponent<Transform>();
+        backStartPointL = transform.parent
+            .Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/back_start_point_L")
+            .GetComponent<Transform>();
         Debug.Log(transform.name + " :LoadBackStartPointLeft", gameObject);
     }
 
     protected void LoadBackEndPointLeft()
     {
         if (backEndPointL != null) return;
-        backEndPointL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/back_end_point_L").GetComponent<Transform>();
+        backEndPointL = transform.parent
+            .Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/back_end_point_L")
+            .GetComponent<Transform>();
         Debug.Log(transform.name + " :LoadBackEndPointLeft", gameObject);
     }
 
     protected void LoadBackStartPointRight()
     {
         if (backStartPointR != null) return;
-        backStartPointR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/back_start_point_R").GetComponent<Transform>();
+        backStartPointR = transform.parent
+            .Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/back_start_point_R")
+            .GetComponent<Transform>();
         Debug.Log(transform.name + " :LoadBackStartPointRight", gameObject);
     }
 
     protected void LoadBackEndPointRight()
     {
         if (backEndPointR != null) return;
-        backEndPointR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/back_end_point_R").GetComponent<Transform>();
+        backEndPointR = transform.parent
+            .Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/back_end_point_R")
+            .GetComponent<Transform>();
         Debug.Log(transform.name + " :LoadBackEndPointRight", gameObject);
     }
+
     #endregion
 
     protected void CloneStringMaterial()
@@ -188,6 +213,12 @@ public class CrossbowVisual : TowerVisual
         UpdateStringVisuals(backStringR, backStartPointR, backEndPointR);
     }
 
+    protected void UpdateAttackVisuals()
+    {
+        if (attackVisual.enabled && myEnemy is not null)
+            attackVisual.SetPosition(1, myEnemy.GetCenterPoint());
+    }
+
     protected void UpdateStringVisuals(LineRenderer lineRenderer, Transform startPoint, Transform endPoint)
     {
         lineRenderer.enabled = true;
@@ -195,19 +226,20 @@ public class CrossbowVisual : TowerVisual
         lineRenderer.SetPosition(1, endPoint.position);
     }
 
-    public override void ReloadFX(float duration)
+    public override void ReloadVFX(float duration)
     {
-        base.ReloadFX(duration);
+        base.ReloadVFX(duration);
         StartCoroutine(UpdateRotorPosition(duration / 2));
     }
-    
-    public override void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint)
+
+    public override void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint, Enemy newEnemy)
     {
-        StartCoroutine(VFXCoroutine(startPoint, endPoint));
+        StartCoroutine(VFXCoroutine(startPoint, endPoint, newEnemy));
     }
-    
-    protected override IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint)
+
+    protected override IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint, Enemy newEnemy)
     {
+        yield return base.VFXCoroutine(startPoint, endPoint, newEnemy);
         attackVisual.enabled = true;
         attackVisual.SetPosition(0, startPoint);
         attackVisual.SetPosition(1, endPoint);
@@ -225,6 +257,7 @@ public class CrossbowVisual : TowerVisual
             rotor.position = Vector3.Lerp(rotorUnloaded.position, rotorLoaded.position, tValue);
             yield return null;
         }
+
         rotor.position = rotorLoaded.position;
     }
 }

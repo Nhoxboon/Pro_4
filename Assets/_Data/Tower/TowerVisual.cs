@@ -4,16 +4,17 @@ using UnityEngine;
 
 public abstract class TowerVisual : NhoxBehaviour
 {
-    [SerializeField] protected Tower tower;
+    protected Enemy myEnemy;
 
-    [Header("Glow Effect")]
-    [SerializeField] protected MeshRenderer meshRenderer;
+    [Header("Glow Effect")] [SerializeField]
+    protected MeshRenderer meshRenderer;
+
     [SerializeField] protected float maxIntensity = 150f;
     [SerializeField] protected Color startColor = new Color(0f, 0f, 0f, 255f);
     [SerializeField] protected Color endColor = new Color(0x04 / 255f, 0x6E / 255f, 0xFF / 255f, 1f);
 
-    [Header("Attack Visual")]
-    [SerializeField] protected float attackVisualDuration = 0.1f;
+    [Header("Attack Visual")] [SerializeField]
+    protected float attackVisualDuration = 0.1f;
 
     protected Material material;
     protected float currentIntensity;
@@ -23,7 +24,6 @@ public abstract class TowerVisual : NhoxBehaviour
         base.Awake();
         CloneAndAssignMaterial();
         StartCoroutine(ChangeEmissionIntensity(1f));
-        tower.EnableRotation(true);
     }
 
     protected virtual void Update()
@@ -32,21 +32,15 @@ public abstract class TowerVisual : NhoxBehaviour
     }
 
     #region LoadComponents
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadTower();
         LoadMeshRenderer();
     }
 
-    protected void LoadTower()
-    {
-        if (tower != null) return;
-        tower = GetComponentInParent<Tower>();
-        Debug.Log(transform.name + " :LoadTower", gameObject);
-    }
-
     protected abstract void LoadMeshRenderer();
+
     #endregion
 
     protected void CloneAndAssignMaterial()
@@ -62,12 +56,18 @@ public abstract class TowerVisual : NhoxBehaviour
         material.SetColor("_EmissionColor", emissionColor);
     }
 
-    public virtual void ReloadFX(float duration)
+    public virtual void ReloadVFX(float duration)
     {
         StartCoroutine(ChangeEmissionIntensity(duration / 2));
     }
 
-    public abstract void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint);
+    public abstract void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint, Enemy newEnemy);
+
+    protected virtual IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint, Enemy newEnemy)
+    {
+        myEnemy = newEnemy;
+        yield break;
+    }
 
     protected IEnumerator ChangeEmissionIntensity(float duration)
     {
@@ -82,6 +82,4 @@ public abstract class TowerVisual : NhoxBehaviour
 
         currentIntensity = maxIntensity;
     }
-
-    protected abstract IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint);
 }

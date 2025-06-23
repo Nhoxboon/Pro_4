@@ -11,18 +11,39 @@ public abstract class Tower : NhoxBehaviour
 
     [Header("Tower Setup")] [SerializeField]
     protected Transform towerHead;
+
     [SerializeField] protected EnemyType enemyPriorityType = EnemyType.None;
-    [Header("Rotation Settings")]
-    [SerializeField] protected bool canRotate;
+
+    [Header("Rotation Settings")] [SerializeField]
+    protected bool canRotate;
+
     [SerializeField] protected float rotationSpeed = 10f;
-    [Header("Attack Settings")]
-    [SerializeField] protected float attackRange = 2.5f;
+
+    [Header("Attack Settings")] [SerializeField]
+    protected float attackRange = 2.5f;
+
     [SerializeField] protected LayerMask whatIsEnemy;
+
+    [Header("Dynamic Target Change")]
+    [Tooltip("Enabling this allows tower to change target between attacks")]
+    [SerializeField]
+    protected bool dynamicTargetChange = true;
+
+    protected float targetCheckInterval = 0.1f;
+    protected float lastTimeCheckedTarget;
 
     protected Vector3 AttackCenter => transform.position - Vector3.up * 1.5f;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        EnableRotation(true);
+    }
+
     protected virtual void Update()
     {
+        UpdateTarget();
+
         if (currentTarget is null || !currentTarget.gameObject.activeInHierarchy)
         {
             currentTarget = FindRandomTargetWithinRange();
@@ -31,7 +52,7 @@ public abstract class Tower : NhoxBehaviour
 
         if (CanAttack()) Attack();
 
-        if (Vector3.Distance(AttackCenter, currentTarget.GetCenterPoint()) > attackRange) currentTarget = null;
+        LoseTarget();
 
         RotateTowardsTarget();
     }
@@ -67,6 +88,21 @@ public abstract class Tower : NhoxBehaviour
 
         return false;
     }
+    
+    protected void LoseTarget()
+    {
+        if (Vector3.Distance(AttackCenter, currentTarget.GetCenterPoint()) > attackRange) currentTarget = null;
+    }
+
+    protected void UpdateTarget()
+    {
+        if (!dynamicTargetChange) return;
+        if (Time.time > lastTimeCheckedTarget + targetCheckInterval)
+        {
+            lastTimeCheckedTarget = Time.time;
+            currentTarget = FindRandomTargetWithinRange();
+        }
+    }
 
     protected abstract void Attack();
 
@@ -86,11 +122,11 @@ public abstract class Tower : NhoxBehaviour
     {
         List<Enemy> priorityTargets = new List<Enemy>();
         List<Enemy> possibleTargets = new List<Enemy>();
-        
+
         foreach (Collider enemy in Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy))
         {
             if (!enemy.TryGetComponent<Enemy>(out var newEnemy)) continue;
-            
+
             (newEnemy.GetEnemyType() == enemyPriorityType ? priorityTargets : possibleTargets).Add(newEnemy);
         }
 
@@ -101,7 +137,7 @@ public abstract class Tower : NhoxBehaviour
     {
         Enemy mostAdvancedEnemy = null;
         float minRemainingDistance = float.MaxValue;
-        
+
         foreach (Enemy enemy in targets)
         {
             if (!enemy.gameObject.activeInHierarchy) continue;
@@ -113,6 +149,7 @@ public abstract class Tower : NhoxBehaviour
                 mostAdvancedEnemy = enemy;
             }
         }
+
         return mostAdvancedEnemy;
     }
 
@@ -123,7 +160,6 @@ public abstract class Tower : NhoxBehaviour
     }
 
     public void EnableRotation(bool enable) => canRotate = enable;
-    
+
     protected virtual void OnDrawGizmos() => Gizmos.DrawWireSphere(AttackCenter, attackRange);
-    
 }

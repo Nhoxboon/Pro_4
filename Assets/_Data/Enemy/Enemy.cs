@@ -7,10 +7,9 @@ public class Enemy : NhoxBehaviour
     [SerializeField] protected Core core;
     public Core Core => core;
     
-    protected void OnEnable()
-    {
-        ResetEnemy();
-    }
+    protected void OnEnable() => ResetEnemy();
+    
+    protected void Update() => core.LogicUpdate();
     
     protected override void LoadComponents()
     {
@@ -39,11 +38,6 @@ public class Enemy : NhoxBehaviour
         if (enemyType != EnemyType.None) return;
         if (System.Enum.TryParse(transform.name, out EnemyType parsedType)) enemyType = parsedType;
         Debug.Log(transform.name + " :LoadEnemyType", gameObject);
-    }
-
-    protected void Update()
-    {
-        core.LogicUpdate();
     }
     
     public EnemyType GetEnemyType() => enemyType;

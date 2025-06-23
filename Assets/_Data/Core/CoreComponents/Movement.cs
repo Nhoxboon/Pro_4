@@ -38,7 +38,7 @@ public class Movement : CoreComponent
 
     protected void MoveToWaypoint()
     {
-        if (agent == null || !agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
+        if (agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
 
         FaceTarget(agent.steeringTarget);
         if (agent.remainingDistance < 0.2f)
@@ -49,9 +49,9 @@ public class Movement : CoreComponent
 
     protected void FaceTarget(Vector3 newTarget)
     {
-        if (core.Root == null) return;
+        if (core.Root is null) return;
 
-        Vector3 dirToTarget = newTarget - core.Root.transform.position;
+        Vector3 dirToTarget = newTarget - core.Root.transform.position; //or use agent.velocity.normalized but it may not be accurate in some cases
         dirToTarget.y = 0; // Keep the direction horizontal
 
         Quaternion newRotation = Quaternion.LookRotation(dirToTarget);

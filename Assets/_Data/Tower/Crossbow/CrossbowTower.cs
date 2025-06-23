@@ -37,13 +37,11 @@ public class CrossbowTower : Tower
             towerHead.forward = DirectionToTarget(gunPoint);
             // Debug.DrawLine(gunPoint.position, hitInfo.point);
 
-            visual.PlayAttackVFX(gunPoint.position, hitInfo.point);
-            visual.ReloadFX(attacleCooldown);
-
             if (hitInfo.collider.TryGetComponentInChildren<IDamageable>(out IDamageable damageable))
-            {
                 damageable.TakeDamage(damage);
-            }
+
+            visual.PlayAttackVFX(gunPoint.position, hitInfo.point, currentTarget);
+            visual.ReloadVFX(attacleCooldown);
         }
     }
 }
