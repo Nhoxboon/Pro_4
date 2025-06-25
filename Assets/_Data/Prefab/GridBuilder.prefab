@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5839291998605696297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 249098384479176950}
+  - component: {fileID: 3078962075382972122}
+  - component: {fileID: 7495378743703723087}
+  - component: {fileID: 3197998506556868298}
+  m_Layer: 0
+  m_Name: GridBuilder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &249098384479176950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839291998605696297}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3078962075382972122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839291998605696297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  m_UseGeometry: 1
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.05
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 0}
+  m_BuildHeightMesh: 0
+--- !u!114 &7495378743703723087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839291998605696297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3822bf37ec7c45f2a7f5b636f7eb28a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileRoad: {fileID: 3184504687009752614, guid: 8a3b3a20436b08e49adce69a6d375296, type: 3}
+  tileField: {fileID: 4735367157496250254, guid: d5321c30dca9f9845be3cced7345983b, type: 3}
+  tileSideway: {fileID: 2287163902151962179, guid: 44d7d364e21090f499c2e7a778aa01d7, type: 3}
+  tileInnerCorner: {fileID: 2825189121258294999, guid: a9e68693a5a7d264da18b4ffce297c58, type: 3}
+  tileInnerCornerSmall: {fileID: 3516016373159140667, guid: b7c6837c3b838464b92d262fc0c445cd, type: 3}
+  tileOuterCorner: {fileID: 3370443240202953915, guid: be9531ca89efb56418bf85337b0643ea, type: 3}
+  tileOuterCornerSmall: {fileID: 3387161906424340943, guid: 179ead929df398d46bbc3dcc585205ff, type: 3}
+  tileHill1: {fileID: 2612869470526872636, guid: fec96da33a8328b429d13d73ad96a69b, type: 3}
+  tileHill2: {fileID: 8464764235388843670, guid: 5ba778e7923a2b444a4adf6a44ffea67, type: 3}
+  tileHill3: {fileID: 236489386453967683, guid: 38bfa20e497b01c468cdfbc877785e14, type: 3}
+  tileBridgeField: {fileID: 3271375253751044591, guid: aebc336028b812a43bbfec39ab615802, type: 3}
+  tileBridgeRoad: {fileID: 4507338034195619094, guid: 76b1f10620ba84a4a94b6b243abd2049, type: 3}
+  tileBridgeSideway: {fileID: 1270619325660048748, guid: ab11aef189645524388ca6d146a24d32, type: 3}
+--- !u!114 &3197998506556868298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5839291998605696297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710bffe0e0204a339259484eae797329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainPrefab: {fileID: 4735367157496250254, guid: d5321c30dca9f9845be3cced7345983b, type: 3}
+  gridLenght: 7
+  gridWidth: 7
+  createdTiles: []
