@@ -5,25 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/GridBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/GridBuilder.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/TileSlotEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/TileSlotEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/EnemySpawnPoint.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/EnemySpawnPoint.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Player_Castle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Player_Castle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_bridge_field.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_bridge_field.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_bridge_sideway.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_bridge_sideway.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_inner_corner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_inner_corner.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_outter_corner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_outter_corner.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_outter_corner.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_outter_corner.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_sideway.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_sideway.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSetHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSetHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawnPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawnPoint.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/EnemySpawnPoint.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/EnemySpawnPoint.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene/NavMesh-Level_Ground.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene/NavMesh-Level_Ground.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +167,8 @@
       <workItem from="1750781900267" duration="2264000" />
       <workItem from="1750831073750" duration="126000" />
       <workItem from="1750831215368" duration="7059000" />
+      <workItem from="1751702542172" duration="1897000" />
+      <workItem from="1751704467508" duration="5644000" />
     </task>
     <servers />
   </component>

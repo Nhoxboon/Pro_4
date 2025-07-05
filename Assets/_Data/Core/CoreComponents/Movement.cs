@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,14 +7,10 @@ public class Movement : CoreComponent
 {
     [SerializeField] protected float turnSpeed = 10f;
     [SerializeField] protected int currentWpIndex;
+    [SerializeField] protected List<Transform> myWayPoints;
     [SerializeField] protected NavMeshAgent agent;
-    
+
     protected float totalDistance;
-    
-    protected void OnEnable()
-    {
-        CollectTotalDistance();
-    }
 
     protected override void LoadComponents()
     {
@@ -27,13 +24,26 @@ public class Movement : CoreComponent
         agent = core.Root.GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.avoidancePriority = Mathf.RoundToInt(agent.speed * 10);
-        Debug.Log(transform.name +" LoadNavMeshAgent", gameObject);
+        Debug.Log(transform.name + " LoadNavMeshAgent", gameObject);
     }
 
     public override void LogicUpdate()
     {
         DistanceToFinishLine();
         MoveToWaypoint();
+    }
+
+    public void SetUpPath(List<Waypoint> newWaypoints)
+    {
+        myWayPoints = new List<Transform>();
+        foreach (var point in newWaypoints)
+        {
+            myWayPoints.Add(point.transform);
+        }
+
+        CollectTotalDistance();
+
+        ResetMovement();
     }
 
     protected void MoveToWaypoint()
@@ -51,7 +61,10 @@ public class Movement : CoreComponent
     {
         if (core.Root is null) return;
 
-        Vector3 dirToTarget = newTarget - core.Root.transform.position; //or use agent.velocity.normalized but it may not be accurate in some cases
+        Vector3
+            dirToTarget =
+                newTarget - core.Root.transform
+                    .position; //or use agent.velocity.normalized but it may not be accurate in some cases
         dirToTarget.y = 0; // Keep the direction horizontal
 
         Quaternion newRotation = Quaternion.LookRotation(dirToTarget);
@@ -62,48 +75,46 @@ public class Movement : CoreComponent
 
     protected Vector3 GetNextWaypoint()
     {
-        if (currentWpIndex >= WaypointManager.Instance.Waypoints.Length) return core.Root.transform.position;
+        if (currentWpIndex >= myWayPoints.Count) return core.Root.transform.position;
 
-        Vector3 targetPoint = WaypointManager.Instance.Waypoints[currentWpIndex].position;
+        Vector3 targetPoint = myWayPoints[currentWpIndex].position;
 
         if (currentWpIndex > 0)
         {
-            float distance = Vector3.Distance(WaypointManager.Instance.Waypoints[currentWpIndex].position,
-                WaypointManager.Instance.Waypoints[currentWpIndex - 1].position);
+            float distance = Vector3.Distance(myWayPoints[currentWpIndex].position,
+                myWayPoints[currentWpIndex - 1].position);
             totalDistance -= distance;
         }
-        
+
         currentWpIndex++;
 
         return targetPoint;
     }
-    
+
     protected void CollectTotalDistance()
     {
-        for (int i = 0; i < WaypointManager.Instance.Waypoints.Length - 1; i++)
+        for (int i = 0; i < myWayPoints.Count - 1; i++)
         {
             float distance = Vector3.Distance(
-                WaypointManager.Instance.Waypoints[i].position,
-                WaypointManager.Instance.Waypoints[i + 1].position);
+                myWayPoints[i].position,
+                myWayPoints[i + 1].position);
             totalDistance += distance;
         }
     }
-    
+
     public float DistanceToFinishLine() => totalDistance + agent.remainingDistance;
 
     public void ResetMovement()
     {
         currentWpIndex = 0;
 
-        if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
-        {
-            agent.ResetPath();
-            agent.velocity = Vector3.zero;
+        if (agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
+        agent.ResetPath();
+        agent.velocity = Vector3.zero;
 
-            if (WaypointManager.Instance.Waypoints.Length > 0)
-            {
-                agent.SetDestination(WaypointManager.Instance.Waypoints[0].position);
-            }
+        if (myWayPoints.Count > 0)
+        {
+            agent.SetDestination(myWayPoints[0].position);
         }
     }
 }
