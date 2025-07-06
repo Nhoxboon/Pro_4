@@ -10,6 +10,9 @@ public class Core : NhoxBehaviour
 
     [SerializeField] protected GameObject root;
     public GameObject Root => root;
+    
+    [SerializeField] protected Enemy enemy;
+    public Enemy Enemy => enemy;
 
     [SerializeField] protected Movement movement;
     public Movement Movement => movement;
@@ -26,6 +29,7 @@ public class Core : NhoxBehaviour
     {
         base.LoadComponents();
         LoadRoot();
+        LoadEnemy();
         LoadMovement();
         LoadStats();
         LoadDeath();
@@ -36,6 +40,13 @@ public class Core : NhoxBehaviour
         if (root != null) return;
         root = transform.parent.gameObject;
         Debug.Log(transform.name + " LoadRoot", gameObject);
+    }
+    
+    protected void LoadEnemy()
+    {
+        if (enemy != null) return;
+        enemy = GetComponentInParent<Enemy>();
+        Debug.Log(transform.name + " LoadEnemy", gameObject);
     }
 
     protected void LoadMovement()

@@ -8,7 +8,8 @@ public class EnemyPortal : NhoxBehaviour
     [SerializeField] protected float spawnCooldown = 5f;
     protected float spawnTimer;
 
-    [SerializeField] protected List<string> enemies;
+    [SerializeField] protected List<string> enemies = new ();
+    [SerializeField] protected List<GameObject> activeEnemies = new();
 
     protected override void Awake()
     {
@@ -25,11 +26,12 @@ public class EnemyPortal : NhoxBehaviour
         if (spawnTimer <= 0f && CanSpawn())
         {
             Transform newEnemy = EnemySpawner.Instance.SpawnRandom(enemies, transform.position, Quaternion.identity);
+
+            //Or use enemy.SetPortal(this)
+            if (newEnemy.TryGetComponent<Enemy>(out var enemy)) enemy.Core.Movement.SetUpEnemy(waypointList, this);
             
-            if (newEnemy.TryGetComponent<Enemy>(out var enemy)) enemy.Core.Movement.SetUpPath(waypointList);
-            
-            enemy.Core.Movement.SetUpPath(waypointList);
             spawnTimer = spawnCooldown;
+            activeEnemies.Add(newEnemy.gameObject);
         }
     }
 
@@ -38,7 +40,13 @@ public class EnemyPortal : NhoxBehaviour
         return enemies.Count > 0;
     }
 
-    public List<string> GetEnemiesList() => enemies;
+    public void AddEnemyToList(string enemyName) => enemies.Add(enemyName);
+
+    public void RemoveActiveEnemy(GameObject enemyToRemove)
+    {
+        if (activeEnemies.Contains(enemyToRemove)) activeEnemies.Remove(enemyToRemove);
+    }
+    public List<GameObject> GetActiveEnemies() => activeEnemies;
 
     [ContextMenu("Collect Waypoints")]
     protected void CollectWaypoints()

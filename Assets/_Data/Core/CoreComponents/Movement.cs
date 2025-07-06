@@ -6,8 +6,12 @@ using UnityEngine.AI;
 public class Movement : CoreComponent
 {
     [SerializeField] protected float turnSpeed = 10f;
+
     [SerializeField] protected int currentWpIndex;
+    [SerializeField] protected int nextWpIndex;
     [SerializeField] protected List<Transform> myWayPoints;
+
+    [SerializeField] protected EnemyPortal myPortal;
     [SerializeField] protected NavMeshAgent agent;
 
     protected float totalDistance;
@@ -29,11 +33,12 @@ public class Movement : CoreComponent
 
     public override void LogicUpdate()
     {
+        base.LogicUpdate();
         DistanceToFinishLine();
         MoveToWaypoint();
     }
 
-    public void SetUpPath(List<Waypoint> newWaypoints)
+    public void SetUpEnemy(List<Waypoint> newWaypoints, EnemyPortal newPortal)
     {
         myWayPoints = new List<Transform>();
         foreach (var point in newWaypoints)
@@ -43,6 +48,8 @@ public class Movement : CoreComponent
 
         CollectTotalDistance();
 
+        if (core.Root.TryGetComponent<Enemy>(out var enemy)) enemy.SetPortal(newPortal);
+
         ResetMovement();
     }
 
@@ -51,10 +58,22 @@ public class Movement : CoreComponent
         if (agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
 
         FaceTarget(agent.steeringTarget);
-        if (agent.remainingDistance < 0.2f)
-        {
-            agent.SetDestination(GetNextWaypoint());
-        }
+
+        if (ShouldChangeWaypoint()) agent.SetDestination(GetNextWaypoint());
+    }
+
+    protected bool ShouldChangeWaypoint()
+    {
+        if (nextWpIndex >= myWayPoints.Count) return false;
+        if (agent.remainingDistance < 0.2f) return true;
+
+        Vector3 currentWaypoint = myWayPoints[currentWpIndex].position;
+        Vector3 nextWaypoint = myWayPoints[nextWpIndex].position;
+
+        float distanceToNextWp = Vector3.Distance(core.Root.transform.position, nextWaypoint);
+        float distanceBetweenPoints = Vector3.Distance(currentWaypoint, nextWaypoint);
+
+        return distanceBetweenPoints > distanceToNextWp;
     }
 
     protected void FaceTarget(Vector3 newTarget)
@@ -75,18 +94,19 @@ public class Movement : CoreComponent
 
     protected Vector3 GetNextWaypoint()
     {
-        if (currentWpIndex >= myWayPoints.Count) return core.Root.transform.position;
+        if (nextWpIndex >= myWayPoints.Count) return core.Root.transform.position;
 
-        Vector3 targetPoint = myWayPoints[currentWpIndex].position;
+        Vector3 targetPoint = myWayPoints[nextWpIndex].position;
 
-        if (currentWpIndex > 0)
+        if (nextWpIndex > 0)
         {
-            float distance = Vector3.Distance(myWayPoints[currentWpIndex].position,
-                myWayPoints[currentWpIndex - 1].position);
+            float distance = Vector3.Distance(myWayPoints[nextWpIndex].position,
+                myWayPoints[nextWpIndex - 1].position);
             totalDistance -= distance;
         }
 
-        currentWpIndex++;
+        nextWpIndex++;
+        currentWpIndex = nextWpIndex - 1;
 
         return targetPoint;
     }
@@ -106,7 +126,7 @@ public class Movement : CoreComponent
 
     public void ResetMovement()
     {
-        currentWpIndex = 0;
+        nextWpIndex = 0;
 
         if (agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
         agent.ResetPath();

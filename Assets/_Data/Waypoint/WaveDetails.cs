@@ -5,7 +5,10 @@ using UnityEngine;
 [Serializable]
 public class WaveDetails
 {
-    [SerializeField] private List<EnemyTypeCount> enemyTypes = new List<EnemyTypeCount>();
+    [Header("Level Configuration")] public GridBuilder nextGrid;
+    public EnemyPortal[] newPortals;
+
+    [Space] [SerializeField] private List<EnemyTypeCount> enemyTypes = new List<EnemyTypeCount>();
 
     public int GetEnemyCount(EnemyType enemyType)
     {

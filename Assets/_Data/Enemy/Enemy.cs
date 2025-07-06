@@ -4,6 +4,10 @@ public class Enemy : NhoxBehaviour
 {
     [SerializeField] protected EnemyType enemyType = EnemyType.None;
     [SerializeField] protected Transform centerPoint;
+    
+    [SerializeField] protected EnemyPortal myPortal;
+    public EnemyPortal MyPortal => myPortal;
+    
     [SerializeField] protected Core core;
     public Core Core => core;
     
@@ -43,6 +47,8 @@ public class Enemy : NhoxBehaviour
     public EnemyType GetEnemyType() => enemyType;
     
     public Vector3 GetCenterPoint() => centerPoint.position;
+    
+    public void SetPortal(EnemyPortal portal) => myPortal = portal;
     
     public void ResetEnemy()
     {
