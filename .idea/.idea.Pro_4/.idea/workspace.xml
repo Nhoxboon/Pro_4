@@ -5,26 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Visuals.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Visuals.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Camera.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraEffects.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraEffects.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/Core.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/Core.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy/BasicEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy/BasicEnemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy/BasicEnemy.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy/BasicEnemy.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy/FastEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy/FastEnemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy/FastEnemy.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Enemy/FastEnemy.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/GridBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/GridBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Waypoint/WaveDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint/WaveDetails.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Meshes/Environment/Tiles.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Meshes/Environment/Tiles.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Stats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/ScriptableObject.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +42,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e74f08236fb4c1791a523c0bf197e6c1df600/39/23c3692f/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e74f08236fb4c1791a523c0bf197e6c1df600/42/4b8bb4d1/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed8d042818eb4afeb6b5128b6a3d7b692ac00/d5/c5d6ebab/RaycastHit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f94944bce4a949c0b9769a50346412ae8c00/2b/ee33bc74/Input.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fe6c424ab31e4676acc02e012cb1d93911200/82/2603b2df/NavMeshAgent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/EntityStatsDataSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Utilities/GameObjectExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" root0="FORCE_HIGHLIGHTING" />
@@ -181,6 +175,9 @@
       <workItem from="1751786613473" duration="30000" />
       <workItem from="1751786655482" duration="10907000" />
       <workItem from="1751799891221" duration="2930000" />
+      <workItem from="1751880258929" duration="9265000" />
+      <workItem from="1751947540936" duration="110000" />
+      <workItem from="1751947712060" duration="6192000" />
     </task>
     <servers />
   </component>

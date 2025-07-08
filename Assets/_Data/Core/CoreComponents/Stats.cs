@@ -8,10 +8,6 @@ public class Stats : CoreComponent
     [SerializeField] protected Stat health;
     public Stat Health => health;
 
-
-    [SerializeField] protected EntityStatsDataSO entityStatsDataSO;
-
-
     protected override void Awake()
     {
         base.Awake();
@@ -29,14 +25,7 @@ public class Stats : CoreComponent
     protected void LoadEntityStatsDataSO()
     {
         // if (entityStatsDataSO != null) return;
-        // if(transform.parent.parent.CompareTag("Player"))
-        // {
-        //     entityStatsDataSO = Resources.Load<EntityStatsDataSO>("Player/PlayerStats");
-        // }
-        // else
-        // {
-        //     entityStatsDataSO = Resources.Load<EntityStatsDataSO>("Enemies/Stats/" + transform.parent.parent.name + "Stats");
-        // }
+        // entityStatsDataSO = Resources.Load<EntityStatsDataSO>("Enemies/Stats/" + transform.parent.parent.name + "Stats");
         // Debug.Log(transform.name + " LoadEntityStatsDataSO", gameObject);
     }
 }
