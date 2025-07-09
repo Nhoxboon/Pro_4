@@ -5,18 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Camera.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraEffects.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraEffects.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BaseBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BaseBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/HyperLinkBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/HyperLinkBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/QuitBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/QuitBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/SwitchBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/SwitchBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/MenuUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/MenuUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/SettingsUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/SettingsUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/BaseSlider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/BaseSlider.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/KeyboardSenSlider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/KeyboardSenSlider.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/MouseSenSlider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/MouseSenSlider.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/SensitiveSlider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/SensitiveSlider.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/InputSystem_Actions.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Stats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/ScriptableObject.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +66,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/EntityStatsDataSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/Slider/KeyboardSenSlider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Utilities/GameObjectExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -178,6 +197,8 @@
       <workItem from="1751880258929" duration="9265000" />
       <workItem from="1751947540936" duration="110000" />
       <workItem from="1751947712060" duration="6192000" />
+      <workItem from="1752052931000" duration="3154000" />
+      <workItem from="1752074618681" duration="3345000" />
     </task>
     <servers />
   </component>

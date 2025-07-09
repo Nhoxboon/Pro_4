@@ -6,7 +6,9 @@ public class CameraController : NhoxBehaviour
     [SerializeField] protected Vector3 levelCenterPoint;
     [SerializeField] protected float maxDistanceFromCenter;
 
-    [Header("Movement Settings")] protected float moveSpeed = 120f;
+    [Header("Movement Settings")] [SerializeField]
+    protected float moveSpeed = 120f;
+
     [SerializeField] protected float mouseMovementSpeed = 5f;
     [SerializeField] protected float edgeMovementSpeed = 50f;
     [SerializeField] protected float edgeThreshold = 10f;
@@ -69,6 +71,8 @@ public class CameraController : NhoxBehaviour
 
     public void EnableCameraControl(bool enable) => canControl = enable;
     public float AdjustPitch(float value) => pitch = value;
+    public float AdjustMoveSpeed(float value) => moveSpeed = value;
+    public float AdjustMouseSensitivity(float value) => mouseMovementSpeed = value;
 
     protected void HandleZoom()
     {
