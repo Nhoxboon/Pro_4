@@ -10,6 +10,7 @@ public class UI : NhoxBehaviour
     
     [SerializeField] protected MenuUI menuUI;
     [SerializeField] protected SettingsUI settingsUI;
+    [SerializeField] protected InGameUI inGameUI;
 
     protected override void Awake()
     {
@@ -23,7 +24,8 @@ public class UI : NhoxBehaviour
         instance = this;
         
         SwitchToUI(settingsUI.gameObject);
-        SwitchToUI(menuUI.gameObject);
+        SwitchToUI(inGameUI.gameObject);
+        // SwitchToUI(menuUI.gameObject);
     }
 
     protected override void LoadComponents()
@@ -32,6 +34,7 @@ public class UI : NhoxBehaviour
         LoadUIElements();
         LoadMenuUI();
         LoadSettingsUI();
+        LoadInGameUI();
     }
 
     protected void LoadUIElements()
@@ -57,6 +60,13 @@ public class UI : NhoxBehaviour
         if (settingsUI != null) return;
         settingsUI = GetComponentInChildren<SettingsUI>(true);
         Debug.Log(transform.name + " :LoadSettingsUI", gameObject);
+    }
+    
+    protected void LoadInGameUI()
+    {
+        if (inGameUI != null) return;
+        inGameUI = GetComponentInChildren<InGameUI>(true);
+        Debug.Log(transform.name + " :LoadInGameUI", gameObject);
     }
 
     public void SwitchToUI(GameObject uiEnable)

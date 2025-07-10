@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class WaveManager : NhoxBehaviour
 {
+    private static WaveManager instance;
+    public static WaveManager Instance => instance;
+
+    public Action OnWaveTimerUpdated;
+
     [SerializeField] protected GridBuilder currentGrid;
 
     protected bool waveCompleted;
     [SerializeField] protected float timeBetweenWaves = 10f;
     [SerializeField] protected float waveTimer;
+    public float WaveTimer => waveTimer;
 
     protected float checkInterval = 0.5f;
     protected float nextCheckTime;
@@ -21,6 +27,14 @@ public class WaveManager : NhoxBehaviour
     protected override void Awake()
     {
         base.Awake();
+        if (instance != null)
+        {
+            Debug.LogError("Only one instance of WaveManager allowed to exist");
+            return;
+        }
+
+        instance = this;
+
         enemyPortals =
             new List<EnemyPortal>(FindObjectsByType<EnemyPortal>(FindObjectsSortMode.None));
     }
@@ -50,12 +64,15 @@ public class WaveManager : NhoxBehaviour
     {
         if (!waveCompleted) return;
         waveTimer -= Time.deltaTime;
+        OnWaveTimerUpdated?.Invoke();
         if (waveTimer <= 0f) SetNextWave();
     }
 
-    protected void ForceNextWave()
+    public void ForceNextWave()
     {
         if (!AllEnemiesDefeated()) return;
+        waveTimer = 0f;
+        OnWaveTimerUpdated?.Invoke();
         SetNextWave();
     }
 
@@ -65,11 +82,7 @@ public class WaveManager : NhoxBehaviour
         List<string> newEnemyList = NewEnemyWave();
         int portalIndex = 0;
 
-        if (newEnemyList == null)
-        {
-            Debug.LogWarning("No more waves");
-            return;
-        }
+        if (newEnemyList == null) return;
 
         for (int i = 0; i < newEnemyList.Count; i++)
         {

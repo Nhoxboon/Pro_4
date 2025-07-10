@@ -5,36 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BaseBtn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BaseBtn.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/HyperLinkBtn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/HyperLinkBtn.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/QuitBtn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/QuitBtn.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/SwitchBtn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/SwitchBtn.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/MenuUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/MenuUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/SettingsUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/SettingsUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/BaseSlider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/BaseSlider.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/KeyboardSenSlider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/KeyboardSenSlider.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/MouseSenSlider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/MouseSenSlider.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/SensitiveSlider.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/SensitiveSlider.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/ForceWaveBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/ForceWaveBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/BaseText.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/BaseText.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/HPText.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/HPText.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/WaveTimerText.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/WaveTimerText.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_UI/Borders/3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Borders/3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/1.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/3.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/4.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/5.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/6.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/7.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +66,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/EntityStatsDataSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/InGameUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/Slider/KeyboardSenSlider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Utilities/GameObjectExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -199,6 +201,10 @@
       <workItem from="1751947712060" duration="6192000" />
       <workItem from="1752052931000" duration="3154000" />
       <workItem from="1752074618681" duration="3345000" />
+      <workItem from="1752123138275" duration="3281000" />
+      <workItem from="1752126475879" duration="21000" />
+      <workItem from="1752141151314" duration="147000" />
+      <workItem from="1752141311313" duration="4314000" />
     </task>
     <servers />
   </component>
