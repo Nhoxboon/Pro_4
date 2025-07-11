@@ -5,6 +5,8 @@ public class InputManager : NhoxBehaviour
     private static InputManager instance;
     public static InputManager Instance => instance;
 
+    public bool IsEscDown { get; private set; }
+
     [Header("Camera Input")] public Vector2 CameraMovementInput { get; private set; } // WASD / Arrow keys
     public float ScrollInput { get; private set; } // Mouse Scroll
     public Vector3 MousePosition { get; private set; }
@@ -39,6 +41,7 @@ public class InputManager : NhoxBehaviour
         ReadScrollInput();
         ReadMouseButtons();
         UpdateMouseDelta();
+        ReadEscKey();
     }
 
     protected void ProcessCameraMovementInput()
@@ -91,4 +94,6 @@ public class InputManager : NhoxBehaviour
             MouseDelta = Vector2.zero;
         }
     }
+
+    protected void ReadEscKey() => IsEscDown = Input.GetKeyDown(KeyCode.Escape);
 }

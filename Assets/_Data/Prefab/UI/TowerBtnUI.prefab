@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 4178430925487205484}
   - component: {fileID: 6788902799381842403}
   - component: {fileID: 2650949881212289190}
+  - component: {fileID: 4183087410845778592}
   m_Layer: 5
   m_Name: TowerBtnUI
   m_TagString: Untagged
@@ -200,6 +201,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4183087410845778592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805340317734011267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7800537977470d996c8e2f16681ad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjustmentSpeed: 10
+  showcaseY: 225
+  defaultY: 175
 --- !u!1 &4779621578471806514
 GameObject:
   m_ObjectHideFlags: 0

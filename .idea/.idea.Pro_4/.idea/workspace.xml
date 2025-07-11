@@ -5,36 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/ForceWaveBtn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/ForceWaveBtn.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/BaseText.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/BaseText.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/HPText.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/HPText.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/WaveTimerText.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/WaveTimerText.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image/BaseImage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image/BaseImage.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image/FadeImage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image/FadeImage.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/PauseUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/PauseUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/TextBlinkEffect.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/TextBlinkEffect.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/HoverEffect.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/HoverEffect.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/ScaleAnimation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/ScaleAnimation.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/UIAnimator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/UIAnimator.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtnUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtnUI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/SwitchBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/SwitchBtn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/BaseText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/BaseText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/BaseText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/BaseText.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/CurrencyText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/CurrencyText.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/HPText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/HPText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/HPText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/HPText.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/WaveTimerText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/WaveTimerText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/WaveTimerText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/WaveTimerText.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_UI/Borders/3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Borders/3.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/7.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Tower_Icon/7.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +73,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/EntityStatsDataSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/InGameUI.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/Slider/KeyboardSenSlider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/WaveTimerText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Utilities/GameObjectExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -205,6 +213,11 @@
       <workItem from="1752126475879" duration="21000" />
       <workItem from="1752141151314" duration="147000" />
       <workItem from="1752141311313" duration="4314000" />
+      <workItem from="1752209377885" duration="3318000" />
+      <workItem from="1752212756017" duration="85000" />
+      <workItem from="1752213050233" duration="2783000" />
+      <workItem from="1752226921389" duration="9233000" />
+      <workItem from="1752251105568" duration="3885000" />
     </task>
     <servers />
   </component>
