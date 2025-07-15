@@ -7,10 +7,15 @@ public class InputManager : NhoxBehaviour
 
     public bool IsEscDown { get; private set; }
 
+    public bool IsF10Down {get; private set;}
+
     [Header("Camera Input")] public Vector2 CameraMovementInput { get; private set; } // WASD / Arrow keys
     public float ScrollInput { get; private set; } // Mouse Scroll
     public Vector3 MousePosition { get; private set; }
     public Vector2 MouseLookInput { get; private set; } // Mouse X/Y for rotation
+
+    public bool IsLeftMouseDown { get; private set; }
+    public bool IsLeftMouseHeld { get; private set; }
 
     public bool IsRightMouseHeld { get; private set; } // For rotation
     public bool IsMiddleMouseHeld { get; private set; } // For panning
@@ -41,6 +46,8 @@ public class InputManager : NhoxBehaviour
         ReadScrollInput();
         ReadMouseButtons();
         UpdateMouseDelta();
+
+        ReadF10Key();
         ReadEscKey();
     }
 
@@ -70,6 +77,8 @@ public class InputManager : NhoxBehaviour
 
     protected void ReadMouseButtons()
     {
+        IsLeftMouseDown = Input.GetMouseButtonDown(0);
+        IsLeftMouseHeld = Input.GetMouseButton(0);
         IsRightMouseHeld = Input.GetMouseButton(1);
         IsMiddleMouseDown = Input.GetMouseButtonDown(2);
         IsMiddleMouseHeld = Input.GetMouseButton(2);
@@ -96,4 +105,6 @@ public class InputManager : NhoxBehaviour
     }
 
     protected void ReadEscKey() => IsEscDown = Input.GetKeyDown(KeyCode.Escape);
+
+    protected void ReadF10Key() => IsF10Down = Input.GetKeyDown(KeyCode.F10);
 }

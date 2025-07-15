@@ -6,7 +6,6 @@ public class UI : NhoxBehaviour
     public static UI Instance => instance;
 
     [SerializeField] protected GameObject[] uiElements;
-    public GameObject[] UIElements => uiElements;
 
     [SerializeField] protected MenuUI menuUI;
     [SerializeField] protected SettingsUI settingsUI;

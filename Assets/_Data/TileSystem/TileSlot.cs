@@ -4,20 +4,20 @@ using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
 
+// This class just use in the editor to switch tiles so not causing performance issues
 public class TileSlot : MonoBehaviour
 {
-    //This jyst work in the editor so not causing performance issues
     private MeshRenderer MeshRenderer => GetComponent<MeshRenderer>();
     private MeshFilter MeshFilter => GetComponent<MeshFilter>();
     private Collider MyCollider => GetComponent<Collider>();
-    private NavMeshSurface MyNavMesh => GetComponentInParent<NavMeshSurface>();
+    private NavMeshSurface MyNavMesh => GetComponentInParent<NavMeshSurface>(true);
+    private TileSetHolder tileSetHolder => GetComponentInParent<TileSetHolder>(true);
 
-    // ReSharper disable Unity.PerformanceAnalysis
-    public void SwitchTile(GameObject referanceTile)
+    public void SwitchTile(GameObject referenceTile)
     {
-        gameObject.name = referanceTile.name;
+        gameObject.name = referenceTile.name;
 
-        TileSlot newTile = referanceTile.GetComponent<TileSlot>();
+        TileSlot newTile = referenceTile.GetComponent<TileSlot>();
 
         MeshFilter.mesh = newTile.GetMesh();
         MeshRenderer.material = newTile.GetMaterial();
@@ -26,13 +26,29 @@ public class TileSlot : MonoBehaviour
 
         UpdateChildren(newTile);
 
-        UpdateLayer(referanceTile);
+        UpdateLayer(referenceTile);
 
         UpdateNavMesh();
+
+        TurnIntoBuildSlot(referenceTile);
     }
 
     public Material GetMaterial() => MeshRenderer.sharedMaterial;
     public Mesh GetMesh() => MeshFilter.sharedMesh;
+
+    protected void TurnIntoBuildSlot(GameObject referenceTile)
+    {
+        BuildSlot buildSlot = GetComponent<BuildSlot>();
+
+        if (referenceTile != tileSetHolder.tileField)
+        {
+            if (buildSlot is not null) DestroyImmediate(buildSlot.gameObject);
+        }
+        else
+        {
+            if (buildSlot is null) gameObject.AddComponent<BuildSlot>();
+        }
+    }
 
     public Collider GetCollider() => MyCollider;
 
@@ -84,7 +100,7 @@ public class TileSlot : MonoBehaviour
         }
     }
 
-    private void UpdateLayer(GameObject referanceObj) => gameObject.layer = referanceObj.layer;
+    private void UpdateLayer(GameObject referenceObj) => gameObject.layer = referenceObj.layer;
 
     public void RotateTile(int dir)
     {

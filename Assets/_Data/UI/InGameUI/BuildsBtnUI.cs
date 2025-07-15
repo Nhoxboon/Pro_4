@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class BuildsBtnUI : NhoxBehaviour
@@ -32,27 +33,28 @@ public class BuildsBtnUI : NhoxBehaviour
         Debug.Log(transform.name + " :LoadBuildBtns", gameObject);
     }
 
-    protected void Update()
+    public void ShowBtn(bool showBtns)
     {
-        //For testing purposes
-        if (Input.GetKeyDown(KeyCode.B)) ShowBtn();
-    }
-
-    public void ShowBtn()
-    {
-        isBuildMenuActive = !isBuildMenuActive;
+        isBuildMenuActive = showBtns;
 
         float yOffset = isBuildMenuActive ? yPosOffset : -yPosOffset;
         float methodDelay = isBuildMenuActive ? openAnimationDuration : 0f;
 
         uiAnimator.ChangePos(transform, new Vector3(0, yOffset), openAnimationDuration);
 
-        Invoke(nameof(ToggleBtnMovement), methodDelay);
+        StopCoroutine(nameof(DelayedToggleBtnMovement));
+        StartCoroutine(DelayedToggleBtnMovement(methodDelay));
     }
 
     protected void ToggleBtnMovement()
     {
-        foreach (var btn in buildBtns)
-            btn.ToggleMovement(isBuildMenuActive);
+        for (int i = 0; i < buildBtns.Length; i++)
+            buildBtns[i].ToggleMovement(isBuildMenuActive);
+    }
+
+    private IEnumerator DelayedToggleBtnMovement(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ToggleBtnMovement();
     }
 }

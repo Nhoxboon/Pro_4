@@ -5,43 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image/BaseImage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image/BaseImage.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image/FadeImage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image/FadeImage.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/PauseUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/PauseUI.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/TextBlinkEffect.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/TextBlinkEffect.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/HoverEffect.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/HoverEffect.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/ScaleAnimation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/ScaleAnimation.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/UIAnimator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/UIAnimator.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtnUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtnUI.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/SwitchBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/SwitchBtn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/BaseText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/BaseText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/BaseText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/BaseText.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/CurrencyText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/CurrencyText.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/HPText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/HPText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/HPText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/HPText.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/WaveTimerText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/WaveTimerText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/WaveTimerText.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/WaveTimerText.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/PauseUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/PauseUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +38,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Nhoxboon/Pro_4.git&quot;,
-    &quot;accountId&quot;: &quot;190acd58-fc23-40a6-992b-83a1bdee699c&quot;
+    &quot;accountId&quot;: &quot;655ec6f4-aebb-41e8-815a-41c1f0490b4a&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
@@ -114,7 +92,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Unity\6000.0.47f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.0.47f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath E:\Unity\Project\Pro_4 -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\Unity\Project\Pro_4" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -125,7 +103,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Unity\6000.0.47f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.0.47f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath E:\Unity\Project\Pro_4 -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\Unity\Project\Pro_4" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -218,6 +196,8 @@
       <workItem from="1752213050233" duration="2783000" />
       <workItem from="1752226921389" duration="9233000" />
       <workItem from="1752251105568" duration="3885000" />
+      <workItem from="1752549594536" duration="4854000" />
+      <workItem from="1752574241344" duration="3630000" />
     </task>
     <servers />
   </component>

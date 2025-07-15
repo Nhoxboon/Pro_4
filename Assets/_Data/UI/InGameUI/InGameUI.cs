@@ -8,9 +8,12 @@ public class InGameUI : NhoxBehaviour
     [SerializeField] protected TextMeshProUGUI currencyText;
     [SerializeField] protected TextMeshProUGUI waveTimeText;
 
+    [SerializeField] protected BuildsBtnUI buildsBtnUI;
+    public BuildsBtnUI BuildsBtnUI => buildsBtnUI;
+
     protected void Update()
     {
-        if (InputManager.Instance.IsEscDown) UI.Instance.SwitchToUI(UI.Instance.PauseUI.gameObject);
+        if (InputManager.Instance.IsF10Down) UI.Instance.SwitchToUI(UI.Instance.PauseUI.gameObject);
     }
 
     protected override void LoadComponents()
@@ -19,6 +22,7 @@ public class InGameUI : NhoxBehaviour
         LoadHPText();
         LoadCurrencyText();
         LoadWaveTimeText();
+        LoadBuildsBtnUI();
     }
 
     protected void LoadHPText()
@@ -40,5 +44,12 @@ public class InGameUI : NhoxBehaviour
         if (waveTimeText != null) return;
         waveTimeText = transform.Find("WaveTimeUI").GetComponentInChildren<TextMeshProUGUI>(true);
         Debug.Log(transform.name + " :LoadWaveTimeText", gameObject);
+    }
+
+    protected void LoadBuildsBtnUI()
+    {
+        if (buildsBtnUI != null) return;
+        buildsBtnUI = GetComponentInChildren<BuildsBtnUI>(true);
+        Debug.Log(transform.name + " :LoadBuildsBtnUI", gameObject);
     }
 }

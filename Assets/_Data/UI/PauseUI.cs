@@ -11,7 +11,7 @@ public class PauseUI : NhoxBehaviour
 
     protected void Update()
     {
-        if (InputManager.Instance.IsEscDown) UI.Instance.SwitchToUI(UI.Instance.InGameUI.gameObject);
+        if (InputManager.Instance.IsF10Down) UI.Instance.SwitchToUI(UI.Instance.InGameUI.gameObject);
     }
 
     protected override void LoadComponents()
