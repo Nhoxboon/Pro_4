@@ -19,7 +19,7 @@ public class TileManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one TileManager allow to exist");
+            Debug.LogError("Only one TileManager allowed to exist");
             return;
         }
 

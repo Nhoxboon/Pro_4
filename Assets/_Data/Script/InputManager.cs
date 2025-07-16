@@ -30,7 +30,7 @@ public class InputManager : NhoxBehaviour
 
         if (instance != null && instance != this)
         {
-            Debug.LogError("Only one instance of InputManager allowed!");
+            Debug.LogError("Only one InputManager allowed to exist");
             Destroy(gameObject);
             return;
         }

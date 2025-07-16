@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InGameUI : NhoxBehaviour
 {
@@ -8,8 +9,8 @@ public class InGameUI : NhoxBehaviour
     [SerializeField] protected TextMeshProUGUI currencyText;
     [SerializeField] protected TextMeshProUGUI waveTimeText;
 
-    [SerializeField] protected BuildsBtnUI buildsBtnUI;
-    public BuildsBtnUI BuildsBtnUI => buildsBtnUI;
+    [SerializeField] protected BuildBtnsUI buildsBtnsUI;
+    public BuildBtnsUI BuildsBtnsUI => buildsBtnsUI;
 
     protected void Update()
     {
@@ -22,7 +23,7 @@ public class InGameUI : NhoxBehaviour
         LoadHPText();
         LoadCurrencyText();
         LoadWaveTimeText();
-        LoadBuildsBtnUI();
+        LoadBuildsBtnsUI();
     }
 
     protected void LoadHPText()
@@ -46,10 +47,10 @@ public class InGameUI : NhoxBehaviour
         Debug.Log(transform.name + " :LoadWaveTimeText", gameObject);
     }
 
-    protected void LoadBuildsBtnUI()
+    protected void LoadBuildsBtnsUI()
     {
-        if (buildsBtnUI != null) return;
-        buildsBtnUI = GetComponentInChildren<BuildsBtnUI>(true);
+        if (buildsBtnsUI != null) return;
+        buildsBtnsUI = GetComponentInChildren<BuildBtnsUI>(true);
         Debug.Log(transform.name + " :LoadBuildsBtnUI", gameObject);
     }
 }

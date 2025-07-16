@@ -8,7 +8,7 @@ public abstract class Spawner : NhoxBehaviour
     [SerializeField] protected List<Transform> prefabs = new List<Transform>();
 
     [SerializeField] protected Transform holder;
-    [SerializeField] protected List<Transform> poolObjs = new List<Transform>(); 
+    [SerializeField] protected List<Transform> poolObjs = new List<Transform>();
 
     protected override void LoadComponents()
     {
@@ -33,6 +33,7 @@ public abstract class Spawner : NhoxBehaviour
         {
             prefabs.Add(prefab);
         }
+
         HidePrefabs();
     }
 
@@ -43,13 +44,13 @@ public abstract class Spawner : NhoxBehaviour
             prefab.gameObject.SetActive(false);
         }
     }
-    
+
     public virtual Transform Spawn(string prefabName, Vector3 spawnPos, Quaternion rotation)
     {
         Transform prefab = GetPrefabByName(prefabName);
-        if (prefab == null)
+        if (prefab is null)
         {
-            Debug.LogError($"Prefab {prefabName} not found!");
+            // Debug.LogError($"Prefab {prefabName} not found!");
             return null;
         }
 
@@ -72,6 +73,7 @@ public abstract class Spawner : NhoxBehaviour
         {
             if (prefab.name == prefabName) return prefab;
         }
+
         return null;
     }
 

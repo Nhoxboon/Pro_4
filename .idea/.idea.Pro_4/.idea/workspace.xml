@@ -5,21 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/TowerUnlockConfigSOEditor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Editor/TowerUnlockConfigSOEditor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Tower.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/TowerUnlockConfigSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/TowerUnlockConfigSO.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerSpawner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerSpawner.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BuildBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BuildBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildButtonUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildButtonUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Poise.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Poise/CombatPoiseData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Poise/CombatPoiseData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tower/CrossbowTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Tower/CrossbowTower.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtnUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtn.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtnUI.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtn.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Spawner/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Spawner/Spawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/BaseBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BaseBtn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildBtnsUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildBtnsUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/PauseUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/PauseUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/CurrencyText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/CurrencyText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/HPText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/HPText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/HoverEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/HoverEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +222,11 @@
       <workItem from="1752251105568" duration="3885000" />
       <workItem from="1752549594536" duration="4854000" />
       <workItem from="1752574241344" duration="3630000" />
+      <workItem from="1752592597897" duration="664000" />
+      <workItem from="1752593481096" duration="105000" />
+      <workItem from="1752637500208" duration="4831000" />
+      <workItem from="1752661357154" duration="14831000" />
+      <workItem from="1752684192870" duration="197000" />
     </task>
     <servers />
   </component>

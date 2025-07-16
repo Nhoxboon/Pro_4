@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class HoverEffect : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -12,19 +11,15 @@ public class HoverEffect : NhoxBehaviour, IPointerEnterHandler, IPointerExitHand
     protected float targetY;
     protected bool canMove;
 
-    protected void Update()
-    {
-        // if (!canMove) return;
-        Hover();
-    }
+    protected void Update() => Hover();
 
     protected void Hover()
     {
-        if (Mathf.Abs(targetY - transform.position.y) > 0.01f && canMove)
+        if (Mathf.Abs(targetY - transform.parent.position.y) > 0.01f && canMove)
         {
-            float newPosY = Mathf.Lerp(transform.position.y, targetY, adjustmentSpeed * Time.deltaTime);
+            float newPosY = Mathf.Lerp(transform.parent.position.y, targetY, adjustmentSpeed * Time.deltaTime);
 
-            transform.position = new Vector3(transform.position.x, newPosY, transform.position.z);
+            transform.parent.position = new Vector3(transform.parent.position.x, newPosY, transform.parent.position.z);
         }
     }
 
@@ -37,7 +32,7 @@ public class HoverEffect : NhoxBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     protected void SetPositionToDefault() =>
-        transform.position = new Vector3(transform.position.x, defaultY, transform.position.z);
+        transform.parent.position = new Vector3(transform.parent.position.x, defaultY, transform.parent.position.z);
 
     protected void SetTargetY(float newTargetY) => targetY = newTargetY;
 

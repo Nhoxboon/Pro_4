@@ -6,7 +6,7 @@ public class GameManager : NhoxBehaviour
     private static GameManager instance;
     public static GameManager Instance => instance;
 
-    [SerializeField] protected int currency;
+    [SerializeField] protected int currency = 500;
     public int Currency => currency;
     [SerializeField] protected int maxHP = 100;
     public int MaxHP => maxHP;
@@ -21,7 +21,7 @@ public class GameManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one instance of GameManager allowed to exist");
+            Debug.LogError("Only one GameManager allowed to exist");
             return;
         }
 
@@ -33,6 +33,7 @@ public class GameManager : NhoxBehaviour
         base.Start();
         currentHP = maxHP;
         OnHPChanged?.Invoke();
+        OnCurrencyChanged?.Invoke();
     }
 
     public void UpdateHP(int amount)
@@ -45,5 +46,16 @@ public class GameManager : NhoxBehaviour
     {
         currency += amount;
         OnCurrencyChanged?.Invoke();
+    }
+
+    public bool HasEnoughCurrency(int amount)
+    {
+        if (amount < currency)
+        {
+            currency -= amount;
+            OnCurrencyChanged?.Invoke();
+            return true;
+        }
+        return false;
     }
 }

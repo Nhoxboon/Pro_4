@@ -1,10 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class BaseBtn : NhoxBehaviour
 {
-    [SerializeField] protected Button button;
+    [Header("Base Button")] [SerializeField]
+    protected Button button;
 
     protected void OnEnable() => button.onClick.AddListener(OnClick);
 

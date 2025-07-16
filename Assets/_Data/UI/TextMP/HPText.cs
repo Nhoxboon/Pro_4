@@ -2,9 +2,9 @@
 
 public class HPText : BaseText
 {
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         GameManager.Instance.OnHPChanged += OnHPChanged;
     }
 

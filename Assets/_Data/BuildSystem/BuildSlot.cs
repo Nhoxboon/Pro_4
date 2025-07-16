@@ -5,8 +5,10 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
 {
     protected Vector3 defaultPosition;
     protected bool tileCanMove = true;
+    protected bool buildSlotAvailable = true;
 
     protected Coroutine currentMoveUpCoroutine;
+    protected Coroutine moveToDefaultCoroutine;
 
     protected override void Awake()
     {
@@ -14,18 +16,24 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
         defaultPosition = transform.position;
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        if (!buildSlotAvailable)
+            transform.position += new Vector3(0, 0.1f);
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (InputManager.Instance.IsRightMouseHeld || InputManager.Instance.IsMiddleMouseHeld ||
-            InputManager.Instance.IsMiddleMouseDown) return;
+            InputManager.Instance.IsMiddleMouseDown || !buildSlotAvailable || !tileCanMove) return;
 
-        if (!tileCanMove) return;
         MoveTileUp();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!tileCanMove) return;
+        if (!tileCanMove || !buildSlotAvailable) return;
 
         if (currentMoveUpCoroutine != null) Invoke(nameof(MoveTileDown), TileManager.Instance.YMovementDuration);
         else
@@ -34,9 +42,8 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(eventData.button != PointerEventData.InputButton.Left) return;
-
-        if(BuildManager.Instance.SelectedBuildSlot == this) return;
+        if (eventData.button != PointerEventData.InputButton.Left || !buildSlotAvailable ||
+            BuildManager.Instance.SelectedBuildSlot == this) return;
 
         BuildManager.Instance.EnableBuildMenu();
         BuildManager.Instance.SelectBuildSlot(this);
@@ -50,11 +57,22 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
         currentMoveUpCoroutine = StartCoroutine(TileManager.Instance.TileMoveCoroutine(transform, targetPosition));
     }
 
-    protected void MoveTileDown() => TileManager.Instance.MoveTile(transform, defaultPosition);
+    protected void MoveTileDown() => moveToDefaultCoroutine =
+        StartCoroutine(TileManager.Instance.TileMoveCoroutine(transform, defaultPosition));
 
     public void UnSelectTile()
     {
         MoveTileDown();
         tileCanMove = true;
     }
+
+    public void SnapToDefaultPositionImmediately()
+    {
+        if (moveToDefaultCoroutine != null) StopCoroutine(moveToDefaultCoroutine);
+        transform.position = defaultPosition;
+    }
+
+    public void SetSlotAvailable(bool value) => buildSlotAvailable = value;
+
+    public Vector3 GetBuildPosition(float yOffset) => defaultPosition + new Vector3(0, yOffset);
 }

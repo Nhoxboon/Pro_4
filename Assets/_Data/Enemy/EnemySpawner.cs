@@ -25,11 +25,7 @@ public class EnemySpawner : Spawner
 
     public Transform SpawnRandom(List<string> enemyPool, Vector3 spawnPos, Quaternion rotation)
     {
-        if (enemyPool == null || enemyPool.Count == 0)
-        {
-            Debug.LogWarning("Enemy pool is empty!");
-            return null;
-        }
+        if (enemyPool == null || enemyPool.Count == 0) return null;
 
         int randomIndex = Random.Range(0, enemyPool.Count);
         string enemyToSpawn = enemyPool[randomIndex];

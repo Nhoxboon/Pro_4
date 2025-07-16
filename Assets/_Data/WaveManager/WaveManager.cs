@@ -21,6 +21,7 @@ public class WaveManager : NhoxBehaviour
 
     [SerializeField] protected int nextWaveIndex;
     [SerializeField] protected WaveDetails[] levelWave;
+    public WaveDetails[] LevelWave => levelWave;
 
     [SerializeField] protected List<EnemyPortal> enemyPortals;
 
@@ -29,7 +30,7 @@ public class WaveManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one instance of WaveManager allowed to exist");
+            Debug.LogError("Only one WaveManager allowed to exist");
             return;
         }
 
@@ -143,8 +144,8 @@ public class WaveManager : NhoxBehaviour
 
         for (int i = 0; i < grid.Count; i++)
         {
-            TileSlot currentTile = grid[i].GetComponent<TileSlot>();
-            TileSlot newTile = newGrid[i].GetComponent<TileSlot>();
+            if (!grid[i].TryGetComponent(out TileSlot currentTile) || !newGrid[i].TryGetComponent(out TileSlot newTile))
+                continue;
 
             bool shouldUpdate = currentTile.GetMesh() != newTile.GetMesh() ||
                                 currentTile.GetMaterial() != newTile.GetMaterial() ||
