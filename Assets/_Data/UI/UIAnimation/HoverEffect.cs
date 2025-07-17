@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HoverEffect : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class HoverEffect : NhoxBehaviour, IPointerExitHandler
 {
     [SerializeField] protected float adjustmentSpeed = 10f;
 
-    [SerializeField] protected float showcaseY;
-    [SerializeField] protected float defaultY;
+    [SerializeField] protected float showcaseY = 225f;
+    [SerializeField] protected float defaultY = 175f;
+    [SerializeField] protected float selectedY;
 
     protected float targetY;
     protected bool canMove;
@@ -15,11 +16,11 @@ public class HoverEffect : NhoxBehaviour, IPointerEnterHandler, IPointerExitHand
 
     protected void Hover()
     {
-        if (Mathf.Abs(targetY - transform.parent.position.y) > 0.01f && canMove)
+        if (Mathf.Abs(targetY - transform.position.y) > 0.01f && canMove)
         {
-            float newPosY = Mathf.Lerp(transform.parent.position.y, targetY, adjustmentSpeed * Time.deltaTime);
+            float newPosY = Mathf.Lerp(transform.position.y, targetY, adjustmentSpeed * Time.deltaTime);
 
-            transform.parent.position = new Vector3(transform.parent.position.x, newPosY, transform.parent.position.z);
+            transform.position = new Vector3(transform.position.x, newPosY, transform.position.z);
         }
     }
 
@@ -32,11 +33,14 @@ public class HoverEffect : NhoxBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     protected void SetPositionToDefault() =>
-        transform.parent.position = new Vector3(transform.parent.position.x, defaultY, transform.parent.position.z);
+        transform.position = new Vector3(transform.position.x, defaultY, transform.position.z);
 
     protected void SetTargetY(float newTargetY) => targetY = newTargetY;
 
-    public void OnPointerEnter(PointerEventData eventData) => SetTargetY(showcaseY);
+    public void ShowcaseBtn(bool showcase)
+    {
+        SetTargetY(showcase ? showcaseY : defaultY);
+    }
 
-    public void OnPointerExit(PointerEventData eventData) => SetTargetY(defaultY);
+    public void OnPointerExit(PointerEventData eventData) => SetTargetY(selectedY);
 }

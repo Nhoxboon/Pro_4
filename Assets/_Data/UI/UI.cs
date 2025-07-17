@@ -6,7 +6,9 @@ public class UI : NhoxBehaviour
     public static UI Instance => instance;
 
     [SerializeField] protected GameObject[] uiElements;
-
+    [SerializeField] protected UIAnimator uiAnimator;
+    public UIAnimator UiAnimator => uiAnimator;
+    [Space]
     [SerializeField] protected MenuUI menuUI;
     [SerializeField] protected SettingsUI settingsUI;
     [SerializeField] protected InGameUI inGameUI;
@@ -35,6 +37,7 @@ public class UI : NhoxBehaviour
     {
         base.LoadComponents();
         LoadUIElements();
+        LoadUIAnimator();
         LoadMenuUI();
         LoadSettingsUI();
         LoadInGameUI();
@@ -51,6 +54,13 @@ public class UI : NhoxBehaviour
         for (int i = 0; i < childCount; i++) uiElements[i] = transform.GetChild(i).gameObject;
 
         Debug.Log(transform.name + " :LoadUIElements", gameObject);
+    }
+
+    protected void LoadUIAnimator()
+    {
+        if(uiAnimator != null) return;
+        uiAnimator = GetComponent<UIAnimator>();
+        Debug.Log(transform.name + " :LoadUIAnimator", gameObject);
     }
 
     protected void LoadMenuUI()
@@ -91,7 +101,7 @@ public class UI : NhoxBehaviour
 
     public void SwitchToUI(GameObject uiEnable)
     {
-        foreach (var ui in uiElements) ui.SetActive(false);
+        for (int i = 0; i < uiElements.Length; i++) uiElements[i].SetActive(false);
 
         uiEnable.SetActive(true);
     }

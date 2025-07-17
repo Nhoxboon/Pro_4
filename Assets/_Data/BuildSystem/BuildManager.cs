@@ -12,6 +12,13 @@ public class BuildManager : NhoxBehaviour
 
     [SerializeField] protected GridBuilder currentGridB;
 
+    [Header("Build Materials")] [SerializeField]
+    protected Material attackRadMat;
+
+    public Material AttackRadMat => attackRadMat;
+    [SerializeField] protected Material buildPreviewMat;
+    public Material BuildPreviewMat => buildPreviewMat;
+
     protected override void Awake()
     {
         base.Awake();
@@ -78,6 +85,9 @@ public class BuildManager : NhoxBehaviour
     public void CancelBuildAction()
     {
         if (selectedBuildSlot is null) return;
+        UI.Instance.InGameUI.BuildsBtnsUI.LastSelectedBtn?.SelectBtn(false);
+        TowerPreviewManager.Instance.HideAllPreviews();
+
         selectedBuildSlot.UnSelectTile();
         selectedBuildSlot = null;
         DisableBuildMenu();

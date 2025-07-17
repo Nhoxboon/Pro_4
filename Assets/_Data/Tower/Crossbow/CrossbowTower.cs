@@ -41,7 +41,7 @@ public class CrossbowTower : Tower
                 damageable.TakeDamage(damage);
 
             visual.PlayAttackVFX(gunPoint.position, hitInfo.point, currentTarget);
-            visual.ReloadVFX(attacleCooldown);
+            visual.ReloadVFX(attackCooldown);
         }
     }
 }

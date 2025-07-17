@@ -49,6 +49,7 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
         BuildManager.Instance.SelectBuildSlot(this);
         MoveTileUp();
         tileCanMove = false;
+        UI.Instance.InGameUI.BuildsBtnsUI.LastSelectedBtn?.SelectBtn(true);
     }
 
     protected void MoveTileUp()

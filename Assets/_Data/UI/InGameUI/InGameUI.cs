@@ -53,4 +53,7 @@ public class InGameUI : NhoxBehaviour
         buildsBtnsUI = GetComponentInChildren<BuildBtnsUI>(true);
         Debug.Log(transform.name + " :LoadBuildsBtnUI", gameObject);
     }
+
+    public void ShakeHPUI() => UI.Instance.UiAnimator.Shake(hpText.transform.parent);
+    public void ShakeCurrencyUI() => UI.Instance.UiAnimator.Shake(currencyText.transform.parent);
 }

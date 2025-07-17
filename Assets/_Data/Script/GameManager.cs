@@ -40,6 +40,7 @@ public class GameManager : NhoxBehaviour
     {
         currentHP += amount;
         OnHPChanged?.Invoke();
+        UI.Instance.InGameUI.ShakeHPUI();
     }
     
     public void UpdateCurrency(int amount)
@@ -50,7 +51,7 @@ public class GameManager : NhoxBehaviour
 
     public bool HasEnoughCurrency(int amount)
     {
-        if (amount < currency)
+        if (amount <= currency)
         {
             currency -= amount;
             OnCurrencyChanged?.Invoke();

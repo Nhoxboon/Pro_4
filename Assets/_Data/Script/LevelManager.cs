@@ -44,18 +44,6 @@ public class LevelManager : NhoxBehaviour
                 buildBtn.UnlockTower(tower.towerName, tower.unlocked);
             }
         }
-    }
-}
-
-[System.Serializable]
-public class TowerUnlockData
-{
-    public string towerName;
-    public bool unlocked;
-
-    public TowerUnlockData(string towerName, bool unlocked)
-    {
-        this.towerName = towerName;
-        this.unlocked = unlocked;
+        UI.Instance.InGameUI.BuildsBtnsUI.UpdateUnlockBtn();
     }
 }

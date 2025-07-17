@@ -5,43 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Editor/TowerUnlockConfigSOEditor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Editor/TowerUnlockConfigSOEditor.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Tower.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/TowerUnlockConfigSO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/TowerUnlockConfigSO.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerSpawner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerSpawner.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BuildBtn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BuildBtn.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildButtonUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildButtonUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerAtkRadiusDisplay.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerAtkRadiusDisplay.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreview.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreview.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreviewManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreviewManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerUnlockData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerUnlockData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Poise.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Poise/CombatPoiseData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Poise/CombatPoiseData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tower/CrossbowTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/Tower/CrossbowTower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtnUI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtn.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtnUI.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtn.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/UI/TowerBtn.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Spawner/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Spawner/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/BaseBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BaseBtn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildBtnsUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildsBtnUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildBtnsUI.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/BuildBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BuildBtn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildBtnsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildBtnsUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/CurrencyText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/CurrencyText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/HPText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/HPText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/HoverEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/HoverEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/UIAnimator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/UIAnimator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" afterDir="false" />
     </list>
@@ -66,19 +54,20 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e74f08236fb4c1791a523c0bf197e6c1df600/39/23c3692f/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e74f08236fb4c1791a523c0bf197e6c1df600/42/4b8bb4d1/GameObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ed8d042818eb4afeb6b5128b6a3d7b692ac00/d5/c5d6ebab/RaycastHit.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f94944bce4a949c0b9769a50346412ae8c00/2b/ee33bc74/Input.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fe6c424ab31e4676acc02e012cb1d93911200/82/2603b2df/NavMeshAgent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/EntityStatsDataSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerAtkRadiusDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/Slider/KeyboardSenSlider.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/CurrencyText.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/TextMeshPro/WaveTimerText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Utilities/GameObjectExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -95,25 +84,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;ToolWindow.GitHub Copilot Chat.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;rider.code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;rider.code.cleanup.on.save.profile&quot;: &quot;Built-in: Reformat Code&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;RiderUnityFileTemplatesSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "ToolWindow.GitHub Copilot Chat.ShowToolbar": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "rider.code.cleanup.on.save": "true",
+    "rider.code.cleanup.on.save.profile": "Built-in: Reformat Code",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.0.47f1/Unity.app/Contents/MacOS/Unity" />
@@ -227,6 +216,9 @@
       <workItem from="1752637500208" duration="4831000" />
       <workItem from="1752661357154" duration="14831000" />
       <workItem from="1752684192870" duration="197000" />
+      <workItem from="1752747422703" duration="3686000" />
+      <workItem from="1752751137702" duration="6000" />
+      <workItem from="1752755906399" duration="24308000" />
     </task>
     <servers />
   </component>

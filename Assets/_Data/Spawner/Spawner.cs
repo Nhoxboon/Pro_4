@@ -67,7 +67,7 @@ public abstract class Spawner : NhoxBehaviour
         return newPrefab;
     }
 
-    protected Transform GetPrefabByName(string prefabName)
+    public Transform GetPrefabByName(string prefabName)
     {
         foreach (Transform prefab in prefabs)
         {

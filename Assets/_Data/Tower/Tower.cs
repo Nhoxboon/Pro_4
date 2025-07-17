@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public abstract class Tower : NhoxBehaviour
 {
     public Enemy currentTarget;
-    [SerializeField] protected float attacleCooldown = 2f;
+    [SerializeField] protected float attackCooldown = 2f;
     protected float lastAttackTime;
 
     [Header("Tower Setup")] [SerializeField]
@@ -21,6 +21,8 @@ public abstract class Tower : NhoxBehaviour
 
     [Header("Attack Settings")] [SerializeField]
     protected float attackRange = 2.5f;
+
+    public float AttackRange => attackRange;
 
     [SerializeField] protected LayerMask whatIsEnemy;
 
@@ -80,7 +82,7 @@ public abstract class Tower : NhoxBehaviour
 
     protected bool CanAttack()
     {
-        if (Time.time > lastAttackTime + attacleCooldown)
+        if (Time.time > lastAttackTime + attackCooldown)
         {
             lastAttackTime = Time.time;
             return true;
@@ -88,7 +90,7 @@ public abstract class Tower : NhoxBehaviour
 
         return false;
     }
-    
+
     protected void LoseTarget()
     {
         if (Vector3.Distance(AttackCenter, currentTarget.GetCenterPoint()) > attackRange) currentTarget = null;
@@ -123,9 +125,10 @@ public abstract class Tower : NhoxBehaviour
         List<Enemy> priorityTargets = new List<Enemy>();
         List<Enemy> possibleTargets = new List<Enemy>();
 
-        foreach (Collider enemy in Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy))
+        Collider[] enemies = Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy);
+        for (int i = 0; i < enemies.Length; i++)
         {
-            if (!enemy.TryGetComponent<Enemy>(out var newEnemy)) continue;
+            if (!enemies[i].TryGetComponent<Enemy>(out var newEnemy)) continue;
 
             (newEnemy.GetEnemyType() == enemyPriorityType ? priorityTargets : possibleTargets).Add(newEnemy);
         }

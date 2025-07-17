@@ -10,10 +10,16 @@ public class TowerSpawner : Spawner
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one instance of TowerSpawner allowed to exist");
+            Debug.LogError("Only one TowerSpawner allowed to exist");
             return;
         }
 
         instance = this;
+    }
+
+    public float GetAttackRange(string towerName)
+    {
+        Transform prefab = GetPrefabByName(towerName);
+        return prefab?.GetComponent<Tower>()?.AttackRange ?? 0f;
     }
 }
