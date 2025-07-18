@@ -19,6 +19,8 @@ public class BuildManager : NhoxBehaviour
     [SerializeField] protected Material buildPreviewMat;
     public Material BuildPreviewMat => buildPreviewMat;
 
+    protected bool isMouseOverUI;
+
     protected override void Awake()
     {
         base.Awake();
@@ -36,12 +38,10 @@ public class BuildManager : NhoxBehaviour
     {
         if (InputManager.Instance.IsEscDown) CancelBuildAction();
 
-        if (InputManager.Instance.IsLeftMouseDown)
+        if (!InputManager.Instance.IsLeftMouseDown || isMouseOverUI) return;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(InputManager.Instance.MousePosition), out RaycastHit hit))
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(InputManager.Instance.MousePosition), out RaycastHit hit))
-            {
-                if (!hit.collider.TryGetComponent(out BuildSlot _)) CancelBuildAction();
-            }
+            if (!hit.collider.TryGetComponent(out BuildSlot _)) CancelBuildAction();
         }
     }
 
@@ -57,6 +57,8 @@ public class BuildManager : NhoxBehaviour
         currentGridB = FindFirstObjectByType<GridBuilder>();
         Debug.Log(transform.name + " LoadGridBuilder", gameObject);
     }
+
+    public void MouseOverUI(bool value) => isMouseOverUI = value;
 
     public void MakeBuildSlotUnavailable(WaveManager waveManager, GridBuilder currentGrid)
     {

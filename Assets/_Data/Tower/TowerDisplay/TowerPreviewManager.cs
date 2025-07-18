@@ -15,6 +15,7 @@ public class TowerPreviewManager : NhoxBehaviour
             Debug.LogError("Only one TowerPreviewManager allowed to exist");
             return;
         }
+
         instance = this;
     }
 
@@ -33,13 +34,10 @@ public class TowerPreviewManager : NhoxBehaviour
 
     public TowerPreview CreatePreviewForTower(GameObject towerPrefab)
     {
-        if (towerPrefab == null)
-        {
-            Debug.LogWarning("Cannot create preview for null tower prefab");
-            return null;
-        }
+        if (towerPrefab == null) return null;
 
         GameObject previewObject = Instantiate(towerPrefab, Vector3.zero, Quaternion.identity, previewHolder);
+        previewObject.name = towerPrefab.name;
         TowerPreview preview = previewObject.AddComponent<TowerPreview>();
         previewObject.SetActive(false);
 
@@ -53,19 +51,9 @@ public class TowerPreviewManager : NhoxBehaviour
         preview.gameObject.SetActive(show);
 
         if (show)
-        {
-            Vector3 previewPosition = position;
-            if (position.y < towerCenterY)
-            {
-                previewPosition = new Vector3(position.x, towerCenterY, position.z);
-            }
-
-            preview.ShowPreview(true, previewPosition);
-        }
+            preview.ShowPreview(true, new Vector3(position.x, towerCenterY, position.z));
         else
-        {
             preview.ShowPreview(false, Vector3.zero);
-        }
     }
 
     public void HideAllPreviews()

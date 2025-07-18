@@ -8,8 +8,7 @@ public class UI : NhoxBehaviour
     [SerializeField] protected GameObject[] uiElements;
     [SerializeField] protected UIAnimator uiAnimator;
     public UIAnimator UiAnimator => uiAnimator;
-    [Space]
-    [SerializeField] protected MenuUI menuUI;
+    [Space] [SerializeField] protected MenuUI menuUI;
     [SerializeField] protected SettingsUI settingsUI;
     [SerializeField] protected InGameUI inGameUI;
     public InGameUI InGameUI => inGameUI;
@@ -22,7 +21,7 @@ public class UI : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one instance of UI allow to exist");
+            DebugTool.LogError("Only one instance of UI allow to exist");
             return;
         }
 
@@ -53,21 +52,21 @@ public class UI : NhoxBehaviour
 
         for (int i = 0; i < childCount; i++) uiElements[i] = transform.GetChild(i).gameObject;
 
-        Debug.Log(transform.name + " :LoadUIElements", gameObject);
+        DebugTool.Log(transform.name + " :LoadUIElements", gameObject);
     }
 
     protected void LoadUIAnimator()
     {
-        if(uiAnimator != null) return;
+        if (uiAnimator != null) return;
         uiAnimator = GetComponent<UIAnimator>();
-        Debug.Log(transform.name + " :LoadUIAnimator", gameObject);
+        DebugTool.Log(transform.name + " :LoadUIAnimator", gameObject);
     }
 
     protected void LoadMenuUI()
     {
         if (menuUI != null) return;
         menuUI = GetComponentInChildren<MenuUI>(true);
-        Debug.Log(transform.name + " :LoadMenuUI", gameObject);
+        DebugTool.Log(transform.name + " :LoadMenuUI", gameObject);
     }
 
     protected void LoadSettingsUI()
@@ -75,28 +74,28 @@ public class UI : NhoxBehaviour
         if (settingsUI != null) return;
         // Ensure that SettingsUI is below PauseUI in the hierarchy
         settingsUI = GetComponentInChildren<SettingsUI>(true);
-        Debug.Log(transform.name + " :LoadSettingsUI", gameObject);
+        DebugTool.Log(transform.name + " :LoadSettingsUI", gameObject);
     }
 
     protected void LoadInGameUI()
     {
         if (inGameUI != null) return;
         inGameUI = GetComponentInChildren<InGameUI>(true);
-        Debug.Log(transform.name + " :LoadInGameUI", gameObject);
+        DebugTool.Log(transform.name + " :LoadInGameUI", gameObject);
     }
 
     protected void LoadPauseUI()
     {
         if (pauseUI != null) return;
         pauseUI = GetComponentInChildren<PauseUI>(true);
-        Debug.Log(transform.name + " :LoadPauseUI", gameObject);
+        DebugTool.Log(transform.name + " :LoadPauseUI", gameObject);
     }
 
     protected void LoadFadeImage()
     {
         if (fadeImage != null) return;
         fadeImage = GetComponentInChildren<FadeImage>(true);
-        Debug.Log(transform.name + " :LoadFadeImage", gameObject);
+        DebugTool.Log(transform.name + " :LoadFadeImage", gameObject);
     }
 
     public void SwitchToUI(GameObject uiEnable)

@@ -12,6 +12,9 @@ public class GameManager : NhoxBehaviour
     public int MaxHP => maxHP;
     [SerializeField] protected int currentHP;
     public int CurrentHP => currentHP;
+
+    protected bool isInGame;
+    public bool IsInGame => isInGame;
     
     public Action OnHPChanged;
     public Action OnCurrencyChanged;
@@ -35,6 +38,8 @@ public class GameManager : NhoxBehaviour
         OnHPChanged?.Invoke();
         OnCurrencyChanged?.Invoke();
     }
+
+    public void SetInGame(bool value) => isInGame = value;
 
     public void UpdateHP(int amount)
     {

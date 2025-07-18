@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HoverEffect : NhoxBehaviour, IPointerExitHandler
+public class HoverEffect : NhoxBehaviour
 {
     [SerializeField] protected float adjustmentSpeed = 10f;
 
-    [SerializeField] protected float showcaseY = 225f;
+    [SerializeField] protected float showcaseY = 215f;
     [SerializeField] protected float defaultY = 175f;
-    [SerializeField] protected float selectedY;
 
     protected float targetY;
     protected bool canMove;
@@ -41,6 +40,4 @@ public class HoverEffect : NhoxBehaviour, IPointerExitHandler
     {
         SetTargetY(showcase ? showcaseY : defaultY);
     }
-
-    public void OnPointerExit(PointerEventData eventData) => SetTargetY(selectedY);
 }

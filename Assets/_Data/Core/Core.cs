@@ -10,7 +10,7 @@ public class Core : NhoxBehaviour
 
     [SerializeField] protected GameObject root;
     public GameObject Root => root;
-    
+
     [SerializeField] protected Enemy enemy;
     public Enemy Enemy => enemy;
 
@@ -19,6 +19,9 @@ public class Core : NhoxBehaviour
 
     [SerializeField] protected Stats stats;
     public Stats Stats => stats;
+
+    [SerializeField] protected DamageReceiver damageReceiver;
+    public DamageReceiver DamageReceiver => damageReceiver;
 
     [SerializeField] protected Death death;
     public Death Death => death;
@@ -32,6 +35,7 @@ public class Core : NhoxBehaviour
         LoadEnemy();
         LoadMovement();
         LoadStats();
+        LoadDamageReceiver();
         LoadDeath();
     }
 
@@ -41,7 +45,7 @@ public class Core : NhoxBehaviour
         root = transform.parent.gameObject;
         Debug.Log(transform.name + " LoadRoot", gameObject);
     }
-    
+
     protected void LoadEnemy()
     {
         if (enemy != null) return;
@@ -61,6 +65,13 @@ public class Core : NhoxBehaviour
         if (stats != null) return;
         stats = GetComponentInChildren<Stats>();
         Debug.Log(transform.name + " LoadStats", gameObject);
+    }
+
+    protected void LoadDamageReceiver()
+    {
+        if (damageReceiver != null) return;
+        damageReceiver = GetComponentInChildren<DamageReceiver>();
+        Debug.Log(transform.name + " LoadDamageReceiver", gameObject);
     }
 
     protected void LoadDeath()

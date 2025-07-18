@@ -25,15 +25,13 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (InputManager.Instance.IsRightMouseHeld || InputManager.Instance.IsMiddleMouseHeld ||
-            InputManager.Instance.IsMiddleMouseDown || !buildSlotAvailable || !tileCanMove) return;
-
+        if (!buildSlotAvailable || !tileCanMove || !GameManager.Instance.IsInGame) return;
         MoveTileUp();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!tileCanMove || !buildSlotAvailable) return;
+        if (!tileCanMove || !buildSlotAvailable || !GameManager.Instance.IsInGame) return;
 
         if (currentMoveUpCoroutine != null) Invoke(nameof(MoveTileDown), TileManager.Instance.YMovementDuration);
         else

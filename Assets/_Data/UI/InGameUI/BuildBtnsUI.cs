@@ -12,9 +12,13 @@ public class BuildBtnsUI : NhoxBehaviour
     [SerializeField] protected BuildBtn[] buildBtns;
     public BuildBtn[] BuildBtns => buildBtns;
     [SerializeField] protected List<BuildBtn> unlockedBtn;
-    public List<BuildBtn> UnlockedBtn => unlockedBtn;
     protected BuildBtn lastSelectedBtn;
     public BuildBtn LastSelectedBtn => lastSelectedBtn;
+
+    protected void Update()
+    {
+        HandleButtonHotKeys();
+    }
 
     protected override void LoadComponents()
     {
@@ -38,6 +42,30 @@ public class BuildBtnsUI : NhoxBehaviour
     }
 
     public void SetLastSelectedBtn(BuildBtn newLastSelectedBtn) => lastSelectedBtn = newLastSelectedBtn;
+
+    public void SelectNewBtn(int btnIndex)
+    {
+        if (btnIndex >= unlockedBtn.Count) return;
+        foreach (var btn in unlockedBtn)
+            btn.SelectBtn(false);
+
+        BuildBtn selectedBtn = unlockedBtn[btnIndex];
+        selectedBtn.SelectBtn(true);
+    }
+
+    protected void HandleButtonHotKeys()
+    {
+        if (!isBuildMenuActive) return;
+        for (int i = 0; i < unlockedBtn.Count; i++)
+        {
+            if (!InputManager.Instance.IsNumberKeyDown[1 + i]) continue;
+            SelectNewBtn(i);
+            break;
+        }
+
+        if (InputManager.Instance.IsSpaceDown)
+            lastSelectedBtn?.BuildTower();
+    }
 
     public void ShowBtn(bool showBtns)
     {
@@ -68,8 +96,7 @@ public class BuildBtnsUI : NhoxBehaviour
     public void UpdateUnlockBtn()
     {
         foreach (var btn in buildBtns)
-        {
-            if(btn.BtnUnlocked) unlockedBtn.Add(btn);
-        }
+            if (btn.BtnUnlocked)
+                unlockedBtn.Add(btn);
     }
 }

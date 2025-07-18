@@ -10,17 +10,11 @@ public class CameraEffects : NhoxBehaviour
     [Space] [SerializeField] protected Vector3 inGamePosition;
     [SerializeField] protected Quaternion inGameRotation;
 
-    [Header("Camera Shake Effects")] [Range(0.01f, 5f)] [SerializeField]
-    protected float shakeMagnitude = 0.05f;
-
-    [Range(0.1f, 3f)] [SerializeField] protected float shakeDuration = 0.1f;
-
     //ForTesting purposes
-    protected void Update()
+    protected override void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SwitchToMenuView();
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SwitchToGameView();
-        if (Input.GetKeyDown(KeyCode.V)) ScreenShake(shakeMagnitude, shakeDuration);
+        base.Start();
+        SwitchToGameView();
     }
 
     protected override void LoadComponents()
@@ -41,12 +35,14 @@ public class CameraEffects : NhoxBehaviour
     public void SwitchToMenuView()
     {
         StartCoroutine(ChangePositionAndRotation(inMenuPosition, inMenuRotation));
+        // GameManager.Instance.SetInGame(false);
         cameraController.AdjustPitch(inMenuRotation.eulerAngles.x);
     }
 
     public void SwitchToGameView()
     {
         StartCoroutine(ChangePositionAndRotation(inGamePosition, inGameRotation));
+        GameManager.Instance.SetInGame(true);
         cameraController.AdjustPitch(inGameRotation.eulerAngles.x);
     }
 

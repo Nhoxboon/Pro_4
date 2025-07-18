@@ -23,7 +23,7 @@ public class TowerPreview : NhoxBehaviour
         atkRadiusDisplay = radiusDisplayObj.AddComponent<TowerAtkRadiusDisplay>();
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
 
-        attackRange = TowerSpawner.Instance.GetAttackRange(transform.name.Replace("(Clone)", ""));
+        attackRange = TowerSpawner.Instance.GetAttackRange(transform.name);
 
         MakeMeshTransparent();
 

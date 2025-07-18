@@ -217,9 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adjustmentSpeed: 10
-  showcaseY: 225
+  showcaseY: 215
   defaultY: 175
-  selectedY: 190
 --- !u!114 &6692716524917214459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,8 +252,6 @@ MonoBehaviour:
   towerName: Tower
   towerPrice: 50
   towerCenterY: 2
-  towerAtkRadiusDisplay: {fileID: 0}
-  towerPreview: {fileID: 0}
   towerToBuild: {fileID: 0}
   buildBtnUI: {fileID: 6692716524917214459}
 --- !u!1 &4779621578471806514

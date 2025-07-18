@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BuildBtn : BaseBtn, IPointerEnterHandler
+public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Build Button")] [SerializeField]
     protected CameraEffects camEffects;
+
     [SerializeField] HoverEffect hoverEffect;
 
     [SerializeField] protected bool btnUnlocked;
@@ -46,7 +47,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler
 
     protected void LoadHoverEffect()
     {
-        if(hoverEffect != null) return;
+        if (hoverEffect != null) return;
         hoverEffect = GetComponent<HoverEffect>();
         Debug.Log(transform.name + " :LoadHoverEffect", gameObject);
     }
@@ -65,6 +66,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler
     }
 
     #region Building
+
     public void BuildTower()
     {
         if (!CanBuild())
@@ -72,6 +74,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler
             UI.Instance.InGameUI.ShakeCurrencyUI();
             return;
         }
+
         BuildSlot slotUsed = BuildManager.Instance.SelectedBuildSlot;
         BuildManager.Instance.CancelBuildAction();
 
@@ -82,6 +85,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler
 
         FinalizeSlotAfterBuild(slotUsed);
 
+        UI.Instance.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(null);
         camEffects.ScreenShake(0.15f, 0.2f);
     }
 
@@ -90,9 +94,11 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler
         slot.SnapToDefaultPositionImmediately();
         slot.SetSlotAvailable(false);
     }
+
     #endregion
 
     #region Button Functionality
+
     public void UnlockTower(string towerNameChecked, bool unlocked)
     {
         if (towerNameChecked != towerName) return;
@@ -115,17 +121,23 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        BuildManager.Instance.MouseOverUI(true);
         foreach (var btn in UI.Instance.InGameUI.BuildsBtnsUI.BuildBtns)
-            btn.SelectBtn(false);
+            if (btn.gameObject.activeSelf)
+                btn.SelectBtn(false);
         SelectBtn(true);
     }
+
+    public void OnPointerExit(PointerEventData eventData) => BuildManager.Instance.MouseOverUI(false);
+
     #endregion
 
-    protected bool CanBuild() => GameManager.Instance.HasEnoughCurrency(towerPrice);
+    protected bool CanBuild() => GameManager.Instance.HasEnoughCurrency(towerPrice) || towerToBuild is null ||
+                                 UI.Instance.InGameUI.BuildsBtnsUI.LastSelectedBtn is null;
 
     protected bool ActivateTower(Transform tower)
     {
-        if (tower == null) return false;
+        if (tower is null) return false;
         tower.gameObject.SetActive(true);
         return true;
     }

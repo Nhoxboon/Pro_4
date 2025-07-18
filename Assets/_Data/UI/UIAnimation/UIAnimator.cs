@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class UIAnimator : NhoxBehaviour
 {
-    [Header("UI Feedback")] [SerializeField]
+    [Header("UI Feedback")] [Range(0.01f, 5f)] [SerializeField]
     protected float shakeMagnitude = 5f;
-    [SerializeField] protected float shakeDuration = 0.25f;
+
+    [Range(0.1f, 3f)] [SerializeField] protected float shakeDuration = 0.25f;
     [SerializeField] protected float shakeRotationMagnitude = 3f;
-    [Space]
-    [SerializeField] protected float defaultUIScale = 1.75f;
+    [Space] [SerializeField] protected float defaultUIScale = 1.75f;
     [SerializeField] protected bool scaleAvailable;
 
     public void Shake(Transform transform)
@@ -38,6 +38,7 @@ public class UIAnimator : NhoxBehaviour
             time += Time.deltaTime;
             yield return null;
         }
+
         rectTransform.anchoredPosition = originalPosition;
         rectTransform.localRotation = Quaternion.Euler(Vector3.zero);
         if (scaleAvailable)
@@ -64,6 +65,7 @@ public class UIAnimator : NhoxBehaviour
 
             yield return null;
         }
+
         rectTransform.anchoredPosition = targetPosition;
     }
 
@@ -86,6 +88,7 @@ public class UIAnimator : NhoxBehaviour
 
             yield return null;
         }
+
         rectTransform.localScale = targetScale;
     }
 
@@ -107,6 +110,7 @@ public class UIAnimator : NhoxBehaviour
 
             yield return null;
         }
+
         image.color = new Color(currentColor.r, currentColor.g, currentColor.b, targetAlpha);
     }
 }

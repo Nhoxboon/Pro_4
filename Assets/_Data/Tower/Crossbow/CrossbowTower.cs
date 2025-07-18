@@ -35,10 +35,9 @@ public class CrossbowTower : Tower
         if (Physics.Raycast(gunPoint.position, DirectionToTarget(gunPoint), out RaycastHit hitInfo, Mathf.Infinity))
         {
             towerHead.forward = DirectionToTarget(gunPoint);
-            // Debug.DrawLine(gunPoint.position, hitInfo.point);
 
-            if (hitInfo.collider.TryGetComponentInChildren<IDamageable>(out IDamageable damageable))
-                damageable.TakeDamage(damage);
+            if (hitInfo.collider.TryGetComponent<Enemy>(out Enemy enemy))
+                enemy.Core.DamageReceiver?.TakeDamage(damage);
 
             visual.PlayAttackVFX(gunPoint.position, hitInfo.point, currentTarget);
             visual.ReloadVFX(attackCooldown);

@@ -178,6 +178,7 @@ MonoBehaviour:
   enemy: {fileID: 7057820511486038792}
   movement: {fileID: 440471267944273044}
   stats: {fileID: 1482586917008509205}
+  damageReceiver: {fileID: 7597470965265715831}
   death: {fileID: 1283688642212362099}
 --- !u!1 &731834301177421275
 GameObject:
@@ -540,7 +541,6 @@ MonoBehaviour:
   health:
     maxValue: 0
     currentValue: 0
-  entityStatsDataSO: {fileID: 0}
 --- !u!1 &6849148000696024975
 GameObject:
   m_ObjectHideFlags: 0
