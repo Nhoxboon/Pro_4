@@ -8,6 +8,7 @@ public class InGameUI : NhoxBehaviour
     [SerializeField] protected TextMeshProUGUI hpText;
     [SerializeField] protected TextMeshProUGUI currencyText;
     [SerializeField] protected TextMeshProUGUI waveTimeText;
+    public TextMeshProUGUI WaveTimeText => waveTimeText;
 
     [SerializeField] protected BuildBtnsUI buildsBtnsUI;
     public BuildBtnsUI BuildsBtnsUI => buildsBtnsUI;

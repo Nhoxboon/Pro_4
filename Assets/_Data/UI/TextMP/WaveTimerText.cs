@@ -9,10 +9,10 @@ public class WaveTimerText : BaseText
     protected override void Start()
     {
         base.Start();
-        WaveManager.Instance.OnWaveTimerUpdated += OnWaveTimeChanged;
+        WaveTimingManager.Instance.OnWaveTimerUpdated += OnWaveTimeChanged;
     }
 
-    protected override void OnDestroy() => WaveManager.Instance.OnWaveTimerUpdated -= OnWaveTimeChanged;
+    protected override void OnDestroy() => WaveTimingManager.Instance.OnWaveTimerUpdated -= OnWaveTimeChanged;
 
     protected override void LoadComponents()
     {
@@ -29,13 +29,13 @@ public class WaveTimerText : BaseText
 
     protected void OnWaveTimeChanged()
     {
-        UpdateWaveTimeUI(WaveManager.Instance.WaveTimer);
-        EnableWaveTimerUI(WaveManager.Instance.WaveTimer > 0);
+        UpdateWaveTimeUI(WaveTimingManager.Instance.WaveTimer);
+        EnableWaveTimerUI(WaveTimingManager.Instance.WaveTimerEnabled);
     }
 
-    public void UpdateWaveTimeUI(float value) => textMeshPro.text = "Seconds: " + value.ToString("00");
+    protected void UpdateWaveTimeUI(float value) => textMeshPro.text = "Seconds: " + value.ToString("00");
 
-    public void EnableWaveTimerUI(bool enable)
+    protected void EnableWaveTimerUI(bool enable)
     {
         if (IsEnabled == enable) return;
         IsEnabled = enable;
