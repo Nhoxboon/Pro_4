@@ -33,8 +33,7 @@ public class InputManager : NhoxBehaviour
         base.Awake();
         if (instance != null && instance != this)
         {
-            Debug.LogError("Only one InputManager allowed to exist");
-            Destroy(gameObject);
+            // DebugTool.LogError("Only one InputManager allowed to exist");
             return;
         }
         instance = this;

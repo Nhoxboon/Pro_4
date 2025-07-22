@@ -21,13 +21,13 @@ public abstract class BaseText : NhoxBehaviour
     {
         if(uiAnimator != null) return;
         uiAnimator = GetComponentInParent<UIAnimator>();
-        Debug.Log(transform.name + " :LoadUIAnimator", gameObject);
+        DebugTool.Log(transform.name + " :LoadUIAnimator", gameObject);
     }
 
     protected void LoadTextMeshPro()
     {
         if (textMeshPro != null) return;
         textMeshPro = GetComponent<TextMeshProUGUI>();
-        Debug.Log(transform.name + " :LoadTextMeshPro", gameObject);
+        DebugTool.Log(transform.name + " :LoadTextMeshPro", gameObject);
     }
 }

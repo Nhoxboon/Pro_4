@@ -16,6 +16,6 @@ public class MenuUI : NhoxBehaviour
     {
         if (buttons is { Length: > 0 }) return;
         buttons = GetComponentsInChildren<Button>(true);
-        Debug.Log(transform.name + " :LoadButtons", gameObject);
+        DebugTool.Log(transform.name + " :LoadButtons", gameObject);
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class GridBuilder : MonoBehaviour
 {
     protected NavMeshSurface navMeshSurface;
-    
+
     [SerializeField] protected GameObject mainPrefab;
 
     [SerializeField] protected int gridLenght = 10;
@@ -14,10 +14,18 @@ public class GridBuilder : MonoBehaviour
 
     [SerializeField] protected List<GameObject> createdTiles;
     public List<GameObject> CreatedTiles => createdTiles;
-    
+    protected bool hadFirstBuild;
+
     protected void Awake() => navMeshSurface = GetComponent<NavMeshSurface>();
-    
+
     public void UpdateNavMesh() => navMeshSurface.BuildNavMesh();
+
+    public bool IsOnFirstBuild()
+    {
+        if (hadFirstBuild) return false;
+        hadFirstBuild = true;
+        return true;
+    }
 
     [ContextMenu("Build Grid")]
     protected void BuildGrid()
@@ -45,5 +53,6 @@ public class GridBuilder : MonoBehaviour
         GameObject newTile = Instantiate(mainPrefab, newPosition, Quaternion.identity, transform);
 
         createdTiles.Add(newTile);
+        newTile.GetComponent<TileSlot>().TurnIntoBuildSlot(mainPrefab);
     }
 }

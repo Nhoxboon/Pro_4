@@ -66,7 +66,7 @@ public class CameraController : NhoxBehaviour
     {
         if (focusPoint != null) return;
         focusPoint = transform.parent.Find("FocusPoint");
-        Debug.Log(transform.name + " :LoadFocusPoint", gameObject);
+        DebugTool.Log(transform.name + " :LoadFocusPoint", gameObject);
     }
 
     public void EnableCameraControl(bool enable) => canControl = enable;

@@ -36,17 +36,15 @@ public class TileSlot : MonoBehaviour
     public Material GetMaterial() => MeshRenderer.sharedMaterial;
     public Mesh GetMesh() => MeshFilter.sharedMesh;
 
-    protected void TurnIntoBuildSlot(GameObject referenceTile)
+    public void TurnIntoBuildSlot(GameObject referenceTile)
     {
-        BuildSlot buildSlot = GetComponent<BuildSlot>();
-
-        if (referenceTile != tileSetHolder.tileField)
+        if (TryGetComponent<BuildSlot>(out var buildSlot))
         {
-            if (buildSlot is not null) DestroyImmediate(buildSlot.gameObject);
+            if (referenceTile != tileSetHolder.tileField) DestroyImmediate(buildSlot);
         }
         else
         {
-            if (buildSlot is null) gameObject.AddComponent<BuildSlot>();
+            if (referenceTile == tileSetHolder.tileField) gameObject.AddComponent<BuildSlot>();
         }
     }
 

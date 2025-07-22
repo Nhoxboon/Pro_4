@@ -20,7 +20,7 @@ public abstract class BaseBtn : NhoxBehaviour
     {
         if (button != null) return;
         button = GetComponent<Button>();
-        Debug.Log(transform.name + " :LoadButton", gameObject);
+        DebugTool.Log(transform.name + " :LoadButton", gameObject);
     }
 
     protected abstract void OnClick();

@@ -12,7 +12,7 @@ public class TowerPreviewManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one TowerPreviewManager allowed to exist");
+            // DebugTool.LogError("Only one TowerPreviewManager allowed to exist");
             return;
         }
 
@@ -29,7 +29,7 @@ public class TowerPreviewManager : NhoxBehaviour
     {
         if (previewHolder != null) return;
         previewHolder = transform.Find("Holder");
-        Debug.Log(transform.name + " LoadHolder", gameObject);
+        DebugTool.Log(transform.name + " LoadHolder", gameObject);
     }
 
     public TowerPreview CreatePreviewForTower(GameObject towerPrefab)

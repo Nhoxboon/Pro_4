@@ -21,7 +21,7 @@ public abstract class Spawner : NhoxBehaviour
     {
         if (holder != null) return;
         holder = transform.Find("Holder");
-        Debug.Log(transform.name + " :LoadHolder", gameObject);
+        DebugTool.Log(transform.name + " :LoadHolder", gameObject);
     }
 
     protected virtual void LoadPrefabs()
@@ -50,7 +50,7 @@ public abstract class Spawner : NhoxBehaviour
         Transform prefab = GetPrefabByName(prefabName);
         if (prefab is null)
         {
-            // Debug.LogError($"Prefab {prefabName} not found!");
+            // DebugTool.LogError($"Prefab {prefabName} not found!");
             return null;
         }
 

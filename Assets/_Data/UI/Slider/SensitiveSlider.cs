@@ -19,7 +19,7 @@ public abstract class SensitiveSlider : BaseSlider
     {
         if (cameraController != null) return;
         cameraController = FindFirstObjectByType<CameraController>();
-        Debug.Log(transform.name + " :LoadCameraController", gameObject);
+        DebugTool.Log(transform.name + " :LoadCameraController", gameObject);
     }
 
     protected override void OnValueChanged(float value) => SetSensitivity(value);

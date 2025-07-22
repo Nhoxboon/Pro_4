@@ -23,7 +23,7 @@ public abstract class CoreComponent : NhoxBehaviour
     {
         if (core != null) return;
         core = transform.parent.GetComponent<Core>();
-        Debug.Log(transform.name + " LoadCore", gameObject);
+        DebugTool.Log(transform.name + " LoadCore", gameObject);
     }
 
     public virtual void LogicUpdate()

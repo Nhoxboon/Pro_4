@@ -18,14 +18,14 @@ public class BuildButtonUI : NhoxBehaviour
     {
         if (towerNameText != null) return;
         towerNameText = transform.Find("TowerName").GetComponent<TextMeshProUGUI>();
-        Debug.Log(transform.name + " :LoadTowerNameText", gameObject);
+        DebugTool.Log(transform.name + " :LoadTowerNameText", gameObject);
     }
 
     protected void LoadTowerPriceText()
     {
         if (towerPriceText != null) return;
         towerPriceText = transform.Find("TowerPrice").GetComponent<TextMeshProUGUI>();
-        Debug.Log(transform.name + " :LoadTowerPriceText", gameObject);
+        DebugTool.Log(transform.name + " :LoadTowerPriceText", gameObject);
     }
 
     public void SetInfo(string towerName, int towerPrice)

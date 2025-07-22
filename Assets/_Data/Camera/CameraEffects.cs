@@ -27,7 +27,7 @@ public class CameraEffects : NhoxBehaviour
     {
         if (cameraController != null) return;
         cameraController = GetComponent<CameraController>();
-        Debug.Log(transform.name + " :LoadCameraController", gameObject);
+        DebugTool.Log(transform.name + " :LoadCameraController", gameObject);
     }
 
     public void ScreenShake(float magnitude, float duration) => StartCoroutine(ScreenShakeFX(magnitude, duration));

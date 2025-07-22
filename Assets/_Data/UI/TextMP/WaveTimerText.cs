@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveTimerText : BaseText
 {
@@ -6,13 +7,23 @@ public class WaveTimerText : BaseText
     [SerializeField] protected float waveTimerOffset = 196f;
     protected bool IsEnabled;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
-        WaveTimingManager.Instance.OnWaveTimerUpdated += OnWaveTimeChanged;
+        base.Awake();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    protected override void OnDestroy() => WaveTimingManager.Instance.OnWaveTimerUpdated -= OnWaveTimeChanged;
+    protected override void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        WaveTimingManager.Instance.OnWaveTimerUpdated -= OnWaveTimeChanged;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "MainScene") return;
+        if (WaveTimingManager.Instance != null) WaveTimingManager.Instance.OnWaveTimerUpdated += OnWaveTimeChanged;
+    }
 
     protected override void LoadComponents()
     {
@@ -24,7 +35,7 @@ public class WaveTimerText : BaseText
     {
         if (textEff != null) return;
         textEff = transform.parent.GetComponentInChildren<TextBlinkEffect>();
-        Debug.Log(transform.name + " :LoadTextBlinkEffect", gameObject);
+        DebugTool.Log(transform.name + " :LoadTextBlinkEffect", gameObject);
     }
 
     protected void OnWaveTimeChanged()

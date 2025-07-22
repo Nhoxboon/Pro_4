@@ -16,6 +16,6 @@ public class SettingsUI : NhoxBehaviour
     {
         if(sliders is { Length: > 0 }) return;
         sliders = GetComponentsInChildren<Slider>(true);
-        Debug.Log(transform.name + " :LoadSliders", gameObject);
+        DebugTool.Log(transform.name + " :LoadSliders", gameObject);
     }
 }

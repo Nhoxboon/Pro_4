@@ -15,7 +15,7 @@ public class InGameUI : NhoxBehaviour
 
     protected void Update()
     {
-        if (InputManager.Instance.IsF10Down) UI.Instance.SwitchToUI(UI.Instance.PauseUI.gameObject);
+        if (InputManager.Instance.IsF10Down) UI.Instance.EnablePauseUI(true);
     }
 
     protected override void LoadComponents()
@@ -31,28 +31,28 @@ public class InGameUI : NhoxBehaviour
     {
         if (hpText != null) return;
         hpText = transform.Find("HealthPointUI").GetComponentInChildren<TextMeshProUGUI>(true);
-        Debug.Log(transform.name + " :LoadHPText", gameObject);
+        DebugTool.Log(transform.name + " :LoadHPText", gameObject);
     }
 
     protected void LoadCurrencyText()
     {
         if (currencyText != null) return;
         currencyText = transform.Find("CurrencyUI").GetComponentInChildren<TextMeshProUGUI>(true);
-        Debug.Log(transform.name + " :LoadCurrencyText", gameObject);
+        DebugTool.Log(transform.name + " :LoadCurrencyText", gameObject);
     }
 
     protected void LoadWaveTimeText()
     {
         if (waveTimeText != null) return;
         waveTimeText = transform.Find("WaveTimeUI").GetComponentInChildren<TextMeshProUGUI>(true);
-        Debug.Log(transform.name + " :LoadWaveTimeText", gameObject);
+        DebugTool.Log(transform.name + " :LoadWaveTimeText", gameObject);
     }
 
     protected void LoadBuildsBtnsUI()
     {
         if (buildsBtnsUI != null) return;
         buildsBtnsUI = GetComponentInChildren<BuildBtnsUI>(true);
-        Debug.Log(transform.name + " :LoadBuildsBtnUI", gameObject);
+        DebugTool.Log(transform.name + " :LoadBuildsBtnUI", gameObject);
     }
 
     public void ShakeHPUI() => UI.Instance.UiAnimator.Shake(hpText.transform.parent);

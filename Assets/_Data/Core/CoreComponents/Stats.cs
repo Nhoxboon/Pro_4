@@ -26,6 +26,6 @@ public class Stats : CoreComponent
     {
         // if (entityStatsDataSO != null) return;
         // entityStatsDataSO = Resources.Load<EntityStatsDataSO>("Enemies/Stats/" + transform.parent.parent.name + "Stats");
-        // Debug.Log(transform.name + " LoadEntityStatsDataSO", gameObject);
+        // DebugTool.Log(transform.name + " LoadEntityStatsDataSO", gameObject);
     }
 }

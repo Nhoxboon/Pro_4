@@ -43,42 +43,42 @@ public class Core : NhoxBehaviour
     {
         if (root != null) return;
         root = transform.parent.gameObject;
-        Debug.Log(transform.name + " LoadRoot", gameObject);
+        DebugTool.Log(transform.name + " LoadRoot", gameObject);
     }
 
     protected void LoadEnemy()
     {
         if (enemy != null) return;
         enemy = GetComponentInParent<Enemy>();
-        Debug.Log(transform.name + " LoadEnemy", gameObject);
+        DebugTool.Log(transform.name + " LoadEnemy", gameObject);
     }
 
     protected void LoadMovement()
     {
         if (movement != null) return;
         movement = GetComponentInChildren<Movement>();
-        Debug.Log(transform.name + " LoadMovement", gameObject);
+        DebugTool.Log(transform.name + " LoadMovement", gameObject);
     }
 
     protected void LoadStats()
     {
         if (stats != null) return;
         stats = GetComponentInChildren<Stats>();
-        Debug.Log(transform.name + " LoadStats", gameObject);
+        DebugTool.Log(transform.name + " LoadStats", gameObject);
     }
 
     protected void LoadDamageReceiver()
     {
         if (damageReceiver != null) return;
         damageReceiver = GetComponentInChildren<DamageReceiver>();
-        Debug.Log(transform.name + " LoadDamageReceiver", gameObject);
+        DebugTool.Log(transform.name + " LoadDamageReceiver", gameObject);
     }
 
     protected void LoadDeath()
     {
         if (death != null) return;
         death = GetComponentInChildren<Death>();
-        Debug.Log(transform.name + " LoadDeath", gameObject);
+        DebugTool.Log(transform.name + " LoadDeath", gameObject);
     }
 
     public void LogicUpdate()

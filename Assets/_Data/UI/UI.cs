@@ -8,6 +8,7 @@ public class UI : NhoxBehaviour
     [SerializeField] protected GameObject[] uiElements;
     [SerializeField] protected UIAnimator uiAnimator;
     public UIAnimator UiAnimator => uiAnimator;
+    protected bool isInMenuUI = true;
     [Space] [SerializeField] protected MenuUI menuUI;
     [SerializeField] protected SettingsUI settingsUI;
     [SerializeField] protected InGameUI inGameUI;
@@ -21,7 +22,7 @@ public class UI : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            DebugTool.LogError("Only one instance of UI allow to exist");
+            // DebugTool.LogError("Only one instance of UI allow to exist");
             return;
         }
 
@@ -29,7 +30,7 @@ public class UI : NhoxBehaviour
 
         SwitchToUI(settingsUI.gameObject);
         SwitchToUI(inGameUI.gameObject);
-        // SwitchToUI(menuUI.gameObject);
+        SwitchToUI(menuUI.gameObject);
     }
 
     protected override void LoadComponents()
@@ -102,6 +103,14 @@ public class UI : NhoxBehaviour
     {
         for (int i = 0; i < uiElements.Length; i++) uiElements[i].SetActive(false);
 
-        uiEnable.SetActive(true);
+        if (uiEnable is not null) uiEnable.SetActive(true);
     }
+    
+    public void EnableMenuUI(bool enable) => SwitchToUI(enable ? menuUI.gameObject : null);
+    
+    public void EnableSettingsUI(bool enable) => SwitchToUI(enable ? settingsUI.gameObject : null);
+    
+    public void EnableInGameUI(bool enable) => SwitchToUI(enable ? inGameUI.gameObject : null);
+    
+    public void EnablePauseUI(bool enable) => SwitchToUI(enable ? pauseUI.gameObject : null);
 }

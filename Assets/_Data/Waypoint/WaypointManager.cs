@@ -11,7 +11,7 @@ public class WaypointManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one WaypointManager instance allow to exist.");
+            DebugTool.LogError("Only one WaypointManager instance allow to exist.");
             return;
         }
         instance = this;
@@ -35,6 +35,6 @@ public class WaypointManager : NhoxBehaviour
         {
             waypoints[i] = transform.GetChild(i);
         }
-        Debug.Log($"Loaded {waypoints.Length} waypoints");
+        DebugTool.Log($"Loaded {waypoints.Length} waypoints");
     }
 }

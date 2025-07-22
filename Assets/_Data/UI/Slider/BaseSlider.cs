@@ -20,7 +20,7 @@ public abstract class BaseSlider : NhoxBehaviour
     {
         if (slider != null) return;
         slider = GetComponent<Slider>();
-        Debug.Log(transform.name + " :LoadSlider", gameObject);
+        DebugTool.Log(transform.name + " :LoadSlider", gameObject);
     }
 
     protected abstract void OnValueChanged(float value);

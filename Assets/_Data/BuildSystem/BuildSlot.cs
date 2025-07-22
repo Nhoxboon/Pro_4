@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
 
 public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
@@ -25,15 +26,15 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!buildSlotAvailable || !tileCanMove || !GameManager.Instance.IsInGame) return;
+        if (!buildSlotAvailable || !tileCanMove || !GameManager.Instance.IsInGame || TileManager.Instance.IsGridMoving) return;
         MoveTileUp();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!tileCanMove || !buildSlotAvailable || !GameManager.Instance.IsInGame) return;
+        if (!tileCanMove || !buildSlotAvailable || !GameManager.Instance.IsInGame || TileManager.Instance.IsGridMoving) return;
 
-        if (currentMoveUpCoroutine != null) Invoke(nameof(MoveTileDown), TileManager.Instance.YMovementDuration);
+        if (currentMoveUpCoroutine != null) Invoke(nameof(MoveTileDown), TileManager.Instance.DefaultMoveDuration);
         else
             MoveTileDown();
     }
@@ -41,7 +42,7 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left || !buildSlotAvailable ||
-            BuildManager.Instance.SelectedBuildSlot == this) return;
+            BuildManager.Instance.SelectedBuildSlot == this || TileManager.Instance.IsGridMoving) return;
 
         BuildManager.Instance.EnableBuildMenu();
         BuildManager.Instance.SelectBuildSlot(this);

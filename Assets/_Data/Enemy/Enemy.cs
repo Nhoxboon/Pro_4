@@ -27,21 +27,21 @@ public class Enemy : NhoxBehaviour
     {
         if (core != null) return;
         core = transform.GetComponentInChildren<Core>();
-        Debug.Log(transform.name + " LoadCore", gameObject);
+        DebugTool.Log(transform.name + " LoadCore", gameObject);
     }
 
     protected void LoadCenterPoint()
     {
         if (centerPoint != null) return;
         centerPoint = transform.Find("CenterPoint");
-        Debug.Log(transform.name + " :LoadCenterPoint", gameObject);
+        DebugTool.Log(transform.name + " :LoadCenterPoint", gameObject);
     }
 
     protected void LoadEnemyType()
     {
         if (enemyType != EnemyType.None) return;
         if (System.Enum.TryParse(transform.name, out EnemyType parsedType)) enemyType = parsedType;
-        Debug.Log(transform.name + " :LoadEnemyType", gameObject);
+        DebugTool.Log(transform.name + " :LoadEnemyType", gameObject);
     }
 
     public EnemyType GetEnemyType() => enemyType;

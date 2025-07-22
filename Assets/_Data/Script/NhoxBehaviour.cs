@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NhoxBehaviour : MonoBehaviour
 {
-
     protected virtual void Awake()
     {
         this.LoadComponents();
@@ -14,7 +11,6 @@ public class NhoxBehaviour : MonoBehaviour
     {
         //For override
     }
-
 
     protected virtual void LoadComponents()
     {

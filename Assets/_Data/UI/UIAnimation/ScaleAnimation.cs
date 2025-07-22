@@ -22,14 +22,14 @@ public class ScaleAnimation : NhoxBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (uiAnimator != null) return;
         uiAnimator = GetComponentInParent<UIAnimator>();
-        Debug.Log(transform.name + " :LoadUIAnimator", gameObject);
+        DebugTool.Log(transform.name + " :LoadUIAnimator", gameObject);
     }
 
     protected void LoadRectTransform()
     {
         if (rectTransform != null) return;
         rectTransform = GetComponent<RectTransform>();
-        Debug.Log(transform.name + " :LoadRectTransform", gameObject);
+        DebugTool.Log(transform.name + " :LoadRectTransform", gameObject);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

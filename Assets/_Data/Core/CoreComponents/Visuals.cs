@@ -24,14 +24,14 @@ public class Visuals : CoreComponent
     {
         if (visuals != null) return;
         visuals = core.Root.transform.Find("Model");
-        Debug.Log(transform.name + " :LoadVisuals", gameObject);
+        DebugTool.Log(transform.name + " :LoadVisuals", gameObject);
     }
 
     protected void LoadLayerMask()
     {
         if (whatIsGround != 0) return;
         whatIsGround = LayerMask.GetMask("Road");
-        Debug.Log(transform.name + " :LoadLayerMask", gameObject);
+        DebugTool.Log(transform.name + " :LoadLayerMask", gameObject);
     }
 
     protected void AlignWithSlope()

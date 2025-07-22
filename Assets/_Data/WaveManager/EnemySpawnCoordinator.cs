@@ -39,7 +39,7 @@ public class EnemySpawnCoordinator : WaveSystemManager
         makingNextWave = true;
 
         WaveTimingManager.Instance.AdvanceToNextWave();
-        int nextWaveIndex = WaveTimingManager.Instance.NextWaveIndex;
+        int nextWaveIndex = WaveTimingManager.Instance.CurrentWaveIndex;
 
         if (WaveTimingManager.Instance.HasNoMoreWaves()) return;
 
@@ -53,7 +53,7 @@ public class EnemySpawnCoordinator : WaveSystemManager
 
     private void OnLayoutUpdateCompleted()
     {
-        int nextWaveIndex = WaveTimingManager.Instance.NextWaveIndex;
+        int nextWaveIndex = WaveTimingManager.Instance.CurrentWaveIndex;
         WaveDetails[] levelWave = WaveTimingManager.Instance.LevelWave;
         EnableNewPortal(levelWave[nextWaveIndex].newPortals);
         WaveTimingManager.Instance.EnableWaveTimer(true);
@@ -98,7 +98,7 @@ public class EnemySpawnCoordinator : WaveSystemManager
 
     protected List<string> GetNewEnemy()
     {
-        int nextWaveIndex = WaveTimingManager.Instance.NextWaveIndex;
+        int nextWaveIndex = WaveTimingManager.Instance.CurrentWaveIndex;
         WaveDetails[] levelWave = WaveTimingManager.Instance.LevelWave;
 
         if (nextWaveIndex >= levelWave.Length) return null;

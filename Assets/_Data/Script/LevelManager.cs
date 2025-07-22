@@ -1,49 +1,84 @@
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : NhoxBehaviour
 {
     private static LevelManager instance;
     public static LevelManager Instance => instance;
-
-    [SerializeField] protected TowerUnlockConfigSO towerData;
+    
+    protected GridBuilder currentActiveGrid;
+    [SerializeField] protected string currentSceneName;
 
     protected override void Awake()
     {
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one LevelManager allowed to exist");
+            // DebugTool.LogError("Only one LevelManager allowed to exist");
+            return;
         }
+
+        instance = this;
     }
 
-    protected override void Start()
+    protected void Update()
     {
-        base.Start();
-        UnlockAvailableTowers();
+        if (Input.GetKeyDown(KeyCode.J))
+            StartCoroutine(LoadLevelCoroutine());
+        if (Input.GetKeyDown(KeyCode.K))
+            StartCoroutine(LoadMainMenuCoroutine());
     }
 
-    protected override void LoadComponents()
+    private IEnumerator LoadLevelCoroutine()
     {
-        base.LoadComponents();
-        LoadTowerData();
+        TileManager.Instance.ShowMainGrid(false);
+        UI.Instance.EnableMenuUI(false);
+        
+        yield return TileManager.Instance.CurrentActiveCoroutine;
+        TileManager.Instance.EnableMainSceneObjects(false);
+        currentSceneName = "Level_1";
+        LoadScene("Level_1");
+    }
+    
+    private IEnumerator LoadMainMenuCoroutine()
+    {
+        EliminateEnemy();
+        EliminateAllTowers();
+        TileManager.Instance.ShowGrid(currentActiveGrid, false);
+        UI.Instance.EnableInGameUI(false);
+        
+        yield return TileManager.Instance.CurrentActiveCoroutine;
+        UnloadCurrentScene();
+        TileManager.Instance.EnableMainSceneObjects(true);
+        TileManager.Instance.ShowMainGrid(true);
+        
+        yield return TileManager.Instance.CurrentActiveCoroutine;
+        
+        UI.Instance.EnableMenuUI(true);
     }
 
-    protected void LoadTowerData()
-    {
-        if (towerData != null) return;
-        towerData = Resources.Load<TowerUnlockConfigSO>("Tower/TowerOnLevelData");
-        Debug.Log(transform.name + ": LoadTowerData", gameObject);
-    }
+    protected void LoadScene(string sceneName) => SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+    
+    protected void UnloadCurrentScene() => SceneManager.UnloadSceneAsync(currentSceneName);
 
-    protected void UnlockAvailableTowers()
+    protected void EliminateEnemy()
     {
-        foreach (var tower in towerData.towerUnlockList)
+        Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        foreach (var enemy in enemies)
         {
-            foreach (var buildBtn in UI.Instance.InGameUI.BuildsBtnsUI.BuildBtns)
-            {
-                buildBtn.UnlockTower(tower.towerName, tower.unlocked);
-            }
+            enemy.Core.Death.DestroyEnemy();
         }
-        UI.Instance.InGameUI.BuildsBtnsUI.UpdateUnlockBtn();
     }
+    
+    protected void EliminateAllTowers()
+    {
+        Tower[] towers = FindObjectsByType<Tower>(FindObjectsSortMode.None);
+        foreach (var tower in towers)
+        {
+            Destroy(tower.gameObject);
+        }
+    }
+    
+    public void UpdateCurrentGrid(GridBuilder newGrid) => currentActiveGrid = newGrid;
 }

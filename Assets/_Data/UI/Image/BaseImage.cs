@@ -17,13 +17,13 @@ public abstract class BaseImage : NhoxBehaviour
     {
         if (image != null) return;
         image = GetComponent<Image>();
-        Debug.Log(transform.name + " :LoadImage", gameObject);
+        DebugTool.Log(transform.name + " :LoadImage", gameObject);
     }
 
     protected void LoadUIAnimator()
     {
         if (uiAnimator != null) return;
         uiAnimator = GetComponentInParent<UIAnimator>();
-        Debug.Log(transform.name + " :LoadUIAnimator", gameObject);
+        DebugTool.Log(transform.name + " :LoadUIAnimator", gameObject);
     }
 }

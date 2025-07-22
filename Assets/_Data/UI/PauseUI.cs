@@ -11,7 +11,7 @@ public class PauseUI : NhoxBehaviour
 
     protected void Update()
     {
-        if (InputManager.Instance.IsF10Down) UI.Instance.SwitchToUI(UI.Instance.InGameUI.gameObject);
+        if (InputManager.Instance.IsF10Down) UI.Instance.EnableInGameUI(true);
     }
 
     protected override void LoadComponents()
@@ -28,7 +28,7 @@ public class PauseUI : NhoxBehaviour
 
         for (int i = 0; i < childCount; i++) pauseUIElements[i] = transform.GetChild(i).gameObject;
 
-        Debug.Log(transform.name + " :LoadPauseUIElements", gameObject);
+        DebugTool.Log(transform.name + " :LoadPauseUIElements", gameObject);
     }
 
     public void SwitchPauseUIElement(GameObject uiEnable)

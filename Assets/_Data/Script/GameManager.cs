@@ -24,7 +24,7 @@ public class GameManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one GameManager allowed to exist");
+            // DebugTool.LogError("Only one GameManager allowed to exist");
             return;
         }
 

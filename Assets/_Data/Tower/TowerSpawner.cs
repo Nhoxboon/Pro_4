@@ -10,7 +10,7 @@ public class TowerSpawner : Spawner
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one TowerSpawner allowed to exist");
+            // DebugTool.LogError("Only one TowerSpawner allowed to exist");
             return;
         }
 

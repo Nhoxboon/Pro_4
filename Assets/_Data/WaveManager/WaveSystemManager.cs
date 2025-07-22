@@ -7,7 +7,7 @@ public abstract class WaveSystemManager : NhoxBehaviour
         base.Awake();
         if (instance != null && instance.GetType() == GetType())
         {
-            DebugTool.LogError($"Only one {GetType().Name} allowed to exist");
+            // DebugTool.LogError($"Only one {GetType().Name} allowed to exist");
             return;
         }
 

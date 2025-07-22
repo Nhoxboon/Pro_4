@@ -23,7 +23,7 @@ public class TowerAtkRadiusDisplay : NhoxBehaviour
     {
         if (lineRenderer != null) return;
         lineRenderer = GetComponent<LineRenderer>();
-        // Debug.Log(transform.name + ": LoadLineRenderer", gameObject);
+        // DebugTool.Log(transform.name + ": LoadLineRenderer", gameObject);
     }
 
     protected void SetupLineRenderer()

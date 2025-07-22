@@ -28,7 +28,7 @@ public class Movement : CoreComponent
         agent = core.Root.GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.avoidancePriority = Mathf.RoundToInt(agent.speed * 10);
-        Debug.Log(transform.name + " LoadNavMeshAgent", gameObject);
+        DebugTool.Log(transform.name + " LoadNavMeshAgent", gameObject);
     }
 
     public override void LogicUpdate()

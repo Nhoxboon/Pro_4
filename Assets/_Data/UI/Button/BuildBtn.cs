@@ -42,21 +42,21 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
     {
         if (camEffects != null) return;
         camEffects = FindFirstObjectByType<CameraEffects>();
-        Debug.Log(transform.name + " :LoadCameraEffects", gameObject);
+        DebugTool.Log(transform.name + " :LoadCameraEffects", gameObject);
     }
 
     protected void LoadHoverEffect()
     {
         if (hoverEffect != null) return;
         hoverEffect = GetComponent<HoverEffect>();
-        Debug.Log(transform.name + " :LoadHoverEffect", gameObject);
+        DebugTool.Log(transform.name + " :LoadHoverEffect", gameObject);
     }
 
     protected void LoadBtnUI()
     {
         if (buildBtnUI != null) return;
         buildBtnUI = transform.GetComponent<BuildButtonUI>();
-        Debug.Log(transform.name + " :LoadBtnUI", gameObject);
+        DebugTool.Log(transform.name + " :LoadBtnUI", gameObject);
     }
 
     protected void InitializeTowerPreview()

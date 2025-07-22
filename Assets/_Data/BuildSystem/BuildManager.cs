@@ -26,12 +26,12 @@ public class BuildManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one BuildManager allowed to exist");
+            // DebugTool.LogError("Only one BuildManager allowed to exist");
             return;
         }
 
         instance = this;
-        MakeBuildSlotUnavailable(WaveManager.Instance, currentGridB);
+        MakeBuildSlotUnavailable(WaveTimingManager.Instance, currentGridB);
     }
 
     protected void Update()
@@ -55,12 +55,12 @@ public class BuildManager : NhoxBehaviour
     {
         if (currentGridB != null) return;
         currentGridB = FindFirstObjectByType<GridBuilder>();
-        Debug.Log(transform.name + " LoadGridBuilder", gameObject);
+        DebugTool.Log(transform.name + " LoadGridBuilder", gameObject);
     }
 
     public void MouseOverUI(bool value) => isMouseOverUI = value;
 
-    public void MakeBuildSlotUnavailable(WaveManager waveManager, GridBuilder currentGrid)
+    public void MakeBuildSlotUnavailable(WaveTimingManager waveManager, GridBuilder currentGrid)
     {
         foreach (var wave in waveManager.LevelWave)
         {

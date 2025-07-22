@@ -31,14 +31,14 @@ public class BuildBtnsUI : NhoxBehaviour
     {
         if (buildBtnEffects != null && buildBtnEffects.Length > 0) return;
         buildBtnEffects = GetComponentsInChildren<HoverEffect>();
-        Debug.Log(transform.name + " :LoadBuildBtnsEffect", gameObject);
+        DebugTool.Log(transform.name + " :LoadBuildBtnsEffect", gameObject);
     }
 
     protected void LoadBuildBtns()
     {
         if (buildBtns != null && buildBtns.Length > 0) return;
         buildBtns = GetComponentsInChildren<BuildBtn>();
-        Debug.Log(transform.name + " :LoadBuildBtns", gameObject);
+        DebugTool.Log(transform.name + " :LoadBuildBtns", gameObject);
     }
 
     public void SetLastSelectedBtn(BuildBtn newLastSelectedBtn) => lastSelectedBtn = newLastSelectedBtn;

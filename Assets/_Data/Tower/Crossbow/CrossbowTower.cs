@@ -20,14 +20,14 @@ public class CrossbowTower : Tower
     {
         if (gunPoint != null) return;
         gunPoint = towerHead.Find("GunPoint");
-        Debug.Log(transform.name + " :LoadGunPoint", gameObject);
+        DebugTool.Log(transform.name + " :LoadGunPoint", gameObject);
     }
 
     protected void LoadCrossbowVisual()
     {
         if (visual != null) return;
         visual = GetComponentInChildren<CrossbowVisual>();
-        Debug.Log(transform.name + " :LoadCrossbowVisual", gameObject);
+        DebugTool.Log(transform.name + " :LoadCrossbowVisual", gameObject);
     }
 
     protected override void Attack()

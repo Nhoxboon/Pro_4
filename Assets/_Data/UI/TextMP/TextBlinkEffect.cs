@@ -23,7 +23,7 @@ public class TextBlinkEffect : NhoxBehaviour
     {
         if (textMeshPro != null) return;
         textMeshPro = GetComponent<TextMeshProUGUI>();
-        Debug.Log(transform.name + " :LoadTextMeshPro", gameObject);
+        DebugTool.Log(transform.name + " :LoadTextMeshPro", gameObject);
     }
 
     public void EnableBlink(bool enable)

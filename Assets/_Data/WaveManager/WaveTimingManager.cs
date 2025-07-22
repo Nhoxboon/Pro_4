@@ -16,10 +16,10 @@ public class WaveTimingManager : WaveSystemManager
     protected bool waveTimerEnabled;
     public bool WaveTimerEnabled => waveTimerEnabled;
 
-    [SerializeField] protected int nextWaveIndex;
+    [SerializeField] protected int currentWaveIndex;
+    public int CurrentWaveIndex => currentWaveIndex;
     [SerializeField] protected WaveDetails[] levelWave;
     public WaveDetails[] LevelWave => levelWave;
-    public int NextWaveIndex => nextWaveIndex;
 
     protected bool gameBegun;
 
@@ -55,7 +55,7 @@ public class WaveTimingManager : WaveSystemManager
         OnWaveTimerUpdated?.Invoke();
     }
 
-    public void AdvanceToNextWave() => nextWaveIndex++;
+    public void AdvanceToNextWave() => currentWaveIndex++;
 
-    public bool HasNoMoreWaves() => nextWaveIndex >= levelWave.Length;
+    public bool HasNoMoreWaves() => currentWaveIndex >= levelWave.Length;
 }

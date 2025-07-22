@@ -11,7 +11,7 @@ public class EnemySpawner : Spawner
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one instance of EnemySpawner allow to exist");
+            // DebugTool.LogError("Only one instance of EnemySpawner allow to exist");
             return;
         }
 

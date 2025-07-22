@@ -35,7 +35,7 @@ public class WaveManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            Debug.LogError("Only one WaveManager allowed to exist");
+            DebugTool.LogError("Only one WaveManager allowed to exist");
             return;
         }
 

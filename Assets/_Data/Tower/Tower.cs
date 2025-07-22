@@ -70,14 +70,14 @@ public abstract class Tower : NhoxBehaviour
     {
         if (towerHead != null) return;
         towerHead = transform.Find("Model/CrossbowTower/TowerHead");
-        Debug.Log(transform.name + " :LoadTowerHead", gameObject);
+        DebugTool.Log(transform.name + " :LoadTowerHead", gameObject);
     }
 
     protected void LoadLayerMask()
     {
         if (whatIsEnemy != 0) return;
         whatIsEnemy = LayerMask.GetMask("Enemy");
-        Debug.Log(transform.name + " :LoadLayerMask", gameObject);
+        DebugTool.Log(transform.name + " :LoadLayerMask", gameObject);
     }
 
     protected bool CanAttack()
