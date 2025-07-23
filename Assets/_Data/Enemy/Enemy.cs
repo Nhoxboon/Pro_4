@@ -12,6 +12,7 @@ public class Enemy : NhoxBehaviour
     public Core Core => core;
 
     protected void OnEnable() => ResetEnemy();
+    protected void OnDisable() => ResetEnemy();
 
     protected void Update() => core.LogicUpdate();
 

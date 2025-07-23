@@ -3,9 +3,10 @@ using UnityEngine;
 using System.Collections;
 public class LevelSetup : NhoxBehaviour
 {
-    [SerializeField] protected List<GameObject> extraObjectsToDelete;
     [SerializeField] protected GridBuilder myMainGrid;
-    [Header("Tower Unlock Data")]
+    [SerializeField] protected List<GameObject> extraObjectsToDelete;
+    [Header("Level Details")]
+    [SerializeField] protected int levelCurrency = 600;
     [SerializeField] protected TowerUnlockConfigSO towerData;
 
     protected override void Start()
@@ -58,8 +59,9 @@ public class LevelSetup : NhoxBehaviour
 
         yield return TileManager.Instance.CurrentActiveCoroutine;
 
-        WaveTimingManager.Instance.ActivateWaveManager();
         UI.Instance.EnableInGameUI(true);
+        GameManager.Instance.UpdateGameManager(levelCurrency, WaveTimingManager.Instance);
+        WaveTimingManager.Instance.ActivateWaveManager();
     }
     
     protected bool LevelWasLoadedToMainScene()

@@ -22,6 +22,7 @@ public class WaveTimingManager : WaveSystemManager
     public WaveDetails[] LevelWave => levelWave;
 
     protected bool gameBegun;
+    public bool GameBegun => gameBegun;
 
     protected override void SetInstance() => _instance = this;
 
@@ -38,6 +39,8 @@ public class WaveTimingManager : WaveSystemManager
         EnableWaveTimer(true);
     }
 
+    public void DeactivateWaveManager() => gameBegun = false;
+
     protected void UpdateWaveTimer()
     {
         if (!waveTimerEnabled) return;
@@ -53,6 +56,14 @@ public class WaveTimingManager : WaveSystemManager
         waveTimerEnabled = enable;
         waveTimer = timeBetweenWaves;
         OnWaveTimerUpdated?.Invoke();
+    }
+
+    public void ResetWaveManager()
+    {
+        gameBegun = false;
+        EnableWaveTimer(false);
+        currentWaveIndex = 0;
+        waveTimer = timeBetweenWaves;
     }
 
     public void AdvanceToNextWave() => currentWaveIndex++;

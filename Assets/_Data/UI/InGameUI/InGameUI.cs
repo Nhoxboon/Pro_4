@@ -8,10 +8,12 @@ public class InGameUI : NhoxBehaviour
     [SerializeField] protected TextMeshProUGUI hpText;
     [SerializeField] protected TextMeshProUGUI currencyText;
     [SerializeField] protected TextMeshProUGUI waveTimeText;
-    public TextMeshProUGUI WaveTimeText => waveTimeText;
 
     [SerializeField] protected BuildBtnsUI buildsBtnsUI;
     public BuildBtnsUI BuildsBtnsUI => buildsBtnsUI;
+
+    [SerializeField] protected LoadMenuBtn victoryUI;
+    [SerializeField] protected RestartLevelBtn gameOverUI;
 
     protected void Update()
     {
@@ -25,6 +27,8 @@ public class InGameUI : NhoxBehaviour
         LoadCurrencyText();
         LoadWaveTimeText();
         LoadBuildsBtnsUI();
+        LoadVictoryUI();
+        LoadGameOverUI();
     }
 
     protected void LoadHPText()
@@ -54,6 +58,23 @@ public class InGameUI : NhoxBehaviour
         buildsBtnsUI = GetComponentInChildren<BuildBtnsUI>(true);
         DebugTool.Log(transform.name + " :LoadBuildsBtnUI", gameObject);
     }
+
+    protected void LoadVictoryUI()
+    {
+        if (victoryUI != null) return;
+        victoryUI = GetComponentInChildren<LoadMenuBtn>(true);
+        DebugTool.Log(transform.name + " :LoadVictoryUI", gameObject);
+    }
+
+    protected void LoadGameOverUI()
+    {
+        if (gameOverUI != null) return;
+        gameOverUI = GetComponentInChildren<RestartLevelBtn>(true);
+        DebugTool.Log(transform.name + " :LoadGameOverUI", gameObject);
+    }
+
+    public void EnableVictoryUI(bool enable) => victoryUI.transform.parent.gameObject.SetActive(enable);
+    public void EnableGameOverUI(bool enable) => gameOverUI.transform.parent.gameObject.SetActive(enable);
 
     public void ShakeHPUI() => UI.Instance.UiAnimator.Shake(hpText.transform.parent);
     public void ShakeCurrencyUI() => UI.Instance.UiAnimator.Shake(currencyText.transform.parent);

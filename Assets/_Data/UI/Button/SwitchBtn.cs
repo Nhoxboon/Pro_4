@@ -7,8 +7,11 @@ public class SwitchBtn : BaseBtn
     [SerializeField] protected GameObject uiElement;
     [SerializeField] protected SwitchMode switchMode;
 
-    protected override void OnClick()
+    protected override void OnClick() => SwitchUI();
+    
+    protected void SwitchUI()
     {
+        if(TileManager.Instance.IsGridMoving) return;
         switch (switchMode)
         {
             case SwitchMode.MainUI:

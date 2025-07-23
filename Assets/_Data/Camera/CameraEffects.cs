@@ -1,20 +1,26 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class CameraEffects : NhoxBehaviour
 {
     [SerializeField] protected CameraController cameraController;
-    [SerializeField] protected Vector3 inMenuPosition;
-    [SerializeField] protected Quaternion inMenuRotation;
-    [Space] [SerializeField] protected Vector3 inGamePosition;
-    [SerializeField] protected Quaternion inGameRotation;
+    private Coroutine cameraCoroutine;
+    
+    [SerializeField] protected Vector3 inMenuPosition = new Vector3(-2.5f, 9f, 22f);
+    [SerializeField] protected Quaternion inMenuRotation = Quaternion.Euler(38f, 139f, 0f);
+    [Space] 
+    [SerializeField] protected Vector3 inGamePosition = new Vector3(-2.4f, 14.8f, -1.3f);
+    [SerializeField] protected Quaternion inGameRotation = Quaternion.Euler(53.3f, 50f, 0f);
+    [Space] 
+    [SerializeField] protected Vector3 levelSelectPosition;
+    [SerializeField] protected Quaternion levelSelectRotation;
 
-    //ForTesting purposes
     protected override void Start()
     {
         base.Start();
-        SwitchToGameView();
+        SwitchToMenuView();
     }
 
     protected override void LoadComponents()
@@ -34,23 +40,35 @@ public class CameraEffects : NhoxBehaviour
 
     public void SwitchToMenuView()
     {
-        StartCoroutine(ChangePositionAndRotation(inMenuPosition, inMenuRotation));
-        // GameManager.Instance.SetInGame(false);
+        if (cameraCoroutine != null) StopCoroutine(cameraCoroutine);
+        
+        cameraCoroutine = StartCoroutine(ChangePositionAndRotation(inMenuPosition, inMenuRotation));
+        // cameraController.EnableCameraControl(false);
         cameraController.AdjustPitch(inMenuRotation.eulerAngles.x);
     }
 
     public void SwitchToGameView()
     {
-        StartCoroutine(ChangePositionAndRotation(inGamePosition, inGameRotation));
-        GameManager.Instance.SetInGame(true);
+        if (cameraCoroutine != null) StopCoroutine(cameraCoroutine);
+        
+        cameraCoroutine = StartCoroutine(ChangePositionAndRotation(inGamePosition, inGameRotation));
+        // cameraController.EnableCameraControl(true);
         cameraController.AdjustPitch(inGameRotation.eulerAngles.x);
+    }
+
+    public void SwitchToLevelSelectView()
+    {
+        if (cameraCoroutine != null) StopCoroutine(cameraCoroutine);
+        
+        cameraCoroutine = StartCoroutine(ChangePositionAndRotation(levelSelectPosition, levelSelectRotation));
+        cameraController.AdjustPitch(levelSelectRotation.eulerAngles.x);
     }
 
     private IEnumerator ChangePositionAndRotation(Vector3 targetPosition, Quaternion targetRotation, float duration = 3,
         float delay = 0)
     {
         yield return new WaitForSeconds(delay);
-        cameraController.EnableCameraControl(false);
+        cameraController.EnableCameraControl(false); //Testing purpose
 
         float timeElapsed = 0f;
 
@@ -68,7 +86,7 @@ public class CameraEffects : NhoxBehaviour
 
         transform.position = targetPosition;
         transform.rotation = targetRotation;
-        cameraController.EnableCameraControl(true);
+        cameraController.EnableCameraControl(true); //Testing purpose
     }
 
     private IEnumerator ScreenShakeFX(float magnitude, float duration)

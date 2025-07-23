@@ -6,9 +6,12 @@ public abstract class BaseText : NhoxBehaviour
 {
     [SerializeField] protected UIAnimator uiAnimator;
     [SerializeField] protected TextMeshProUGUI textMeshPro;
-    
 
-    protected abstract void OnDestroy();
+
+    protected virtual void OnDestroy()
+    {
+        //For override
+    }
 
     protected override void LoadComponents()
     {

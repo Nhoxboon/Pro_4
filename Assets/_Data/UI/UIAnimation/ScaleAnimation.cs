@@ -50,5 +50,9 @@ public class ScaleAnimation : NhoxBehaviour, IPointerEnterHandler, IPointerExitH
         if (this.TryGetComponentInChildren<TextBlinkEffect>(out var textEff)) textEff?.EnableBlink(true);
     }
 
-    public void OnPointerDown(PointerEventData eventData) => rectTransform.localScale = Vector3.one;
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if(TileManager.Instance.IsGridMoving) return;
+        rectTransform.localScale = Vector3.one;
+    }
 }

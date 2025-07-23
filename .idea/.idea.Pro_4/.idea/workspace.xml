@@ -5,65 +5,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/LevelSetup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Script/LevelSetup.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/LevelBtnTile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/LevelBtnTile.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/AdvanceBtn.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/AdvanceBtn/LoadMenuBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/AdvanceBtn/LoadMenuBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/AdvanceBtn/RestartLevelBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/AdvanceBtn/RestartLevelBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/MenuBtn.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/MenuBtn/BackBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/MenuBtn/BackBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/MenuBtn/CameraEffBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/MenuBtn/CameraEffBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/MenuBtn/PlayBtn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/MenuBtn/PlayBtn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/LevelSelectionUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/LevelSelectionUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/AdviceText.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/AdviceText.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/TileSlotEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/TileSlotEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Camera/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Camera/CameraEffects.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraEffects.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/Core.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/Core.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/CoreComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/CoreComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Stats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Visuals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Visuals.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/GridBuilder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/GridBuilder.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_bridge_field.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_bridge_field.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_bridge_road.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_bridge_road.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_bridge_sideway.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_bridge_sideway.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_field.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_field.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_hill_1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_hill_1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_hill_2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_hill_2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_hill_3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_hill_3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_inner_corner.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_inner_corner.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_inner_corner_small.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_inner_corner_small.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_outter_corner.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_outter_corner.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_outter_corner_small.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_outter_corner_small.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_road.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_road.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_sideway.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/Tile/tile_sideway.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/NhoxBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/NhoxBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/RotateObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/RotateObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Spawner/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Spawner/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/GridBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/GridBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/LevelSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/LevelSetup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerAtkRadiusDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerAtkRadiusDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreviewManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreviewManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Trash/WaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Trash/WaveManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/BaseBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BaseBtn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/BuildBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BuildBtn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Image/BaseImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image/BaseImage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildBtnsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildBtnsUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildButtonUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildButtonUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSetHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSetHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/SwitchBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/SwitchBtn.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/MenuUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/MenuUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/PauseUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/PauseUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/SettingsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/SettingsUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Slider/BaseSlider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/BaseSlider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Slider/SensitiveSlider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Slider/SensitiveSlider.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/BaseText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/BaseText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/TextBlinkEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/TextBlinkEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/WaveTimerText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/WaveTimerText.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/ScaleAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/ScaleAnimation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/EnemySpawnCoordinator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/EnemySpawnCoordinator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveSystemManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveSystemManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveTimingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveTimingManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Waypoint/WaypointManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint/WaypointManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene/NavMesh-GridBuilder.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameScene/NavMesh-GridBuilder.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,24 +97,9 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e74f08236fb4c1791a523c0bf197e6c1df600/1c/44369f34/FindObjectsSortMode.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e74f08236fb4c1791a523c0bf197e6c1df600/4c/024e825e/SceneManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1e74f08236fb4c1791a523c0bf197e6c1df600/d3/7caf8465/MonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/EntityStatsDataSO.cs" root0="FORCE_HIGHLIGHTING" />
@@ -272,6 +268,10 @@
       <workItem from="1753160201917" duration="122000" />
       <workItem from="1753160338717" duration="4592000" />
       <workItem from="1753177276572" duration="21638000" />
+      <workItem from="1753200083974" duration="89000" />
+      <workItem from="1753248638587" duration="7980000" />
+      <workItem from="1753264596688" duration="7296000" />
+      <workItem from="1753278077570" duration="6283000" />
     </task>
     <servers />
   </component>

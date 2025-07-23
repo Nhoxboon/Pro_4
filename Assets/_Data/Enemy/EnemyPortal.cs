@@ -21,8 +21,9 @@ public class EnemyPortal : NhoxBehaviour
 
     protected void SpawnEnemy()
     {
+        if(!WaveTimingManager.Instance.GameBegun) return;
+        
         spawnTimer -= Time.deltaTime;
-
         if (spawnTimer <= 0f && CanSpawn())
         {
             Transform newEnemy = EnemySpawner.Instance.SpawnRandom(enemies, transform.position, Quaternion.identity);

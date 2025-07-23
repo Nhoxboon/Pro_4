@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Castle : NhoxBehaviour
 {
@@ -9,7 +8,7 @@ public class Castle : NhoxBehaviour
         {
             if (other.TryGetComponent<Enemy>(out var enemy)) enemy.Core.Death.DestroyEnemy();
 
-            GameManager.Instance.UpdateHP(-1);
+            if (GameManager.Instance.IsInGame) GameManager.Instance.UpdateHP(-1);
         }
     }
 }

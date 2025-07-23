@@ -80,16 +80,15 @@ public class TileManager : NhoxBehaviour
     private IEnumerator MoveGridCoroutine(List<GameObject> objectsToMove, float yOffs)
     {
         isGridMoving = true;
-        for (int i = 0; i < objectsToMove.Count; i++)
+        foreach (var obj in objectsToMove)
         {
             yield return new WaitForSeconds(tileDelay);
-            if (objectsToMove[i] is null || !objectsToMove[i]) continue;
-            Transform tile = objectsToMove[i].transform;
+            if (!obj) continue;
+            
+            Transform tile = obj.transform;
             MoveTile(tile, tile.position + new Vector3(0, yOffs, 0), tileMoveDuration);
         }
-
         isGridMoving = false;
-
     }
 
     public void MoveTile(Transform objectToMove, Vector3 targetPosition, float? newDuration = null)
@@ -155,8 +154,6 @@ public class TileManager : NhoxBehaviour
         extraObjects.AddRange(FindObjectsByType<EnemyPortal>(FindObjectsSortMode.InstanceID)
             .Select(component => component.gameObject));
         extraObjects.AddRange(FindObjectsByType<Castle>(FindObjectsSortMode.InstanceID)
-            .Select(component => component.gameObject));
-        extraObjects.AddRange(FindObjectsByType<Tower>(FindObjectsSortMode.InstanceID)
             .Select(component => component.gameObject));
         return extraObjects;
     }

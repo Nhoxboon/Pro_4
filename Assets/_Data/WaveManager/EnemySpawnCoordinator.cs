@@ -9,7 +9,6 @@ public class EnemySpawnCoordinator : WaveSystemManager
 
     [SerializeField] protected List<EnemyPortal> enemyPortals = new();
     [SerializeField] protected GridBuilder currentGrid;
-
     protected bool makingNextWave;
 
     protected override void SetInstance() => _instance = this;
@@ -35,13 +34,17 @@ public class EnemySpawnCoordinator : WaveSystemManager
 
     public void HandleWaveCompletion()
     {
-        if (!AllEnemiesDefeated() || makingNextWave) return;
+        if (!WaveTimingManager.Instance.GameBegun || !AllEnemiesDefeated() || makingNextWave) return;
         makingNextWave = true;
 
         WaveTimingManager.Instance.AdvanceToNextWave();
         int nextWaveIndex = WaveTimingManager.Instance.CurrentWaveIndex;
 
-        if (WaveTimingManager.Instance.HasNoMoreWaves()) return;
+        if (WaveTimingManager.Instance.HasNoMoreWaves())
+        {
+            GameManager.Instance.LevelCompleted();
+            return;
+        }
 
         WaveDetails[] levelWave = WaveTimingManager.Instance.LevelWave;
 
@@ -88,9 +91,8 @@ public class EnemySpawnCoordinator : WaveSystemManager
 
     protected void EnableNewPortal(EnemyPortal[] newPortals)
     {
-        for (int i = 0; i < newPortals.Length; i++)
+        foreach (var portal in newPortals)
         {
-            EnemyPortal portal = newPortals[i];
             portal.gameObject.SetActive(true);
             enemyPortals.Add(portal);
         }

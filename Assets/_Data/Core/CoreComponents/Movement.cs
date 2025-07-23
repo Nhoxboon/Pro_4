@@ -16,6 +16,12 @@ public class Movement : CoreComponent
 
     protected float totalDistance;
 
+    protected void OnDisable()
+    {
+        myWayPoints.Clear();
+        myPortal = null;
+    }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -126,15 +132,15 @@ public class Movement : CoreComponent
 
     public void ResetMovement()
     {
+        currentWpIndex = 0;
         nextWpIndex = 0;
+        totalDistance = 0;
 
         if (agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
         agent.ResetPath();
         agent.velocity = Vector3.zero;
 
-        if (myWayPoints.Count > 0)
-        {
+        if (myWayPoints.Count > 0 && myWayPoints[0] is not null)
             agent.SetDestination(myWayPoints[0].position);
-        }
     }
 }

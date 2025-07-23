@@ -8,7 +8,6 @@ public class UI : NhoxBehaviour
     [SerializeField] protected GameObject[] uiElements;
     [SerializeField] protected UIAnimator uiAnimator;
     public UIAnimator UiAnimator => uiAnimator;
-    protected bool isInMenuUI = true;
     [Space] [SerializeField] protected MenuUI menuUI;
     [SerializeField] protected SettingsUI settingsUI;
     [SerializeField] protected InGameUI inGameUI;

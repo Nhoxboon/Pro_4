@@ -2,7 +2,9 @@
 
 public class TileSetHolder : MonoBehaviour
 {
-    public GameObject tileRoad;
+    public GameObject levelSelectTile;
+
+    [Header("Common Tiles")] public GameObject tileRoad;
     public GameObject tileField;
     public GameObject tileSideway;
 
