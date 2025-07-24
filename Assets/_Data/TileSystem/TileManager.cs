@@ -36,7 +36,7 @@ public class TileManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            // DebugTool.LogError("Only one TileManager allowed to exist");
+            DebugTool.LogError("Only one TileManager allowed to exist");
             return;
         }
 
@@ -84,10 +84,11 @@ public class TileManager : NhoxBehaviour
         {
             yield return new WaitForSeconds(tileDelay);
             if (!obj) continue;
-            
+
             Transform tile = obj.transform;
             MoveTile(tile, tile.position + new Vector3(0, yOffs, 0), tileMoveDuration);
         }
+
         isGridMoving = false;
     }
 
@@ -110,7 +111,8 @@ public class TileManager : NhoxBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-        if ( !objectToMove.Equals(null))
+
+        if (!objectToMove.Equals(null))
             objectToMove.position = targetPosition;
     }
 
@@ -145,6 +147,7 @@ public class TileManager : NhoxBehaviour
             objectsToMove.AddRange(extraObjects);
             objectsToMove.AddRange(gridToMove.CreatedTiles);
         }
+
         return objectsToMove;
     }
 

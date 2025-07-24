@@ -24,6 +24,8 @@ public class BuildManager : NhoxBehaviour
     protected override void Awake()
     {
         base.Awake();
+        MakeBuildSlotUnavailable(WaveTimingManager.Instance, currentGridB);
+
         if (instance != null)
         {
             // DebugTool.LogError("Only one BuildManager allowed to exist");
@@ -31,7 +33,6 @@ public class BuildManager : NhoxBehaviour
         }
 
         instance = this;
-        MakeBuildSlotUnavailable(WaveTimingManager.Instance, currentGridB);
     }
 
     protected void Update()

@@ -1,25 +1,21 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InputManager : NhoxBehaviour
 {
     private static InputManager instance;
     public static InputManager Instance => instance;
 
-    [Header("Keyboard Input")]
-    public bool IsEscDown { get; private set; }
+    [Header("Keyboard Input")] public bool IsEscDown { get; private set; }
     public bool IsF10Down { get; private set; }
     public bool IsSpaceDown { get; private set; }
     public bool[] IsNumberKeyDown { get; private set; } = new bool[10];
 
-    [Header("Camera Input")]
-    public Vector2 CameraMovementInput { get; private set; }
+    [Header("Camera Input")] public Vector2 CameraMovementInput { get; private set; }
     public float ScrollInput { get; private set; }
     public Vector3 MousePosition { get; private set; }
     public Vector2 MouseLookInput { get; private set; }
 
-    [Header("Mouse Input")]
-    public bool IsLeftMouseDown { get; private set; }
+    [Header("Mouse Input")] public bool IsLeftMouseDown { get; private set; }
     public bool IsLeftMouseHeld { get; private set; }
     public bool IsRightMouseHeld { get; private set; }
     public bool IsMiddleMouseHeld { get; private set; }
@@ -33,9 +29,10 @@ public class InputManager : NhoxBehaviour
         base.Awake();
         if (instance != null && instance != this)
         {
-            // DebugTool.LogError("Only one InputManager allowed to exist");
+            DebugTool.LogError("Only one InputManager allowed to exist");
             return;
         }
+
         instance = this;
     }
 

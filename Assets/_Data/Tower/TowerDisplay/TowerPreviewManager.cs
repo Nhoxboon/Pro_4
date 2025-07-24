@@ -12,7 +12,7 @@ public class TowerPreviewManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            // DebugTool.LogError("Only one TowerPreviewManager allowed to exist");
+            DebugTool.LogError("Only one TowerPreviewManager allowed to exist");
             return;
         }
 

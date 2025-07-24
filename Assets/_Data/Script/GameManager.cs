@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : NhoxBehaviour
 {
@@ -17,19 +17,22 @@ public class GameManager : NhoxBehaviour
     protected bool isInGame;
     public bool IsInGame => isInGame;
 
+    protected int enemyKilled;
+    public int EnemyKilled => enemyKilled;
+
+    [SerializeField] protected CameraEffects cameraEffects;
+    [SerializeField] protected WaveTimingManager currentWaveManager;
     public Action OnHPChanged;
     public Action OnCurrencyChanged;
-    [SerializeField] protected WaveTimingManager currentWaveManager;
 
     protected override void Awake()
     {
         base.Awake();
         if (instance != null)
         {
-            // DebugTool.LogError("Only one GameManager allowed to exist");
+            DebugTool.LogError("Only one GameManager allowed to exist");
             return;
         }
-
         instance = this;
     }
 
@@ -41,27 +44,49 @@ public class GameManager : NhoxBehaviour
         OnCurrencyChanged?.Invoke();
     }
 
-    public void LevelCompleted()
+    protected override void LoadComponents()
     {
-        string currentLevelName = LevelManager.Instance.CurrentLevelName;
-        int nextLevelIndex = SceneUtility.GetBuildIndexByScenePath(currentLevelName) + 1;
-        if (nextLevelIndex >= SceneManager.sceneCountInBuildSettings)
-            UI.Instance.InGameUI.EnableVictoryUI(true);
-        else
-            LevelManager.Instance.LoadLevel("Level_" + nextLevelIndex);
+        base.LoadComponents();
+        LoadCameraEffects();
     }
 
-    public void LevelFailed()
+    protected void LoadCameraEffects()
     {
-        if (!isInGame) return;
+        if (cameraEffects != null) return;
+        cameraEffects = FindFirstObjectByType<CameraEffects>();
+        DebugTool.Log(transform.name + " LoadCameraEffects", gameObject);
+    }
+
+    public void LevelCompleted() => StartCoroutine(LevelCompletedCoroutine());
+
+    public IEnumerator LevelCompletedCoroutine()
+    {
+        cameraEffects.FocusOnCastle();
+        yield return cameraEffects.CameraCoroutine;
+
+        if (LevelManager.Instance.HasNoMoreLevels())
+            UI.Instance.InGameUI.EnableVictoryUI(true);
+        else
+        {
+            PlayerPrefs.SetInt(LevelManager.Instance.GetNextLevelName() + "unlocked", 1);
+            UI.Instance.InGameUI.EnableLevelCompletedUI(true);
+        }
+    }
+
+    public IEnumerator LevelFailedCoroutine()
+    {
         isInGame = false;
         currentWaveManager.DeactivateWaveManager();
+        cameraEffects.FocusOnCastle();
+
+        yield return cameraEffects.CameraCoroutine;
         UI.Instance.InGameUI.EnableGameOverUI(true);
     }
 
     public void UpdateGameManager(int levelCurrency, WaveTimingManager newWaveManager)
     {
         isInGame = true;
+        enemyKilled = 0;
         currentWaveManager = newWaveManager;
         currency = levelCurrency;
         currentHP = maxHP;
@@ -74,11 +99,13 @@ public class GameManager : NhoxBehaviour
         currentHP += amount;
         OnHPChanged?.Invoke();
         UI.Instance.InGameUI.ShakeHPUI();
-        if (currentHP <= 0) LevelFailed();
+
+        if (currentHP <= 0 || !isInGame) StartCoroutine(LevelFailedCoroutine());
     }
 
     public void UpdateCurrency(int amount)
     {
+        enemyKilled++;
         currency += amount;
         OnCurrencyChanged?.Invoke();
     }

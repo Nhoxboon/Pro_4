@@ -5,7 +5,8 @@ public class HPText : BaseText
     protected override void Awake()
     {
         base.Awake();
-        GameManager.Instance.OnHPChanged += OnHPChanged;
+        if (GameManager.Instance != null)
+            GameManager.Instance.OnHPChanged += OnHPChanged;
     }
 
     protected override void OnDestroy() => GameManager.Instance.OnHPChanged -= OnHPChanged;

@@ -42,7 +42,8 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left || !buildSlotAvailable ||
-            BuildManager.Instance.SelectedBuildSlot == this || TileManager.Instance.IsGridMoving) return;
+            BuildManager.Instance.SelectedBuildSlot == this || TileManager.Instance.IsGridMoving ||
+            !GameManager.Instance.IsInGame) return;
 
         BuildManager.Instance.EnableBuildMenu();
         BuildManager.Instance.SelectBuildSlot(this);

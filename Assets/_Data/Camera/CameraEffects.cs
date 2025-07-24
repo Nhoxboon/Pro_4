@@ -7,7 +7,11 @@ public class CameraEffects : NhoxBehaviour
 {
     [SerializeField] protected CameraController cameraController;
     private Coroutine cameraCoroutine;
-    
+    public Coroutine CameraCoroutine => cameraCoroutine;
+
+    [Header("Transition Details")] [SerializeField]
+    protected float transitionDuration = 3f;
+
     [SerializeField] protected Vector3 inMenuPosition = new Vector3(-2.5f, 9f, 22f);
     [SerializeField] protected Quaternion inMenuRotation = Quaternion.Euler(38f, 139f, 0f);
     [Space] 
@@ -16,6 +20,12 @@ public class CameraEffects : NhoxBehaviour
     [Space] 
     [SerializeField] protected Vector3 levelSelectPosition;
     [SerializeField] protected Quaternion levelSelectRotation;
+
+    [Header("Castle Focus Details")] [SerializeField]
+    protected float focusOnCastleDuration = 2f;
+
+    [SerializeField] protected float highOffset = 3f;
+    [SerializeField] protected float distanceToCastle = 7f;
 
     protected override void Start()
     {
@@ -41,26 +51,27 @@ public class CameraEffects : NhoxBehaviour
     public void SwitchToMenuView()
     {
         if (cameraCoroutine != null) StopCoroutine(cameraCoroutine);
-        
-        cameraCoroutine = StartCoroutine(ChangePositionAndRotation(inMenuPosition, inMenuRotation));
-        // cameraController.EnableCameraControl(false);
+
+        cameraCoroutine = StartCoroutine(ChangePositionAndRotation(inMenuPosition, inMenuRotation, transitionDuration));
         cameraController.AdjustPitch(inMenuRotation.eulerAngles.x);
     }
 
     public void SwitchToGameView()
     {
         if (cameraCoroutine != null) StopCoroutine(cameraCoroutine);
-        
-        cameraCoroutine = StartCoroutine(ChangePositionAndRotation(inGamePosition, inGameRotation));
-        // cameraController.EnableCameraControl(true);
+
+        cameraCoroutine = StartCoroutine(ChangePositionAndRotation(inGamePosition, inGameRotation, transitionDuration));
         cameraController.AdjustPitch(inGameRotation.eulerAngles.x);
+
+        StartCoroutine(EnableCameraControlAfterDelay(transitionDuration + 0.1f));
     }
 
     public void SwitchToLevelSelectView()
     {
         if (cameraCoroutine != null) StopCoroutine(cameraCoroutine);
-        
-        cameraCoroutine = StartCoroutine(ChangePositionAndRotation(levelSelectPosition, levelSelectRotation));
+
+        cameraCoroutine =
+            StartCoroutine(ChangePositionAndRotation(levelSelectPosition, levelSelectRotation, transitionDuration));
         cameraController.AdjustPitch(levelSelectRotation.eulerAngles.x);
     }
 
@@ -68,7 +79,7 @@ public class CameraEffects : NhoxBehaviour
         float delay = 0)
     {
         yield return new WaitForSeconds(delay);
-        cameraController.EnableCameraControl(false); //Testing purpose
+        cameraController.EnableCameraControl(false);
 
         float timeElapsed = 0f;
 
@@ -83,10 +94,14 @@ public class CameraEffects : NhoxBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-
         transform.position = targetPosition;
         transform.rotation = targetRotation;
-        cameraController.EnableCameraControl(true); //Testing purpose
+    }
+
+    private IEnumerator EnableCameraControlAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        cameraController.EnableCameraControl(true);
     }
 
     private IEnumerator ScreenShakeFX(float magnitude, float duration)
@@ -103,7 +118,22 @@ public class CameraEffects : NhoxBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-
         transform.position = originalPos;
+    }
+
+    public void FocusOnCastle()
+    {
+        Transform castle = FindFirstObjectByType<Castle>().transform;
+        if (!castle) return;
+        Vector3 directionToCastle = (castle.position - transform.position).normalized;
+        Vector3 targetPosition = castle.position - (directionToCastle * distanceToCastle);
+        targetPosition.y = castle.position.y + highOffset;
+
+        Quaternion targetRotation = Quaternion.LookRotation(castle.position - targetPosition);
+
+        if (cameraCoroutine != null) StopCoroutine(cameraCoroutine);
+        cameraCoroutine =
+            StartCoroutine(ChangePositionAndRotation(targetPosition, targetRotation, focusOnCastleDuration));
+        StartCoroutine(EnableCameraControlAfterDelay(focusOnCastleDuration));
     }
 }

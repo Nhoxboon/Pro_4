@@ -12,7 +12,7 @@ public class LevelSelectionUI : NhoxBehaviour
         LevelBtnTile[] levelBtns = FindObjectsByType<LevelBtnTile>(FindObjectsSortMode.InstanceID);
         foreach (var btn in levelBtns)
         {
-            //Check btns are unlocked
+            btn.CheckIfLevelUnlocked();
             btn.EnableClick(canClick);
         }
     }

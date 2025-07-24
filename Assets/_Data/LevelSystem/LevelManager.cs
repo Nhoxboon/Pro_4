@@ -10,32 +10,36 @@ public class LevelManager : NhoxBehaviour
     protected GridBuilder currentActiveGrid;
     [SerializeField] protected string currentLevelName;
     public string CurrentLevelName => currentLevelName;
+    [SerializeField] protected CameraEffects cameraEffects;
 
     protected override void Awake()
     {
         base.Awake();
         if (instance != null)
         {
-            DebugTool.LogError("Only one LevelManager allowed to exist");
+            // DebugTool.LogError("Only one LevelManager allowed to exist");
             return;
         }
 
         instance = this;
     }
 
-    //ForTesting purposes
-    protected void Update()
+    protected override void LoadComponents()
     {
-        if (Input.GetKeyDown(KeyCode.J))
-            LoadLevelFromMenu("Level_1");
-        if (Input.GetKeyDown(KeyCode.K))
-            LoadMainMenu();
-        if (Input.GetKeyDown(KeyCode.R))
-            RestartLevel();
+        base.LoadComponents();
+        LoadCameraEffects();
+    }
+
+    protected void LoadCameraEffects()
+    {
+        if (cameraEffects != null) return;
+        cameraEffects = FindFirstObjectByType<CameraEffects>();
+        DebugTool.Log(transform.name + " :LoadCameraEffects", gameObject);
     }
 
     public void RestartLevel() => StartCoroutine(LoadLevelCoroutine(currentLevelName));
     public void LoadLevel(string levelName) => StartCoroutine(LoadLevelCoroutine(levelName));
+    public void LoadNextLevel() => LoadLevel(GetNextLevelName());
     public void LoadLevelFromMenu(string levelName) => StartCoroutine(LoadLevelFromMenuCoroutine(levelName));
     public void LoadMainMenu() => StartCoroutine(LoadMainMenuCoroutine());
 
@@ -43,7 +47,8 @@ public class LevelManager : NhoxBehaviour
     {
         CleanUpScene();
         UI.Instance.EnableInGameUI(false);
-        //Note: Switch camera to game view
+        cameraEffects.SwitchToGameView();
+
         yield return TileManager.Instance.CurrentActiveCoroutine;
         UnloadCurrentScene();
         LoadScene(levelName);
@@ -53,7 +58,8 @@ public class LevelManager : NhoxBehaviour
     {
         TileManager.Instance.ShowMainGrid(false);
         UI.Instance.EnableMenuUI(false);
-        //Note: Switch camera to game view
+        cameraEffects.SwitchToGameView();
+
         yield return TileManager.Instance.CurrentActiveCoroutine;
         TileManager.Instance.EnableMainSceneObjects(false);
 
@@ -64,7 +70,7 @@ public class LevelManager : NhoxBehaviour
     {
         CleanUpScene();
         UI.Instance.EnableInGameUI(false);
-        //Note: Switch camera to menu view
+        cameraEffects.SwitchToMenuView();
 
         yield return TileManager.Instance.CurrentActiveCoroutine;
 
@@ -108,4 +114,7 @@ public class LevelManager : NhoxBehaviour
     }
 
     public void UpdateCurrentGrid(GridBuilder newGrid) => currentActiveGrid = newGrid;
+    public int GetNextLevelIndex() => SceneUtility.GetBuildIndexByScenePath(currentLevelName) + 1;
+    public string GetNextLevelName() => "Level_" + GetNextLevelIndex();
+    public bool HasNoMoreLevels() => GetNextLevelIndex() >= SceneManager.sceneCountInBuildSettings;
 }

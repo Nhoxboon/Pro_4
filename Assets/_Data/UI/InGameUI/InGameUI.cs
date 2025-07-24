@@ -14,6 +14,7 @@ public class InGameUI : NhoxBehaviour
 
     [SerializeField] protected LoadMenuBtn victoryUI;
     [SerializeField] protected RestartLevelBtn gameOverUI;
+    [SerializeField] protected NextLevelBtn levelCompletedUI;
 
     protected void Update()
     {
@@ -29,6 +30,7 @@ public class InGameUI : NhoxBehaviour
         LoadBuildsBtnsUI();
         LoadVictoryUI();
         LoadGameOverUI();
+        LoadLevelCompletedUI();
     }
 
     protected void LoadHPText()
@@ -73,8 +75,16 @@ public class InGameUI : NhoxBehaviour
         DebugTool.Log(transform.name + " :LoadGameOverUI", gameObject);
     }
 
+    protected void LoadLevelCompletedUI()
+    {
+        if (levelCompletedUI != null) return;
+        levelCompletedUI = GetComponentInChildren<NextLevelBtn>(true);
+        DebugTool.Log(transform.name + " :LoadLevelCompletedUI", gameObject);
+    }
+
     public void EnableVictoryUI(bool enable) => victoryUI.transform.parent.gameObject.SetActive(enable);
     public void EnableGameOverUI(bool enable) => gameOverUI.transform.parent.gameObject.SetActive(enable);
+    public void EnableLevelCompletedUI(bool enable) => levelCompletedUI.transform.parent.gameObject.SetActive(enable);
 
     public void ShakeHPUI() => UI.Instance.UiAnimator.Shake(hpText.transform.parent);
     public void ShakeCurrencyUI() => UI.Instance.UiAnimator.Shake(currencyText.transform.parent);

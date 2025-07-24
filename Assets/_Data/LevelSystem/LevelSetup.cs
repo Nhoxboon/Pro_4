@@ -1,12 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+
 public class LevelSetup : NhoxBehaviour
 {
     [SerializeField] protected GridBuilder myMainGrid;
     [SerializeField] protected List<GameObject> extraObjectsToDelete;
-    [Header("Level Details")]
-    [SerializeField] protected int levelCurrency = 600;
+
+    [Header("Level Details")] [SerializeField]
+    protected int levelCurrency = 600;
+
     [SerializeField] protected TowerUnlockConfigSO towerData;
 
     protected override void Start()
@@ -29,7 +32,7 @@ public class LevelSetup : NhoxBehaviour
         towerData = Resources.Load<TowerUnlockConfigSO>("Tower/TowerOnLevelData");
         DebugTool.Log(transform.name + ": LoadTowerData", gameObject);
     }
-    
+
     protected void LoadGridBuilder()
     {
         if (myMainGrid != null) return;
@@ -46,14 +49,15 @@ public class LevelSetup : NhoxBehaviour
                 buildBtn.UnlockTower(tower.towerName, tower.unlocked);
             }
         }
+
         UI.Instance.InGameUI.BuildsBtnsUI.UpdateUnlockBtn();
     }
-    
+
     private IEnumerator SetupLevelRoutine()
     {
         if (!LevelWasLoadedToMainScene()) yield break;
         DestroyExtraObjects();
-        
+
         LevelManager.Instance.UpdateCurrentGrid(myMainGrid);
         TileManager.Instance.ShowGrid(myMainGrid, true);
 
@@ -63,7 +67,7 @@ public class LevelSetup : NhoxBehaviour
         GameManager.Instance.UpdateGameManager(levelCurrency, WaveTimingManager.Instance);
         WaveTimingManager.Instance.ActivateWaveManager();
     }
-    
+
     protected bool LevelWasLoadedToMainScene()
     {
         return LevelManager.Instance is not null;
@@ -71,6 +75,6 @@ public class LevelSetup : NhoxBehaviour
 
     protected void DestroyExtraObjects()
     {
-        foreach (var obj in extraObjectsToDelete) DestroyImmediate(obj);
+        foreach (var obj in extraObjectsToDelete) Destroy(obj);
     }
 }
