@@ -5,37 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelBtnTile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/AdvanceBtn/NextLevelBtn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/AdvanceBtn/NextLevelBtn.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/EnemyKilledText.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/EnemyKilledText.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Audio.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Audio/AudioManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Audio/AudioManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Camera/CameraEffects.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Camera/CameraEffects.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Prefab/LevelBtnTile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Prefab/LevelBtnTile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/LevelManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/LevelSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/LevelSetup.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelSetup.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/LevelBtnTile.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/LevelBtnTile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelBtnTile.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreviewManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreviewManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Trash.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Trash/WaveManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Trash/WaveManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/MenuBtn/BackBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/MenuBtn/BackBtn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/LevelSelectionUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/LevelSelectionUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/CurrencyText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/CurrencyText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/HPText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/HPText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/ScaleAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UIAnimation/ScaleAnimation.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_UI/Font/NewAmsterdam-Regular SDF.asset" afterDir="false" />
     </list>
@@ -237,6 +212,8 @@
       <workItem from="1753264596688" duration="7296000" />
       <workItem from="1753278077570" duration="6283000" />
       <workItem from="1753335763591" duration="17112000" />
+      <workItem from="1753436467963" duration="33000" />
+      <workItem from="1753436514836" duration="4793000" />
     </task>
     <servers />
   </component>

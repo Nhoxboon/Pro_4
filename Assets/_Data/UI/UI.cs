@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class UI : NhoxBehaviour
 {
@@ -15,6 +16,10 @@ public class UI : NhoxBehaviour
     [SerializeField] protected PauseUI pauseUI;
     public PauseUI PauseUI => pauseUI;
     [SerializeField] protected FadeImage fadeImage;
+    
+    [Header("UI SFX")]
+    public AudioSource onHoverSFX;
+    public AudioSource onClickSFX;
 
     protected override void Awake()
     {
@@ -24,7 +29,6 @@ public class UI : NhoxBehaviour
             // DebugTool.LogError("Only one instance of UI allow to exist");
             return;
         }
-
         instance = this;
 
         SwitchToUI(settingsUI.gameObject);
@@ -32,6 +36,7 @@ public class UI : NhoxBehaviour
         SwitchToUI(menuUI.gameObject);
     }
 
+    #region Load Components
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -42,16 +47,18 @@ public class UI : NhoxBehaviour
         LoadInGameUI();
         LoadPauseUI();
         LoadFadeImage();
+        LoadHoverSFX();
+        LoadClickSFX();
     }
 
     protected void LoadUIElements()
     {
         if (uiElements is { Length: > 0 }) return;
-        int childCount = transform.childCount;
-        uiElements = new GameObject[childCount];
 
-        for (int i = 0; i < childCount; i++) uiElements[i] = transform.GetChild(i).gameObject;
-
+        uiElements = transform.Cast<Transform>()
+            .Where(t => t.name != "UI_SFX")
+            .Select(t => t.gameObject)
+            .ToArray();
         DebugTool.Log(transform.name + " :LoadUIElements", gameObject);
     }
 
@@ -98,11 +105,26 @@ public class UI : NhoxBehaviour
         DebugTool.Log(transform.name + " :LoadFadeImage", gameObject);
     }
 
+    protected void LoadHoverSFX()
+    {
+        if(onHoverSFX != null) return;
+        onHoverSFX = transform.Find("UI_SFX/OnHover")?.GetComponent<AudioSource>();;
+        DebugTool.Log(transform.name + " :LoadHoverSFX", gameObject);
+    }
+
+    protected void LoadClickSFX()
+    {
+        if(onClickSFX != null) return;
+        onClickSFX = transform.Find("UI_SFX/Click")?.GetComponent<AudioSource>();
+        DebugTool.Log(transform.name + " :LoadClickSFX", gameObject);
+    }
+    #endregion
+    
     public void SwitchToUI(GameObject uiEnable)
     {
         for (int i = 0; i < uiElements.Length; i++) uiElements[i].SetActive(false);
 
-        if (uiEnable is not null) uiEnable.SetActive(true);
+        uiEnable?.SetActive(true);
     }
     
     public void EnableMenuUI(bool enable) => SwitchToUI(enable ? menuUI.gameObject : null);
