@@ -41,6 +41,7 @@ public class CrossbowTower : Tower
 
             visual.PlayAttackVFX(gunPoint.position, hitInfo.point, currentTarget);
             visual.ReloadVFX(attackCooldown);
+            AudioManager.Instance.PlaySFX(attackSFX, true);
         }
     }
 }

@@ -110,7 +110,7 @@ public class LevelManager : NhoxBehaviour
     {
         Tower[] towers = FindObjectsByType<Tower>(FindObjectsSortMode.None);
         foreach (var tower in towers)
-            Destroy(tower.gameObject);
+            tower.DestroyTower();
     }
 
     public void UpdateCurrentGrid(GridBuilder newGrid) => currentActiveGrid = newGrid;

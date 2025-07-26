@@ -40,11 +40,12 @@ public class AudioManager : NhoxBehaviour
         DebugTool.Log(transform.name + " LoadBGM", gameObject);
     }
 
-    public void PlaySFX(AudioSource sfx)
+    public void PlaySFX(AudioSource sfx, bool randomPitch = false)
     {
-        if(sfx.clip == null) return;
+        if(!sfx.clip) return;
         if (sfx.isPlaying) sfx.Stop();
         
+        sfx.pitch = randomPitch ? Random.Range(0.9f, 1.1f) : 1f;
         sfx.Play();
     }
 

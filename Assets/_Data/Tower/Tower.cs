@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public abstract class Tower : NhoxBehaviour
 {
@@ -20,8 +18,7 @@ public abstract class Tower : NhoxBehaviour
     [SerializeField] protected float rotationSpeed = 10f;
 
     [Header("Attack Settings")] [SerializeField]
-    protected float attackRange = 2.5f;
-
+    protected float attackRange = 3.5f;
     public float AttackRange => attackRange;
 
     [SerializeField] protected LayerMask whatIsEnemy;
@@ -33,6 +30,9 @@ public abstract class Tower : NhoxBehaviour
 
     protected float targetCheckInterval = 0.1f;
     protected float lastTimeCheckedTarget;
+    
+    [Header("SFX Details")]
+    [SerializeField] protected AudioSource attackSFX;
 
     protected Vector3 AttackCenter => transform.position - Vector3.up * 1.5f;
 
@@ -64,6 +64,7 @@ public abstract class Tower : NhoxBehaviour
         base.LoadComponents();
         LoadTowerHead();
         LoadLayerMask();
+        LoadAttackSFX();
     }
 
     protected void LoadTowerHead()
@@ -78,6 +79,13 @@ public abstract class Tower : NhoxBehaviour
         if (whatIsEnemy != 0) return;
         whatIsEnemy = LayerMask.GetMask("Enemy");
         DebugTool.Log(transform.name + " :LoadLayerMask", gameObject);
+    }
+    
+    protected void LoadAttackSFX()
+    {
+        if (attackSFX != null) return;
+        attackSFX = GetComponentInChildren<AudioSource>();
+        DebugTool.Log(transform.name + " :LoadAttackSFX", gameObject);
     }
 
     protected bool CanAttack()
@@ -126,9 +134,9 @@ public abstract class Tower : NhoxBehaviour
         List<Enemy> possibleTargets = new List<Enemy>();
 
         Collider[] enemies = Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy);
-        for (int i = 0; i < enemies.Length; i++)
+        foreach (var enemy in enemies)
         {
-            if (!enemies[i].TryGetComponent<Enemy>(out var newEnemy)) continue;
+            if (!enemy.TryGetComponent<Enemy>(out var newEnemy)) continue;
 
             (newEnemy.GetEnemyType() == enemyPriorityType ? priorityTargets : possibleTargets).Add(newEnemy);
         }
@@ -163,6 +171,7 @@ public abstract class Tower : NhoxBehaviour
     }
 
     public void EnableRotation(bool enable) => canRotate = enable;
+    public void DestroyTower() => TowerSpawner.Instance.Despawn(gameObject);
 
     protected virtual void OnDrawGizmos() => Gizmos.DrawWireSphere(AttackCenter, attackRange);
 }
