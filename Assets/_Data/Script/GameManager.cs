@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameManager : NhoxBehaviour
 {
     private static GameManager instance;
-    public static GameManager Instance => instance;
+
+    public static GameManager Instance => instance ??= FindFirstObjectByType<GameManager>(); 
 
     [SerializeField] protected int currency = 500;
     public int Currency => currency;
@@ -30,9 +31,10 @@ public class GameManager : NhoxBehaviour
         base.Awake();
         if (instance != null)
         {
-            DebugTool.LogError("Only one GameManager allowed to exist");
+            // DebugTool.LogError("Only one GameManager allowed to exist");
             return;
         }
+
         instance = this;
     }
 
@@ -40,6 +42,13 @@ public class GameManager : NhoxBehaviour
     {
         base.Start();
         currentHP = maxHP;
+        if (IsTestingLevel())
+        {
+            currency += 1000;
+            currentHP += 999;
+            isInGame = true;
+        }
+
         OnHPChanged?.Invoke();
         OnCurrencyChanged?.Invoke();
     }
@@ -55,6 +64,13 @@ public class GameManager : NhoxBehaviour
         if (cameraEffects != null) return;
         cameraEffects = FindFirstObjectByType<CameraEffects>();
         DebugTool.Log(transform.name + " LoadCameraEffects", gameObject);
+    }
+
+    public bool IsTestingLevel()
+    {
+        LevelManager levelManager = FindFirstObjectByType<LevelManager>();
+        if (levelManager == null) return true;
+        return false;
     }
 
     public void LevelCompleted() => StartCoroutine(LevelCompletedCoroutine());

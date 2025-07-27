@@ -16,9 +16,8 @@ public class UI : NhoxBehaviour
     [SerializeField] protected PauseUI pauseUI;
     public PauseUI PauseUI => pauseUI;
     [SerializeField] protected FadeImage fadeImage;
-    
-    [Header("UI SFX")]
-    public AudioSource onHoverSFX;
+
+    [Header("UI SFX")] public AudioSource onHoverSFX;
     public AudioSource onClickSFX;
 
     protected override void Awake()
@@ -29,14 +28,17 @@ public class UI : NhoxBehaviour
             // DebugTool.LogError("Only one instance of UI allow to exist");
             return;
         }
+
         instance = this;
 
         SwitchToUI(settingsUI.gameObject);
         SwitchToUI(inGameUI.gameObject);
-        SwitchToUI(menuUI.gameObject);
+        if (!GameManager.Instance.IsTestingLevel())
+            SwitchToUI(menuUI.gameObject);
     }
 
     #region Load Components
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -107,31 +109,33 @@ public class UI : NhoxBehaviour
 
     protected void LoadHoverSFX()
     {
-        if(onHoverSFX != null) return;
-        onHoverSFX = transform.Find("UI_SFX/OnHover")?.GetComponent<AudioSource>();;
+        if (onHoverSFX != null) return;
+        onHoverSFX = transform.Find("UI_SFX/OnHover")?.GetComponent<AudioSource>();
+        ;
         DebugTool.Log(transform.name + " :LoadHoverSFX", gameObject);
     }
 
     protected void LoadClickSFX()
     {
-        if(onClickSFX != null) return;
+        if (onClickSFX != null) return;
         onClickSFX = transform.Find("UI_SFX/Click")?.GetComponent<AudioSource>();
         DebugTool.Log(transform.name + " :LoadClickSFX", gameObject);
     }
+
     #endregion
-    
+
     public void SwitchToUI(GameObject uiEnable)
     {
         for (int i = 0; i < uiElements.Length; i++) uiElements[i].SetActive(false);
 
         uiEnable?.SetActive(true);
     }
-    
+
     public void EnableMenuUI(bool enable) => SwitchToUI(enable ? menuUI.gameObject : null);
-    
+
     public void EnableSettingsUI(bool enable) => SwitchToUI(enable ? settingsUI.gameObject : null);
-    
+
     public void EnableInGameUI(bool enable) => SwitchToUI(enable ? inGameUI.gameObject : null);
-    
+
     public void EnablePauseUI(bool enable) => SwitchToUI(enable ? pauseUI.gameObject : null);
 }

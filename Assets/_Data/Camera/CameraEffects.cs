@@ -14,11 +14,9 @@ public class CameraEffects : NhoxBehaviour
 
     [SerializeField] protected Vector3 inMenuPosition = new Vector3(-2.5f, 9f, 22f);
     [SerializeField] protected Quaternion inMenuRotation = Quaternion.Euler(38f, 139f, 0f);
-    [Space] 
-    [SerializeField] protected Vector3 inGamePosition = new Vector3(-2.4f, 14.8f, -1.3f);
+    [Space] [SerializeField] protected Vector3 inGamePosition = new Vector3(-2.4f, 14.8f, -1.3f);
     [SerializeField] protected Quaternion inGameRotation = Quaternion.Euler(53.3f, 50f, 0f);
-    [Space] 
-    [SerializeField] protected Vector3 levelSelectPosition;
+    [Space] [SerializeField] protected Vector3 levelSelectPosition;
     [SerializeField] protected Quaternion levelSelectRotation;
 
     [Header("Castle Focus Details")] [SerializeField]
@@ -30,6 +28,12 @@ public class CameraEffects : NhoxBehaviour
     protected override void Start()
     {
         base.Start();
+        if (GameManager.Instance.IsTestingLevel())
+        {
+            cameraController.EnableCameraControl(true);
+            return;
+        }
+
         SwitchToMenuView();
     }
 
@@ -94,6 +98,7 @@ public class CameraEffects : NhoxBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
+
         transform.position = targetPosition;
         transform.rotation = targetRotation;
     }
@@ -118,6 +123,7 @@ public class CameraEffects : NhoxBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
+
         transform.position = originalPos;
     }
 

@@ -188,8 +188,8 @@ GameObject:
   - component: {fileID: 848177953220709631}
   - component: {fileID: 4207490421812127552}
   - component: {fileID: 3328523184623581906}
-  - component: {fileID: 3618237543761232749}
   - component: {fileID: 2165754706503076603}
+  - component: {fileID: 3618237543761232749}
   m_Layer: 0
   m_Name: LevelBtnTile
   m_TagString: Untagged
@@ -287,18 +287,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3618237543761232749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5918002420892424154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cad65e2699f741798dba671733cc39cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2165754706503076603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,3 +301,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myText: {fileID: 1018115034610607482}
   levelIndex: 1
+--- !u!114 &3618237543761232749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918002420892424154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad65e2699f741798dba671733cc39cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

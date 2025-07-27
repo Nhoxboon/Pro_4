@@ -28,6 +28,9 @@ public class WaveTimingManager : WaveSystemManager
 
     protected void Update()
     {
+#if UNITY_EDITOR
+        if(Input.GetKeyDown(KeyCode.T)) ActivateWaveManager();
+#endif
         if (!gameBegun) return;
         UpdateWaveTimer();
     }

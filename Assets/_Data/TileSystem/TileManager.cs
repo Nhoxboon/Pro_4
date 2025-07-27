@@ -21,7 +21,7 @@ public class TileManager : NhoxBehaviour
     [Header("Grid Animation Details")] [SerializeField]
     protected float tileMoveDuration = 0.1f;
 
-    [SerializeField] protected float tileDelay = 0.1f;
+    [SerializeField] protected float tileDelay = 0.001f;
     [SerializeField] protected float yOffset = 5f;
 
     [Space] [SerializeField] protected List<GameObject> mainSceneObjects;
@@ -47,6 +47,7 @@ public class TileManager : NhoxBehaviour
     {
         base.Start();
         CollectMainSceneObjects();
+        if (GameManager.Instance.IsTestingLevel()) return;
         ShowGrid(mainSceneGrid, true);
     }
 
