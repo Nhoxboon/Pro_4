@@ -2,5 +2,6 @@
 {
     BasicEnemy,
     FastEnemy,
+    SwarmEnemy,
     None
 }
