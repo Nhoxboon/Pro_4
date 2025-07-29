@@ -3,5 +3,7 @@
     BasicEnemy,
     FastEnemy,
     SwarmEnemy,
+    HeavyEnemy,
+    StealthEnemy,
     None
 }

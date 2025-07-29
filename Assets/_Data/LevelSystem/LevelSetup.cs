@@ -44,13 +44,13 @@ public class LevelSetup : NhoxBehaviour
     {
         foreach (var tower in towerData.towerUnlockList)
         {
-            foreach (var buildBtn in UI.Instance.InGameUI.BuildsBtnsUI.BuildBtns)
+            foreach (var buildBtn in ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.BuildBtns)
             {
                 buildBtn.UnlockTower(tower.towerName, tower.unlocked);
             }
         }
 
-        UI.Instance.InGameUI.BuildsBtnsUI.UpdateUnlockBtn();
+        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.UpdateUnlockBtn();
     }
 
     private IEnumerator SetupLevelRoutine()
@@ -58,19 +58,19 @@ public class LevelSetup : NhoxBehaviour
         if (!LevelWasLoadedToMainScene()) yield break;
         DestroyExtraObjects();
 
-        LevelManager.Instance.UpdateCurrentGrid(myMainGrid);
-        TileManager.Instance.ShowGrid(myMainGrid, true);
+        ManagerCtrl.Instance.LevelManager.UpdateCurrentGrid(myMainGrid);
+        ManagerCtrl.Instance.TileManager.ShowGrid(myMainGrid, true);
 
-        yield return TileManager.Instance.CurrentActiveCoroutine;
+        yield return ManagerCtrl.Instance.TileManager.CurrentActiveCoroutine;
 
-        UI.Instance.EnableInGameUI(true);
-        GameManager.Instance.UpdateGameManager(levelCurrency, WaveTimingManager.Instance);
+        ManagerCtrl.Instance.UI.EnableInGameUI(true);
+        ManagerCtrl.Instance.GameManager.UpdateGameManager(levelCurrency, WaveTimingManager.Instance);
         WaveTimingManager.Instance.ActivateWaveManager();
     }
 
     protected bool LevelWasLoadedToMainScene()
     {
-        return LevelManager.Instance is not null;
+        return ManagerCtrl.Instance.LevelManager is not null;
     }
 
     protected void DestroyExtraObjects()

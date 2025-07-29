@@ -89,13 +89,13 @@ public class LevelLayoutManager : WaveSystemManager
         newTile.transform.parent = currentGrid.transform;
 
         Vector3 targetPosition = newTile.transform.position + new Vector3(0, yOffset, 0);
-        TileManager.Instance.MoveTile(newTile.transform, targetPosition);
+        ManagerCtrl.Instance.TileManager.MoveTile(newTile.transform, targetPosition);
     }
 
     private void RemoveTile(TileSlot tileToRemove)
     {
         Vector3 targetPosition = tileToRemove.transform.position + new Vector3(0, -yOffset, 0);
-        TileManager.Instance.MoveTile(tileToRemove.transform, targetPosition);
+        ManagerCtrl.Instance.TileManager.MoveTile(tileToRemove.transform, targetPosition);
         Destroy(tileToRemove.gameObject, 1f);
     }
 }

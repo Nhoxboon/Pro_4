@@ -4,7 +4,7 @@
 
     protected void RestartLevel()
     {
-        LevelManager.Instance.RestartLevel();
-        UI.Instance.InGameUI.EnableGameOverUI(false);
+        ManagerCtrl.Instance.LevelManager.RestartLevel();
+        ManagerCtrl.Instance.UI.InGameUI.EnableGameOverUI(false);
     }
 }

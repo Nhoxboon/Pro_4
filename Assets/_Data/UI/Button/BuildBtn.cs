@@ -62,7 +62,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
     protected void InitializeTowerPreview()
     {
         if (towerToBuild == null) return;
-        towerPreview = TowerPreviewManager.Instance.CreatePreviewForTower(towerToBuild);
+        towerPreview = ManagerCtrl.Instance.TowerPreviewManager.CreatePreviewForTower(towerToBuild);
     }
 
     #region Building
@@ -71,12 +71,12 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
     {
         if (!CanBuild())
         {
-            UI.Instance.InGameUI.ShakeCurrencyUI();
+            ManagerCtrl.Instance.UI.InGameUI.ShakeCurrencyUI();
             return;
         }
 
-        BuildSlot slotUsed = BuildManager.Instance.SelectedBuildSlot;
-        BuildManager.Instance.CancelBuildAction();
+        BuildSlot slotUsed = ManagerCtrl.Instance.BuildManager.SelectedBuildSlot;
+        ManagerCtrl.Instance.BuildManager.CancelBuildAction();
 
         Transform newTower = TowerSpawner.Instance.Spawn(towerName + "Tower",
             slotUsed.GetBuildPosition(towerCenterY), Quaternion.identity);
@@ -85,7 +85,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
 
         FinalizeSlotAfterBuild(slotUsed);
 
-        UI.Instance.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(null);
+        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(null);
         camEffects.ScreenShake(0.15f, 0.2f);
     }
 
@@ -111,29 +111,30 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
         hoverEffect?.ShowcaseBtn(select);
         if (towerPreview is null) return;
 
-        BuildSlot slotUsed = BuildManager.Instance.SelectedBuildSlot;
+        BuildSlot slotUsed = ManagerCtrl.Instance.BuildManager.SelectedBuildSlot;
         if (slotUsed is null) return;
         Vector3 previewPosition = slotUsed.GetBuildPosition(towerCenterY);
-        TowerPreviewManager.Instance.ShowTowerPreview(towerPreview, select, previewPosition, towerCenterY);
+        ManagerCtrl.Instance.TowerPreviewManager.ShowTowerPreview(towerPreview, select, previewPosition, towerCenterY);
 
-        UI.Instance.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(this);
+        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(this);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        BuildManager.Instance.MouseOverUI(true);
-        foreach (var btn in UI.Instance.InGameUI.BuildsBtnsUI.BuildBtns)
+        ManagerCtrl.Instance.BuildManager.MouseOverUI(true);
+        foreach (var btn in ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.BuildBtns)
             if (btn.gameObject.activeSelf)
                 btn.SelectBtn(false);
         SelectBtn(true);
     }
 
-    public void OnPointerExit(PointerEventData eventData) => BuildManager.Instance.MouseOverUI(false);
+    public void OnPointerExit(PointerEventData eventData) => ManagerCtrl.Instance.BuildManager.MouseOverUI(false);
 
     #endregion
 
-    protected bool CanBuild() => GameManager.Instance.HasEnoughCurrency(towerPrice) || towerToBuild is null ||
-                                 UI.Instance.InGameUI.BuildsBtnsUI.LastSelectedBtn is null;
+    protected bool CanBuild() => ManagerCtrl.Instance.GameManager.HasEnoughCurrency(towerPrice) ||
+                                 towerToBuild is null ||
+                                 ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.LastSelectedBtn is null;
 
     protected bool ActivateTower(Transform tower)
     {

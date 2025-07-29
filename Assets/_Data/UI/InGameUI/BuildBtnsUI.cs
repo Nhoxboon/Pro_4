@@ -74,7 +74,7 @@ public class BuildBtnsUI : NhoxBehaviour
         float yOffset = isBuildMenuActive ? yPosOffset : -yPosOffset;
         float methodDelay = isBuildMenuActive ? openAnimationDuration : 0f;
 
-        UI.Instance.UiAnimator.ChangePos(transform, new Vector3(0, yOffset), openAnimationDuration);
+        ManagerCtrl.Instance.UI.UiAnimator.ChangePos(transform, new Vector3(0, yOffset), openAnimationDuration);
 
         StopCoroutine(nameof(DelayedToggleBtnMovement));
         StartCoroutine(DelayedToggleBtnMovement(methodDelay));

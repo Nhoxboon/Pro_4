@@ -42,7 +42,7 @@ public class EnemySpawnCoordinator : WaveSystemManager
 
         if (WaveTimingManager.Instance.HasNoMoreWaves())
         {
-            GameManager.Instance.LevelCompleted();
+            ManagerCtrl.Instance.GameManager.LevelCompleted();
             return;
         }
 

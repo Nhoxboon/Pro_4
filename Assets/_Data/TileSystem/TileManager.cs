@@ -7,9 +7,6 @@ using Object = UnityEngine.Object;
 
 public class TileManager : NhoxBehaviour
 {
-    private static TileManager instance;
-    public static TileManager Instance => instance;
-
     [SerializeField] protected float defaultMoveDuration = 0.1f;
     public float DefaultMoveDuration => defaultMoveDuration;
 
@@ -31,23 +28,11 @@ public class TileManager : NhoxBehaviour
     protected bool isGridMoving;
     public bool IsGridMoving => isGridMoving;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        if (instance != null)
-        {
-            DebugTool.LogError("Only one TileManager allowed to exist");
-            return;
-        }
-
-        instance = this;
-    }
-
     protected override void Start()
     {
         base.Start();
         CollectMainSceneObjects();
-        if (GameManager.Instance.IsTestingLevel()) return;
+        if (ManagerCtrl.Instance.GameManager.IsTestingLevel()) return;
         ShowGrid(mainSceneGrid, true);
     }
 

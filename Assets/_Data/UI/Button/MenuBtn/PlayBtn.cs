@@ -6,7 +6,7 @@ public class PlayBtn : CameraEffBtn
 
     protected void Play()
     {
-        if(TileManager.Instance.IsGridMoving) return;
+        if(ManagerCtrl.Instance.TileManager.IsGridMoving) return;
         cameraEffects.SwitchToLevelSelectView();
     }
 }

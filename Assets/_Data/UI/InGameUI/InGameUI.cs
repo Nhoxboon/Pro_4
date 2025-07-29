@@ -18,7 +18,7 @@ public class InGameUI : NhoxBehaviour
 
     protected void Update()
     {
-        if (InputManager.Instance.IsF10Down) UI.Instance.EnablePauseUI(true);
+        if (InputManager.Instance.IsF10Down) ManagerCtrl.Instance.UI.EnablePauseUI(true);
     }
 
     protected override void LoadComponents()
@@ -86,6 +86,6 @@ public class InGameUI : NhoxBehaviour
     public void EnableGameOverUI(bool enable) => gameOverUI.transform.parent.gameObject.SetActive(enable);
     public void EnableLevelCompletedUI(bool enable) => levelCompletedUI.transform.parent.gameObject.SetActive(enable);
 
-    public void ShakeHPUI() => UI.Instance.UiAnimator.Shake(hpText.transform.parent);
-    public void ShakeCurrencyUI() => UI.Instance.UiAnimator.Shake(currencyText.transform.parent);
+    public void ShakeHPUI() => ManagerCtrl.Instance.UI.UiAnimator.Shake(hpText.transform.parent);
+    public void ShakeCurrencyUI() => ManagerCtrl.Instance.UI.UiAnimator.Shake(currencyText.transform.parent);
 }

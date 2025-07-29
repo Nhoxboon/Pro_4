@@ -36,7 +36,7 @@ public class ScaleAnimation : NhoxBehaviour, IPointerEnterHandler, IPointerExitH
     {
         if (scaleCoroutine != null) StopCoroutine(scaleCoroutine);
 
-        AudioManager.Instance?.PlaySFX(UI.Instance.onHoverSFX);
+        AudioManager.Instance?.PlaySFX(ManagerCtrl.Instance.UI.onHoverSFX);
         scaleCoroutine = StartCoroutine(uiAnimator.ChangeScaleCoroutine(rectTransform, showcaseScale, scaleUpDuration));
 
         if (this.TryGetComponentInChildren<TextBlinkEffect>(out var textEff)) textEff.EnableBlink(false);
@@ -53,9 +53,9 @@ public class ScaleAnimation : NhoxBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(TileManager.Instance.IsGridMoving) return;
+        if(ManagerCtrl.Instance.TileManager.IsGridMoving) return;
         
-        AudioManager.Instance?.PlaySFX(UI.Instance.onClickSFX);
+        AudioManager.Instance?.PlaySFX(ManagerCtrl.Instance.UI.onClickSFX);
         rectTransform.localScale = Vector3.one;
     }
 }

@@ -55,7 +55,9 @@ MonoBehaviour:
   movement: {fileID: 9078594600551697235}
   stats: {fileID: 3934413065520272476}
   damageReceiver: {fileID: 9152040809550519604}
+  visuals: {fileID: 4544059552111696782}
   death: {fileID: 4627489009503764944}
+  shieldObject: {fileID: 0}
 --- !u!1 &899471337595141642
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   core: {fileID: 1482369111333436643}
   health:
+    maxValue: 0
+    currentValue: 0
+  shieldAmount:
     maxValue: 0
     currentValue: 0
 --- !u!1 &1290614207364787370
@@ -296,6 +301,7 @@ MonoBehaviour:
   enemyType: 1
   centerPoint: {fileID: 1871140074810801568}
   core: {fileID: 1482369111333436643}
+  isHidden: 0
 --- !u!1 &2710544625672750062
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +575,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   verticalRotationSpeed: 5
+  transparentMat: {fileID: 2100000, guid: 22a0db1b73374d24ea68d20b09e2fdf7, type: 2}
+  myRenderers:
+  - {fileID: 4891888871077452544}
+  - {fileID: 3325452688947187272}
+  - {fileID: 6107084754715235970}
+  smokeFX: {fileID: 0}
 --- !u!1 &5385255019748636595
 GameObject:
   m_ObjectHideFlags: 0
@@ -5395,7 +5407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearBehavior: 2
+  clearBehavior: 1
   cameraShake:
     enabled: 0
     useMainCamera: 1

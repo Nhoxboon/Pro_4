@@ -2,9 +2,6 @@
 {
     protected void OnEnable() => EnemiesKilledText();
 
-    protected void EnemiesKilledText()
-    {
-        if (GameManager.Instance != null)
-            textMeshPro.text = "Enemies Killed: " + GameManager.Instance.EnemyKilled;
-    }
+    protected void EnemiesKilledText() =>
+        textMeshPro.text = "Enemies Killed: " + ManagerCtrl.Instance.GameManager?.EnemyKilled;
 }

@@ -10,13 +10,13 @@
 
     protected void LoadMenuAndDisableVictoryUI()
     {
-        LevelManager.Instance.LoadMainMenu();
-        UI.Instance.InGameUI.EnableVictoryUI(false);
+        ManagerCtrl.Instance.LevelManager.LoadMainMenu();
+        ManagerCtrl.Instance.UI.InGameUI.EnableVictoryUI(false);
     }
 
     protected void LoadMenuAndDisableGameOverUI()
     {
-        LevelManager.Instance.LoadMainMenu();
-        UI.Instance.InGameUI.EnableGameOverUI(false);
+        ManagerCtrl.Instance.LevelManager.LoadMainMenu();
+        ManagerCtrl.Instance.UI.InGameUI.EnableGameOverUI(false);
     }
 }

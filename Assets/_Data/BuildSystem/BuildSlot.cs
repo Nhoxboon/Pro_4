@@ -26,15 +26,15 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!buildSlotAvailable || !tileCanMove || TileManager.Instance.IsGridMoving) return;
+        if (!buildSlotAvailable || !tileCanMove || ManagerCtrl.Instance.TileManager.IsGridMoving) return;
         MoveTileUp();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (!tileCanMove || !buildSlotAvailable || TileManager.Instance.IsGridMoving) return;
+        if (!tileCanMove || !buildSlotAvailable || ManagerCtrl.Instance.TileManager.IsGridMoving) return;
 
-        if (currentMoveUpCoroutine != null) Invoke(nameof(MoveTileDown), TileManager.Instance.DefaultMoveDuration);
+        if (currentMoveUpCoroutine != null) Invoke(nameof(MoveTileDown), ManagerCtrl.Instance.TileManager.DefaultMoveDuration);
         else
             MoveTileDown();
     }
@@ -42,24 +42,24 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left || !buildSlotAvailable ||
-            BuildManager.Instance.SelectedBuildSlot == this || TileManager.Instance.IsGridMoving ||
-            !GameManager.Instance.IsInGame) return;
+            ManagerCtrl.Instance.BuildManager.SelectedBuildSlot == this || ManagerCtrl.Instance.TileManager.IsGridMoving ||
+            !ManagerCtrl.Instance.GameManager.IsInGame) return;
 
-        BuildManager.Instance.EnableBuildMenu();
-        BuildManager.Instance.SelectBuildSlot(this);
+        ManagerCtrl.Instance.BuildManager.EnableBuildMenu();
+        ManagerCtrl.Instance.BuildManager.SelectBuildSlot(this);
         MoveTileUp();
         tileCanMove = false;
-        UI.Instance.InGameUI.BuildsBtnsUI.LastSelectedBtn?.SelectBtn(true);
+        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.LastSelectedBtn?.SelectBtn(true);
     }
 
     protected void MoveTileUp()
     {
-        var targetPosition = transform.position + new Vector3(0, TileManager.Instance.BuildSlotYOffset, 0);
-        currentMoveUpCoroutine = StartCoroutine(TileManager.Instance.TileMoveCoroutine(transform, targetPosition));
+        var targetPosition = transform.position + new Vector3(0, ManagerCtrl.Instance.TileManager.BuildSlotYOffset, 0);
+        currentMoveUpCoroutine = StartCoroutine(ManagerCtrl.Instance.TileManager.TileMoveCoroutine(transform, targetPosition));
     }
 
     protected void MoveTileDown() => moveToDefaultCoroutine =
-        StartCoroutine(TileManager.Instance.TileMoveCoroutine(transform, defaultPosition));
+        StartCoroutine(ManagerCtrl.Instance.TileManager.TileMoveCoroutine(transform, defaultPosition));
 
     public void UnSelectTile()
     {

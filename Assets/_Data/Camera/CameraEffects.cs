@@ -28,7 +28,7 @@ public class CameraEffects : NhoxBehaviour
     protected override void Start()
     {
         base.Start();
-        if (GameManager.Instance.IsTestingLevel())
+        if (ManagerCtrl.Instance.GameManager.IsTestingLevel())
         {
             cameraController.EnableCameraControl(true);
             return;

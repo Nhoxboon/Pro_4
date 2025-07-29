@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class GameManager : NhoxBehaviour
 {
-    private static GameManager instance;
-
-    public static GameManager Instance => instance ??= FindFirstObjectByType<GameManager>(); 
-
     [SerializeField] protected int currency = 500;
     public int Currency => currency;
     [SerializeField] protected int maxHP = 100;
@@ -25,18 +21,6 @@ public class GameManager : NhoxBehaviour
     [SerializeField] protected WaveTimingManager currentWaveManager;
     public Action OnHPChanged;
     public Action OnCurrencyChanged;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        if (instance != null)
-        {
-            // DebugTool.LogError("Only one GameManager allowed to exist");
-            return;
-        }
-
-        instance = this;
-    }
 
     protected override void Start()
     {
@@ -80,12 +64,12 @@ public class GameManager : NhoxBehaviour
         cameraEffects.FocusOnCastle();
         yield return cameraEffects.CameraCoroutine;
 
-        if (LevelManager.Instance.HasNoMoreLevels())
-            UI.Instance.InGameUI.EnableVictoryUI(true);
+        if (ManagerCtrl.Instance.LevelManager.HasNoMoreLevels())
+            ManagerCtrl.Instance.UI.InGameUI.EnableVictoryUI(true);
         else
         {
-            PlayerPrefs.SetInt(LevelManager.Instance.GetNextLevelName() + "unlocked", 1);
-            UI.Instance.InGameUI.EnableLevelCompletedUI(true);
+            PlayerPrefs.SetInt(ManagerCtrl.Instance.LevelManager.GetNextLevelName() + "unlocked", 1);
+            ManagerCtrl.Instance.UI.InGameUI.EnableLevelCompletedUI(true);
         }
     }
 
@@ -96,7 +80,7 @@ public class GameManager : NhoxBehaviour
         cameraEffects.FocusOnCastle();
 
         yield return cameraEffects.CameraCoroutine;
-        UI.Instance.InGameUI.EnableGameOverUI(true);
+        ManagerCtrl.Instance.UI.InGameUI.EnableGameOverUI(true);
     }
 
     public void UpdateGameManager(int levelCurrency, WaveTimingManager newWaveManager)
@@ -114,7 +98,7 @@ public class GameManager : NhoxBehaviour
     {
         currentHP += amount;
         OnHPChanged?.Invoke();
-        UI.Instance.InGameUI.ShakeHPUI();
+        ManagerCtrl.Instance.UI.InGameUI.ShakeHPUI();
 
         if (currentHP <= 0 || !isInGame) StartCoroutine(LevelFailedCoroutine());
     }

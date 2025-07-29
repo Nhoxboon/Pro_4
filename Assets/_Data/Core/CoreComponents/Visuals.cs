@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Visuals : CoreComponent
@@ -6,6 +7,19 @@ public class Visuals : CoreComponent
     [SerializeField] protected Transform visuals;
     [SerializeField] protected LayerMask whatIsGround;
     [SerializeField] protected float verticalRotationSpeed = 5f;
+
+    [Header("Transparency Details")] 
+    [SerializeField] protected Material transparentMat;
+    protected List<Material> originalMat;
+    [SerializeField] protected MeshRenderer[] myRenderers;
+    [Header("Unique FX")]
+    [SerializeField] protected ParticleSystem smokeFX;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        CollectDefaultMaterials();
+    }
 
     public override void LogicUpdate()
     {
@@ -18,6 +32,8 @@ public class Visuals : CoreComponent
         base.LoadComponents();
         LoadVisuals();
         LoadLayerMask();
+        LoadMaterials();
+        LoadMyRenderers();
     }
 
     protected void LoadVisuals()
@@ -33,6 +49,20 @@ public class Visuals : CoreComponent
         whatIsGround = LayerMask.GetMask("Road");
         DebugTool.Log(transform.name + " :LoadLayerMask", gameObject);
     }
+    
+    protected void LoadMaterials()
+    {
+        if (transparentMat != null) return;
+        transparentMat = Resources.Load<Material>("Materials/Enemy_Transparent");
+        DebugTool.Log(transform.name + " :LoadMaterials", gameObject);
+    }
+
+    protected void LoadMyRenderers()
+    {
+        if (myRenderers is { Length: > 0 }) return;
+        myRenderers = visuals.GetComponentsInChildren<MeshRenderer>();
+        DebugTool.Log(transform.name + " :LoadMyRenderers", gameObject);
+    }
 
     protected void AlignWithSlope()
     {
@@ -44,5 +74,27 @@ public class Visuals : CoreComponent
             visuals.rotation =
                 Quaternion.Slerp(visuals.rotation, targetRotation, verticalRotationSpeed * Time.deltaTime);
         }
+    }
+
+    public void EnableSmoke(bool enable)
+    {
+        if (!enable) return;
+        if (!smokeFX.isPlaying)
+            smokeFX.Play();
+        else
+            smokeFX.Stop();
+    }
+
+    protected void CollectDefaultMaterials()
+    {
+        originalMat = new List<Material>();
+        foreach (MeshRenderer mesh in myRenderers)
+            originalMat.Add(mesh.material);
+    }
+
+    public void MakeTransparent(bool transparent)
+    {
+        for (int i = 0; i < myRenderers.Length; i++)
+            myRenderers[i].material = transparent ? transparentMat : originalMat[i];
     }
 }

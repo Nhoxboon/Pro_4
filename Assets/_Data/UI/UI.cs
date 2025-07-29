@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class UI : NhoxBehaviour
 {
-    private static UI instance;
-    public static UI Instance => instance;
-
     [SerializeField] protected GameObject[] uiElements;
     [SerializeField] protected UIAnimator uiAnimator;
     public UIAnimator UiAnimator => uiAnimator;
@@ -23,17 +20,10 @@ public class UI : NhoxBehaviour
     protected override void Awake()
     {
         base.Awake();
-        if (instance != null)
-        {
-            // DebugTool.LogError("Only one instance of UI allow to exist");
-            return;
-        }
-
-        instance = this;
 
         SwitchToUI(settingsUI.gameObject);
         SwitchToUI(inGameUI.gameObject);
-        if (!GameManager.Instance.IsTestingLevel())
+        if (!ManagerCtrl.Instance.GameManager.IsTestingLevel())
             SwitchToUI(menuUI.gameObject);
     }
 

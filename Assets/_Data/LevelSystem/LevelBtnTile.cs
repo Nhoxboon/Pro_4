@@ -40,33 +40,33 @@ public class LevelBtnTile : NhoxBehaviour, IPointerDownHandler, IPointerEnterHan
         if (!canClick || !unlocked) return;
 
         transform.position = defaultPosition;
-        LevelManager.Instance.LoadLevelFromMenu("Level_" + levelIndex);
+        ManagerCtrl.Instance.LevelManager.LoadLevelFromMenu("Level_" + levelIndex);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (TileManager.Instance.IsGridMoving) return;
+        if (ManagerCtrl.Instance.TileManager.IsGridMoving) return;
         MoveTileUp();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (TileManager.Instance.IsGridMoving) return;
+        if (ManagerCtrl.Instance.TileManager.IsGridMoving) return;
 
         if (currentMoveCoroutine != null)
-            Invoke(nameof(MoveToDefaultPosition), TileManager.Instance.DefaultMoveDuration);
+            Invoke(nameof(MoveToDefaultPosition), ManagerCtrl.Instance.TileManager.DefaultMoveDuration);
         else
             MoveToDefaultPosition();
     }
 
     protected void MoveTileUp()
     {
-        Vector3 targetPosition = transform.position + new Vector3(0, TileManager.Instance.BuildSlotYOffset, 0);
-        currentMoveCoroutine = StartCoroutine(TileManager.Instance.TileMoveCoroutine(transform, targetPosition));
+        Vector3 targetPosition = transform.position + new Vector3(0, ManagerCtrl.Instance.TileManager.BuildSlotYOffset, 0);
+        currentMoveCoroutine = StartCoroutine(ManagerCtrl.Instance.TileManager.TileMoveCoroutine(transform, targetPosition));
     }
 
     protected void MoveToDefaultPosition() => moveToDefaultCoroutine =
-        StartCoroutine(TileManager.Instance.TileMoveCoroutine(transform, defaultPosition));
+        StartCoroutine(ManagerCtrl.Instance.TileManager.TileMoveCoroutine(transform, defaultPosition));
 
     public void CheckIfLevelUnlocked()
     {

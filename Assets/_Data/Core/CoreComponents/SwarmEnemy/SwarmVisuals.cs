@@ -7,18 +7,19 @@ public class SwarmVisuals : Visuals
     protected GameObject[] variants;
 
     [Header("Bounce settings")] [SerializeField]
-    protected AnimationCurve bounceCurve = new AnimationCurve(new Keyframe(0f, 0f), 
-                                                                        new Keyframe(0.666f, 0.568f),
-                                                                        new Keyframe(1f, 0f));
+    protected AnimationCurve bounceCurve = new AnimationCurve(new Keyframe(0f, 0f),
+        new Keyframe(0.666f, 0.568f),
+        new Keyframe(1f, 0f));
+
     [SerializeField] protected float bounceSpeed = 2f;
     protected float bounceTimer;
     [SerializeField] protected float minHeight = 0.1f;
     [SerializeField] protected float maxHeight = 0.4f;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
         ChooseVisualVariant();
+        base.Awake();
     }
 
     public override void LogicUpdate()

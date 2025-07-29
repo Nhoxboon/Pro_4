@@ -16,7 +16,7 @@ public class BackBtn : CameraEffBtn
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             if (SceneManager.GetSceneAt(i).buildIndex == 0) continue;
-            LevelManager.Instance.LoadMainMenu();
+            ManagerCtrl.Instance.LevelManager.LoadMainMenu();
             break;
         }
     }

@@ -8,7 +8,7 @@ public class Castle : NhoxBehaviour
         {
             if (other.TryGetComponent<Enemy>(out var enemy)) enemy.Core.Death.DestroyEnemy();
 
-            if (GameManager.Instance.IsInGame) GameManager.Instance.UpdateHP(-1);
+            if (ManagerCtrl.Instance.GameManager.IsInGame) ManagerCtrl.Instance.GameManager.UpdateHP(-1);
         }
     }
 }

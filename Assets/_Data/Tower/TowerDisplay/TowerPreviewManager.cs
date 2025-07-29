@@ -2,22 +2,7 @@ using UnityEngine;
 
 public class TowerPreviewManager : NhoxBehaviour
 {
-    private static TowerPreviewManager instance;
-    public static TowerPreviewManager Instance => instance;
-
     [SerializeField] protected Transform previewHolder;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        if (instance != null)
-        {
-            DebugTool.LogError("Only one TowerPreviewManager allowed to exist");
-            return;
-        }
-
-        instance = this;
-    }
 
     protected override void LoadComponents()
     {

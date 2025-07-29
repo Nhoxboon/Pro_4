@@ -23,8 +23,14 @@ public class Core : NhoxBehaviour
     [SerializeField] protected DamageReceiver damageReceiver;
     public DamageReceiver DamageReceiver => damageReceiver;
 
+    [SerializeField] protected Visuals visuals;
+    public Visuals Visuals => visuals;
+
     [SerializeField] protected Death death;
     public Death Death => death;
+
+    [SerializeField] protected ShieldForEnemy shieldObject;
+    public ShieldForEnemy ShieldObject => shieldObject;
 
     #endregion
 
@@ -36,6 +42,7 @@ public class Core : NhoxBehaviour
         LoadMovement();
         LoadStats();
         LoadDamageReceiver();
+        LoadVisuals();
         LoadDeath();
     }
 
@@ -72,6 +79,13 @@ public class Core : NhoxBehaviour
         if (damageReceiver != null) return;
         damageReceiver = GetComponentInChildren<DamageReceiver>();
         DebugTool.Log(transform.name + " LoadDamageReceiver", gameObject);
+    }
+
+    protected void LoadVisuals()
+    {
+        if (visuals != null) return;
+        visuals = GetComponentInChildren<Visuals>();
+        DebugTool.Log(transform.name + " LoadVisuals", gameObject);
     }
 
     protected void LoadDeath()

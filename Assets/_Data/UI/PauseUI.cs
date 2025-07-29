@@ -11,7 +11,7 @@ public class PauseUI : NhoxBehaviour
 
     protected void Update()
     {
-        if (InputManager.Instance.IsF10Down) UI.Instance.EnableInGameUI(true);
+        if (InputManager.Instance.IsF10Down) ManagerCtrl.Instance.UI.EnableInGameUI(true);
     }
 
     protected override void LoadComponents()

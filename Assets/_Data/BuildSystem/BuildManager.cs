@@ -1,21 +1,17 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : NhoxBehaviour
 {
-    private static BuildManager instance;
-    public static BuildManager Instance => instance;
-
     protected BuildSlot selectedBuildSlot;
     public BuildSlot SelectedBuildSlot => selectedBuildSlot;
 
     [SerializeField] protected GridBuilder currentGridB;
 
-    [Header("Build Materials")] [SerializeField]
-    protected Material attackRadMat;
-
+    [Header("Build Materials")] 
+    [SerializeField] protected Material attackRadMat;
     public Material AttackRadMat => attackRadMat;
+    
     [SerializeField] protected Material buildPreviewMat;
     public Material BuildPreviewMat => buildPreviewMat;
 
@@ -25,14 +21,6 @@ public class BuildManager : NhoxBehaviour
     {
         base.Awake();
         MakeBuildSlotUnavailable(WaveTimingManager.Instance, currentGridB);
-
-        if (instance != null)
-        {
-            // DebugTool.LogError("Only one BuildManager allowed to exist");
-            return;
-        }
-
-        instance = this;
     }
 
     protected void Update()
@@ -50,6 +38,8 @@ public class BuildManager : NhoxBehaviour
     {
         base.LoadComponents();
         LoadGridBuilder();
+        LoadAttackRadMat();
+        LoadBuildPreviewMat();
     }
 
     protected void LoadGridBuilder()
@@ -57,6 +47,20 @@ public class BuildManager : NhoxBehaviour
         if (currentGridB != null) return;
         currentGridB = FindFirstObjectByType<GridBuilder>();
         DebugTool.Log(transform.name + " LoadGridBuilder", gameObject);
+    }
+    
+    protected void LoadAttackRadMat()
+    {
+        if (attackRadMat != null) return;
+        attackRadMat = Resources.Load<Material>("Materials/AtkRadiusMaterial");
+        DebugTool.Log(transform.name + " LoadAttackRadMat", gameObject);
+    }
+    
+    protected void LoadBuildPreviewMat()
+    {
+        if (buildPreviewMat != null) return;
+        buildPreviewMat = Resources.Load<Material>("Materials/BuildPreviewMat");
+        DebugTool.Log(transform.name + " LoadBuildPreviewMat", gameObject);
     }
 
     public void MouseOverUI(bool value) => isMouseOverUI = value;
@@ -88,8 +92,8 @@ public class BuildManager : NhoxBehaviour
     public void CancelBuildAction()
     {
         if (selectedBuildSlot is null) return;
-        UI.Instance.InGameUI.BuildsBtnsUI.LastSelectedBtn?.SelectBtn(false);
-        TowerPreviewManager.Instance.HideAllPreviews();
+        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.LastSelectedBtn?.SelectBtn(false);
+        ManagerCtrl.Instance.TowerPreviewManager.HideAllPreviews();
 
         selectedBuildSlot.UnSelectTile();
         selectedBuildSlot = null;
@@ -106,8 +110,8 @@ public class BuildManager : NhoxBehaviour
     public void EnableBuildMenu()
     {
         if (selectedBuildSlot != null) return;
-        UI.Instance.InGameUI.BuildsBtnsUI.ShowBtn(true);
+        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.ShowBtn(true);
     }
 
-    protected void DisableBuildMenu() => UI.Instance.InGameUI.BuildsBtnsUI.ShowBtn(false);
+    protected void DisableBuildMenu() => ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.ShowBtn(false);
 }

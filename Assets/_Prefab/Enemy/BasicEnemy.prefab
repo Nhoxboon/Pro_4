@@ -96,7 +96,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.25
-  m_Speed: 1
+  m_Speed: 1.1
   m_Acceleration: 8
   avoidancePriority: 10
   m_AngularSpeed: 120
@@ -123,6 +123,7 @@ MonoBehaviour:
   enemyType: 0
   centerPoint: {fileID: 2485490326362958828}
   core: {fileID: 1135354818871627892}
+  isHidden: 0
 --- !u!1 &668507498259056490
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +179,9 @@ MonoBehaviour:
   movement: {fileID: 440471267944273044}
   stats: {fileID: 1482586917008509205}
   damageReceiver: {fileID: 7597470965265715831}
+  visuals: {fileID: 1039314182560384215}
   death: {fileID: 1283688642212362099}
+  shieldObject: {fileID: 0}
 --- !u!1 &731834301177421275
 GameObject:
   m_ObjectHideFlags: 0
@@ -4958,7 +4961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearBehavior: 2
+  clearBehavior: 1
   cameraShake:
     enabled: 0
     useMainCamera: 1
@@ -5111,6 +5114,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   verticalRotationSpeed: 5
+  transparentMat: {fileID: 2100000, guid: 22a0db1b73374d24ea68d20b09e2fdf7, type: 2}
+  myRenderers:
+  - {fileID: 2284699690483749588}
+  - {fileID: 5510139841413808093}
+  - {fileID: 2750879321596635822}
+  - {fileID: 7110020462042709496}
+  smokeFX: {fileID: 0}
 --- !u!1 &5175012847629225947
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,6 +5295,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   core: {fileID: 1135354818871627892}
   health:
+    maxValue: 0
+    currentValue: 0
+  shieldAmount:
     maxValue: 0
     currentValue: 0
 --- !u!1 &6849148000696024975

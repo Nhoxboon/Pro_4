@@ -19,9 +19,11 @@ public abstract class Tower : NhoxBehaviour
 
     [Header("Attack Settings")] [SerializeField]
     protected float attackRange = 3.5f;
+
     public float AttackRange => attackRange;
 
     [SerializeField] protected LayerMask whatIsEnemy;
+    [SerializeField] protected LayerMask whatIsTargetable;
 
     [Header("Dynamic Target Change")]
     [Tooltip("Enabling this allows tower to change target between attacks")]
@@ -30,9 +32,9 @@ public abstract class Tower : NhoxBehaviour
 
     protected float targetCheckInterval = 0.1f;
     protected float lastTimeCheckedTarget;
-    
-    [Header("SFX Details")]
-    [SerializeField] protected AudioSource attackSFX;
+
+    [Header("SFX Details")] [SerializeField]
+    protected AudioSource attackSFX;
 
     protected Vector3 AttackCenter => transform.position - Vector3.up * 1.5f;
 
@@ -63,7 +65,8 @@ public abstract class Tower : NhoxBehaviour
     {
         base.LoadComponents();
         LoadTowerHead();
-        LoadLayerMask();
+        LoadEnemyLayerMask();
+        LoadTargetLayerMask();
         LoadAttackSFX();
     }
 
@@ -74,13 +77,20 @@ public abstract class Tower : NhoxBehaviour
         DebugTool.Log(transform.name + " :LoadTowerHead", gameObject);
     }
 
-    protected void LoadLayerMask()
+    protected void LoadEnemyLayerMask()
     {
         if (whatIsEnemy != 0) return;
         whatIsEnemy = LayerMask.GetMask("Enemy");
         DebugTool.Log(transform.name + " :LoadLayerMask", gameObject);
     }
-    
+
+    protected void LoadTargetLayerMask()
+    {
+        if (whatIsTargetable != 0) return;
+        whatIsTargetable = LayerMask.GetMask("Default", "Enemy");
+        DebugTool.Log(transform.name + " :LoadTargetLayerMask", gameObject);
+    }
+
     protected void LoadAttackSFX()
     {
         if (attackSFX != null) return;

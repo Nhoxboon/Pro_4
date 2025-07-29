@@ -6,7 +6,7 @@ public class NextLevelBtn : BaseBtn
 
     protected void NextLevel()
     {
-        LevelManager.Instance.LoadNextLevel();
-        UI.Instance.InGameUI.EnableLevelCompletedUI(false);
+        ManagerCtrl.Instance.LevelManager.LoadNextLevel();
+        ManagerCtrl.Instance.UI.InGameUI.EnableLevelCompletedUI(false);
     }
 }

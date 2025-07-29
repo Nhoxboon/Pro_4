@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public abstract class TowerVisual : NhoxBehaviour
 {
@@ -9,12 +10,14 @@ public abstract class TowerVisual : NhoxBehaviour
     [Header("Glow Effect")] [SerializeField]
     protected MeshRenderer meshRenderer;
 
-    [SerializeField] protected float maxIntensity = 150f;
+    [SerializeField] protected float maxIntensity = 200f;
     [SerializeField] protected Color startColor = new Color(0f, 0f, 0f, 255f);
     [SerializeField] protected Color endColor = new Color(0x04 / 255f, 0x6E / 255f, 0xFF / 255f, 1f);
 
     [Header("Attack Visual")] [SerializeField]
     protected float attackVisualDuration = 0.1f;
+
+    [SerializeField] protected string onHitFX;
 
     protected Material material;
     protected float currentIntensity;
@@ -81,5 +84,12 @@ public abstract class TowerVisual : NhoxBehaviour
         }
 
         currentIntensity = maxIntensity;
+    }
+
+    public void CreateOnHitFX(Vector3 hitPoint)
+    {
+        Transform newFX = FXSpawner.Instance.Spawn(onHitFX, hitPoint, Random.rotation);
+        newFX.gameObject.SetActive(true);
+        FXSpawner.Instance.DespawnByTime(newFX, 1f);
     }
 }

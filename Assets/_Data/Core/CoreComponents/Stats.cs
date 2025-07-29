@@ -1,12 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stats : CoreComponent
 {
     [SerializeField] protected Stat health;
     public Stat Health => health;
+
+    [SerializeField] protected Stat shieldAmount;
+    public Stat ShieldAmount => shieldAmount;
 
     protected override void Awake()
     {
@@ -22,6 +22,7 @@ public class Stats : CoreComponent
         LoadEntityStatsDataSO();
     }
 
+    //Todo: Need to define HP for each type of enemy after finish project
     protected void LoadEntityStatsDataSO()
     {
         // if (entityStatsDataSO != null) return;

@@ -5,14 +5,13 @@ public class HPText : BaseText
     protected override void Awake()
     {
         base.Awake();
-        if (GameManager.Instance != null)
-            GameManager.Instance.OnHPChanged += OnHPChanged;
+        ManagerCtrl.Instance.GameManager.OnHPChanged += OnHPChanged;
     }
 
-    protected override void OnDestroy() => GameManager.Instance.OnHPChanged -= OnHPChanged;
-
-
-    protected void OnHPChanged() => UpdateHPui(GameManager.Instance.CurrentHP, GameManager.Instance.MaxHP);
+    protected override void OnDestroy() => ManagerCtrl.Instance.GameManager.OnHPChanged -= OnHPChanged;
+    
+    protected void OnHPChanged() =>
+        UpdateHPui(ManagerCtrl.Instance.GameManager.CurrentHP, ManagerCtrl.Instance.GameManager.MaxHP);
 
     protected void UpdateHPui(int value, int maxValue)
     {

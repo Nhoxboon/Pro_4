@@ -4,26 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : NhoxBehaviour
 {
-    private static LevelManager instance;
-    public static LevelManager Instance => instance;
-
     protected GridBuilder currentActiveGrid;
     [SerializeField] protected string currentLevelName;
     public string CurrentLevelName => currentLevelName;
     [SerializeField] protected CameraEffects cameraEffects;
-
-    protected override void Awake()
-    {
-        base.Awake();
-        if (instance != null)
-        {
-            // DebugTool.LogError("Only one LevelManager allowed to exist");
-            return;
-        }
-
-        instance = this;
-    }
-
+    
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -46,22 +31,22 @@ public class LevelManager : NhoxBehaviour
     private IEnumerator LoadLevelCoroutine(string levelName)
     {
         CleanUpScene();
-        UI.Instance.EnableInGameUI(false);
+        ManagerCtrl.Instance.UI.EnableInGameUI(false);
         cameraEffects.SwitchToGameView();
 
-        yield return TileManager.Instance.CurrentActiveCoroutine;
+        yield return ManagerCtrl.Instance.TileManager.CurrentActiveCoroutine;
         UnloadCurrentScene();
         LoadScene(levelName);
     }
 
     private IEnumerator LoadLevelFromMenuCoroutine(string levelName)
     {
-        TileManager.Instance.ShowMainGrid(false);
-        UI.Instance.EnableMenuUI(false);
+        ManagerCtrl.Instance.TileManager.ShowMainGrid(false);
+        ManagerCtrl.Instance.UI.EnableMenuUI(false);
         cameraEffects.SwitchToGameView();
 
-        yield return TileManager.Instance.CurrentActiveCoroutine;
-        TileManager.Instance.EnableMainSceneObjects(false);
+        yield return ManagerCtrl.Instance.TileManager.CurrentActiveCoroutine;
+        ManagerCtrl.Instance.TileManager.EnableMainSceneObjects(false);
 
         LoadScene(levelName);
     }
@@ -69,18 +54,18 @@ public class LevelManager : NhoxBehaviour
     protected IEnumerator LoadMainMenuCoroutine()
     {
         CleanUpScene();
-        UI.Instance.EnableInGameUI(false);
+        ManagerCtrl.Instance.UI.EnableInGameUI(false);
         cameraEffects.SwitchToMenuView();
 
-        yield return TileManager.Instance.CurrentActiveCoroutine;
+        yield return ManagerCtrl.Instance.TileManager.CurrentActiveCoroutine;
 
         UnloadCurrentScene();
-        TileManager.Instance.EnableMainSceneObjects(true);
-        TileManager.Instance.ShowMainGrid(true);
+        ManagerCtrl.Instance.TileManager.EnableMainSceneObjects(true);
+        ManagerCtrl.Instance.TileManager.ShowMainGrid(true);
 
-        yield return TileManager.Instance.CurrentActiveCoroutine;
+        yield return ManagerCtrl.Instance.TileManager.CurrentActiveCoroutine;
 
-        UI.Instance.EnableMenuUI(true);
+        ManagerCtrl.Instance.UI.EnableMenuUI(true);
     }
 
     protected void LoadScene(string sceneName)
@@ -96,7 +81,7 @@ public class LevelManager : NhoxBehaviour
         WaveTimingManager.Instance?.ResetWaveManager();
         EliminateEnemy();
         EliminateAllTowers();
-        if (currentActiveGrid is not null) TileManager.Instance.ShowGrid(currentActiveGrid, false);
+        if (currentActiveGrid is not null) ManagerCtrl.Instance.TileManager.ShowGrid(currentActiveGrid, false);
     }
 
     protected void EliminateEnemy()

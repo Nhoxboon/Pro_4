@@ -49,6 +49,7 @@ public class CrossbowVisual : TowerVisual
     protected override void LoadComponents()
     {
         base.LoadComponents();
+        onHitFX = "Crossbow_OnHitFX";
         LoadAttackVisual();
         LoadRotorVisual();
 

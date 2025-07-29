@@ -32,14 +32,29 @@ public class CrossbowTower : Tower
 
     protected override void Attack()
     {
-        if (Physics.Raycast(gunPoint.position, DirectionToTarget(gunPoint), out RaycastHit hitInfo, Mathf.Infinity))
+        if (Physics.Raycast(gunPoint.position, DirectionToTarget(gunPoint), out RaycastHit hitInfo, Mathf.Infinity,
+                whatIsTargetable))
         {
             towerHead.forward = DirectionToTarget(gunPoint);
 
-            if (hitInfo.collider.TryGetComponent<Enemy>(out Enemy enemy))
-                enemy.Core.DamageReceiver?.TakeDamage(damage);
+            ShieldForEnemy shield;
+            IDamageable damageable;
+            Enemy enemyTarget = null;
 
-            visual.PlayAttackVFX(gunPoint.position, hitInfo.point, currentTarget);
+            bool hasShield = hitInfo.collider.TryGetComponentInChildren(out shield);
+            bool hasDamageable = hitInfo.transform.TryGetComponentInChildren(out damageable);
+
+            if (hasDamageable && !hasShield)
+            {
+                damageable.TakeDamage(damage);
+                enemyTarget = currentTarget;
+            }
+
+            if (hasShield)
+                shield.TakeDamage(damage);
+
+            visual.CreateOnHitFX(hitInfo.point);
+            visual.PlayAttackVFX(gunPoint.position, hitInfo.point, enemyTarget);
             visual.ReloadVFX(attackCooldown);
             AudioManager.Instance.PlaySFX(attackSFX, true);
         }

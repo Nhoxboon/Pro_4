@@ -1435,13 +1435,16 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   attackCooldown: 2
   towerHead: {fileID: 563827768053281953}
-  enemyPriorityType: 2
+  enemyPriorityType: 5
   canRotate: 0
   rotationSpeed: 10
   attackRange: 3.5
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 128
+  whatIsTargetable:
+    serializedVersion: 2
+    m_Bits: 129
   dynamicTargetChange: 1
   attackSFX: {fileID: 3150192048394307527}
   damage: 2
@@ -2388,6 +2391,7 @@ MonoBehaviour:
   startColor: {r: 0, g: 0, b: 0, a: 255}
   endColor: {r: 0.015686275, g: 0.43137255, b: 1, a: 1}
   attackVisualDuration: 0.1
+  onHitFX: Crossbow_OnHitFX
   attackVisual: {fileID: 1698561149980728201}
   rotor: {fileID: 2245377334560332555}
   rotorUnloaded: {fileID: 7555573496036286868}
@@ -2404,11 +2408,7 @@ MonoBehaviour:
   backEndPointL: {fileID: 1613267266100854056}
   backStartPointR: {fileID: 7400025440515627911}
   backEndPointR: {fileID: 3057223777862845707}
-  stringRenderers:
-  - {fileID: 3585497082500998131}
-  - {fileID: 5106126659623504391}
-  - {fileID: 5857919698028379712}
-  - {fileID: 453541440164737674}
+  stringRenderers: []
 --- !u!1 &8663627720761163097
 GameObject:
   m_ObjectHideFlags: 0

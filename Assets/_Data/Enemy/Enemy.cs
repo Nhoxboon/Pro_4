@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : NhoxBehaviour
@@ -10,6 +11,18 @@ public class Enemy : NhoxBehaviour
 
     [SerializeField] protected Core core;
     public Core Core => core;
+
+    protected bool canBeHidden = true;
+    public bool isHidden;
+    protected int originalLayerIndex;
+
+    protected Coroutine hideCoroutine;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        originalLayerIndex = gameObject.layer;
+    }
 
     protected void OnEnable() => ResetEnemy();
     protected void OnDisable() => ResetEnemy();
@@ -46,10 +59,28 @@ public class Enemy : NhoxBehaviour
     }
 
     public EnemyType GetEnemyType() => enemyType;
-
     public Vector3 GetCenterPoint() => centerPoint.position;
-
     public void SetPortal(EnemyPortal portal) => myPortal = portal;
+
+    public void HideEnemy(float duration)
+    {
+        if (!canBeHidden || !gameObject.activeInHierarchy) return;
+
+        if (hideCoroutine != null) StopCoroutine(hideCoroutine);
+        hideCoroutine = StartCoroutine(HideEnemyCoroutine(duration));
+    }
+
+    protected IEnumerator HideEnemyCoroutine(float duration)
+    {
+        gameObject.layer = LayerMask.NameToLayer("Untargetable");
+        core.Visuals.MakeTransparent(true);
+        isHidden = true;
+
+        yield return new WaitForSeconds(duration);
+        gameObject.layer = originalLayerIndex;
+        core.Visuals.MakeTransparent(false);
+        isHidden = false;
+    }
 
     public void ResetEnemy()
     {

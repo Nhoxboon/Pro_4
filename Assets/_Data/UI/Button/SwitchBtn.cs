@@ -11,14 +11,14 @@ public class SwitchBtn : BaseBtn
     
     protected void SwitchUI()
     {
-        if(TileManager.Instance.IsGridMoving) return;
+        if(ManagerCtrl.Instance.TileManager.IsGridMoving) return;
         switch (switchMode)
         {
             case SwitchMode.MainUI:
-                UI.Instance.SwitchToUI(uiElement);
+                ManagerCtrl.Instance.UI.SwitchToUI(uiElement);
                 break;
             case SwitchMode.PauseUI:
-                UI.Instance.PauseUI.SwitchPauseUIElement(uiElement);
+                ManagerCtrl.Instance.UI.PauseUI.SwitchPauseUIElement(uiElement);
                 break;
             default:
                 break;
