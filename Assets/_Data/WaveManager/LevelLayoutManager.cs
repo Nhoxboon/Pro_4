@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class LevelLayoutManager : WaveSystemManager
@@ -13,6 +14,9 @@ public class LevelLayoutManager : WaveSystemManager
 
     [SerializeField] protected float tileDelay = 0.1f;
     [SerializeField] protected GridBuilder currentGrid;
+    
+    [SerializeField] protected NavMeshSurface flyingNavSurface;
+    [SerializeField] protected MeshCollider[] flyingNavColliders;
 
     protected override void SetInstance() => _instance = this;
 
@@ -20,6 +24,8 @@ public class LevelLayoutManager : WaveSystemManager
     {
         base.LoadComponents();
         LoadGridBuilder();
+        LoadNavMeshSurface();
+        LoadMeshColliders();
     }
 
     protected void LoadGridBuilder()
@@ -27,6 +33,20 @@ public class LevelLayoutManager : WaveSystemManager
         if (currentGrid != null) return;
         currentGrid = FindFirstObjectByType<GridBuilder>();
         DebugTool.Log(transform.name + ": LoadGridBuilder", gameObject);
+    }
+    
+    protected void LoadNavMeshSurface()
+    {
+        if (flyingNavSurface != null) return;
+        flyingNavSurface = GetComponentInChildren<NavMeshSurface>();
+        DebugTool.Log(transform.name + ": LoadNavMeshSurface", gameObject);
+    }
+    
+    protected void LoadMeshColliders()
+    {
+        if (flyingNavColliders is { Length: > 0 }) return;
+        flyingNavColliders = GetComponentsInChildren<MeshCollider>();
+        DebugTool.Log(transform.name + ": LoadMeshColliders", gameObject);
     }
 
     public void UpdateLevelLayout(WaveDetails nextWave, Action onCompleteCallback)
@@ -97,5 +117,16 @@ public class LevelLayoutManager : WaveSystemManager
         Vector3 targetPosition = tileToRemove.transform.position + new Vector3(0, -yOffset, 0);
         ManagerCtrl.Instance.TileManager.MoveTile(tileToRemove.transform, targetPosition);
         Destroy(tileToRemove.gameObject, 1f);
+    }
+    
+    public void UpdateNavMeshes()
+    {
+        foreach (var col in flyingNavColliders)
+            col.enabled = true;
+        flyingNavSurface.BuildNavMesh();
+        foreach (var col in flyingNavColliders)
+            col.enabled = false;
+        
+        currentGrid.UpdateNavMesh();
     }
 }

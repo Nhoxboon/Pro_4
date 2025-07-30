@@ -5,5 +5,6 @@
     SwarmEnemy,
     HeavyEnemy,
     StealthEnemy,
+    FlyingEnemy,
     None
 }

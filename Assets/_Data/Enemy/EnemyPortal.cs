@@ -27,20 +27,29 @@ public class EnemyPortal : NhoxBehaviour
         if (spawnTimer <= 0f && CanSpawn())
         {
             Transform newEnemy = EnemySpawner.Instance.SpawnRandom(enemies, transform.position, Quaternion.identity);
-
+            
             //Or use enemy.SetPortal(this)
-            if (newEnemy.TryGetComponent<Enemy>(out var enemy)) enemy.Core.Movement.SetUpEnemy(waypointList, this);
-
+            if (newEnemy.TryGetComponent<Enemy>(out var enemy))
+            {
+                enemy.Core.Movement.SetUpEnemy(waypointList, this);
+                PlaceFlyEnemy(newEnemy, enemy.GetEnemyType());
+            }
             spawnTimer = spawnCooldown;
             activeEnemies.Add(newEnemy.gameObject);
         }
     }
-
-    protected bool CanSpawn()
+    
+    protected void PlaceFlyEnemy(Transform newEnemy, EnemyType enemyType)
     {
-        return enemies.Count > 0;
+        if(enemyType != EnemyType.FlyingEnemy) return;
+        var flyPosition = transform.position + Vector3.up * 2f;
+        
+        Transform newFX = FXSpawner.Instance.SpawnParticle("EnemyFlyPortalFX", flyPosition, Quaternion.identity);
+        newEnemy.position = flyPosition;
     }
 
+    protected bool CanSpawn() => enemies.Count > 0;
+    
     public void AddEnemyToList(string enemyName) => enemies.Add(enemyName);
 
     public void RemoveActiveEnemy(GameObject enemyToRemove)

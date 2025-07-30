@@ -117,6 +117,9 @@ public class Movement : CoreComponent
         return targetPoint;
     }
 
+    protected Vector3 GetFinalWaypoint() =>
+        myWayPoints.Count == 0 ? core.Root.transform.position : myWayPoints[^1].position;
+
     protected void CollectTotalDistance()
     {
         for (int i = 0; i < myWayPoints.Count - 1; i++)
@@ -130,7 +133,7 @@ public class Movement : CoreComponent
 
     public float DistanceToFinishLine() => totalDistance + agent.remainingDistance;
 
-    public void ResetMovement()
+    public virtual void ResetMovement()
     {
         currentWpIndex = 0;
         nextWpIndex = 0;

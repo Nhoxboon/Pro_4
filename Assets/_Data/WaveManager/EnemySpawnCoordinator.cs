@@ -64,7 +64,7 @@ public class EnemySpawnCoordinator : WaveSystemManager
 
     public void StartNewWave()
     {
-        currentGrid.UpdateNavMesh();
+        LevelLayoutManager.Instance.UpdateNavMeshes();
         GiveEnemiesToPortal();
         WaveTimingManager.Instance.EnableWaveTimer(false);
         makingNextWave = false;
