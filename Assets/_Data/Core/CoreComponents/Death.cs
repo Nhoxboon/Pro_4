@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Death : CoreComponent
 {
-    public void Die()
+    public virtual void Die()
     {
         DestroyEnemy();
         ManagerCtrl.Instance.GameManager.UpdateCurrency(1);

@@ -37,12 +37,10 @@ public class CrossbowTower : Tower
         {
             towerHead.forward = DirectionToTarget(gunPoint);
 
-            ShieldForEnemy shield;
-            IDamageable damageable;
             Enemy enemyTarget = null;
 
-            bool hasShield = hitInfo.collider.TryGetComponentInChildren(out shield);
-            bool hasDamageable = hitInfo.transform.TryGetComponentInChildren(out damageable);
+            bool hasShield = hitInfo.collider.TryGetComponentInChildren(out ShieldForEnemy shield);
+            bool hasDamageable = hitInfo.transform.TryGetComponentInChildren(out IDamageable damageable);
 
             if (hasDamageable && !hasShield)
             {

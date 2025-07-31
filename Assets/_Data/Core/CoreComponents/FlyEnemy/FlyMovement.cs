@@ -16,7 +16,7 @@ public class FlyMovement : Movement
         nextWpIndex = 0;
         totalDistance = 0;
 
-        if (agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
+        if (IsAgentInvalid()) return;
 
         agent.ResetPath();
         agent.velocity = Vector3.zero;

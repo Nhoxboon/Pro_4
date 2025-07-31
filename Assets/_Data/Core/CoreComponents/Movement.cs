@@ -11,16 +11,11 @@ public class Movement : CoreComponent
     [SerializeField] protected int nextWpIndex;
     [SerializeField] protected List<Transform> myWayPoints;
 
-    [SerializeField] protected EnemyPortal myPortal;
     [SerializeField] protected NavMeshAgent agent;
 
     protected float totalDistance;
 
-    protected void OnDisable()
-    {
-        myWayPoints.Clear();
-        myPortal = null;
-    }
+    protected void OnDisable() => myWayPoints.Clear();
 
     protected override void LoadComponents()
     {
@@ -61,7 +56,7 @@ public class Movement : CoreComponent
 
     protected void MoveToWaypoint()
     {
-        if (agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
+        if (IsAgentInvalid()) return;
 
         FaceTarget(agent.steeringTarget);
 
@@ -117,7 +112,7 @@ public class Movement : CoreComponent
         return targetPoint;
     }
 
-    protected Vector3 GetFinalWaypoint() =>
+    public Vector3 GetFinalWaypoint() =>
         myWayPoints.Count == 0 ? core.Root.transform.position : myWayPoints[^1].position;
 
     protected void CollectTotalDistance()
@@ -131,7 +126,13 @@ public class Movement : CoreComponent
         }
     }
 
-    public float DistanceToFinishLine() => totalDistance + agent.remainingDistance;
+    public float DistanceToFinishLine()
+    {
+        if (IsAgentInvalid())
+            return totalDistance;
+
+        return totalDistance + agent.remainingDistance;
+    }
 
     public virtual void ResetMovement()
     {
@@ -139,11 +140,18 @@ public class Movement : CoreComponent
         nextWpIndex = 0;
         totalDistance = 0;
 
-        if (agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh) return;
+        if (IsAgentInvalid()) return;
         agent.ResetPath();
         agent.velocity = Vector3.zero;
 
         if (myWayPoints.Count > 0 && myWayPoints[0] is not null)
             agent.SetDestination(myWayPoints[0].position);
+    }
+
+    protected bool IsAgentInvalid() => agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh;
+
+    public virtual void HandleUnitCollision()
+    {
+        //For specific Enemy types
     }
 }

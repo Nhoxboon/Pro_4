@@ -89,6 +89,7 @@ public abstract class TowerVisual : NhoxBehaviour
     //Note: Spawn on shield of heavy enemy kinda weird
     public void CreateOnHitFX(Vector3 hitPoint)
     {
-         FXSpawner.Instance.Spawn(onHitFX, hitPoint, Random.rotation);
+         Transform newFX =  FXSpawner.Instance.Spawn(onHitFX, hitPoint, Random.rotation);
+         newFX.gameObject.SetActive(true);
     }
 }

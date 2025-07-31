@@ -6,5 +6,6 @@
     HeavyEnemy,
     StealthEnemy,
     FlyingEnemy,
+    FlyingBoss,
     None
 }

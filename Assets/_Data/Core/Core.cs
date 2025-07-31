@@ -32,6 +32,9 @@ public class Core : NhoxBehaviour
     [SerializeField] protected ShieldForEnemy shieldObject;
     public ShieldForEnemy ShieldObject => shieldObject;
 
+    [SerializeField] protected SpawnUnit spawnUnit;
+    public SpawnUnit SpawnUnit => spawnUnit;
+
     #endregion
 
     protected override void LoadComponents()

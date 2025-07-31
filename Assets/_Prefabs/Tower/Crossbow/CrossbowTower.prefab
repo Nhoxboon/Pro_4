@@ -1435,7 +1435,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   attackCooldown: 2
   towerHead: {fileID: 563827768053281953}
-  enemyPriorityType: 5
+  enemyPriorityType: 7
   canRotate: 0
   rotationSpeed: 10
   attackRange: 3.5
