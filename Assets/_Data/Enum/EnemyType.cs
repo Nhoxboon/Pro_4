@@ -7,5 +7,6 @@
     StealthEnemy,
     FlyingEnemy,
     FlyingBoss,
+    SpiderBoss,
     None
 }

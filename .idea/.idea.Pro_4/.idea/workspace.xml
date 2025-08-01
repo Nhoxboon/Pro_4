@@ -5,35 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/FlyBossCore.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/FlyBossCore.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/FlyBossDeath.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/FlyBossDeath.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/SpawnUnit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/SpawnUnit.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SwarmEnemy/BossUnit.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SwarmEnemy/BossUnit/BossUnitMovement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SwarmEnemy/BossUnit/BossUnitMovement.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/BossUnit.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/BossUnit/BossUnitEnemy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/BossUnit/BossUnitEnemy.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SpiderBoss.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SpiderBoss/SpiderVisuals.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SpiderBoss/SpiderVisuals.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/Core.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/Core.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Enum/EnemyType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enum/EnemyType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerVisual.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/FX/Crossbow_OnHitFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/FX/Crossbow_OnHitFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/Crossbow/CrossbowTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/Crossbow/CrossbowTower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3/NavMesh-FlyRoad.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_3/NavMesh-FlyRoad.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Enemies/spider_enemy.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Enemies/spider_enemy.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingBoss.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,6 +231,7 @@
       <workItem from="1753962147787" duration="4518000" />
       <workItem from="1753969078098" duration="4174000" />
       <workItem from="1753976103294" duration="4738000" />
+      <workItem from="1754006753486" duration="1972000" />
     </task>
     <servers />
   </component>
