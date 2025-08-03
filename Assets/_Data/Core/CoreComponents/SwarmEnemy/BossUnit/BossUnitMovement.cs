@@ -41,7 +41,7 @@ public class BossUnitMovement : Movement
         savedDestination = destination;
     }
 
-    public override void HandleUnitCollision()
+    public void HandleUnitCollision()
     {
         if (Vector3.Distance(core.Root.transform.position, lastKnownBossPosition) > 2.5f)
                 core.Root.transform.position = lastKnownBossPosition + Vector3.down;

@@ -12,8 +12,6 @@ public class Visuals : CoreComponent
     [SerializeField] protected Material transparentMat;
     protected List<Material> originalMat;
     [SerializeField] protected MeshRenderer[] myRenderers;
-    [Header("Unique FX")]
-    [SerializeField] protected ParticleSystem smokeFX;
 
     protected override void Awake()
     {
@@ -74,15 +72,6 @@ public class Visuals : CoreComponent
             visuals.rotation =
                 Quaternion.Slerp(visuals.rotation, targetRotation, verticalRotationSpeed * Time.deltaTime);
         }
-    }
-
-    public void EnableSmoke(bool enable)
-    {
-        if (!enable) return;
-        if (!smokeFX.isPlaying)
-            smokeFX.Play();
-        else
-            smokeFX.Stop();
     }
 
     protected void CollectDefaultMaterials()

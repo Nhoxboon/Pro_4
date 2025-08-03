@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,7 +16,7 @@ public class SpiderLeg : NhoxBehaviour
     [SerializeField] protected SpiderLegRef legRef;
     [SerializeField] protected Transform actualTarget;
     [SerializeField] protected Transform bottomLeg;
-    protected Transform worldTargetRef;
+    [SerializeField] protected Transform worldTargetRef;
 
     protected Coroutine moveCoroutine;
 
@@ -30,15 +29,13 @@ public class SpiderLeg : NhoxBehaviour
 
     protected void CreateWorldTargetRef()
     {
-        var refPointObj = new GameObject("Ref_Point");
-        worldTargetRef = Instantiate(refPointObj, actualTarget.position, Quaternion.identity).transform;
+        worldTargetRef = Instantiate(worldTargetRef, actualTarget.position, Quaternion.identity).transform;
         worldTargetRef.gameObject.name = legRef.gameObject.name + "_World";
-        Destroy(refPointObj);
     }
 
     public void UpdateLegMovement()
     {
-        actualTarget.position = worldTargetRef.position + placementOffset;
+        actualTarget.position = worldTargetRef.position;// + placementOffset;
         shouldMove = Vector3.Distance(worldTargetRef.position, legRef.ContactPoint()) > moveThreshold;
 
         if (bottomLeg is not null)
@@ -62,6 +59,15 @@ public class SpiderLeg : NhoxBehaviour
         }
 
         oppositeLeg.CanMove(true);
+    }
+
+    public void SpeedUpLeg() => StartCoroutine(SpeedUpLegCoroutine());
+
+    protected IEnumerator SpeedUpLegCoroutine()
+    {
+        legSpeed = spiderVisuals.increasedSpeedLeg;
+        yield return new WaitForSeconds(1f);
+        legSpeed = spiderVisuals.legSpeed;
     }
 
     public void CanMove(bool enable) => canMove = enable;

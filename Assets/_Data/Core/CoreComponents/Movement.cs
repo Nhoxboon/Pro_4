@@ -60,10 +60,12 @@ public class Movement : CoreComponent
 
         FaceTarget(agent.steeringTarget);
 
-        if (ShouldChangeWaypoint()) agent.SetDestination(GetNextWaypoint());
+        if (ShouldChangeWaypoint()) ChangeWayPoint();
     }
 
-    protected bool ShouldChangeWaypoint()
+    protected virtual void ChangeWayPoint() => agent.SetDestination(GetNextWaypoint());
+
+    protected virtual bool ShouldChangeWaypoint()
     {
         if (nextWpIndex >= myWayPoints.Count) return false;
         if (agent.remainingDistance < 0.2f) return true;
@@ -149,9 +151,4 @@ public class Movement : CoreComponent
     }
 
     protected bool IsAgentInvalid() => agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh;
-
-    public virtual void HandleUnitCollision()
-    {
-        //For specific Enemy types
-    }
 }
