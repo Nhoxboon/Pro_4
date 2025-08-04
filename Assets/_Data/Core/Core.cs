@@ -28,13 +28,6 @@ public class Core : NhoxBehaviour
 
     [SerializeField] protected Death death;
     public Death Death => death;
-
-    [SerializeField] protected ShieldForEnemy shieldObject;
-    public ShieldForEnemy ShieldObject => shieldObject;
-
-    [SerializeField] protected SpawnUnit spawnUnit;
-    public SpawnUnit SpawnUnit => spawnUnit;
-
     #endregion
 
     protected override void LoadComponents()

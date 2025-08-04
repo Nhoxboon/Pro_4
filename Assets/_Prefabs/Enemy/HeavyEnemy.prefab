@@ -748,6 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 1138721240290629046}
+  deathFXScale: 0.8
 --- !u!1 &7777906451628518648
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +891,6 @@ MonoBehaviour:
   - {fileID: 6988384895223402565}
   - {fileID: 2558293672355647934}
   - {fileID: 1420216914966943844}
-  smokeFX: {fileID: 0}
 --- !u!1 &8372229463747873932
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +950,7 @@ MonoBehaviour:
   visuals: {fileID: 2416208749934224315}
   death: {fileID: 4399051235593461137}
   shieldObject: {fileID: 6813091340623595025}
+  spawnUnit: {fileID: 0}
 --- !u!1 &9083297288353174364
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,5 +1000,4 @@ MonoBehaviour:
   currentWpIndex: 0
   nextWpIndex: 0
   myWayPoints: []
-  myPortal: {fileID: 0}
   agent: {fileID: 4368924381462680416}

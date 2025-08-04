@@ -35,6 +35,15 @@ public class TowerPreview : NhoxBehaviour
         transform.position = previewPosition;
         atkRadiusDisplay.transform.position = new Vector3(previewPosition.x, 0.5f, previewPosition.z);
         atkRadiusDisplay.CreateCircle(show, attackRange);
+        if (!show) return;
+        SetLayerRecursively(gameObject, 0);
+    }
+
+    private void SetLayerRecursively(GameObject obj, int newLayer)
+    {
+        obj.layer = newLayer;
+        for (int i = 0; i < obj.transform.childCount; i++)
+            SetLayerRecursively(obj.transform.GetChild(i).gameObject, newLayer);
     }
 
     protected void DestroyExtraComponent()

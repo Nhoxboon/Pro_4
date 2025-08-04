@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Tower : NhoxBehaviour
@@ -6,6 +7,9 @@ public abstract class Tower : NhoxBehaviour
     public Enemy currentTarget;
     [SerializeField] protected float attackCooldown = 2f;
     protected float lastAttackTime;
+    protected bool towerActive = true;
+    protected Coroutine deactivatedTowerCoroutine;
+    protected Transform currentEMPFX;
 
     [Header("Tower Setup")] [SerializeField]
     protected Transform towerHead;
@@ -46,8 +50,8 @@ public abstract class Tower : NhoxBehaviour
 
     protected virtual void Update()
     {
+        if (!towerActive) return;
         UpdateTarget();
-
         if (currentTarget is null || !currentTarget.gameObject.activeInHierarchy)
         {
             currentTarget = FindRandomTargetWithinRange();
@@ -57,7 +61,6 @@ public abstract class Tower : NhoxBehaviour
         if (CanAttack()) Attack();
 
         LoseTarget();
-
         RotateTowardsTarget();
     }
 
@@ -100,13 +103,9 @@ public abstract class Tower : NhoxBehaviour
 
     protected bool CanAttack()
     {
-        if (Time.time > lastAttackTime + attackCooldown)
-        {
-            lastAttackTime = Time.time;
-            return true;
-        }
-
-        return false;
+        if (!(Time.time > lastAttackTime + attackCooldown)) return false;
+        lastAttackTime = Time.time;
+        return true;
     }
 
     protected void LoseTarget()
@@ -125,6 +124,27 @@ public abstract class Tower : NhoxBehaviour
     }
 
     protected abstract void Attack();
+
+    public void DeactivateTower(float duration, string empFX)
+    {
+        if (deactivatedTowerCoroutine != null) StopCoroutine(deactivatedTowerCoroutine);
+
+        if (currentEMPFX != null)
+            FXSpawner.Instance.Despawn(currentEMPFX.gameObject);
+
+        currentEMPFX = FXSpawner.Instance.Spawn(empFX, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+        currentEMPFX.gameObject.SetActive(true);
+        deactivatedTowerCoroutine = StartCoroutine(DisableTowerCoroutine(duration));
+    }
+
+    private IEnumerator DisableTowerCoroutine(float duration)
+    {
+        towerActive = false;
+        yield return new WaitForSeconds(duration);
+        towerActive = true;
+        lastAttackTime = Time.time;
+        FXSpawner.Instance.Despawn(currentEMPFX.gameObject);
+    }
 
     protected virtual void RotateTowardsTarget()
     {

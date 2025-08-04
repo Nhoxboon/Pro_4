@@ -1,10 +1,10 @@
-using UnityEngine;
 
 public class FlyBossDeath : Death
 {
     public override void Die()
     {
-        core.SpawnUnit.EliminateAllUnits();
+        if(core is FlyBossCore flyBossCore)
+            flyBossCore.SpawnUnit.EliminateAllUnits();
         base.Die();
     }
 }

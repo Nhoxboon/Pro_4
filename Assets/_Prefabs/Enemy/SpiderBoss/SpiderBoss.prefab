@@ -6876,6 +6876,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4514106800772119651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3117581893533868323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8916600743403394377}
+  - component: {fileID: 2625791962494216512}
+  m_Layer: 7
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8916600743403394377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117581893533868323}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7732431799035590912}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2625791962494216512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117581893533868323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b2957939c8432a939d9a696e009a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  core: {fileID: 9199482145124845735}
+  atkPrefab: Spider_EMP
+  whatIsTower:
+    serializedVersion: 2
+    m_Bits: 4096
+  towerCheckRadius: 4.5
+  attackCooldown: 8
+  attackEffectDuration: 5
+  attackDuration: 5
 --- !u!1 &3239134059867206557
 GameObject:
   m_ObjectHideFlags: 0
@@ -17351,6 +17404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 9199482145124845735}
+  deathFXScale: 1
 --- !u!1 &5215231426364322014
 GameObject:
   m_ObjectHideFlags: 0
@@ -23025,6 +23079,7 @@ Transform:
   - {fileID: 4515392164612164993}
   - {fileID: 1173161030472123125}
   - {fileID: 3677459577935265996}
+  - {fileID: 8916600743403394377}
   m_Father: {fileID: 6502942675088969341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9199482145124845735

@@ -2,6 +2,9 @@
 
 public class HeavyEnemyCore : Core
 {
+    [SerializeField] protected ShieldForEnemy shieldObject;
+    public ShieldForEnemy ShieldObject => shieldObject;
+
     protected override void Awake()
     {
         base.Awake();

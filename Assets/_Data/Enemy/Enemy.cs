@@ -86,7 +86,9 @@ public class Enemy : NhoxBehaviour
     {
         core.Movement.ResetMovement();
         core.Stats.Health.Init();
-        if(core.SpawnUnit != null)
-            core.SpawnUnit.ResetSpawnUnit();
+        core.Death.SetDead(false);
+        if(core is FlyBossCore flyBossCore)
+            flyBossCore.SpawnUnit.ResetSpawnUnit();
+
     }
 }

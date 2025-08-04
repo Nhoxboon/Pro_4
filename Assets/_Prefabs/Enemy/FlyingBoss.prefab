@@ -890,7 +890,6 @@ MonoBehaviour:
   - {fileID: 4284918506050350132}
   - {fileID: 4033058271241795208}
   - {fileID: 8804255628401011675}
-  smokeFX: {fileID: 0}
 --- !u!1 &3684942656336951058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,6 +1129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 982443769962836378}
+  deathFXScale: 0.8
 --- !u!1 &5103073321273097985
 GameObject:
   m_ObjectHideFlags: 0

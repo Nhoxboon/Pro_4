@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class FlyBossCore : Core
 {
+    [SerializeField] protected SpawnUnit spawnUnit;
+    public SpawnUnit SpawnUnit => spawnUnit;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
