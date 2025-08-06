@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public abstract class TowerVisual : NhoxBehaviour
+public abstract class TowerVisual : TowerComponent
 {
-    protected Enemy myEnemy;
-
-    [Header("Glow Effect")] [SerializeField]
-    protected MeshRenderer meshRenderer;
-
+    [Header("Glow Effect")]
+    [SerializeField] protected MeshRenderer meshRenderer;
     [SerializeField] protected float maxIntensity = 200f;
     [SerializeField] protected Color startColor = new Color(0f, 0f, 0f, 255f);
     [SerializeField] protected Color endColor = new Color(0x04 / 255f, 0x6E / 255f, 0xFF / 255f, 1f);
@@ -18,6 +14,7 @@ public abstract class TowerVisual : NhoxBehaviour
     protected float attackVisualDuration = 0.1f;
 
     [SerializeField] protected string onHitFX;
+    protected Vector3 hitPoint;
 
     protected Material material;
     protected float currentIntensity;
@@ -29,10 +26,7 @@ public abstract class TowerVisual : NhoxBehaviour
         StartCoroutine(ChangeEmissionIntensity(1f));
     }
 
-    protected virtual void Update()
-    {
-        UpdateEmissionColor();
-    }
+    protected virtual void Update() => UpdateEmissionColor();
 
     #region LoadComponents
 
@@ -64,11 +58,11 @@ public abstract class TowerVisual : NhoxBehaviour
         StartCoroutine(ChangeEmissionIntensity(duration / 2));
     }
 
-    public abstract void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint, Enemy newEnemy);
+    public abstract void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint);
 
-    protected virtual IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint, Enemy newEnemy)
+    protected virtual IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint)
     {
-        myEnemy = newEnemy;
+        hitPoint = endPoint;
         yield break;
     }
 
@@ -86,10 +80,9 @@ public abstract class TowerVisual : NhoxBehaviour
         currentIntensity = maxIntensity;
     }
 
-    //Note: Spawn on shield of heavy enemy kinda weird
     public void CreateOnHitFX(Vector3 hitPoint)
     {
-         Transform newFX =  FXSpawner.Instance.Spawn(onHitFX, hitPoint, Random.rotation);
-         newFX.gameObject.SetActive(true);
+        Transform newFX = FXSpawner.Instance.Spawn(onHitFX, hitPoint, Random.rotation);
+        newFX.gameObject.SetActive(true);
     }
 }

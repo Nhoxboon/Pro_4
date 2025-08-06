@@ -5,7 +5,12 @@ using UnityEngine;
 public abstract class Tower : NhoxBehaviour
 {
     public Enemy currentTarget;
+
+    [Tooltip("Enabling this allows tower to change target between attacks")] [SerializeField]
+    protected bool dynamicTargetChange = true;
+
     [SerializeField] protected float attackCooldown = 2f;
+
     protected float lastAttackTime;
     protected bool towerActive = true;
     protected Coroutine deactivatedTowerCoroutine;
@@ -14,11 +19,10 @@ public abstract class Tower : NhoxBehaviour
     [Header("Tower Setup")] [SerializeField]
     protected Transform towerHead;
 
+    [SerializeField] protected Transform gunPoint;
     [SerializeField] protected EnemyType enemyPriorityType = EnemyType.None;
 
-    [Header("Rotation Settings")] [SerializeField]
-    protected bool canRotate;
-
+    [Header("Rotation Settings")] protected bool canRotate = true;
     [SerializeField] protected float rotationSpeed = 10f;
 
     [Header("Attack Settings")] [SerializeField]
@@ -29,11 +33,6 @@ public abstract class Tower : NhoxBehaviour
     [SerializeField] protected LayerMask whatIsEnemy;
     [SerializeField] protected LayerMask whatIsTargetable;
 
-    [Header("Dynamic Target Change")]
-    [Tooltip("Enabling this allows tower to change target between attacks")]
-    [SerializeField]
-    protected bool dynamicTargetChange = true;
-
     protected float targetCheckInterval = 0.1f;
     protected float lastTimeCheckedTarget;
 
@@ -42,26 +41,15 @@ public abstract class Tower : NhoxBehaviour
 
     protected Vector3 AttackCenter => transform.position - Vector3.up * 1.5f;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        EnableRotation(true);
-    }
-
     protected virtual void Update()
     {
-        if (!towerActive) return;
-        UpdateTarget();
-        if (currentTarget is null || !currentTarget.gameObject.activeInHierarchy)
-        {
-            currentTarget = FindRandomTargetWithinRange();
-            return;
-        }
-
-        if (CanAttack()) Attack();
-
         LoseTarget();
-        RotateTowardsTarget();
+        UpdateTarget();
+        if (!towerActive) return;
+
+        if (CanAttack())
+            Attack();
+        HandleRotation();
     }
 
     protected override void LoadComponents()
@@ -101,21 +89,25 @@ public abstract class Tower : NhoxBehaviour
         DebugTool.Log(transform.name + " :LoadAttackSFX", gameObject);
     }
 
-    protected bool CanAttack()
-    {
-        if (!(Time.time > lastAttackTime + attackCooldown)) return false;
-        lastAttackTime = Time.time;
-        return true;
-    }
+    protected bool CanAttack() => Time.time > lastAttackTime + attackCooldown && currentTarget is not null;
 
     protected void LoseTarget()
     {
-        if (Vector3.Distance(AttackCenter, currentTarget.GetCenterPoint()) > attackRange) currentTarget = null;
+        if (currentTarget is null || !currentTarget.gameObject.activeInHierarchy) return;
+        if (Vector3.Distance(AttackCenter, currentTarget.GetCenterPoint()) > attackRange)
+            currentTarget = null;
     }
 
     protected void UpdateTarget()
     {
+        if (currentTarget is null || !currentTarget.gameObject.activeInHierarchy)
+        {
+            currentTarget = FindRandomTargetWithinRange();
+            return;
+        }
+
         if (!dynamicTargetChange) return;
+
         if (Time.time > lastTimeCheckedTarget + targetCheckInterval)
         {
             lastTimeCheckedTarget = Time.time;
@@ -123,7 +115,7 @@ public abstract class Tower : NhoxBehaviour
         }
     }
 
-    protected abstract void Attack();
+    protected virtual void Attack() => lastAttackTime = Time.time;
 
     public void DeactivateTower(float duration, string empFX)
     {
@@ -132,23 +124,29 @@ public abstract class Tower : NhoxBehaviour
         if (currentEMPFX != null)
             FXSpawner.Instance.Despawn(currentEMPFX.gameObject);
 
-        currentEMPFX = FXSpawner.Instance.Spawn(empFX, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+        currentEMPFX =
+            FXSpawner.Instance.Spawn(empFX, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
         currentEMPFX.gameObject.SetActive(true);
-        deactivatedTowerCoroutine = StartCoroutine(DisableTowerCoroutine(duration));
+        deactivatedTowerCoroutine = StartCoroutine(DeactivateTowerCoroutine(duration));
     }
 
-    private IEnumerator DisableTowerCoroutine(float duration)
+    private IEnumerator DeactivateTowerCoroutine(float duration)
     {
         towerActive = false;
+        EnableRotation(false);
         yield return new WaitForSeconds(duration);
+        EnableRotation(true);
         towerActive = true;
         lastAttackTime = Time.time;
         FXSpawner.Instance.Despawn(currentEMPFX.gameObject);
     }
 
+    protected virtual void HandleRotation() => RotateTowardsTarget();
+
     protected virtual void RotateTowardsTarget()
     {
-        if (!canRotate || currentTarget is null || !currentTarget.gameObject.activeInHierarchy) return;
+        if (!canRotate || towerHead is null || currentTarget is null ||
+            !currentTarget.gameObject.activeInHierarchy) return;
 
         Vector3 dirToTarget = DirectionToTarget(towerHead);
         Quaternion lookRotation = Quaternion.LookRotation(dirToTarget);
@@ -158,7 +156,7 @@ public abstract class Tower : NhoxBehaviour
         towerHead.rotation = Quaternion.Euler(rotation);
     }
 
-    protected Enemy FindRandomTargetWithinRange()
+    protected virtual Enemy FindRandomTargetWithinRange()
     {
         List<Enemy> priorityTargets = new List<Enemy>();
         List<Enemy> possibleTargets = new List<Enemy>();
@@ -202,6 +200,5 @@ public abstract class Tower : NhoxBehaviour
 
     public void EnableRotation(bool enable) => canRotate = enable;
     public void DestroyTower() => TowerSpawner.Instance.Despawn(gameObject);
-
     protected virtual void OnDrawGizmos() => Gizmos.DrawWireSphere(AttackCenter, attackRange);
 }

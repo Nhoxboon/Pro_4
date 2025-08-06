@@ -480,7 +480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7609616586362267194}
-  - component: {fileID: 7185864768914643355}
+  - component: {fileID: 5638101057501671706}
   m_Layer: 7
   m_Name: DamageReceiver
   m_TagString: Untagged
@@ -503,7 +503,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1605948493759394664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7185864768914643355
+--- !u!114 &5638101057501671706
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4736720048876299040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e4d441ada14389980ff88bd67f32f8, type: 3}
+  m_Script: {fileID: 11500000, guid: eaaa18b9c77540a09a9ee4eb04c2759c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 1138721240290629046}
@@ -946,11 +946,10 @@ MonoBehaviour:
   enemy: {fileID: 3281148959390702783}
   movement: {fileID: 4790791066455830967}
   stats: {fileID: 6321231033948978718}
-  damageReceiver: {fileID: 7185864768914643355}
+  damageReceiver: {fileID: 5638101057501671706}
   visuals: {fileID: 2416208749934224315}
   death: {fileID: 4399051235593461137}
   shieldObject: {fileID: 6813091340623595025}
-  spawnUnit: {fileID: 0}
 --- !u!1 &9083297288353174364
 GameObject:
   m_ObjectHideFlags: 0

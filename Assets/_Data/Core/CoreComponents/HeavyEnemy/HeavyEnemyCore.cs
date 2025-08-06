@@ -5,10 +5,10 @@ public class HeavyEnemyCore : Core
     [SerializeField] protected ShieldForEnemy shieldObject;
     public ShieldForEnemy ShieldObject => shieldObject;
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
-        shieldObject.gameObject.SetActive(true);
+        base.Start();
+        shieldObject.EnableShield();
     }
 
     protected override void LoadComponents()

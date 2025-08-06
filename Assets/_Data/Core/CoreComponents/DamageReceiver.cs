@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class DamageReceiver : CoreComponent, IDamageable
+﻿public class DamageReceiver : CoreComponent, IDamageable
 {
     protected override void Awake()
     {
@@ -8,10 +6,7 @@ public class DamageReceiver : CoreComponent, IDamageable
         core.Stats.Health.OnCurrentValueZero += HandleDead;
     }
 
-    protected void OnDestroy()
-    {
-        core.Stats.Health.OnCurrentValueZero -= HandleDead;
-    }
+    protected virtual void OnDestroy() => core.Stats.Health.OnCurrentValueZero -= HandleDead;
 
     protected void HandleDead()
     {
@@ -20,6 +15,5 @@ public class DamageReceiver : CoreComponent, IDamageable
         core.Death.Die();
     }
 
-    public void TakeDamage(float damage) => core.Stats.Health.Decrease(damage);
-
+    public virtual void TakeDamage(float damage) => core.Stats.Health.Decrease(damage);
 }

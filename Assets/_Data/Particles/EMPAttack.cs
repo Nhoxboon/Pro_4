@@ -30,8 +30,8 @@ public class EMPAttack : NhoxBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Tower tower))
-            tower.DeactivateTower(empEffectDuration, empFX);
+        if (other.TryGetComponent(out TowerCtrl tower))
+            tower.Status.DeactivateTower(empEffectDuration, empFX);
     }
 
     public void SetUpEMP(float duration, Vector3 newTarget, float empDuration)

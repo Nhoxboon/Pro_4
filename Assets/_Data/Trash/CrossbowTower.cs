@@ -5,8 +5,6 @@ public class CrossbowTower : Tower
     [Header("Crossbow Tower Setup")] [SerializeField]
     protected int damage = 2;
 
-    [SerializeField] protected Transform gunPoint;
-
     [SerializeField] protected CrossbowVisual visual;
 
     protected override void LoadComponents()
@@ -32,27 +30,20 @@ public class CrossbowTower : Tower
 
     protected override void Attack()
     {
+        base.Attack();
         if (Physics.Raycast(gunPoint.position, DirectionToTarget(gunPoint), out RaycastHit hitInfo, Mathf.Infinity,
                 whatIsTargetable))
         {
             towerHead.forward = DirectionToTarget(gunPoint);
 
-            Enemy enemyTarget = null;
-
-            bool hasShield = hitInfo.collider.TryGetComponentInChildren(out ShieldForEnemy shield);
-            bool hasDamageable = hitInfo.transform.TryGetComponentInChildren(out IDamageable damageable);
-
-            if (hasDamageable && !hasShield)
+            if (hitInfo.transform.TryGetComponent(out Enemy enemy))
             {
+                IDamageable damageable = enemy.Core.DamageReceiver;
                 damageable.TakeDamage(damage);
-                enemyTarget = currentTarget;
             }
 
-            if (hasShield)
-                shield.TakeDamage(damage);
-
             visual.CreateOnHitFX(hitInfo.point);
-            visual.PlayAttackVFX(gunPoint.position, hitInfo.point, enemyTarget);
+            visual.PlayAttackVFX(gunPoint.position, hitInfo.point);
             visual.ReloadVFX(attackCooldown);
             AudioManager.Instance.PlaySFX(attackSFX, true);
         }

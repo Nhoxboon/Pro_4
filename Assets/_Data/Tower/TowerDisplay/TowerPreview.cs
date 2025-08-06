@@ -4,7 +4,7 @@ using UnityEngine;
 public class TowerPreview : NhoxBehaviour
 {
     [SerializeField] protected MeshRenderer[] meshRenderers;
-    protected Tower myTower;
+    protected TowerCtrl myTower;
     [SerializeField] protected TowerAtkRadiusDisplay atkRadiusDisplay;
 
     protected float attackRange;
@@ -15,9 +15,9 @@ public class TowerPreview : NhoxBehaviour
         Init();
     }
 
-    protected void Init()
+    public void Init()
     {
-        myTower = GetComponent<Tower>();
+        myTower = GetComponent<TowerCtrl>();
         GameObject radiusDisplayObj = new GameObject("AttackRadiusDisplay");
         radiusDisplayObj.transform.SetParent(transform);
         atkRadiusDisplay = radiusDisplayObj.AddComponent<TowerAtkRadiusDisplay>();
@@ -49,8 +49,8 @@ public class TowerPreview : NhoxBehaviour
     protected void DestroyExtraComponent()
     {
         if (myTower == null) return;
-        CrossbowVisual crossbowVisual = myTower.GetComponentInChildren<CrossbowVisual>();
-        Destroy(crossbowVisual);
+        foreach (var component in myTower.Components)
+            Destroy(component.gameObject);
         Destroy(myTower);
     }
 

@@ -20,6 +20,6 @@ public class TowerSpawner : Spawner
     public float GetAttackRange(string towerName)
     {
         Transform prefab = GetPrefabByName(towerName);
-        return prefab?.GetComponent<Tower>()?.AttackRange ?? 0f;
+        return prefab?.GetComponentInChildren<TowerTargeting>()?.AttackRange ?? 0f;
     }
 }

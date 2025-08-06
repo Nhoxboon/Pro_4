@@ -8,7 +8,7 @@ public class HeavyEnemyStats : Stats
     {
         base.Awake();
 
-        ShieldAmount.SetMaxValue(shieldValue);
-        ShieldAmount.Init();
+        shieldAmount.SetMaxValue(shieldValue);
+        shieldAmount.Init();
     }
 }

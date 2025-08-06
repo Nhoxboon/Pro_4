@@ -21,9 +21,7 @@ public class Stat
             currentValue = Mathf.Clamp(value, 0f, maxValue);
 
             if (currentValue <= 0)
-            {
                 OnCurrentValueZero?.Invoke();
-            }
         }
     }
 

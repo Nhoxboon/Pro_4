@@ -64,7 +64,7 @@ public class Attack : CoreComponent
         List<Transform> validTowers = new();
         for (int i = 0; i < towers.Length; i++)
         {
-            if(towers[i].TryGetComponent(out Tower tower) && !validTowers.Contains(towers[i].transform))
+            if(towers[i].TryGetComponent(out TowerCtrl tower) && !validTowers.Contains(towers[i].transform))
                 validTowers.Add(tower.transform);
         }
         return validTowers.Count > 0 ? validTowers[Random.Range(0, validTowers.Count)] : null;

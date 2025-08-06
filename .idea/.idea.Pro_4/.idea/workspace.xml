@@ -5,35 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SpiderBoss/Attack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SpiderBoss/Attack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/FX/FXDespawnByParticle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/FX/FXDespawnByParticle.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Particles.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Particles/EMPAttack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Particles/EMPAttack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Particles/ProjectileSpawner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Particles/ProjectileSpawner.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/HeavyEDamageReceiver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/HeavyEDamageReceiver.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTowerAttack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTowerAttack.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerAttack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerAttack.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerComponent.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerRotation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerRotation.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerStatus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerStatus.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerTargeting.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerTargeting.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerCtrl.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerCtrl.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Trash.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/Core.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/Core.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/DamageReceiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/DamageReceiver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/FlyBossCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/FlyBossCore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/FlyBossDeath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/FlyBossDeath.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/HeavyEnemyCore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/HeavyEnemyCore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/HeavyEnemyStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/HeavyEnemyStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/ShieldForEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/ShieldForEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SpiderBoss/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SpiderBoss/Attack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/StatSystem/Stat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/StatSystem/Stat.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Particles/EMPAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Particles/EMPAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Trash/CrossbowTower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTower.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Trash/CrossbowTower.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Trash/Tower.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Tower.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Trash/Tower.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreview.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreview.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingBoss.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreviewManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerDisplay/TowerPreviewManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerVisual.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerVisual.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerVisual.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/HeavyEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/HeavyEnemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/SpiderBoss/SpiderBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/SpiderBoss/SpiderBoss.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/Crossbow/CrossbowTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/Crossbow/CrossbowTower.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/Crossbow/CrossbowTower.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/Crossbow/CrossbowTower.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +77,16 @@
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3f983fe377b2489e8ed44032915da13e1df600/32/814ebe18/Vector3.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SwarmEnemy/SwarmVisuals.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
@@ -76,6 +102,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Utilities/GameObjectExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@eb5635ad590d/Runtime/NavMeshSurface.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@f3fac7af1578/Runtime/TMP/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@f3fac7af1578/Runtime/UGUI/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -267,6 +294,10 @@
       <workItem from="1754287707088" duration="7195000" />
       <workItem from="1754304183397" duration="5639000" />
       <workItem from="1754312421068" duration="855000" />
+      <workItem from="1754454558393" duration="1266000" />
+      <workItem from="1754455856260" duration="49000" />
+      <workItem from="1754461003356" duration="5855000" />
+      <workItem from="1754467237513" duration="9597000" />
     </task>
     <servers />
   </component>

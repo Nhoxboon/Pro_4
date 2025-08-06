@@ -93,9 +93,9 @@ public class LevelManager : NhoxBehaviour
 
     protected void EliminateAllTowers()
     {
-        Tower[] towers = FindObjectsByType<Tower>(FindObjectsSortMode.None);
+        TowerCtrl[] towers = FindObjectsByType<TowerCtrl>(FindObjectsSortMode.None);
         foreach (var tower in towers)
-            tower.DestroyTower();
+            tower.Status.DestroyTower();
     }
 
     public void UpdateCurrentGrid(GridBuilder newGrid) => currentActiveGrid = newGrid;

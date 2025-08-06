@@ -216,8 +216,8 @@ public class CrossbowVisual : TowerVisual
 
     protected void UpdateAttackVisuals()
     {
-        if (attackVisual.enabled && myEnemy is not null)
-            attackVisual.SetPosition(1, myEnemy.GetCenterPoint());
+        if (attackVisual.enabled && hitPoint != Vector3.zero)
+            attackVisual.SetPosition(1, hitPoint);
     }
 
     protected void UpdateStringVisuals(LineRenderer lineRenderer, Transform startPoint, Transform endPoint)
@@ -233,14 +233,14 @@ public class CrossbowVisual : TowerVisual
         StartCoroutine(UpdateRotorPosition(duration / 2));
     }
 
-    public override void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint, Enemy newEnemy)
+    public override void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint)
     {
-        StartCoroutine(VFXCoroutine(startPoint, endPoint, newEnemy));
+        StartCoroutine(VFXCoroutine(startPoint, endPoint));
     }
 
-    protected override IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint, Enemy newEnemy)
+    protected override IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint)
     {
-        yield return base.VFXCoroutine(startPoint, endPoint, newEnemy);
+        yield return base.VFXCoroutine(startPoint, endPoint);
         attackVisual.enabled = true;
         attackVisual.SetPosition(0, startPoint);
         attackVisual.SetPosition(1, endPoint);

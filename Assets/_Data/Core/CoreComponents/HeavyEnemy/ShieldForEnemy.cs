@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ShieldForEnemy : CoreComponent, IDamageable
+public class ShieldForEnemy : CoreComponent
 {
     [Header("Impact Details")] [SerializeField]
     protected Material shieldMaterial;
@@ -20,10 +20,7 @@ public class ShieldForEnemy : CoreComponent, IDamageable
     {
         base.Awake();
         defaultScale = transform.localScale.x;
-        core.Stats.ShieldAmount.OnCurrentValueZero += DeactivateShield;
     }
-
-    protected void OnDestroy() => core.Stats.ShieldAmount.OnCurrentValueZero -= DeactivateShield;
 
     protected override void LoadComponents()
     {
@@ -38,16 +35,11 @@ public class ShieldForEnemy : CoreComponent, IDamageable
         DebugTool.Log(transform.name + " :LoadShieldMaterial", gameObject);
     }
 
-    public void TakeDamage(float damage)
-    {
-        ShieldImpact();
-        core.Stats.ShieldAmount.Decrease(damage);
-    }
+    public void DeactivateShield() => gameObject.SetActive(false);
 
-    protected void DeactivateShield() => gameObject.SetActive(false);
-
-    protected void ShieldImpact()
+    public void ShieldImpact()
     {
+        if (!gameObject.activeInHierarchy) return;
         if (currentActiveCoroutine != null) StopCoroutine(currentActiveCoroutine);
         StartCoroutine(ImpactCoroutine());
     }
@@ -80,5 +72,11 @@ public class ShieldForEnemy : CoreComponent, IDamageable
 
         transform.localScale = newScale;
         shieldMaterial.SetFloat(shieldFresnelParameter, targetGlow);
+    }
+
+    public void EnableShield()
+    {
+        if (core.Stats is HeavyEnemyStats stats && stats.ShieldAmount.CurrentValue > 0)
+            gameObject.SetActive(true);
     }
 }
