@@ -70,7 +70,7 @@ public class CrossbowVisual : TowerVisual
     protected override void LoadMeshRenderer()
     {
         if (meshRenderer != null) return;
-        meshRenderer = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_emissionPart_2")
+        meshRenderer = transform.parent.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_emissionPart_2")
             .GetComponent<MeshRenderer>();
         DebugTool.Log(transform.name + " :LoadMeshRenderer", gameObject);
     }
@@ -85,16 +85,16 @@ public class CrossbowVisual : TowerVisual
     protected void LoadRotorVisual()
     {
         if (rotor != null) return;
-        rotor = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor");
-        rotorUnloaded = transform.parent.Find("Model/CrossbowTower/TowerHead/RotorPositionUnloaded");
-        rotorLoaded = transform.parent.Find("Model/CrossbowTower/TowerHead/RotorPositionLoaded");
+        rotor = towerCtrl.transform.Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor");
+        rotorUnloaded = towerCtrl.transform.Find("Model/CrossbowTower/TowerHead/RotorPositionUnloaded");
+        rotorLoaded = towerCtrl.transform.Find("Model/CrossbowTower/TowerHead/RotorPositionLoaded");
         DebugTool.Log(transform.name + " :LoadRotorVisual", gameObject);
     }
 
     protected void LoadFrontStringLeftVisual()
     {
         if (frontStringL != null) return;
-        frontStringL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/front_string_L")
+        frontStringL = towerCtrl.transform.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/front_string_L")
             .GetComponent<LineRenderer>();
         DebugTool.Log(transform.name + " :LoadStringLeftVisual", gameObject);
     }
@@ -102,7 +102,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadFrontStringRightVisual()
     {
         if (frontStringR != null) return;
-        frontStringR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/front_string_R")
+        frontStringR = towerCtrl.transform.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/front_string_R")
             .GetComponent<LineRenderer>();
         DebugTool.Log(transform.name + " :LoadStringRightVisual", gameObject);
     }
@@ -110,7 +110,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadBackStringLeftVisual()
     {
         if (backStringL != null) return;
-        backStringL = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/back_string_L")
+        backStringL = towerCtrl.transform.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/back_string_L")
             .GetComponent<LineRenderer>();
         DebugTool.Log(transform.name + " :LoadBackStringLeftVisual", gameObject);
     }
@@ -118,7 +118,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadBackStringRightVisual()
     {
         if (backStringR != null) return;
-        backStringR = transform.parent.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/back_string_R")
+        backStringR = towerCtrl.transform.Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/back_string_R")
             .GetComponent<LineRenderer>();
         DebugTool.Log(transform.name + " :LoadBackStringRightVisual", gameObject);
     }
@@ -126,7 +126,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadFrontStartPointLeft()
     {
         if (frontStartPointL != null) return;
-        frontStartPointL = transform.parent
+        frontStartPointL = towerCtrl.transform
             .Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/front_start_point_L")
             .GetComponent<Transform>();
         DebugTool.Log(transform.name + " :LoadFrontStartPointLeft", gameObject);
@@ -135,7 +135,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadFrontEndPointLeft()
     {
         if (frontEndPointL != null) return;
-        frontEndPointL = transform.parent
+        frontEndPointL = towerCtrl.transform
             .Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/front_end_point_L")
             .GetComponent<Transform>();
         DebugTool.Log(transform.name + " :LoadFrontEndPointLeft", gameObject);
@@ -144,7 +144,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadFrontStartPointRight()
     {
         if (frontStartPointR != null) return;
-        frontStartPointR = transform.parent
+        frontStartPointR = towerCtrl.transform
             .Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/front_start_point_R")
             .GetComponent<Transform>();
         DebugTool.Log(transform.name + " :LoadFrontStartPointRight", gameObject);
@@ -153,7 +153,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadFrontEndPointRight()
     {
         if (frontEndPointR != null) return;
-        frontEndPointR = transform.parent
+        frontEndPointR = towerCtrl.transform
             .Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/front_end_point_R")
             .GetComponent<Transform>();
         DebugTool.Log(transform.name + " :LoadFrontEndPointRight", gameObject);
@@ -162,7 +162,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadBackStartPointLeft()
     {
         if (backStartPointL != null) return;
-        backStartPointL = transform.parent
+        backStartPointL = towerCtrl.transform
             .Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/back_start_point_L")
             .GetComponent<Transform>();
         DebugTool.Log(transform.name + " :LoadBackStartPointLeft", gameObject);
@@ -171,7 +171,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadBackEndPointLeft()
     {
         if (backEndPointL != null) return;
-        backEndPointL = transform.parent
+        backEndPointL = towerCtrl.transform
             .Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/back_end_point_L")
             .GetComponent<Transform>();
         DebugTool.Log(transform.name + " :LoadBackEndPointLeft", gameObject);
@@ -180,7 +180,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadBackStartPointRight()
     {
         if (backStartPointR != null) return;
-        backStartPointR = transform.parent
+        backStartPointR = towerCtrl.transform
             .Find("Model/CrossbowTower/TowerHead/tower_visuals_strings/Point/back_start_point_R")
             .GetComponent<Transform>();
         DebugTool.Log(transform.name + " :LoadBackStartPointRight", gameObject);
@@ -189,7 +189,7 @@ public class CrossbowVisual : TowerVisual
     protected void LoadBackEndPointRight()
     {
         if (backEndPointR != null) return;
-        backEndPointR = transform.parent
+        backEndPointR = towerCtrl.transform
             .Find("Model/CrossbowTower/TowerHead/tower_crossbow_head_rotor/Point/back_end_point_R")
             .GetComponent<Transform>();
         DebugTool.Log(transform.name + " :LoadBackEndPointRight", gameObject);

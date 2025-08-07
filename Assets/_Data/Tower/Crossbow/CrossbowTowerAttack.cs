@@ -2,22 +2,13 @@ using UnityEngine;
 
 public class CrossbowTowerAttack : TowerAttack
 {
-    [Header("Crossbow Tower Setup")]
-    [SerializeField] protected int damage = 2;
-    [SerializeField] protected CrossbowVisual visual;
+    [Header("Crossbow Tower Setup")] [SerializeField]
+    protected int damage = 2;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadGunPoint();
-        LoadCrossbowVisual();
-    }
-
-    protected void LoadCrossbowVisual()
-    {
-        if (visual != null) return;
-        visual = transform.parent.GetComponentInChildren<CrossbowVisual>();
-        DebugTool.Log(transform.name + " :LoadCrossbowVisual", gameObject);
     }
 
     public override void Attack()

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TowerRotation : TowerComponent
+public abstract class TowerRotation : TowerComponent
 {
     [SerializeField] protected Transform towerHead;
     public Transform TowerHead => towerHead;
@@ -14,12 +14,7 @@ public class TowerRotation : TowerComponent
         LoadTowerHead();
     }
 
-    protected void LoadTowerHead()
-    {
-        if (towerHead != null) return;
-        towerHead = transform.parent.Find("Model/CrossbowTower/TowerHead");
-        DebugTool.Log(transform.name + " :LoadTowerHead", gameObject);
-    }
+    protected abstract void LoadTowerHead();
 
     public virtual void HandleRotation() => RotateTowardsTarget();
 

@@ -15,7 +15,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
     protected string towerName;
 
     [SerializeField] protected int towerPrice = 50;
-    [SerializeField] protected float towerCenterY = 2f;
+    [SerializeField] protected float towerCenterY = 2.5f;
     [SerializeField] protected GameObject towerToBuild;
     protected TowerPreview towerPreview;
 
@@ -113,7 +113,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
 
         BuildSlot slotUsed = ManagerCtrl.Instance.BuildManager.SelectedBuildSlot;
         if (slotUsed is null) return;
-        Vector3 previewPosition = slotUsed.GetBuildPosition(towerCenterY);
+        Vector3 previewPosition = slotUsed.GetBuildPosition(0.5f);
         ManagerCtrl.Instance.TowerPreviewManager.ShowTowerPreview(towerPreview, select, previewPosition, towerCenterY);
 
         ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(this);

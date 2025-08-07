@@ -4,6 +4,7 @@ public abstract class TowerAttack : TowerComponent
 {
     [SerializeField] protected float attackCooldown = 2f;
     [SerializeField] protected Transform gunPoint;
+    public Transform GunPoint => gunPoint;
     [SerializeField] protected LayerMask whatIsTargetable;
     [SerializeField] protected AudioSource attackSFX;
 
@@ -33,11 +34,12 @@ public abstract class TowerAttack : TowerComponent
     protected void LoadAttackSFX()
     {
         if (attackSFX != null) return;
-        attackSFX = transform.parent.GetComponentInChildren<AudioSource>();
+        attackSFX = transform.parent.parent.GetComponentInChildren<AudioSource>();
         DebugTool.Log(transform.name + " :LoadAttackSFX", gameObject);
     }
 
-    public bool CanAttack() => Time.time > lastAttackTime + attackCooldown && towerCtrl.Targeting.CurrentTarget is not null;
+    public bool CanAttack() =>
+        Time.time > lastAttackTime + attackCooldown && towerCtrl.Targeting.CurrentTarget is not null;
 
     public virtual void Attack() => lastAttackTime = Time.time;
 }

@@ -251,7 +251,7 @@ MonoBehaviour:
   btnUnlocked: 0
   towerName: Tower
   towerPrice: 50
-  towerCenterY: 2
+  towerCenterY: 2.5
   towerToBuild: {fileID: 0}
   buildBtnUI: {fileID: 6692716524917214459}
 --- !u!1 &4779621578471806514

@@ -67,7 +67,7 @@ public class TowerCtrl : NhoxBehaviour
         DebugTool.Log(transform.name + " :LoadTowerStatus", gameObject);
     }
 
-    protected void LoadTowerVisual()
+    protected virtual void LoadTowerVisual()
     {
         if (visual != null) return;
         visual = GetComponentInChildren<TowerVisual>();
