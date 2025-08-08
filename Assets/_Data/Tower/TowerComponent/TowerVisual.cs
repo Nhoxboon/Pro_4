@@ -1,88 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public abstract class TowerVisual : TowerComponent
 {
-    [Header("Glow Effect")]
-    [SerializeField] protected MeshRenderer meshRenderer;
-    [SerializeField] protected float maxIntensity = 200f;
-    [SerializeField] protected Color startColor = new Color(0f, 0f, 0f, 255f);
-    [SerializeField] protected Color endColor = new Color(0x04 / 255f, 0x6E / 255f, 0xFF / 255f, 1f);
-
-    [Header("Attack Visual")] [SerializeField]
-    protected float attackVisualDuration = 0.1f;
-
-    [SerializeField] protected string onHitFX;
-    protected Vector3 hitPoint;
-
-    protected Material material;
-    protected float currentIntensity;
-
-    protected override void Awake()
+    protected void SpawnVFX(string fxName, Vector3 position, Quaternion rotation)
     {
-        base.Awake();
-        CloneAndAssignMaterial();
-        StartCoroutine(ChangeEmissionIntensity(1f));
-    }
-
-    protected virtual void Update() => UpdateEmissionColor();
-
-    #region LoadComponents
-
-    protected override void LoadComponents()
-    {
-        base.LoadComponents();
-        LoadMeshRenderer();
-    }
-
-    protected abstract void LoadMeshRenderer();
-
-    #endregion
-
-    protected void CloneAndAssignMaterial()
-    {
-        material = new Material(meshRenderer.material);
-        meshRenderer.material = material;
-    }
-
-    protected void UpdateEmissionColor()
-    {
-        Color emissionColor = Color.Lerp(startColor, endColor, currentIntensity / maxIntensity);
-        emissionColor *= Mathf.LinearToGammaSpace(currentIntensity);
-        material.SetColor("_EmissionColor", emissionColor);
-    }
-
-    public virtual void ReloadVFX(float duration)
-    {
-        StartCoroutine(ChangeEmissionIntensity(duration / 2));
-    }
-
-    public abstract void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint);
-
-    protected virtual IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint)
-    {
-        hitPoint = endPoint;
-        yield break;
-    }
-
-    protected IEnumerator ChangeEmissionIntensity(float duration)
-    {
-        float startTime = Time.time;
-        float startIntensity = 0f;
-
-        while (Time.time - startTime < duration)
-        {
-            currentIntensity = Mathf.Lerp(startIntensity, maxIntensity, (Time.time - startTime) / duration);
-            yield return null;
-        }
-
-        currentIntensity = maxIntensity;
-    }
-
-    public void CreateOnHitFX(Vector3 hitPoint)
-    {
-        Transform newFX = FXSpawner.Instance.Spawn(onHitFX, hitPoint, Random.rotation);
-        newFX.gameObject.SetActive(true);
+        var vfx = FXSpawner.Instance.Spawn(fxName, position, rotation);
+        vfx.gameObject.SetActive(true);
     }
 }

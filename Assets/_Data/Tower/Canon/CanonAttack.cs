@@ -22,7 +22,7 @@ public class CanonAttack : TowerAttack
                 Quaternion.identity);
         newProjectile.gameObject.SetActive(true);
 
-        if (newProjectile.TryGetComponent(out Projectile projectile))
+        if (newProjectile.TryGetComponent(out Fireball projectile))
             projectile.SetupProjectile(velocity, damage);
         SpawnAttackVFX();
     }

@@ -3,6 +3,22 @@ using UnityEngine;
 
 public class CrossbowVisual : TowerVisual
 {
+    [Header("Glow Effect")] [SerializeField]
+    protected MeshRenderer meshRenderer;
+
+    [SerializeField] protected float maxIntensity = 200f;
+    [SerializeField] protected Color startColor = new Color(0f, 0f, 0f, 255f);
+    [SerializeField] protected Color endColor = new Color(0x04 / 255f, 0x6E / 255f, 0xFF / 255f, 1f);
+
+    [Header("Attack Visual")] [SerializeField]
+    protected float attackVisualDuration = 0.1f;
+
+    protected string onHitFX = "Crossbow_OnHitVFX";
+    protected Vector3 hitPoint;
+
+    protected Material material;
+    protected float currentIntensity;
+
     [SerializeField] protected LineRenderer attackVisual;
 
     [Header("Rotor Visual")] [SerializeField]
@@ -34,12 +50,14 @@ public class CrossbowVisual : TowerVisual
     protected override void Awake()
     {
         base.Awake();
+        CloneAndAssignMaterial();
+        StartCoroutine(ChangeEmissionIntensity(1f));
         CloneStringMaterial();
     }
 
-    protected override void Update()
+    protected void Update()
     {
-        base.Update();
+        UpdateEmissionColor();
         UpdateString();
         UpdateAttackVisuals();
     }
@@ -49,7 +67,8 @@ public class CrossbowVisual : TowerVisual
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        onHitFX = "Crossbow_OnHitFX";
+
+        LoadMeshRenderer();
         LoadAttackVisual();
         LoadRotorVisual();
 
@@ -67,7 +86,7 @@ public class CrossbowVisual : TowerVisual
         LoadBackEndPointRight();
     }
 
-    protected override void LoadMeshRenderer()
+    protected void LoadMeshRenderer()
     {
         if (meshRenderer != null) return;
         meshRenderer = transform.parent.parent.Find("Model/CrossbowTower/TowerHead/tower_crossbow_emissionPart_2")
@@ -197,12 +216,23 @@ public class CrossbowVisual : TowerVisual
 
     #endregion
 
+    protected void CloneAndAssignMaterial()
+    {
+        material = new Material(meshRenderer.material);
+        meshRenderer.material = material;
+    }
+
+    protected void UpdateEmissionColor()
+    {
+        Color emissionColor = Color.Lerp(startColor, endColor, currentIntensity / maxIntensity);
+        emissionColor *= Mathf.LinearToGammaSpace(currentIntensity);
+        material.SetColor("_EmissionColor", emissionColor);
+    }
+
     protected void CloneStringMaterial()
     {
         foreach (var sR in stringRenderers)
-        {
             sR.material = material;
-        }
     }
 
     protected void UpdateString()
@@ -227,26 +257,39 @@ public class CrossbowVisual : TowerVisual
         lineRenderer.SetPosition(1, endPoint.position);
     }
 
-    public override void ReloadVFX(float duration)
+    public void ReloadVFX(float duration)
     {
-        base.ReloadVFX(duration);
+        StartCoroutine(ChangeEmissionIntensity(duration / 2));
         StartCoroutine(UpdateRotorPosition(duration / 2));
     }
 
-    public override void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint)
-    {
+    public void PlayAttackVFX(Vector3 startPoint, Vector3 endPoint) =>
         StartCoroutine(VFXCoroutine(startPoint, endPoint));
-    }
 
-    protected override IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint)
+    protected IEnumerator VFXCoroutine(Vector3 startPoint, Vector3 endPoint)
     {
-        yield return base.VFXCoroutine(startPoint, endPoint);
+        hitPoint = endPoint;
+
         attackVisual.enabled = true;
         attackVisual.SetPosition(0, startPoint);
         attackVisual.SetPosition(1, endPoint);
 
         yield return new WaitForSeconds(attackVisualDuration);
         attackVisual.enabled = false;
+    }
+
+    protected IEnumerator ChangeEmissionIntensity(float duration)
+    {
+        float startTime = Time.time;
+        float startIntensity = 0f;
+
+        while (Time.time - startTime < duration)
+        {
+            currentIntensity = Mathf.Lerp(startIntensity, maxIntensity, (Time.time - startTime) / duration);
+            yield return null;
+        }
+
+        currentIntensity = maxIntensity;
     }
 
     private IEnumerator UpdateRotorPosition(float duration)
@@ -261,4 +304,6 @@ public class CrossbowVisual : TowerVisual
 
         rotor.position = rotorLoaded.position;
     }
+
+    public void CreateOnHitFX(Vector3 hitPoint) => SpawnVFX(onHitFX, hitPoint, Random.rotation);
 }

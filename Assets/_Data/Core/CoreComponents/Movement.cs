@@ -68,7 +68,7 @@ public class Movement : CoreComponent
     protected virtual bool ShouldChangeWaypoint()
     {
         if (nextWpIndex >= myWayPoints.Count) return false;
-        if (agent.remainingDistance < 0.2f) return true;
+        if (agent.remainingDistance < 0.4f) return true;
 
         Vector3 currentWaypoint = myWayPoints[currentWpIndex].position;
         Vector3 nextWaypoint = myWayPoints[nextWpIndex].position;

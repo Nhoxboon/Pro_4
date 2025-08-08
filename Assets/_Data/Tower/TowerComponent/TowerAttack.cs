@@ -17,7 +17,7 @@ public abstract class TowerAttack : TowerComponent
         LoadAttackSFX();
     }
 
-    protected void LoadGunPoint()
+    protected virtual void LoadGunPoint()
     {
         if (gunPoint != null) return;
         gunPoint = towerCtrl.Rotation.TowerHead.Find("GunPoint");

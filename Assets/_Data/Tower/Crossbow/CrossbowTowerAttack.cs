@@ -25,10 +25,16 @@ public class CrossbowTowerAttack : TowerAttack
                 damageable.TakeDamage(damage);
             }
 
-            towerCtrl.Visual.CreateOnHitFX(hitInfo.point);
-            towerCtrl.Visual.PlayAttackVFX(gunPoint.position, hitInfo.point);
-            towerCtrl.Visual.ReloadVFX(attackCooldown);
+            CreateAttackVFX(hitInfo);
             AudioManager.Instance.PlaySFX(attackSFX, true);
         }
+    }
+
+    protected void CreateAttackVFX(RaycastHit hitInfo)
+    {
+        if (towerCtrl.Visual is not CrossbowVisual visual) return;
+        visual.CreateOnHitFX(hitInfo.point);
+        visual.PlayAttackVFX(gunPoint.position, hitInfo.point);
+        visual.ReloadVFX(attackCooldown);
     }
 }
