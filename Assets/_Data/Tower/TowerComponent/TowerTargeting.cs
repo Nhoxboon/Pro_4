@@ -12,7 +12,7 @@ public class TowerTargeting : TowerComponent
     protected float lastTimeCheckedTarget;
     public Enemy CurrentTarget { get; protected set; }
     public float AttackRange => attackRange;
-    protected Vector3 AttackCenter => towerCtrl.transform.position - Vector3.up * 1.5f;
+    public Vector3 AttackCenter => towerCtrl.transform.position - Vector3.up * 1.5f;
 
     protected override void LoadComponents()
     {

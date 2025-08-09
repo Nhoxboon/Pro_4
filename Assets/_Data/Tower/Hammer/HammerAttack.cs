@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +37,7 @@ public class HammerAttack : TowerAttack
     {
         List<Enemy> targets = new List<Enemy>();
         Collider[] enemiesAround =
-            Physics.OverlapSphere(towerCtrl.transform.position, towerCtrl.Targeting.AttackRange, whatIsTargetable);
+            Physics.OverlapSphere(towerCtrl.Targeting.AttackCenter, towerCtrl.Targeting.AttackRange, whatIsTargetable);
         for (int i = 0; i < enemiesAround.Length; i++)
         {
             if(enemiesAround[i].TryGetComponent(out Enemy enemy))

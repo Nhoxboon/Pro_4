@@ -4,7 +4,7 @@ public class CanonTargeting : TowerTargeting
 {
     protected override Enemy FindRandomTargetWithinRange()
     {
-        Collider[] enemiesAround = Physics.OverlapSphere(towerCtrl.transform.position, attackRange, whatIsEnemy);
+        Collider[] enemiesAround = Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy);
 
         Enemy bestTarget = null;
         int maxNearbyEnemies = 0;

@@ -4,7 +4,7 @@ public class HammerTargeting : TowerTargeting
 {
     public bool AtLeastOneTargetInRange()
     {
-        Collider[] enemyColliders = Physics.OverlapSphere(towerCtrl.transform.position, attackRange, whatIsEnemy);
+        Collider[] enemyColliders = Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy);
         return enemyColliders.Length > 0;
     }
 }
