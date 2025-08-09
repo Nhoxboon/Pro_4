@@ -23,8 +23,7 @@ public class TowerCtrl : NhoxBehaviour
         targeting.UpdateTarget();
         if (!status.IsActive) return;
 
-        if (attack.CanAttack())
-            attack.Attack();
+        attack.DoAttack();
 
         rotation.HandleRotation();
     }
@@ -39,14 +38,14 @@ public class TowerCtrl : NhoxBehaviour
         LoadTowerVisual();
     }
 
-    protected void LoadTowerTargeting()
+    protected virtual void LoadTowerTargeting()
     {
         if (targeting != null) return;
         targeting = GetComponentInChildren<TowerTargeting>();
         DebugTool.Log(transform.name + " :LoadTowerTargeting", gameObject);
     }
 
-    protected void LoadTowerRotation()
+    protected virtual void LoadTowerRotation()
     {
         if (rotation != null) return;
         rotation = GetComponentInChildren<TowerRotation>();

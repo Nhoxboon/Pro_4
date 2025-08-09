@@ -25,7 +25,7 @@ public class RapidFireAttack : TowerAttack
         DebugTool.Log(transform.name + " :LoadGunPoint", gameObject);
     }
 
-    public override void Attack()
+    protected override void Attack()
     {
         gunPoint = gunPointSet[gunPointIndex];
         Vector3 dirToTarget = towerCtrl.Targeting.DirectionToTarget(gunPoint);

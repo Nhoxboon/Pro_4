@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class TowerAttack : TowerComponent
 {
     [SerializeField] protected float attackCooldown = 2f;
+    public float AttackCooldown => attackCooldown;
     [SerializeField] protected Transform gunPoint;
     public Transform GunPoint => gunPoint;
     [SerializeField] protected LayerMask whatIsTargetable;
@@ -38,8 +39,13 @@ public abstract class TowerAttack : TowerComponent
         DebugTool.Log(transform.name + " :LoadAttackSFX", gameObject);
     }
 
-    public bool CanAttack() =>
+    protected virtual bool CanAttack() =>
         Time.time > lastAttackTime + attackCooldown && towerCtrl.Targeting.CurrentTarget is not null;
 
-    public virtual void Attack() => lastAttackTime = Time.time;
+    protected virtual void Attack() => lastAttackTime = Time.time;
+
+    public void DoAttack()
+    {
+        if(CanAttack()) Attack();
+    }
 }

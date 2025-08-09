@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,9 +14,20 @@ public class Movement : CoreComponent
 
     [SerializeField] protected NavMeshAgent agent;
 
+    protected float originalSpeed;
     protected float totalDistance;
 
-    protected void OnDisable() => myWayPoints.Clear();
+    protected override void Awake()
+    {
+        base.Awake();
+        originalSpeed = agent.speed;
+    }
+
+    protected void OnDisable()
+    {
+        agent.speed = originalSpeed;
+        myWayPoints.Clear();
+    }
 
     protected override void LoadComponents()
     {
@@ -134,6 +146,20 @@ public class Movement : CoreComponent
             return totalDistance;
 
         return totalDistance + agent.remainingDistance;
+    }
+
+    public void SlowEnemy(float slowMultiplier, float duration)
+    {
+        if (IsAgentInvalid()) return;
+        StartCoroutine(SlowEnemyCoroutine(slowMultiplier, duration));
+    }
+
+    protected IEnumerator SlowEnemyCoroutine(float slowMultiplier, float duration)
+    {
+        agent.speed = originalSpeed;
+        agent.speed *= slowMultiplier;
+        yield return new WaitForSeconds(duration);
+        agent.speed = originalSpeed;
     }
 
     public virtual void ResetMovement()

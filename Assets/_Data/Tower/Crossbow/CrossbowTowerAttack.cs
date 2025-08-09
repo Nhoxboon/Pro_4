@@ -11,7 +11,7 @@ public class CrossbowTowerAttack : TowerAttack
         LoadGunPoint();
     }
 
-    public override void Attack()
+    protected override void Attack()
     {
         base.Attack();
         if (Physics.Raycast(gunPoint.position, towerCtrl.Targeting.DirectionToTarget(gunPoint), out RaycastHit hitInfo,

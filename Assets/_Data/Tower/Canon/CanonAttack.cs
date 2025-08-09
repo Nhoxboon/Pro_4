@@ -12,7 +12,7 @@ public class CanonAttack : TowerAttack
         LoadGunPoint();
     }
 
-    public override void Attack()
+    protected override void Attack()
     {
         base.Attack();
         if (towerCtrl.Rotation is not CanonRotation canonRotation) return;

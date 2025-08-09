@@ -5,32 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Bullet.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Bullet/Bullet.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Bullet/Bullet.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireAttack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireAttack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireRotation.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireRotation.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireVisual.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireVisual.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerAttack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerAttack.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerCtrl.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerCtrl.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerTargeting.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerTargeting.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerVisual.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerVisual.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Projectile/Fireball/Fireball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Fireball/Fireball.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Projectile/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/RotateObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/RotateObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Canon/CanonAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Canon/CanonAttack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTowerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTowerAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireAttack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerVisual.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/BuildBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/BuildBtn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/UI/Font/NewAmsterdam-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/UI/Font/NewAmsterdam-Regular SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/FX/EnemyFlyPortalFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/FX/EnemyFlyPortalFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/FX/ExplosionFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/FX/ExplosionFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/FX/SmokeCanonVFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/FX/SmokeCanonVFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/FX/TowerNotActiveFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/FX/TowerNotActiveFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/UI/TowerBtn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/UI/TowerBtn.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerCtrl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerCtrl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/UI/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/UI/UI.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -270,6 +263,8 @@
       <workItem from="1754626869995" duration="186000" />
       <workItem from="1754627073521" duration="293000" />
       <workItem from="1754633791661" duration="11682000" />
+      <workItem from="1754708437124" duration="5591000" />
+      <workItem from="1754718245681" duration="2546000" />
     </task>
     <servers />
   </component>

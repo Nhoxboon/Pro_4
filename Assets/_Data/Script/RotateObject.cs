@@ -12,4 +12,6 @@ public class RotateObject : NhoxBehaviour
         float newRotSpeed = rotSpeed * 100f;
         transform.Rotate(rotVector * (newRotSpeed * Time.deltaTime));
     }
+
+    public void SetRotationSpeed(float speed) => rotSpeed = speed;
 }

@@ -17100,12 +17100,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerPrice
-      value: 70
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerToBuild
       value: 
-      objectReference: {fileID: 4938040152508483925, guid: 52e85b91ee6404f23b357f8e06834555, type: 3}
+      objectReference: {fileID: 2362679973444207108, guid: b9f1941e6547b4b1c8317e9c6174e3d5, type: 3}
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerPriceText
       value: 
@@ -17148,7 +17148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3921793321152934487, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: m_text
-      value: 70
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6561162994434982770, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: m_Sprite
@@ -17301,6 +17301,10 @@ PrefabInstance:
       propertyPath: towerName
       value: Hammer
       objectReference: {fileID: 0}
+    - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
+      propertyPath: towerToBuild
+      value: 
+      objectReference: {fileID: 3236389462805676867, guid: ca061806505244798a6e25b9db8d5cd6, type: 3}
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerPriceText
       value: 
@@ -18004,7 +18008,7 @@ PrefabInstance:
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerToBuild
       value: 
-      objectReference: {fileID: 4938040152508483925, guid: 9a2f3ba9c59234aacbb643488f909582, type: 3}
+      objectReference: {fileID: 5067781737035282794, guid: 21137306fb5b348958427a780cfa89f8, type: 3}
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerPriceText
       value: 
@@ -18185,7 +18189,7 @@ PrefabInstance:
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerToBuild
       value: 
-      objectReference: {fileID: 4938040152508483925, guid: 83e1fcdb515fff646b0e008f00bb4a7a, type: 3}
+      objectReference: {fileID: 5641371426523740470, guid: 3a6fba3cea906471fa8e2393ccc5ea19, type: 3}
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerNameText
       value: 
