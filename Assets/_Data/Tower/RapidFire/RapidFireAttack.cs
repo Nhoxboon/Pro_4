@@ -7,8 +7,16 @@ public class RapidFireAttack : TowerAttack
     protected int gunPointIndex;
     [SerializeField] protected float damage = 5f;
     [SerializeField] protected float projectileSpeed = 15f;
+    
+    protected Vector3[] originalGunPointPositions;
 
-    protected void OnEnable() => gunPointIndex = 0;
+    protected override void Awake()
+    {
+        base.Awake();
+        originalGunPointPositions = new Vector3[gunPointSet.Length];
+        for(int i = 0; i < gunPointSet.Length; i++)
+            originalGunPointPositions[i] = gunPointSet[i].parent.localPosition;
+    }
 
     protected override void LoadComponents()
     {
@@ -53,5 +61,15 @@ public class RapidFireAttack : TowerAttack
     {
         if (towerCtrl.Visual is RapidFireVisual rapidFireVisual)
             rapidFireVisual.RecoilVFX(point);
+    }
+    
+    public override void ResetAttack()
+    {
+        base.ResetAttack();
+        gunPointIndex = 0;
+        if (originalGunPointPositions == null) return;
+        if (gunPointSet.Length != originalGunPointPositions.Length) return;
+        for(int i = 0; i < gunPointSet.Length; i++)
+            gunPointSet[i].parent.localPosition = originalGunPointPositions[i];
     }
 }

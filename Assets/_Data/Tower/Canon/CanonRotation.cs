@@ -66,4 +66,10 @@ public class CanonRotation : TowerRotation
 
         return launchVelocity;
     }
+    
+    public override void ResetRotation()
+    {
+        base.ResetRotation();
+        towerBody.localRotation = Quaternion.identity;
+    }
 }

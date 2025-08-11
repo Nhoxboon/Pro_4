@@ -306,4 +306,12 @@ public class CrossbowVisual : TowerVisual
     }
 
     public void CreateOnHitFX(Vector3 hitPoint) => SpawnVFX(onHitFX, hitPoint, Random.rotation);
+
+    public override void ResetVisual()
+    {
+        base.ResetVisual();
+        currentIntensity = 0f;
+        rotor.position = rotorUnloaded.position;
+        attackVisual.enabled = false;
+    }
 }

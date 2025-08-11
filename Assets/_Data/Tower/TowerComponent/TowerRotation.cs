@@ -32,4 +32,10 @@ public abstract class TowerRotation : TowerComponent
     }
 
     public void EnableRotation(bool enable) => canRotate = enable;
+    
+    public virtual void ResetRotation()
+    {
+        if (towerHead != null)
+            towerHead.localRotation = Quaternion.identity;
+    }
 }

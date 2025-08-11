@@ -48,4 +48,11 @@ public abstract class TowerAttack : TowerComponent
     {
         if(CanAttack()) Attack();
     }
+    
+    public virtual void ResetAttack()
+    {
+        lastAttackTime = 0f;
+        if (gunPoint != null)
+            gunPoint.localRotation = Quaternion.identity;
+    }
 }

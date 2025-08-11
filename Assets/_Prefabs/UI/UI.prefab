@@ -17479,6 +17479,10 @@ PrefabInstance:
       value: Spider Nest
       objectReference: {fileID: 0}
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
+      propertyPath: towerToBuild
+      value: 
+      objectReference: {fileID: 5454727205081805350, guid: 3b2c03ff888cf7b4d919345617f177e6, type: 3}
+    - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerPriceText
       value: 
       objectReference: {fileID: 901897958259822889}

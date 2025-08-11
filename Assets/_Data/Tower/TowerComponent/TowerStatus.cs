@@ -32,4 +32,14 @@ public class TowerStatus : TowerComponent
     }
 
     public void DestroyTower() => TowerSpawner.Instance.Despawn(towerCtrl.gameObject);
+    
+    public void ResetStatus()
+    {
+        isActive = true;
+        if (deactivatedTowerCoroutine != null) StopCoroutine(deactivatedTowerCoroutine);
+
+        if (currentEMPFX != null)
+            FXSpawner.Instance.Despawn(currentEMPFX.gameObject);
+        currentEMPFX = null;
+    }
 }

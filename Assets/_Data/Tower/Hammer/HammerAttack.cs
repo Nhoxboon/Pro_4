@@ -9,15 +9,9 @@ public class HammerAttack : TowerAttack
     [SerializeField] protected float slowMultiplier = 0.4f;
     [SerializeField] protected float slowDuration;
 
-    protected override bool CanAttack()
-    {
-        if(towerCtrl.Targeting is HammerTargeting hammerTargeting)
-            return Time.time > lastAttackTime + attackCooldown
-                   && hammerTargeting.AtLeastOneTargetInRange();
-
-        return base.CanAttack();
-    }
-
+    protected override bool CanAttack() =>
+        Time.time > lastAttackTime + attackCooldown && towerCtrl.Targeting.AtLeastOneTargetInRange();
+    
     protected override void Attack()
     {
         base.Attack();

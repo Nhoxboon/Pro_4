@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,23 @@ public class TowerCtrl : NhoxBehaviour
 
     [SerializeField] protected List<TowerComponent> components = new();
     public List<TowerComponent> Components => components;
+
+    protected void OnEnable() 
+    {
+        ResetTower();
+        ManagerCtrl.Instance.GameManager.CurrentWaveManager.UpdateDroneNavMesh();
+    }
+    
+    protected void OnDisable() 
+    {
+        ManagerCtrl.Instance.GameManager.CurrentWaveManager.UpdateDroneNavMesh();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        ManagerCtrl.Instance.GameManager.CurrentWaveManager.UpdateDroneNavMesh();
+    }
 
     protected virtual void Update()
     {
@@ -76,5 +94,23 @@ public class TowerCtrl : NhoxBehaviour
     public void AddComponent(TowerComponent component)
     {
         if (!components.Contains(component)) components.Add(component);
+    }
+
+    protected virtual void ResetTower()
+    {
+        if (attack != null)
+            attack.ResetAttack();
+            
+        if (targeting != null)
+            targeting.ResetTargeting();
+            
+        if (rotation != null)
+            rotation.ResetRotation();
+            
+        if (visual != null)
+            visual.ResetVisual();
+            
+        if (status != null)
+            status.ResetStatus();
     }
 }

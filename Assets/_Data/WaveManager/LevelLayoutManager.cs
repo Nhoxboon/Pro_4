@@ -17,6 +17,7 @@ public class LevelLayoutManager : WaveSystemManager
     
     [SerializeField] protected NavMeshSurface flyingNavSurface;
     [SerializeField] protected MeshCollider[] flyingNavColliders;
+    [SerializeField] protected NavMeshSurface droneNavSurface;
 
     protected override void SetInstance() => _instance = this;
 
@@ -24,7 +25,8 @@ public class LevelLayoutManager : WaveSystemManager
     {
         base.LoadComponents();
         LoadGridBuilder();
-        LoadNavMeshSurface();
+        LoadDroneNavMesh();
+        LoadFlyNavMesh();
         LoadMeshColliders();
     }
 
@@ -35,10 +37,17 @@ public class LevelLayoutManager : WaveSystemManager
         DebugTool.Log(transform.name + ": LoadGridBuilder", gameObject);
     }
     
-    protected void LoadNavMeshSurface()
+    protected void LoadDroneNavMesh()
+    {
+        if (droneNavSurface != null) return;
+        droneNavSurface = GetComponentInChildren<NavMeshSurface>();
+        DebugTool.Log(transform.name + ": LoadDroneNavMesh", gameObject);
+    }
+    
+    protected void LoadFlyNavMesh()
     {
         if (flyingNavSurface != null) return;
-        flyingNavSurface = GetComponentInChildren<NavMeshSurface>();
+        flyingNavSurface = transform.Find("FlyRoad").GetComponent<NavMeshSurface>();
         DebugTool.Log(transform.name + ": LoadNavMeshSurface", gameObject);
     }
     
@@ -128,5 +137,8 @@ public class LevelLayoutManager : WaveSystemManager
             col.enabled = false;
         
         currentGrid.UpdateNavMesh();
+        droneNavSurface.BuildNavMesh();
     }
+    
+    public void UpdateDroneNavMesh() => droneNavSurface.BuildNavMesh();
 }

@@ -92,9 +92,14 @@ public class TowerTargeting : TowerComponent
         if (CurrentTarget is null || !CurrentTarget.gameObject.activeInHierarchy) return Vector3.zero;
         return (CurrentTarget.GetCenterPoint() - startPoint.position).normalized;
     }
-
-    protected virtual void OnDrawGizmos()
+    
+    public bool AtLeastOneTargetInRange()
     {
-        Gizmos.DrawWireSphere(AttackCenter, attackRange);
+        Collider[] enemyColliders = Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy);
+        return enemyColliders.Length > 0;
     }
+    
+    public virtual void ResetTargeting() => CurrentTarget = null;
+
+    protected virtual void OnDrawGizmos() => Gizmos.DrawWireSphere(AttackCenter, attackRange);
 }

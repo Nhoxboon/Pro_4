@@ -1,0 +1,119 @@
+﻿using System;
+using UnityEngine;
+using UnityEngine.AI;
+
+[RequireComponent(typeof(BoxCollider))]
+public class SpiderNest : Projectile
+{
+    [SerializeField] protected BoxCollider col;
+    [SerializeField] protected NavMeshAgent agent;
+    
+    protected Transform currentTarget;
+    [SerializeField] protected float damageRadius = 0.8f;
+    [SerializeField] protected float detonateDistance = 0.6f;
+    [SerializeField] protected float enemyCheckRadius = 10f;
+    [SerializeField] protected float targetUpdateInterval = 0.5f;
+
+    protected string explosionFX = "ExplosionFX_1";
+
+    protected override void Awake()
+    {
+        base.Awake();
+        InvokeRepeating(nameof(UpdateClosestTarget), 0.1f, targetUpdateInterval);
+    }
+
+    protected void Update()
+    {
+        if (!HasValidTarget()) return;
+
+        MoveTowardsTarget();
+        CheckDetonation();
+    }
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadBoxCollider();
+        LoadNavMeshAgent();
+    }
+    
+    protected void LoadBoxCollider()
+    {
+        if (col != null) return;
+        col = GetComponent<BoxCollider>();
+        col.center = new Vector3(0, 0.05f, 0);
+        col.size = new Vector3(0.2f, 0.1f, 0.2f);
+        DebugTool.Log(transform.name + " :LoadBoxCollider", gameObject);
+    }
+    
+    protected void LoadNavMeshAgent()
+    {
+        if (agent != null) return;
+        agent = GetComponent<NavMeshAgent>();
+        agent.enabled = false;
+        DebugTool.Log(transform.name + " :LoadNavMeshAgent", gameObject);
+    }
+    
+    protected bool HasValidTarget() => currentTarget is not null && 
+                                       currentTarget.gameObject.activeInHierarchy && 
+                                       agent.enabled;
+    
+    protected void MoveTowardsTarget() => agent.SetDestination(currentTarget.position);
+    
+    protected void CheckDetonation()
+    {
+        if(Vector3.Distance(transform.position, currentTarget.position) < detonateDistance && agent.enabled)
+            Explode();
+    }
+
+    public void SetupSpider(float newDamage)
+    {
+        ProjectileSpawner.Instance.BackToHolder(gameObject);
+        agent.enabled = true;
+        damage = newDamage;
+    }
+    
+    protected void UpdateClosestTarget() => currentTarget = FindClosestEnemy();
+
+    protected void Explode()
+    {
+        DamageEnemies();
+        SpawnOnHitFX();
+        agent.enabled = false;
+        ProjectileSpawner.Instance.Despawn(gameObject);
+    }
+    
+    protected void DamageEnemies()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, damageRadius, whatIsEnemy);
+        foreach (var coli in colliders)
+        {
+            if (!coli.TryGetComponent(out Enemy enemy)) continue;
+            IDamageable damageable = enemy.Core.DamageReceiver;
+            damageable.TakeDamage(damage);
+        }
+    }
+
+    protected Transform FindClosestEnemy()
+    {
+        Collider[] enemiesAround = Physics.OverlapSphere(transform.position, enemyCheckRadius, whatIsEnemy);
+        Transform closestEnemy = null;
+        float shortestDistance = float.MaxValue;
+        
+        foreach (var enemyCol in enemiesAround)
+        {
+            float distance = Vector3.Distance(transform.position, enemyCol.transform.position);
+
+            if (!(distance < shortestDistance)) continue;
+            closestEnemy = enemyCol.transform;
+            shortestDistance = distance;
+        }
+        return closestEnemy;
+    }
+
+    protected override void SpawnOnHitFX()
+    {
+        Transform newFX = FXSpawner.Instance.Spawn(explosionFX, transform.position, Quaternion.identity);
+        newFX.gameObject.SetActive(true);
+    }
+}

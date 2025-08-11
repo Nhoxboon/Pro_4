@@ -19,6 +19,7 @@ public class GameManager : NhoxBehaviour
 
     [SerializeField] protected CameraEffects cameraEffects;
     [SerializeField] protected WaveTimingManager currentWaveManager;
+    public WaveTimingManager CurrentWaveManager => currentWaveManager;
     public Action OnHPChanged;
     public Action OnCurrencyChanged;
 

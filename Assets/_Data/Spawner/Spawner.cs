@@ -92,6 +92,12 @@ public abstract class Spawner : NhoxBehaviour
         newObj.name = prefab.name;
         return newObj;
     }
+    
+    public void BackToHolder(GameObject obj)
+    {
+        if (poolObjs.Contains(obj.transform)) return;
+        obj.transform.SetParent(holder);
+    }
 
     public virtual void Despawn(GameObject obj)
     {

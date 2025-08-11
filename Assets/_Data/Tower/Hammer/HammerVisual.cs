@@ -7,14 +7,20 @@ public class HammerVisual : TowerVisual
     [SerializeField] protected RotateObject valveRotation;
     protected string hammerVFX = "ExplosionFX_1";
     protected string hammerAttackVFX = "RippleFX";
-    [Header("Hammer Visual")]
-    [SerializeField] protected Transform hammer;
+
+    [Header("Hammer Visual")] [SerializeField]
+    protected Transform hammer;
+
     [SerializeField] protected Transform hammerHolder;
     [SerializeField] protected Transform sideWire;
     [SerializeField] protected Transform sideHandle;
+    
+    protected Vector3 hammerOriginalPosition;
+    protected Vector3 sideHandleOriginalPosition;
 
-    [Header("Attack and Release Details")]
-    [SerializeField] protected float attackYOffset = 0.55f;
+    [Header("Attack and Release Details")] [SerializeField]
+    protected float attackYOffset = 0.55f;
+
     [SerializeField] protected float attackDuration = 0.1f;
     protected float reloadDuration = 2f;
 
@@ -22,6 +28,8 @@ public class HammerVisual : TowerVisual
     {
         base.Awake();
         reloadDuration = towerCtrl.Attack.AttackCooldown - attackDuration;
+        hammerOriginalPosition = hammer.localPosition;
+        sideHandleOriginalPosition = sideHandle.localPosition;
     }
 
     protected override void LoadComponents()
@@ -36,35 +44,35 @@ public class HammerVisual : TowerVisual
 
     protected void LoadValveRotation()
     {
-        if(valveRotation != null) return;
+        if (valveRotation != null) return;
         valveRotation = towerCtrl.GetComponentInChildren<RotateObject>();
         DebugTool.Log(transform.name + " :LoadValveRotation", gameObject);
     }
 
     protected void LoadHammer()
     {
-        if(hammer != null) return;
+        if (hammer != null) return;
         hammer = transform.parent.parent.Find("Model/Hammer");
         DebugTool.Log(transform.name + " :LoadHammer", gameObject);
     }
 
     protected void LoadHammerHolder()
     {
-        if(hammerHolder != null) return;
+        if (hammerHolder != null) return;
         hammerHolder = transform.parent.parent.Find("Model/HammerHolder");
         DebugTool.Log(transform.name + " :LoadHammerHolder", gameObject);
     }
 
     protected void LoadSideWire()
     {
-        if(sideWire != null) return;
+        if (sideWire != null) return;
         sideWire = transform.parent.parent.Find("Model/SideWire");
         DebugTool.Log(transform.name + " :LoadSideWire", gameObject);
     }
 
     protected void LoadSideHandle()
     {
-        if(sideHandle != null) return;
+        if (sideHandle != null) return;
         sideHandle = transform.parent.parent.Find("Model/SideHandle");
         DebugTool.Log(transform.name + " :LoadSideHandle", gameObject);
     }
@@ -107,27 +115,23 @@ public class HammerVisual : TowerVisual
             time += Time.deltaTime;
             yield return null;
         }
+
         transform.localPosition = targetPosition;
-    }
-
-    protected IEnumerator ChangeScaleCoroutine(Transform transform, float newScale, float duration = 0.25f)
-    {
-        float time = 0f;
-        Vector3 initialScale = transform.localScale;
-        Vector3 targetScale = new Vector3(1, newScale, 1);
-
-        while (time < duration)
-        {
-            transform.localScale = Vector3.Lerp(initialScale, targetScale, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        transform.localScale = targetScale;
     }
 
     protected void PlayHammerVFX()
     {
         SpawnVFX(hammerAttackVFX, hammer.position, Quaternion.identity);
         SpawnVFX(hammerVFX, hammer.position, Quaternion.identity);
+    }
+
+    public override void ResetVisual()
+    {
+        base.ResetVisual();
+        hammer.localPosition = hammerOriginalPosition;
+        hammerHolder.localScale = Vector3.one;
+        sideWire.localScale = Vector3.one;
+        sideHandle.localPosition = sideHandleOriginalPosition;
+        valveRotation.SetRotationSpeed(3);
     }
 }

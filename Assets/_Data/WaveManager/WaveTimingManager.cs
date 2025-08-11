@@ -72,4 +72,6 @@ public class WaveTimingManager : WaveSystemManager
     public void AdvanceToNextWave() => currentWaveIndex++;
 
     public bool HasNoMoreWaves() => currentWaveIndex >= levelWave.Length;
+    
+    public void UpdateDroneNavMesh() => LevelLayoutManager.Instance.UpdateDroneNavMesh();
 }
