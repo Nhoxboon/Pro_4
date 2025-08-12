@@ -7,7 +7,7 @@ public class SpiderNest : Projectile
 {
     [SerializeField] protected BoxCollider col;
     [SerializeField] protected NavMeshAgent agent;
-    
+
     protected Transform currentTarget;
     [SerializeField] protected float damageRadius = 0.8f;
     [SerializeField] protected float detonateDistance = 0.6f;
@@ -36,7 +36,7 @@ public class SpiderNest : Projectile
         LoadBoxCollider();
         LoadNavMeshAgent();
     }
-    
+
     protected void LoadBoxCollider()
     {
         if (col != null) return;
@@ -45,7 +45,7 @@ public class SpiderNest : Projectile
         col.size = new Vector3(0.2f, 0.1f, 0.2f);
         DebugTool.Log(transform.name + " :LoadBoxCollider", gameObject);
     }
-    
+
     protected void LoadNavMeshAgent()
     {
         if (agent != null) return;
@@ -53,16 +53,16 @@ public class SpiderNest : Projectile
         agent.enabled = false;
         DebugTool.Log(transform.name + " :LoadNavMeshAgent", gameObject);
     }
-    
-    protected bool HasValidTarget() => currentTarget is not null && 
-                                       currentTarget.gameObject.activeInHierarchy && 
+
+    protected bool HasValidTarget() => currentTarget is not null &&
+                                       currentTarget.gameObject.activeInHierarchy &&
                                        agent.enabled;
-    
+
     protected void MoveTowardsTarget() => agent.SetDestination(currentTarget.position);
-    
+
     protected void CheckDetonation()
     {
-        if(Vector3.Distance(transform.position, currentTarget.position) < detonateDistance && agent.enabled)
+        if (Vector3.Distance(transform.position, currentTarget.position) < detonateDistance && agent.enabled)
             Explode();
     }
 
@@ -72,7 +72,7 @@ public class SpiderNest : Projectile
         agent.enabled = true;
         damage = newDamage;
     }
-    
+
     protected void UpdateClosestTarget() => currentTarget = FindClosestEnemy();
 
     protected void Explode()
@@ -82,7 +82,7 @@ public class SpiderNest : Projectile
         agent.enabled = false;
         ProjectileSpawner.Instance.Despawn(gameObject);
     }
-    
+
     protected void DamageEnemies()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, damageRadius, whatIsEnemy);
@@ -99,7 +99,7 @@ public class SpiderNest : Projectile
         Collider[] enemiesAround = Physics.OverlapSphere(transform.position, enemyCheckRadius, whatIsEnemy);
         Transform closestEnemy = null;
         float shortestDistance = float.MaxValue;
-        
+
         foreach (var enemyCol in enemiesAround)
         {
             float distance = Vector3.Distance(transform.position, enemyCol.transform.position);
@@ -108,8 +108,11 @@ public class SpiderNest : Projectile
             closestEnemy = enemyCol.transform;
             shortestDistance = distance;
         }
+
         return closestEnemy;
     }
+
+    protected override void ResetProjectile() => currentTarget = null;
 
     protected override void SpawnOnHitFX()
     {

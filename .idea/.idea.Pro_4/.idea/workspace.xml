@@ -5,60 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/SpiderNest.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/SpiderNest/SpiderNest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/SpiderNest/SpiderNest.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest/SpiderNestAttack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest/SpiderNestAttack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest/SpiderNestCtrl.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest/SpiderNestCtrl.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest/SpiderNestVisual.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest/SpiderNestVisual.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyDeath.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyDeath.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Harpoon.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Harpoon/Harpoon.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Harpoon/Harpoon.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonAttack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonAttack.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonRotation.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonRotation.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonTargeting.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonTargeting.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Spawner/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Spawner/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Canon/CanonRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Canon/CanonRotation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowVisual.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerTargeting.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerTargeting.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerVisual.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/FlyBossDeath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyBoss/FlyBossDeath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Projectile/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Projectile/SpiderNest/SpiderNest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/SpiderNest/SpiderNest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest/SpiderNestAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest/SpiderNestAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest/SpiderNestCtrl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/SpiderNest/SpiderNestCtrl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerRotation.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerStatus.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerTargeting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerTargeting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerVisual.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerVisual.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerCtrl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerCtrl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/LevelLayoutManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/LevelLayoutManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveTimingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveTimingManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Environment/big_pipes.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Environment/big_pipes.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Environment/gears.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Environment/gears.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Environment/small_pipes.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Environment/small_pipes.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Environment/street_decor.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Environment/street_decor.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Environment/trees.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Environment/trees.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 1_crossbow/building_1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 1_crossbow/building_1.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 1_crossbow/tower_crossbow.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 1_crossbow/tower_crossbow.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 2_cannon/building_2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 2_cannon/building_2.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 2_cannon/tower_cannon.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 2_cannon/tower_cannon.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 3_machineGun/building_3.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 3_machineGun/building_3.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 3_machineGun/tower_machinegun.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 3_machineGun/tower_machinegun.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 4_spiderNest/building_4.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 4_spiderNest/building_4.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 4_spiderNest/spider_bot.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 4_spiderNest/spider_bot.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 4_spiderNest/spider_bot_2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 4_spiderNest/spider_bot_2.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 5_fan/tower_fan.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 5_fan/tower_fan.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 6_harpoon/building_4_harpoonBase.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 6_harpoon/building_4_harpoonBase.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 6_harpoon/tower_harpoon.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 6_harpoon/tower_harpoon.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 7_castle/castle.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 7_castle/castle.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 7_castle/castle_walls.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 7_castle/castle_walls.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 8_hammer/tower_hammer.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 8_hammer/tower_hammer.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 9_portal/enemies_portal.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/Meshes/Towers/Building 9_portal/enemies_portal.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/HammerTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/HammerTower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/UI/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/UI/UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/UI/Font/NewAmsterdam-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/UI/Font/NewAmsterdam-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingEnemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/NavMeshAreas.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3/NavMesh-DroneRoad.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3/NavMesh-DroneRoad.asset.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,6 +279,7 @@
       <workItem from="1754721059390" duration="872000" />
       <workItem from="1754897773542" duration="419000" />
       <workItem from="1754898265094" duration="21947000" />
+      <workItem from="1754953376705" duration="14043000" />
     </task>
     <servers />
   </component>

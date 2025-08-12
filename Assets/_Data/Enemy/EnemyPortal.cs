@@ -41,7 +41,7 @@ public class EnemyPortal : NhoxBehaviour
     
     protected void PlaceFlyEnemy(Transform newEnemy, EnemyType enemyType)
     {
-        if(enemyType != EnemyType.FlyingEnemy) return;
+        if(enemyType != EnemyType.FlyingEnemy && enemyType == EnemyType.FlyingBoss) return;
         var flyPosition = transform.position + Vector3.up * 2f;
         
         Transform newFX = FXSpawner.Instance.SpawnParticle("EnemyFlyPortalFX", flyPosition, Quaternion.identity);

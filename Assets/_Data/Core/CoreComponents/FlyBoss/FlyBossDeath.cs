@@ -1,5 +1,5 @@
 
-public class FlyBossDeath : Death
+public class FlyBossDeath : FlyDeath
 {
     public override void Die()
     {

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 265070116663880785}
-  - component: {fileID: 3777160007667535994}
+  - component: {fileID: 1678667635734923540}
   m_Layer: 10
   m_Name: Death
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 596620842947207160}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3777160007667535994
+--- !u!114 &1678667635734923540
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 205695459913927495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 633faad089357ab479c93f12bdc4c8df, type: 3}
+  m_Script: {fileID: 11500000, guid: 68fb4bdd99984bb6a2ed054b348a31ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 432942111510691150}
+  deathFXScale: 0.5
 --- !u!1 &1009753867872556547
 GameObject:
   m_ObjectHideFlags: 0
@@ -5204,7 +5205,6 @@ MonoBehaviour:
   - {fileID: 2188866633195177509}
   - {fileID: 86165576779881110}
   - {fileID: 2291267847927412115}
-  smokeFX: {fileID: 0}
 --- !u!1 &3312396779598354057
 GameObject:
   m_ObjectHideFlags: 0
@@ -9954,8 +9954,7 @@ MonoBehaviour:
   stats: {fileID: 9208441142565231816}
   damageReceiver: {fileID: 1236476420258346814}
   visuals: {fileID: 3525221490698522254}
-  death: {fileID: 3777160007667535994}
-  shieldObject: {fileID: 0}
+  death: {fileID: 1678667635734923540}
 --- !u!1 &7245745618048610350
 GameObject:
   m_ObjectHideFlags: 0
@@ -14889,7 +14888,6 @@ MonoBehaviour:
   currentWpIndex: 0
   nextWpIndex: 0
   myWayPoints: []
-  myPortal: {fileID: 0}
   agent: {fileID: 4361994050816999073}
 --- !u!1 &7951630797039361962
 GameObject:

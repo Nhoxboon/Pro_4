@@ -140,13 +140,8 @@ public class Movement : CoreComponent
         }
     }
 
-    public float DistanceToFinishLine()
-    {
-        if (IsAgentInvalid())
-            return totalDistance;
-
-        return totalDistance + agent.remainingDistance;
-    }
+    public virtual float DistanceToFinishLine() =>
+        IsAgentInvalid() ? totalDistance : totalDistance + agent.remainingDistance;
 
     public void SlowEnemy(float slowMultiplier, float duration)
     {

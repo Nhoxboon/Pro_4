@@ -18,17 +18,14 @@ public class TowerCtrl : NhoxBehaviour
     [SerializeField] protected List<TowerComponent> components = new();
     public List<TowerComponent> Components => components;
 
-    protected void OnEnable() 
+    protected void OnEnable()
     {
         ResetTower();
         ManagerCtrl.Instance.GameManager.CurrentWaveManager.UpdateDroneNavMesh();
     }
-    
-    protected void OnDisable() 
-    {
-        ManagerCtrl.Instance.GameManager.CurrentWaveManager.UpdateDroneNavMesh();
-    }
 
+    protected void OnDisable() => ManagerCtrl.Instance.GameManager.CurrentWaveManager.UpdateDroneNavMesh();
+    
     protected override void Start()
     {
         base.Start();
@@ -100,16 +97,16 @@ public class TowerCtrl : NhoxBehaviour
     {
         if (attack != null)
             attack.ResetAttack();
-            
+
         if (targeting != null)
             targeting.ResetTargeting();
-            
+
         if (rotation != null)
             rotation.ResetRotation();
-            
+
         if (visual != null)
             visual.ResetVisual();
-            
+
         if (status != null)
             status.ResetStatus();
     }

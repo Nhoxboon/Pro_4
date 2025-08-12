@@ -14,7 +14,7 @@ public class LevelLayoutManager : WaveSystemManager
 
     [SerializeField] protected float tileDelay = 0.1f;
     [SerializeField] protected GridBuilder currentGrid;
-    
+
     [SerializeField] protected NavMeshSurface flyingNavSurface;
     [SerializeField] protected MeshCollider[] flyingNavColliders;
     [SerializeField] protected NavMeshSurface droneNavSurface;
@@ -36,21 +36,21 @@ public class LevelLayoutManager : WaveSystemManager
         currentGrid = FindFirstObjectByType<GridBuilder>();
         DebugTool.Log(transform.name + ": LoadGridBuilder", gameObject);
     }
-    
+
     protected void LoadDroneNavMesh()
     {
         if (droneNavSurface != null) return;
         droneNavSurface = GetComponentInChildren<NavMeshSurface>();
         DebugTool.Log(transform.name + ": LoadDroneNavMesh", gameObject);
     }
-    
+
     protected void LoadFlyNavMesh()
     {
         if (flyingNavSurface != null) return;
         flyingNavSurface = transform.Find("FlyRoad").GetComponent<NavMeshSurface>();
         DebugTool.Log(transform.name + ": LoadNavMeshSurface", gameObject);
     }
-    
+
     protected void LoadMeshColliders()
     {
         if (flyingNavColliders is { Length: > 0 }) return;
@@ -127,7 +127,7 @@ public class LevelLayoutManager : WaveSystemManager
         ManagerCtrl.Instance.TileManager.MoveTile(tileToRemove.transform, targetPosition);
         Destroy(tileToRemove.gameObject, 1f);
     }
-    
+
     public void UpdateNavMeshes()
     {
         foreach (var col in flyingNavColliders)
@@ -135,10 +135,13 @@ public class LevelLayoutManager : WaveSystemManager
         flyingNavSurface.BuildNavMesh();
         foreach (var col in flyingNavColliders)
             col.enabled = false;
-        
+
         currentGrid.UpdateNavMesh();
         droneNavSurface.BuildNavMesh();
     }
-    
-    public void UpdateDroneNavMesh() => droneNavSurface.BuildNavMesh();
+
+    public void UpdateDroneNavMesh()
+    {
+        if (droneNavSurface != null) droneNavSurface.BuildNavMesh();
+    }
 }

@@ -1,10 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerTargeting : TowerComponent
 {
     [SerializeField] protected float attackRange = 3.5f;
-    [SerializeField] protected EnemyType enemyPriorityType = EnemyType.None;
+    [SerializeField] protected EnemyType[] enemyPriorityType;
     [SerializeField] protected bool dynamicTargetChange = true;
     [SerializeField] protected LayerMask whatIsEnemy;
 
@@ -44,7 +45,7 @@ public class TowerTargeting : TowerComponent
         }
     }
 
-    public void LoseTarget()
+    public virtual void LoseTarget()
     {
         if (CurrentTarget is null || !CurrentTarget.gameObject.activeInHierarchy) return;
         if (Vector3.Distance(AttackCenter, CurrentTarget.GetCenterPoint()) > attackRange)
@@ -61,7 +62,8 @@ public class TowerTargeting : TowerComponent
         {
             if (!enemy.TryGetComponent<Enemy>(out var newEnemy)) continue;
 
-            (newEnemy.GetEnemyType() == enemyPriorityType ? priorityTargets : possibleTargets).Add(newEnemy);
+            bool isPriority = Array.Exists(enemyPriorityType, t => t == newEnemy.GetEnemyType());
+            (isPriority ? priorityTargets : possibleTargets).Add(newEnemy);
         }
 
         return GetMostAdvancedEnemy(priorityTargets.Count > 0 ? priorityTargets : possibleTargets);

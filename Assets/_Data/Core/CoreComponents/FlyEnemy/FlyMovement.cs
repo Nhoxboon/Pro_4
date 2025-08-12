@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FlyMovement : Movement
 {
@@ -9,6 +8,11 @@ public class FlyMovement : Movement
         if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
             agent.SetDestination(GetFinalWaypoint());
     }
+
+    public override float DistanceToFinishLine() => IsAgentInvalid()
+        ? totalDistance
+        : Vector3.Distance(core.Root.transform.position, GetFinalWaypoint());
+
 
     public override void ResetMovement()
     {
@@ -20,7 +24,7 @@ public class FlyMovement : Movement
 
         agent.ResetPath();
         agent.velocity = Vector3.zero;
-        
+
         agent.SetDestination(GetFinalWaypoint());
     }
 }

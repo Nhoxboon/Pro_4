@@ -29,7 +29,7 @@ public class WaveTimingManager : WaveSystemManager
     protected void Update()
     {
 #if UNITY_EDITOR
-        if(Input.GetKeyDown(KeyCode.T)) ActivateWaveManager();
+        if (Input.GetKeyDown(KeyCode.T)) ActivateWaveManager();
 #endif
         if (!gameBegun) return;
         UpdateWaveTimer();
@@ -72,6 +72,10 @@ public class WaveTimingManager : WaveSystemManager
     public void AdvanceToNextWave() => currentWaveIndex++;
 
     public bool HasNoMoreWaves() => currentWaveIndex >= levelWave.Length;
-    
-    public void UpdateDroneNavMesh() => LevelLayoutManager.Instance.UpdateDroneNavMesh();
+
+    public void UpdateDroneNavMesh()
+    {
+        if (LevelLayoutManager.Instance != null)
+            LevelLayoutManager.Instance.UpdateDroneNavMesh();
+    }
 }
