@@ -24,6 +24,6 @@ MonoBehaviour:
   - towerName: Spider Nest
     unlocked: 1
   - towerName: AA Harpoon
-    unlocked: 0
+    unlocked: 1
   - towerName: Only Fan
     unlocked: 0

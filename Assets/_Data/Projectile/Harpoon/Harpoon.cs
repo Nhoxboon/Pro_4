@@ -7,6 +7,8 @@ public class Harpoon : Projectile
     protected float speed;
     protected Enemy target;
     protected Transform tower;
+    
+    [SerializeField] protected Transform connectionPoint;
 
     protected void Update()
     {
@@ -15,6 +17,19 @@ public class Harpoon : Projectile
 
         if (Vector3.Distance(transform.position, target.transform.position) < 0.35f)
             AttachToTarget();
+    }
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadConnectionPoint();
+    }
+    
+    protected void LoadConnectionPoint()
+    {
+        if (connectionPoint != null) return;
+        connectionPoint = transform.Find("ConnectionPoint");
+        DebugTool.Log(transform.name + " :LoadConnectionPoint", gameObject);   
     }
 
     public void SetupHarpoon(Enemy newEnemy, float newSpeed, Transform newTower)
@@ -45,7 +60,5 @@ public class Harpoon : Projectile
         tower = null;
     }
 
-    protected override void SpawnOnHitFX()
-    {
-    }
+    public Transform GetConnectionPoint() => connectionPoint;
 }

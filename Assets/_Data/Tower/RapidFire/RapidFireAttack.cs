@@ -59,7 +59,7 @@ public class RapidFireAttack : TowerAttack
 
     protected void PlayRecoilVFX(Transform point)
     {
-        if (towerCtrl.Visual is RapidFireVisual rapidFireVisual)
+        if (towerCtrl.Visuals is RapidFireVisuals rapidFireVisual)
             rapidFireVisual.RecoilVFX(point);
     }
     

@@ -26,5 +26,8 @@ public abstract class Projectile : NhoxBehaviour
         //For override
     }
 
-    protected abstract void SpawnOnHitFX();
+    protected virtual void SpawnOnHitFX()
+    {
+        // For override
+    }
 }

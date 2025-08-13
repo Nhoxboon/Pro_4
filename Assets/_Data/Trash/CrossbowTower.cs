@@ -5,7 +5,7 @@ public class CrossbowTower : Tower
     [Header("Crossbow Tower Setup")] [SerializeField]
     protected int damage = 2;
 
-    [SerializeField] protected CrossbowVisual visual;
+    [SerializeField] protected CrossbowVisuals visuals;
 
     protected override void LoadComponents()
     {
@@ -23,8 +23,8 @@ public class CrossbowTower : Tower
 
     protected void LoadCrossbowVisual()
     {
-        if (visual != null) return;
-        visual = GetComponentInChildren<CrossbowVisual>();
+        if (visuals != null) return;
+        visuals = GetComponentInChildren<CrossbowVisuals>();
         DebugTool.Log(transform.name + " :LoadCrossbowVisual", gameObject);
     }
 
@@ -42,9 +42,9 @@ public class CrossbowTower : Tower
                 damageable.TakeDamage(damage);
             }
 
-            visual.CreateOnHitFX(hitInfo.point);
-            visual.PlayAttackVFX(gunPoint.position, hitInfo.point);
-            visual.ReloadVFX(attackCooldown);
+            visuals.CreateOnHitFX(hitInfo.point);
+            visuals.PlayAttackVFX(gunPoint.position, hitInfo.point);
+            visuals.ReloadVFX(attackCooldown);
             AudioManager.Instance.PlaySFX(attackSFX, true);
         }
     }

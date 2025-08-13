@@ -17831,6 +17831,10 @@ PrefabInstance:
       value: AA Harpoon
       objectReference: {fileID: 0}
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
+      propertyPath: towerToBuild
+      value: 
+      objectReference: {fileID: 3946822843152595512, guid: 99f42ec30356f684089b98a55644f7bd, type: 3}
+    - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerPriceText
       value: 
       objectReference: {fileID: 7283650287362910768}

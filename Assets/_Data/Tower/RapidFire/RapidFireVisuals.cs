@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class RapidFireVisual : TowerVisual
+public class RapidFireVisuals : TowerVisuals
 {
     [Header("Recoil Details")] [SerializeField]
     protected float recoilOffset = -0.2f;

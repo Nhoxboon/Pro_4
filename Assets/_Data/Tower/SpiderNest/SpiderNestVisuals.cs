@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class SpiderNestVisual : TowerVisual
+public class SpiderNestVisuals : TowerVisuals
 {
     [SerializeField] protected Transform[] webSet;
     public Transform[] WebSet => webSet;

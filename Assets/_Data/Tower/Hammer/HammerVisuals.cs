@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class HammerVisual : TowerVisual
+public class HammerVisuals : TowerVisuals
 {
     [SerializeField] protected RotateObject valveRotation;
     protected string hammerVFX = "ExplosionFX_1";

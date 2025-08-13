@@ -32,7 +32,7 @@ public class CrossbowTowerAttack : TowerAttack
 
     protected void CreateAttackVFX(RaycastHit hitInfo)
     {
-        if (towerCtrl.Visual is not CrossbowVisual visual) return;
+        if (towerCtrl.Visuals is not CrossbowVisuals visual) return;
         visual.CreateOnHitFX(hitInfo.point);
         visual.PlayAttackVFX(gunPoint.position, hitInfo.point);
         visual.ReloadVFX(attackCooldown);

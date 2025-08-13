@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class CrossbowVisual : TowerVisual
+public class CrossbowVisuals : TowerVisuals
 {
     [Header("Glow Effect")] [SerializeField]
     protected MeshRenderer meshRenderer;

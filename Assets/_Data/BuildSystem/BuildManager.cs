@@ -7,6 +7,8 @@ public class BuildManager : NhoxBehaviour
     public BuildSlot SelectedBuildSlot => selectedBuildSlot;
 
     [SerializeField] protected GridBuilder currentGridB;
+    [SerializeField] protected Camera mainCamera;
+    [SerializeField] protected LayerMask whatToIgnore;
 
     [Header("Build Materials")] 
     [SerializeField] protected Material attackRadMat;
@@ -28,16 +30,16 @@ public class BuildManager : NhoxBehaviour
         if (InputManager.Instance.IsEscDown) CancelBuildAction();
 
         if (!InputManager.Instance.IsLeftMouseDown || isMouseOverUI) return;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(InputManager.Instance.MousePosition), out RaycastHit hit))
-        {
-            if (!hit.collider.TryGetComponent(out BuildSlot _)) CancelBuildAction();
-        }
+        if (IsClickingNonBuildSlot())
+            CancelBuildAction();
     }
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadGridBuilder();
+        LoadMainCamera();
+        LoadLayerMask();
         LoadAttackRadMat();
         LoadBuildPreviewMat();
     }
@@ -47,6 +49,20 @@ public class BuildManager : NhoxBehaviour
         if (currentGridB != null) return;
         currentGridB = FindFirstObjectByType<GridBuilder>();
         DebugTool.Log(transform.name + " LoadGridBuilder", gameObject);
+    }
+    
+    protected void LoadMainCamera()
+    {
+        if (mainCamera != null) return;
+        mainCamera = Camera.main;
+        DebugTool.Log(transform.name + " LoadMainCamera", gameObject);
+    }
+    
+    protected void LoadLayerMask()
+    {
+        if (whatToIgnore != 0) return;
+        whatToIgnore = LayerMask.GetMask("Default");
+        DebugTool.Log(transform.name + " LoadLayerMask", gameObject);
     }
     
     protected void LoadAttackRadMat()
@@ -61,6 +77,13 @@ public class BuildManager : NhoxBehaviour
         if (buildPreviewMat != null) return;
         buildPreviewMat = Resources.Load<Material>("Materials/BuildPreviewMat");
         DebugTool.Log(transform.name + " LoadBuildPreviewMat", gameObject);
+    }
+    
+    protected bool IsClickingNonBuildSlot()
+    {
+        return Physics.Raycast(mainCamera.ScreenPointToRay(InputManager.Instance.MousePosition), 
+                   out RaycastHit hit, Mathf.Infinity, ~whatToIgnore) 
+               && !hit.collider.TryGetComponent<BuildSlot>(out _);
     }
 
     public void MouseOverUI(bool value) => isMouseOverUI = value;

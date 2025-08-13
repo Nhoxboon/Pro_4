@@ -12,8 +12,8 @@ public class TowerCtrl : NhoxBehaviour
     public TowerAttack Attack => attack;
     [SerializeField] protected TowerStatus status;
     public TowerStatus Status => status;
-    [SerializeField] protected TowerVisual visual;
-    public TowerVisual Visual => visual;
+    [SerializeField] protected TowerVisuals visuals;
+    public TowerVisuals Visuals => visuals;
 
     [SerializeField] protected List<TowerComponent> components = new();
     public List<TowerComponent> Components => components;
@@ -83,8 +83,8 @@ public class TowerCtrl : NhoxBehaviour
 
     protected virtual void LoadTowerVisual()
     {
-        if (visual != null) return;
-        visual = GetComponentInChildren<TowerVisual>();
+        if (visuals != null) return;
+        visuals = GetComponentInChildren<TowerVisuals>();
         DebugTool.Log(transform.name + " :LoadTowerVisual", gameObject);
     }
 
@@ -104,8 +104,8 @@ public class TowerCtrl : NhoxBehaviour
         if (rotation != null)
             rotation.ResetRotation();
 
-        if (visual != null)
-            visual.ResetVisual();
+        if (visuals != null)
+            visuals.ResetVisual();
 
         if (status != null)
             status.ResetStatus();

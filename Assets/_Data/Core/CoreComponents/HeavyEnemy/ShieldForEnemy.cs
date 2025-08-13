@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class ShieldForEnemy : CoreComponent
 {
-    [Header("Impact Details")] [SerializeField]
-    protected Material shieldMaterial;
-
+    [Header("Impact Details")] 
+    [SerializeField] protected Material shieldMaterial;
+    
     [SerializeField] protected float defaultShieldGlow = 1f;
     [SerializeField] protected float impactShieldGlow = 3f;
     [SerializeField] protected float impactScaleMultiplier = 0.97f;
@@ -20,6 +20,13 @@ public class ShieldForEnemy : CoreComponent
     {
         base.Awake();
         defaultScale = transform.localScale.x;
+        InitShieldMaterial();
+    }
+
+    protected void InitShieldMaterial()
+    {
+        shieldMaterial = new Material(shieldMaterial);
+        GetComponent<MeshRenderer>().material = shieldMaterial;
     }
 
     protected override void LoadComponents()

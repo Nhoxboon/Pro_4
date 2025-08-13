@@ -23,7 +23,7 @@ public class HammerAttack : TowerAttack
 
     protected void HammerAttackAnimation()
     {
-        if (towerCtrl.Visual is HammerVisual hammerVisual)
+        if (towerCtrl.Visuals is HammerVisuals hammerVisual)
             hammerVisual.HammerAttackVFX();
     }
 

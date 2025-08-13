@@ -8,6 +8,7 @@ public class HarpoonAttack : TowerAttack
     [SerializeField] protected float projectileSpeed = 15f;
     protected string projectile = "Harpoon";
 
+    protected bool reachedTarget;
     protected bool busyWithAttack;
     public bool BusyWithAttack => busyWithAttack;
     protected Harpoon currentProjectile;
@@ -48,8 +49,15 @@ public class HarpoonAttack : TowerAttack
 
         if (!Physics.Raycast(gunPoint.position, gunPoint.forward, out RaycastHit hitInfo, Mathf.Infinity,
                 whatIsTargetable)) return;
+        if (hitInfo.collider.TryGetComponent(out Enemy enemy))
+            towerCtrl.Targeting.SetTarget(enemy);
         busyWithAttack = true;
+        
         currentProjectile.SetupHarpoon(towerCtrl.Targeting.CurrentTarget, projectileSpeed, towerCtrl.transform);
+        if(towerCtrl.Visuals is HarpoonVisuals visuals)
+            visuals.EnableChainVisuals(true, currentProjectile.GetConnectionPoint());
+        
+        StartCoroutine(ResetAttackCoroutine());
     }
 
     protected void CreateProjectile()
@@ -66,12 +74,19 @@ public class HarpoonAttack : TowerAttack
 
     public void ActivateAttack()
     {
-        if (towerCtrl.Targeting.CurrentTarget is null)
+        Enemy currentEnemy = towerCtrl.Targeting.CurrentTarget;
+        if (currentEnemy is null)
         {
             ResetAttack();
             return;
         }
-        towerCtrl.Targeting.CurrentTarget.Core.Movement.SlowEnemy(slowEffect, overTimeEffectDuration);
+        
+        reachedTarget = true;
+        if(currentEnemy.Core.Death is FlyDeath death)
+            death.AddObservingTower(towerCtrl.transform);
+        if(towerCtrl.Visuals is HarpoonVisuals visuals)
+            visuals.CreateElectrifyVFX(currentEnemy.transform);
+        currentEnemy.Core.Movement.SlowEnemy(slowEffect, overTimeEffectDuration);
         IDamageable damageable = towerCtrl.Targeting.CurrentTarget.Core.DamageReceiver;
         damageable?.TakeDamage(initialDamage);
         
@@ -93,11 +108,27 @@ public class HarpoonAttack : TowerAttack
         ResetAttack();
     }
 
+    protected IEnumerator ResetAttackCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        ResetAttackIfMissed();
+    }
+    
+    protected void ResetAttackIfMissed()
+    {
+        if (reachedTarget) return;
+        ResetAttack();
+    }
+
     public override void ResetAttack()
     {
         base.ResetAttack();
         if (damageOverTimeCoroutine != null) StopCoroutine(damageOverTimeCoroutine);
+        reachedTarget = false;
         busyWithAttack = false;
+        
+        if (towerCtrl.Visuals is HarpoonVisuals visuals)
+            visuals.EnableChainVisuals(false);
         if (currentProjectile is null) return;
         ProjectileSpawner.Instance.BackToHolder(currentProjectile.gameObject);
         ProjectileSpawner.Instance.Despawn(currentProjectile.gameObject);

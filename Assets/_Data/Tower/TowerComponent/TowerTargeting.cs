@@ -101,6 +101,7 @@ public class TowerTargeting : TowerComponent
         return enemyColliders.Length > 0;
     }
     
+    public void SetTarget(Enemy newTarget) => CurrentTarget = newTarget;
     public virtual void ResetTargeting() => CurrentTarget = null;
 
     protected virtual void OnDrawGizmos() => Gizmos.DrawWireSphere(AttackCenter, attackRange);

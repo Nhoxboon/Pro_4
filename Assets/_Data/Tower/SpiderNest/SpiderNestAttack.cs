@@ -23,7 +23,7 @@ public class SpiderNestAttack : TowerAttack
 
     private void SetSpiderBotReady()
     {
-        if (towerCtrl.Visual is not SpiderNestVisual visual) return;
+        if (towerCtrl.Visuals is not SpiderNestVisuals visual) return;
         activeSpider = new Transform[visual.AttachPoint.Length];
         for (int i = 0; i < activeSpider.Length; i++)
         {
@@ -46,7 +46,7 @@ public class SpiderNestAttack : TowerAttack
 
     protected IEnumerator AttackCoroutine()
     {
-        if (towerCtrl.Visual is not SpiderNestVisual visual) yield break;
+        if (towerCtrl.Visuals is not SpiderNestVisuals visual) yield break;
         Transform currentWeb = visual.WebSet[spiderIndex];
         Transform currentAttachPoint = visual.AttachPoint[spiderIndex];
         float attackTime = (attackCooldown / 4) * attackTimeMultiplier;

@@ -598,7 +598,7 @@ MonoBehaviour:
   rotation: {fileID: 0}
   attack: {fileID: 5324663930464060896}
   status: {fileID: 3177929589127786514}
-  visual: {fileID: 1838434702169292988}
+  visuals: {fileID: 1838434702169292988}
   components: []
 --- !u!1 &4059278450138438240
 GameObject:
@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerCtrl: {fileID: 5717011204700769803}
   attackRange: 4
-  enemyPriorityType: 8
+  enemyPriorityType: 
   dynamicTargetChange: 1
   whatIsEnemy:
     serializedVersion: 2

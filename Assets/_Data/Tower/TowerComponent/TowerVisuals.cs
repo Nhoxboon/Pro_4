@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public abstract class TowerVisual : TowerComponent
+public abstract class TowerVisuals : TowerComponent
 {
     protected void SpawnVFX(string fxName, Vector3 position, Quaternion rotation)
     {

@@ -78,7 +78,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
         BuildSlot slotUsed = ManagerCtrl.Instance.BuildManager.SelectedBuildSlot;
         ManagerCtrl.Instance.BuildManager.CancelBuildAction();
 
-        var newTower = TowerSpawner.Instance.Spawn(towerToBuild.name,
+        var newTower = TowerSpawner.Instance?.Spawn(towerToBuild?.name,
             slotUsed.GetBuildPosition(towerCenterY), Quaternion.identity);
 
         if (!ActivateTower(newTower)) return;

@@ -1517,7 +1517,7 @@ MonoBehaviour:
   rotation: {fileID: 6535714659305580040}
   attack: {fileID: 1466642425726953771}
   status: {fileID: 4949000829843559338}
-  visual: {fileID: 8184875206407933977}
+  visuals: {fileID: 8184875206407933977}
   components: []
 --- !u!1 &5697370148241464820
 GameObject:
@@ -1570,7 +1570,6 @@ MonoBehaviour:
   startColor: {r: 0, g: 0, b: 0, a: 255}
   endColor: {r: 0.015686275, g: 0.43137255, b: 1, a: 1}
   attackVisualDuration: 0.1
-  onHitFX: Crossbow_OnHitFX
   attackVisual: {fileID: 6397575717447690241}
   rotor: {fileID: 4606787405992341186}
   rotorUnloaded: {fileID: 1196184941751051981}
@@ -1851,7 +1850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerCtrl: {fileID: 886911940993474797}
   attackRange: 3.5
-  enemyPriorityType: 8
+  enemyPriorityType: 
   dynamicTargetChange: 1
   whatIsEnemy:
     serializedVersion: 2
