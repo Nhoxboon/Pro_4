@@ -25,7 +25,7 @@ public class TowerCtrl : NhoxBehaviour
     }
 
     protected void OnDisable() => ManagerCtrl.Instance.GameManager.CurrentWaveManager.UpdateDroneNavMesh();
-    
+
     protected override void Start()
     {
         base.Start();
@@ -67,7 +67,7 @@ public class TowerCtrl : NhoxBehaviour
         DebugTool.Log(transform.name + " :LoadTowerRotation", gameObject);
     }
 
-    protected void LoadTowerAttack()
+    protected virtual void LoadTowerAttack()
     {
         if (attack != null) return;
         attack = GetComponentInChildren<TowerAttack>();

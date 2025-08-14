@@ -3,16 +3,14 @@ using UnityEngine.EventSystems;
 
 public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
 {
-    [Header("Build Button")] [SerializeField]
-    protected CameraEffects camEffects;
-
+    [Header("Build Button")] 
     [SerializeField] HoverEffect hoverEffect;
 
     [SerializeField] protected bool btnUnlocked;
     public bool BtnUnlocked => btnUnlocked;
 
-    [Header("Tower Settings")] [SerializeField]
-    protected string towerName;
+    [Header("Tower Settings")] 
+    [SerializeField] protected string towerName;
 
     [SerializeField] protected int towerPrice = 50;
     [SerializeField] protected float towerCenterY = 2f;
@@ -28,21 +26,13 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
         InitializeTowerPreview();
     }
 
-    protected override void OnClick() => BuildTower();
+    protected override void OnClick() => ConfirmBuildTower();
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadCameraEffects();
         LoadHoverEffect();
         LoadBtnUI();
-    }
-
-    protected void LoadCameraEffects()
-    {
-        if (camEffects != null) return;
-        camEffects = FindFirstObjectByType<CameraEffects>();
-        DebugTool.Log(transform.name + " :LoadCameraEffects", gameObject);
     }
 
     protected void LoadHoverEffect()
@@ -65,38 +55,9 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
         towerPreview = ManagerCtrl.Instance.TowerPreviewManager.CreatePreviewForTower(towerToBuild);
     }
 
-    #region Building
-
-    public void BuildTower()
-    {
-        if (!CanBuild())
-        {
-            ManagerCtrl.Instance.UI.InGameUI.ShakeCurrencyUI();
-            return;
-        }
-
-        BuildSlot slotUsed = ManagerCtrl.Instance.BuildManager.SelectedBuildSlot;
-        ManagerCtrl.Instance.BuildManager.CancelBuildAction();
-
-        var newTower = TowerSpawner.Instance?.Spawn(towerToBuild?.name,
-            slotUsed.GetBuildPosition(towerCenterY), Quaternion.identity);
-
-        if (!ActivateTower(newTower)) return;
-
-        FinalizeSlotAfterBuild(slotUsed);
-
-        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(null);
-        camEffects.ScreenShake(0.15f, 0.2f);
-    }
-
-    protected void FinalizeSlotAfterBuild(BuildSlot slot)
-    {
-        slot.SnapToDefaultPositionImmediately();
-        slot.SetSlotAvailable(false);
-    }
-
-    #endregion
-
+    public void ConfirmBuildTower() =>
+        ManagerCtrl.Instance.BuildManager.BuildTower(towerToBuild.name, towerPrice, towerCenterY);
+    
     #region Button Functionality
 
     public void UnlockTower(string towerNameChecked, bool unlocked)
@@ -132,17 +93,6 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData) => ManagerCtrl.Instance.BuildManager.MouseOverUI(false);
 
     #endregion
-
-    protected bool CanBuild() => ManagerCtrl.Instance.GameManager.HasEnoughCurrency(towerPrice) ||
-                                 towerToBuild is null ||
-                                 ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.LastSelectedBtn is null;
-
-    protected bool ActivateTower(Transform tower)
-    {
-        if (tower is null) return false;
-        tower.gameObject.SetActive(true);
-        return true;
-    }
 
     protected void OnValidate() => buildBtnUI.SetInfo(towerName, towerPrice);
 }

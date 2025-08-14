@@ -4879,10 +4879,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 8800321501045835825}
   - {fileID: 7708053409538012268}
   - {fileID: 3644225807242651688}
   - {fileID: 7426521987396379915}
-  - {fileID: 8800321501045835825}
   m_Father: {fileID: 8265782769174246523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2520573845130300452
@@ -14808,6 +14808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 2384476374438724437}
+  deathFXScale: 0.5
 --- !u!1 &7386987901878286370
 GameObject:
   m_ObjectHideFlags: 0
@@ -15037,8 +15038,6 @@ MonoBehaviour:
   damageReceiver: {fileID: 1915169959212957956}
   visuals: {fileID: 7414857828194185540}
   death: {fileID: 6419726470735087291}
-  shieldObject: {fileID: 0}
-  spawnUnit: {fileID: 0}
 --- !u!1 &7994627824455381729
 GameObject:
   m_ObjectHideFlags: 0
@@ -15058,7 +15057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7067462299513349478
 Transform:
   m_ObjectHideFlags: 0
@@ -15165,6 +15164,7 @@ MonoBehaviour:
   isHidden: 0
   enemiesToHide: []
   hideDuration: 0.5
+  smokeFX: {fileID: 1505177477544919158}
 --- !u!1 &8111576616651254284
 GameObject:
   m_ObjectHideFlags: 0

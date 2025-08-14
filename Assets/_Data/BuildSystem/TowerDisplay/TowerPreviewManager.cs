@@ -24,8 +24,7 @@ public class TowerPreviewManager : NhoxBehaviour
         GameObject previewObject = Instantiate(towerPrefab, Vector3.zero, Quaternion.identity, previewHolder);
         previewObject.name = towerPrefab.name;
         TowerPreview preview = previewObject.AddComponent<TowerPreview>();
-        // preview.Init();
-        previewObject.SetActive(false);
+        preview.Init(previewObject);
 
         return preview;
     }

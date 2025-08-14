@@ -86,4 +86,10 @@ public class Visuals : CoreComponent
         for (int i = 0; i < myRenderers.Length; i++)
             myRenderers[i].material = transparent ? transparentMat : originalMat[i];
     }
+
+    public void ResetVisuals()
+    {
+        MakeTransparent(false);
+        AlignWithSlope();
+    }
 }

@@ -105,4 +105,11 @@ public class TowerTargeting : TowerComponent
     public virtual void ResetTargeting() => CurrentTarget = null;
 
     protected virtual void OnDrawGizmos() => Gizmos.DrawWireSphere(AttackCenter, attackRange);
+    
+    private void OnValidate()
+    {
+        ForwardAttackDisplay display = towerCtrl.GetComponentInChildren<ForwardAttackDisplay>();
+        if (display != null)
+            display.CreateLines(true, attackRange);
+    }
 }

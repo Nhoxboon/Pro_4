@@ -26,4 +26,4 @@ MonoBehaviour:
   - towerName: AA Harpoon
     unlocked: 1
   - towerName: Only Fan
-    unlocked: 0
+    unlocked: 1

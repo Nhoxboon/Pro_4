@@ -8,6 +8,16 @@ public class TowerStatus : TowerComponent
     protected Transform currentEMPFX;
     public bool IsActive => isActive;
 
+    [SerializeField] protected bool towerAttackForward;
+    public bool TowerAttackForward => towerAttackForward;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        if (towerCtrl is FanCtrl fan)
+            towerAttackForward = true;
+    }
+
     public void DeactivateTower(float duration, string empFX)
     {
         if (deactivatedTowerCoroutine != null) StopCoroutine(deactivatedTowerCoroutine);

@@ -64,7 +64,7 @@ public class BuildBtnsUI : NhoxBehaviour
         }
 
         if (InputManager.Instance.IsSpaceDown)
-            lastSelectedBtn?.BuildTower();
+            lastSelectedBtn?.ConfirmBuildTower();
     }
 
     public void ShowBtn(bool showBtns)

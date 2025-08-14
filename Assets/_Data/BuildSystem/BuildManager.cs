@@ -8,6 +8,7 @@ public class BuildManager : NhoxBehaviour
 
     [SerializeField] protected GridBuilder currentGridB;
     [SerializeField] protected Camera mainCamera;
+    [SerializeField] protected CameraEffects camEffects;
     [SerializeField] protected LayerMask whatToIgnore;
 
     [Header("Build Materials")] 
@@ -34,11 +35,13 @@ public class BuildManager : NhoxBehaviour
             CancelBuildAction();
     }
 
+    #region Load Components
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadGridBuilder();
         LoadMainCamera();
+        LoadCameraEffects();
         LoadLayerMask();
         LoadAttackRadMat();
         LoadBuildPreviewMat();
@@ -56,6 +59,13 @@ public class BuildManager : NhoxBehaviour
         if (mainCamera != null) return;
         mainCamera = Camera.main;
         DebugTool.Log(transform.name + " LoadMainCamera", gameObject);
+    }
+    
+    protected void LoadCameraEffects()
+    {
+        if (camEffects != null) return;
+        camEffects = FindFirstObjectByType<CameraEffects>();
+        DebugTool.Log(transform.name + " LoadCameraEffects", gameObject);
     }
     
     protected void LoadLayerMask()
@@ -78,6 +88,7 @@ public class BuildManager : NhoxBehaviour
         buildPreviewMat = Resources.Load<Material>("Materials/BuildPreviewMat");
         DebugTool.Log(transform.name + " LoadBuildPreviewMat", gameObject);
     }
+    #endregion
     
     protected bool IsClickingNonBuildSlot()
     {
@@ -110,6 +121,44 @@ public class BuildManager : NhoxBehaviour
                 if (buildSlot != null) buildSlot.SetSlotAvailable(false);
             }
         }
+    }
+
+    public void BuildTower(string towerToBuild, int towerPrice, float towerCenterY)
+    {
+        if (!CanBuild(towerPrice))
+        {
+            ManagerCtrl.Instance.UI.InGameUI.ShakeCurrencyUI();
+            return;
+        }
+
+        BuildSlot slotUsed = selectedBuildSlot;
+        CancelBuildAction();
+
+        var newTower = TowerSpawner.Instance?.Spawn(towerToBuild,
+            slotUsed.GetBuildPosition(towerCenterY), Quaternion.identity);
+
+        if (!ActivateTower(newTower)) return;
+
+        FinalizeSlotAfterBuild(slotUsed);
+
+        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(null);
+        camEffects.ScreenShake(0.15f, 0.2f);
+    }
+    
+    protected bool CanBuild(int towerPrice) => ManagerCtrl.Instance.GameManager.HasEnoughCurrency(towerPrice) ||
+                                 ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.LastSelectedBtn is null;
+
+    protected void FinalizeSlotAfterBuild(BuildSlot slot)
+    {
+        slot.SnapToDefaultPositionImmediately();
+        slot.SetSlotAvailable(false);
+    }
+    
+    protected bool ActivateTower(Transform tower)
+    {
+        if (tower is null) return false;
+        tower.gameObject.SetActive(true);
+        return true;
     }
 
     public void CancelBuildAction()

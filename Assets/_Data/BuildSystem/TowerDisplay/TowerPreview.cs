@@ -4,37 +4,40 @@ using UnityEngine;
 public class TowerPreview : NhoxBehaviour
 {
     [SerializeField] protected MeshRenderer[] meshRenderers;
-    protected TowerCtrl myTower;
     [SerializeField] protected TowerAtkRadiusDisplay atkRadiusDisplay;
+    [SerializeField] protected ForwardAttackDisplay forwardAttackDisplay;
 
     protected float attackRange;
-
-    protected override void Awake()
+    protected bool towerAttackForward;
+    
+    public void Init(GameObject towerToBuild)
     {
-        base.Awake();
-        Init();
-    }
-
-    public void Init()
-    {
-        myTower = GetComponent<TowerCtrl>();
+        if(!towerToBuild.TryGetComponent<TowerCtrl>(out var tower)) return;
+        
+        meshRenderers = GetComponentsInChildren<MeshRenderer>();
         GameObject radiusDisplayObj = new GameObject("AttackRadiusDisplay");
         radiusDisplayObj.transform.SetParent(transform);
         atkRadiusDisplay = radiusDisplayObj.AddComponent<TowerAtkRadiusDisplay>();
-        meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        forwardAttackDisplay = tower.GetComponentInChildren<ForwardAttackDisplay>();
 
-        attackRange = TowerSpawner.Instance.GetAttackRange(transform.name);
+        attackRange = TowerSpawner.Instance.GetAttackRange(towerToBuild.name);
+        towerAttackForward = tower.Status.TowerAttackForward;
 
         MakeMeshTransparent();
 
-        DestroyExtraComponent();
+        DestroyExtraComponent(tower);
+        gameObject.SetActive(false);
     }
 
     public void ShowPreview(bool show, Vector3 previewPosition)
     {
         transform.position = previewPosition;
         atkRadiusDisplay.transform.position = new Vector3(previewPosition.x, 0.5f, previewPosition.z);
-        atkRadiusDisplay.CreateCircle(show, attackRange);
+        
+        if(!towerAttackForward)
+            atkRadiusDisplay.CreateCircle(show, attackRange);
+        else
+            forwardAttackDisplay.CreateLines(show, attackRange);
         if (!show) return;
         SetLayerRecursively(gameObject, 0);
     }
@@ -46,9 +49,8 @@ public class TowerPreview : NhoxBehaviour
             SetLayerRecursively(obj.transform.GetChild(i).gameObject, newLayer);
     }
 
-    protected void DestroyExtraComponent()
+    protected void DestroyExtraComponent(TowerCtrl myTower)
     {
-        if (myTower == null) return;
         foreach (var component in myTower.Components)
             Destroy(component.gameObject);
         Destroy(myTower);
@@ -56,9 +58,11 @@ public class TowerPreview : NhoxBehaviour
 
     protected void MakeMeshTransparent()
     {
-        Material previewMat = FindFirstObjectByType<BuildManager>().BuildPreviewMat;
+        var previewMat = ManagerCtrl.Instance.BuildManager.BuildPreviewMat;
 
         foreach (var mesh in meshRenderers)
             mesh.material = previewMat;
+        if (forwardAttackDisplay == null) return;
+        forwardAttackDisplay.ChangeMaterial(previewMat);
     }
 }

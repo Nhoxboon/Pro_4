@@ -17654,6 +17654,10 @@ PrefabInstance:
       value: Only Fan
       objectReference: {fileID: 0}
     - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
+      propertyPath: towerToBuild
+      value: 
+      objectReference: {fileID: 2173291774214462380, guid: 10e115aaa2ff3cd4299a3166c3c19a8d, type: 3}
+    - target: {fileID: 334561482439941351, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: towerPriceText
       value: 
       objectReference: {fileID: 8519907781958124019}
@@ -18228,7 +18232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2650949881212289190, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuildTower
+      value: ConfirmBuildTower
       objectReference: {fileID: 0}
     - target: {fileID: 2650949881212289190, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

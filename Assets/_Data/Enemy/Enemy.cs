@@ -17,6 +17,7 @@ public class Enemy : NhoxBehaviour
     protected int originalLayerIndex;
 
     protected Coroutine hideCoroutine;
+    protected Coroutine disableHideCoroutine;
 
     protected override void Awake()
     {
@@ -82,9 +83,30 @@ public class Enemy : NhoxBehaviour
         isHidden = false;
     }
 
-    public void ResetEnemy()
+    public void DisableHide(float duration)
     {
+        if (!gameObject.activeInHierarchy) return; 
+        if (disableHideCoroutine != null) StopCoroutine(disableHideCoroutine);
+        disableHideCoroutine = StartCoroutine(DisableHideCoroutine(duration));
+    }
+
+    protected virtual IEnumerator DisableHideCoroutine(float duration)
+    {
+        canBeHidden = false;
+        yield return new WaitForSeconds(duration);
+        canBeHidden = true;
+    }
+
+    public virtual void ResetEnemy()
+    {
+        if (hideCoroutine != null) StopCoroutine(hideCoroutine);
+        if (disableHideCoroutine != null) StopCoroutine(disableHideCoroutine);
+        canBeHidden = true;
+        isHidden = false;
+        gameObject.layer = originalLayerIndex;
+        
         core.Movement.ResetMovement();
+        core.Visuals.ResetVisuals();
         core.Stats.Health.Init();
         core.Death.SetDead(false);
         switch (core)

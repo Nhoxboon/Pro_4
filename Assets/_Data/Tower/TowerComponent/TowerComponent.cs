@@ -18,8 +18,8 @@ public class TowerComponent : NhoxBehaviour
 
     protected void LoadTower()
     {
-        if(towerCtrl != null) return;
-        towerCtrl = GetComponentInParent<TowerCtrl>();
+        if (towerCtrl != null) return;
+        towerCtrl = GetComponentInParent<TowerCtrl>(true);
         DebugTool.Log(transform.name + " :LoadTower", gameObject);
     }
 }
