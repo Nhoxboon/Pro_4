@@ -16,6 +16,7 @@ public class RevealEnemy : TowerComponent
 
     protected void RevealEnemies()
     {
+        enemiesToReveal.RemoveAll(e => e == null || !e.gameObject.activeInHierarchy);
         foreach (var enemy in enemiesToReveal)
             enemy.DisableHide(revealDuration);
     }

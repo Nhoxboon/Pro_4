@@ -12,7 +12,7 @@ public class Enemy : NhoxBehaviour
     [SerializeField] protected Core core;
     public Core Core => core;
 
-    protected bool canBeHidden = true;
+    [SerializeField] protected bool canBeHidden = true;
     public bool isHidden;
     protected int originalLayerIndex;
 
@@ -25,8 +25,7 @@ public class Enemy : NhoxBehaviour
         originalLayerIndex = gameObject.layer;
     }
 
-    protected void OnEnable() => ResetEnemy();
-    protected void OnDisable() => ResetEnemy();
+    protected virtual void OnEnable() => ResetEnemy();
 
     protected void Update() => core.LogicUpdate();
 

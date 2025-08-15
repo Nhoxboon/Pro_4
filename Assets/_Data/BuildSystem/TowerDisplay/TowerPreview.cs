@@ -6,6 +6,7 @@ public class TowerPreview : NhoxBehaviour
     [SerializeField] protected MeshRenderer[] meshRenderers;
     [SerializeField] protected TowerAtkRadiusDisplay atkRadiusDisplay;
     [SerializeField] protected ForwardAttackDisplay forwardAttackDisplay;
+    public ForwardAttackDisplay ForwardAttackDisplay => forwardAttackDisplay;
 
     protected float attackRange;
     protected bool towerAttackForward;

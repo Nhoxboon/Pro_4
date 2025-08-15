@@ -83,11 +83,14 @@ public class Visuals : CoreComponent
 
     public void MakeTransparent(bool transparent)
     {
+        if (originalMat == null)
+            CollectDefaultMaterials();
+        
         for (int i = 0; i < myRenderers.Length; i++)
-            myRenderers[i].material = transparent ? transparentMat : originalMat[i];
+            myRenderers[i].material = transparent ? transparentMat : originalMat?[i];
     }
 
-    public void ResetVisuals()
+    public virtual void ResetVisuals()
     {
         MakeTransparent(false);
         AlignWithSlope();

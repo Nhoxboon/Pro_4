@@ -56,7 +56,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
     }
 
     public void ConfirmBuildTower() =>
-        ManagerCtrl.Instance.BuildManager.BuildTower(towerToBuild.name, towerPrice, towerCenterY);
+        ManagerCtrl.Instance.BuildManager.BuildTower(towerToBuild.name, towerPrice, towerCenterY, towerPreview.transform);
     
     #region Button Functionality
 
@@ -78,7 +78,7 @@ public class BuildBtn : BaseBtn, IPointerEnterHandler, IPointerExitHandler
         ManagerCtrl.Instance.TowerPreviewManager.ShowTowerPreview(towerPreview, select, previewPosition,
             towerCenterY + 0.5f);
 
-        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(this);
+        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(this, towerPreview.transform);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -71,7 +71,7 @@ public class BuildManager : NhoxBehaviour
     protected void LoadLayerMask()
     {
         if (whatToIgnore != 0) return;
-        whatToIgnore = LayerMask.GetMask("Default");
+        whatToIgnore = LayerMask.GetMask("Default", "FlyRoad", "Untargetable");
         DebugTool.Log(transform.name + " LoadLayerMask", gameObject);
     }
     
@@ -123,7 +123,7 @@ public class BuildManager : NhoxBehaviour
         }
     }
 
-    public void BuildTower(string towerToBuild, int towerPrice, float towerCenterY)
+    public void BuildTower(string towerToBuild, int towerPrice, float towerCenterY, Transform previewTower)
     {
         if (!CanBuild(towerPrice))
         {
@@ -138,10 +138,13 @@ public class BuildManager : NhoxBehaviour
             slotUsed.GetBuildPosition(towerCenterY), Quaternion.identity);
 
         if (!ActivateTower(newTower)) return;
+        newTower.transform.rotation = previewTower.rotation;
+        if(newTower.TryGetComponent(out FanCtrl fanCtrl))
+            fanCtrl.ForwardAttackDisplay.UpdateLines();
 
         FinalizeSlotAfterBuild(slotUsed);
 
-        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(null);
+        ManagerCtrl.Instance.UI.InGameUI.BuildsBtnsUI.SetLastSelectedBtn(null, null);
         camEffects.ScreenShake(0.15f, 0.2f);
     }
     

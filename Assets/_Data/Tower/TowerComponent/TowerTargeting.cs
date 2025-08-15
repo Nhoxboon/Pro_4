@@ -108,8 +108,7 @@ public class TowerTargeting : TowerComponent
     
     private void OnValidate()
     {
-        ForwardAttackDisplay display = towerCtrl.GetComponentInChildren<ForwardAttackDisplay>();
-        if (display != null)
-            display.CreateLines(true, attackRange);
+        if(towerCtrl is FanCtrl fanCtrl)
+            fanCtrl.ForwardAttackDisplay.CreateLines(true, attackRange);
     }
 }

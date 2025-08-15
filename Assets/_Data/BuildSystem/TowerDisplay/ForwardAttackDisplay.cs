@@ -4,9 +4,7 @@ using UnityEngine;
 public class ForwardAttackDisplay : NhoxBehaviour
 {
     [SerializeField] protected LineRenderer leftLine;
-    public LineRenderer LeftLine => leftLine;
     [SerializeField] protected LineRenderer rightLine;
-    public LineRenderer RightLine => rightLine;
     [SerializeField] protected float attackRange;
 
     protected override void LoadComponents()

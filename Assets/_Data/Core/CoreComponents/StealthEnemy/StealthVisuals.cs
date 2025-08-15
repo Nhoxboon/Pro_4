@@ -19,10 +19,20 @@ public class StealthVisuals : Visuals
 
     public void EnableSmoke(bool enable)
     {
-        if (!enable) return;
-        if (!smokeFX.isPlaying)
-            smokeFX.Play();
-        else
-            smokeFX.Stop();
+        switch (enable)
+        {
+            case true when !smokeFX.isPlaying:
+                smokeFX.Play();
+                break;
+            case false when smokeFX.isPlaying:
+                smokeFX.Stop();
+                break;
+        }
+    }
+    
+    public override void ResetVisuals()
+    {
+        AlignWithSlope();
+        EnableSmoke(true);
     }
 }

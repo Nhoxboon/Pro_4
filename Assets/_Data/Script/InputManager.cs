@@ -5,7 +5,10 @@ public class InputManager : NhoxBehaviour
     private static InputManager instance;
     public static InputManager Instance => instance;
 
-    [Header("Keyboard Input")] public bool IsEscDown { get; private set; }
+    [Header("Keyboard Input")] 
+    public bool IsRotateTowerLeft { get; private set; }
+    public bool IsRotateTowerRight { get; private set; }
+    public bool IsEscDown { get; private set; }
     public bool IsF10Down { get; private set; }
     public bool IsSpaceDown { get; private set; }
     public bool[] IsNumberKeyDown { get; private set; } = new bool[10];
@@ -67,6 +70,8 @@ public class InputManager : NhoxBehaviour
 
     private void ReadFunctionKeys()
     {
+        IsRotateTowerLeft = Input.GetKeyDown(KeyCode.Q);
+        IsRotateTowerRight = Input.GetKeyDown(KeyCode.E);
         IsEscDown = Input.GetKeyDown(KeyCode.Escape);
         IsF10Down = Input.GetKeyDown(KeyCode.F10);
         IsSpaceDown = Input.GetKeyDown(KeyCode.Space);

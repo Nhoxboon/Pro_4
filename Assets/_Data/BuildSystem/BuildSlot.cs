@@ -45,6 +45,7 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
             ManagerCtrl.Instance.BuildManager.SelectedBuildSlot == this || ManagerCtrl.Instance.TileManager.IsGridMoving ||
             !ManagerCtrl.Instance.GameManager.IsInGame) return;
 
+        SnapToBeforeBuildPosition();
         ManagerCtrl.Instance.BuildManager.EnableBuildMenu();
         ManagerCtrl.Instance.BuildManager.SelectBuildSlot(this);
         MoveTileUp();
@@ -71,6 +72,12 @@ public class BuildSlot : NhoxBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         if (moveToDefaultCoroutine != null) StopCoroutine(moveToDefaultCoroutine);
         transform.position = defaultPosition;
+    }
+
+    public void SnapToBeforeBuildPosition()
+    {
+        Vector3 targetPosition = defaultPosition + new Vector3(0, ManagerCtrl.Instance.TileManager.BuildSlotYOffset, 0);
+        transform.position = targetPosition;
     }
 
     public void SetSlotAvailable(bool value) => buildSlotAvailable = value;

@@ -14,6 +14,8 @@ public class BuildBtnsUI : NhoxBehaviour
     [SerializeField] protected List<BuildBtn> unlockedBtn;
     protected BuildBtn lastSelectedBtn;
     public BuildBtn LastSelectedBtn => lastSelectedBtn;
+    
+    protected Transform previewTower;
 
     protected void Update()
     {
@@ -41,7 +43,11 @@ public class BuildBtnsUI : NhoxBehaviour
         DebugTool.Log(transform.name + " :LoadBuildBtns", gameObject);
     }
 
-    public void SetLastSelectedBtn(BuildBtn newLastSelectedBtn) => lastSelectedBtn = newLastSelectedBtn;
+    public void SetLastSelectedBtn(BuildBtn newLastSelectedBtn, Transform newPreview)
+    {
+        lastSelectedBtn = newLastSelectedBtn;
+        previewTower = newPreview;
+    }
 
     public void SelectNewBtn(int btnIndex)
     {
@@ -63,8 +69,26 @@ public class BuildBtnsUI : NhoxBehaviour
             break;
         }
 
+        if (lastSelectedBtn is null) return;
         if (InputManager.Instance.IsSpaceDown)
-            lastSelectedBtn?.ConfirmBuildTower();
+        {
+            lastSelectedBtn.ConfirmBuildTower();
+            previewTower = null;
+        }
+            
+        if(InputManager.Instance.IsRotateTowerLeft)
+            RotateTarget(previewTower, -90f);
+            
+        if(InputManager.Instance.IsRotateTowerRight)
+            RotateTarget(previewTower, 90f);
+    }
+
+    protected void RotateTarget(Transform target, float angle)
+    {
+        if (target is null) return;
+        target.Rotate(0, angle, 0);
+        target.TryGetComponent(out TowerPreview tower);
+        tower.ForwardAttackDisplay?.UpdateLines();
     }
 
     public void ShowBtn(bool showBtns)
