@@ -5672,6 +5672,7 @@ GameObject:
   - component: {fileID: 7687042490827928360}
   - component: {fileID: 347725916634906845}
   - component: {fileID: 8715131293511866681}
+  - component: {fileID: -7183359137736407703}
   m_Layer: 12
   m_Name: FanTower
   m_TagString: Untagged
@@ -5766,6 +5767,22 @@ MonoBehaviour:
   components: []
   revealEnemy: {fileID: 5918645380999661776}
   forwardAttackDisplay: {fileID: 6334015189574975085}
+--- !u!208 &-7183359137736407703
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2173291774214462380}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.65, y: 0.9, z: 0.55}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.6, z: 0.06}
+  m_TimeToStationary: 0.5
 --- !u!1 &2617337720721688485
 GameObject:
   m_ObjectHideFlags: 0

@@ -648,6 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerCtrl: {fileID: 1357484174371475395}
+  towerAttackForward: 0
 --- !u!1 &3270106028304229549
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +956,7 @@ GameObject:
   - component: {fileID: 4962336503959629915}
   - component: {fileID: 8359729746798956220}
   - component: {fileID: 1357484174371475395}
+  - component: {fileID: 5936047596884330658}
   m_Layer: 12
   m_Name: HarpoonTower
   m_TagString: Untagged
@@ -1046,6 +1048,22 @@ MonoBehaviour:
   status: {fileID: 8122732835737445113}
   visuals: {fileID: 5780156171832715270}
   components: []
+--- !u!208 &5936047596884330658
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946822843152595512}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.55, y: 0.5, z: 0.6}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4281064358339535949
 GameObject:
   m_ObjectHideFlags: 0

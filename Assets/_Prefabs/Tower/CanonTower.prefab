@@ -706,6 +706,7 @@ GameObject:
   - component: {fileID: 6169120702605006119}
   - component: {fileID: 1076033989924654171}
   - component: {fileID: 5395397688177264458}
+  - component: {fileID: -3408693327890342700}
   m_Layer: 12
   m_Name: CanonTower
   m_TagString: Untagged
@@ -795,8 +796,24 @@ MonoBehaviour:
   rotation: {fileID: 7117255673479616450}
   attack: {fileID: 7163168272406492513}
   status: {fileID: 1848466548925186489}
-  visual: {fileID: 0}
+  visuals: {fileID: 0}
   components: []
+--- !u!208 &-3408693327890342700
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5067781737035282794}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.425, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.5, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6373831733580545364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,7 +1262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerCtrl: {fileID: 5395397688177264458}
   attackRange: 6
-  enemyPriorityType: 8
+  enemyPriorityType: 
   dynamicTargetChange: 1
   whatIsEnemy:
     serializedVersion: 2
@@ -1330,6 +1347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerCtrl: {fileID: 5395397688177264458}
+  towerAttackForward: 0
 --- !u!1 &7987456251210579448
 GameObject:
   m_ObjectHideFlags: 0

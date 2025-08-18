@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 7082164817958505294}
   - component: {fileID: 8412627169583321091}
   - component: {fileID: 1407052004698113682}
+  - component: {fileID: 4296236468855075349}
   m_Layer: 12
   m_Name: RapidFireTower
   m_TagString: Untagged
@@ -480,6 +481,22 @@ MonoBehaviour:
   status: {fileID: 4432988649396545666}
   visuals: {fileID: 8937100476296278073}
   components: []
+--- !u!208 &4296236468855075349
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2362679973444207108}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.425, y: 1.25, z: 0.6}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.25, z: 0.06}
+  m_TimeToStationary: 0.5
 --- !u!1 &2735423454711315314
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,6 +2141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerCtrl: {fileID: 1407052004698113682}
+  towerAttackForward: 0
 --- !u!1 &7293641222640554674
 GameObject:
   m_ObjectHideFlags: 0
