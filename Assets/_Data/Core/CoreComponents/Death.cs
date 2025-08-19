@@ -14,7 +14,7 @@ public class Death : CoreComponent
         ManagerCtrl.Instance.GameManager.UpdateCurrency(1);
     }
 
-    public void DestroyEnemy()
+    public virtual void DestroyEnemy()
     {
         core.Enemy.MyPortal?.RemoveActiveEnemy(core.Root.gameObject);
         EnemySpawner.Instance.Despawn(transform.parent.parent.gameObject);

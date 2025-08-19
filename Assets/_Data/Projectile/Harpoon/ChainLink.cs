@@ -42,9 +42,5 @@ public class ChainLink : Projectile
 
     protected override void ResetProjectile() => lr.enabled = false;
 
-    public void DespawnLink()
-    {
-        ProjectileSpawner.Instance.BackToHolder(gameObject);
-        ProjectileSpawner.Instance.Despawn(gameObject);
-    }
+    public void DespawnLink() => ProjectileSpawner.Instance.Despawn(gameObject);
 }

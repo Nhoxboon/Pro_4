@@ -49,6 +49,9 @@ public class Harpoon : Projectile
     {
         isAttached = true;
         transform.parent = target.transform;
+        if (target.Core.Death is FlyDeath flyDeath)
+            flyDeath.AddAttachedHarpoon(this);
+
         if (tower.TryGetComponent(out TowerCtrl towerCtrl) && towerCtrl.Attack is HarpoonAttack harpoonAttack)
             harpoonAttack.ActivateAttack();
     }

@@ -130,7 +130,6 @@ public class HarpoonAttack : TowerAttack
         if (towerCtrl.Visuals is HarpoonVisuals visuals)
             visuals.EnableChainVisuals(false);
         if (currentProjectile is null) return;
-        ProjectileSpawner.Instance.BackToHolder(currentProjectile.gameObject);
         ProjectileSpawner.Instance.Despawn(currentProjectile.gameObject);
         currentProjectile = null;
         CreateProjectile();

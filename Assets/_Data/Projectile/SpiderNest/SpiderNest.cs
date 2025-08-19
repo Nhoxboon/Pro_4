@@ -13,13 +13,21 @@ public class SpiderNest : Projectile
     [SerializeField] protected float detonateDistance = 0.6f;
     [SerializeField] protected float enemyCheckRadius = 10f;
     [SerializeField] protected float targetUpdateInterval = 0.5f;
+    [SerializeField] protected ProjectileDespawn despawn;
+    [SerializeField] protected TrailRenderer tr;
 
     protected string explosionFX = "ExplosionFX_1";
 
-    protected override void Awake()
+    protected override void OnEnable()
     {
-        base.Awake();
+        base.OnEnable();
         InvokeRepeating(nameof(UpdateClosestTarget), 0.1f, targetUpdateInterval);
+    }
+
+    protected void OnDisable()
+    {
+        CancelInvoke(nameof(UpdateClosestTarget));
+        despawn.gameObject.SetActive(false);
     }
 
     protected void Update()
@@ -35,6 +43,8 @@ public class SpiderNest : Projectile
         base.LoadComponents();
         LoadBoxCollider();
         LoadNavMeshAgent();
+        LoadDespawn();
+        LoadTrailRenderer();
     }
 
     protected void LoadBoxCollider()
@@ -54,6 +64,20 @@ public class SpiderNest : Projectile
         DebugTool.Log(transform.name + " :LoadNavMeshAgent", gameObject);
     }
 
+    protected void LoadDespawn()
+    {
+        if (despawn != null) return;
+        despawn = GetComponentInChildren<ProjectileDespawn>(true);
+        DebugTool.Log(transform.name + " :LoadDespawn", gameObject);
+    }
+
+    protected void LoadTrailRenderer()
+    {
+        if (tr != null) return;
+        tr = GetComponentInChildren<TrailRenderer>();
+        DebugTool.Log(transform.name + " :LoadTrailRenderer", gameObject);
+    }
+
     protected bool HasValidTarget() => currentTarget is not null &&
                                        currentTarget.gameObject.activeInHierarchy &&
                                        agent.enabled;
@@ -68,6 +92,8 @@ public class SpiderNest : Projectile
 
     public void SetupSpider(float newDamage)
     {
+        despawn.gameObject.SetActive(true);
+        tr.Clear();
         ProjectileSpawner.Instance.BackToHolder(gameObject);
         agent.enabled = true;
         damage = newDamage;

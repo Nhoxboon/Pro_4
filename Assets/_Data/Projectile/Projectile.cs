@@ -6,7 +6,7 @@ public abstract class Projectile : NhoxBehaviour
     protected float damage;
     [SerializeField] protected LayerMask whatIsEnemy;
 
-    protected void OnEnable() => ResetProjectile();
+    protected virtual void OnEnable() => ResetProjectile();
 
     protected override void LoadComponents()
     {

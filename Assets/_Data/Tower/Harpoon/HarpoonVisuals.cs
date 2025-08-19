@@ -86,7 +86,6 @@ public class HarpoonVisuals : TowerVisuals
     protected void DestroyElectrifyVFX()
     {
         if(currentFX is null) return;
-        FXSpawner.Instance.BackToHolder(currentFX.gameObject);
         FXSpawner.Instance.Despawn(currentFX.gameObject);
     }
     

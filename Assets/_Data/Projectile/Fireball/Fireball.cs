@@ -4,12 +4,14 @@ public class Fireball : Projectile
 {
     protected string explosionFX = "ExplosionFX";
     [SerializeField] protected Rigidbody rb;
-    [SerializeField] protected float damageRadius = 0.8f;
+    [SerializeField] protected float damageRadius = 0.85f;
+    [SerializeField] protected TrailRenderer tr;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadRigidbody();
+        LoadTrailRenderer();
     }
 
     protected void LoadRigidbody()
@@ -17,6 +19,13 @@ public class Fireball : Projectile
         if (rb != null) return;
         rb = GetComponent<Rigidbody>();
         DebugTool.Log(transform.name + " :LoadRigidbody", gameObject);
+    }
+
+    protected void LoadTrailRenderer()
+    {
+        if (tr != null) return;
+        tr = GetComponentInChildren<TrailRenderer>();
+        DebugTool.Log(transform.name + " :LoadTrailRenderer", gameObject);
     }
 
     protected void OnTriggerEnter(Collider other)
@@ -28,6 +37,7 @@ public class Fireball : Projectile
 
     public void SetupProjectile(Vector3 newVelocity, float newDamage)
     {
+        tr.Clear();
         rb.linearVelocity = newVelocity;
         damage = newDamage;
     }
@@ -45,7 +55,8 @@ public class Fireball : Projectile
 
     protected override void SpawnOnHitFX()
     {
-        var explosion = FXSpawner.Instance.Spawn(explosionFX, transform.position, Quaternion.identity);
+        var explosion = FXSpawner.Instance.Spawn(explosionFX, transform.position + new Vector3(0, 0.5f, 0),
+            Quaternion.identity);
         explosion.gameObject.SetActive(true);
     }
 
