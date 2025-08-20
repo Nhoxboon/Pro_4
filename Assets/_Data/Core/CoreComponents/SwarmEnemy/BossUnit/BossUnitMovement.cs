@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class BossUnitMovement : Movement
@@ -10,16 +11,14 @@ public class BossUnitMovement : Movement
     protected Vector3 lastKnownBossPosition;
     protected Enemy myBoss;
 
+    protected Coroutine snapCoroutine;
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         if(myBoss is not null)
-        {
             lastKnownBossPosition = myBoss.transform.position;
-            CheckGroundBeneath();
-        }
     }
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -35,10 +34,15 @@ public class BossUnitMovement : Movement
 
     public void SetUpBossUnit(Vector3 destination, Enemy myNewBoss, EnemyPortal myNewPortal)
     {
+        ResetMovement();
+
         myBoss = myNewBoss;
         core.Enemy.SetPortal(myNewPortal);
         core.Enemy.MyPortal.GetActiveEnemies().Add(core.Root.gameObject);
         savedDestination = destination;
+
+        if (snapCoroutine != null) StopCoroutine(snapCoroutine);
+        snapCoroutine = StartCoroutine(SnapToBossRoutine());
     }
 
     public void HandleUnitCollision()
@@ -52,12 +56,20 @@ public class BossUnitMovement : Movement
         agent.SetDestination(savedDestination);
     }
 
-    private void CheckGroundBeneath()
+    private IEnumerator SnapToBossRoutine()
     {
-        if (!Physics.Raycast(core.Root.transform.position, Vector3.down, 20f))
-            HandleUnitCollision();
+        yield return new WaitForSeconds(0.1f);
+        SnapToBoss();
+        yield return new WaitForSeconds(0.5f);
     }
 
+    protected void SnapToBoss()
+    {
+        if (!agent.enabled || agent.isOnNavMesh) return;
+        if (!(Vector3.Distance(core.Root.transform.position, lastKnownBossPosition) > 3f)) return;
+        core.Root.transform.position = lastKnownBossPosition + Vector3.down;
+        ResetMovement();
+    }
 
     public override void ResetMovement()
     {
@@ -65,7 +77,5 @@ public class BossUnitMovement : Movement
         rb.useGravity = true;
         rb.isKinematic = false;
         agent.enabled = false;
-        myBoss = null;
-        savedDestination = Vector3.zero;
     }
 }

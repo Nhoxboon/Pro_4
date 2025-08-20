@@ -4,13 +4,14 @@ public class CanonTargeting : TowerTargeting
 {
     protected override Enemy FindRandomTargetWithinRange()
     {
-        Collider[] enemiesAround = Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy);
+        int colFound = Physics.OverlapSphereNonAlloc(AttackCenter, attackRange, allocatedColliders, whatIsEnemy);
 
         Enemy bestTarget = null;
         int maxNearbyEnemies = 0;
 
-        foreach (var enemy in enemiesAround)
+        for (int i = 0; i < colFound; i++)
         {
+            Transform enemy = allocatedColliders[i].transform;
             if (!enemy.gameObject.activeInHierarchy) continue;
 
             if (!enemy.TryGetComponent(out Enemy enemyComponent)) continue;
@@ -26,15 +27,14 @@ public class CanonTargeting : TowerTargeting
 
     protected int EnemiesAroundEnemy(Transform enemyToCheck)
     {
-        Collider[] enemiesAround = Physics.OverlapSphere(enemyToCheck.position, 1, whatIsEnemy);
+        int enemiesCount = Physics.OverlapSphereNonAlloc(enemyToCheck.position, 1, allocatedColliders, whatIsEnemy);
         int activeCount = 0;
 
-        foreach (var col in enemiesAround)
+        for (int i = 0; i < enemiesCount; i++)
         {
-            if (col.gameObject.activeInHierarchy)
+            if (allocatedColliders[i].gameObject.activeInHierarchy)
                 activeCount++;
         }
-
         return activeCount;
     }
 }

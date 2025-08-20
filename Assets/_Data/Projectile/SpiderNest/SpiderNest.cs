@@ -86,7 +86,7 @@ public class SpiderNest : Projectile
 
     protected void CheckDetonation()
     {
-        if (Vector3.Distance(transform.position, currentTarget.position) < detonateDistance && agent.enabled)
+        if (Vector3.Distance(transform.position, currentTarget.position) <= detonateDistance && agent.enabled)
             Explode();
     }
 

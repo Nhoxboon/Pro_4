@@ -774,6 +774,7 @@ MonoBehaviour:
   actualTarget: {fileID: 5877217041789971219}
   bottomLeg: {fileID: 7123298855721674579}
   worldTargetRef: {fileID: 2856981843309706869, guid: bd96f33b4a44c493cb2ab8c272df956a, type: 3}
+  legHolder: {fileID: 7707739557341034002}
 --- !u!1 &1354653573719618846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1153,7 @@ Transform:
   - {fileID: 6534412824717954574}
   - {fileID: 4873377174552977313}
   - {fileID: 1374817314623882351}
+  - {fileID: 7707739557341034002}
   m_Father: {fileID: 6502942675088969341}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4579190382137983819
@@ -1484,6 +1486,7 @@ MonoBehaviour:
   actualTarget: {fileID: 7317827133176311541}
   bottomLeg: {fileID: 5291572726474458682}
   worldTargetRef: {fileID: 2856981843309706869, guid: bd96f33b4a44c493cb2ab8c272df956a, type: 3}
+  legHolder: {fileID: 7707739557341034002}
 --- !u!1 &2289529713287484344
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,6 +2049,7 @@ MonoBehaviour:
   actualTarget: {fileID: 4481003713383974445}
   bottomLeg: {fileID: 2864339301539201077}
   worldTargetRef: {fileID: 2856981843309706869, guid: bd96f33b4a44c493cb2ab8c272df956a, type: 3}
+  legHolder: {fileID: 7707739557341034002}
 --- !u!1 &2950537183323508207
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,6 +2104,7 @@ MonoBehaviour:
   actualTarget: {fileID: 5790392798578686272}
   bottomLeg: {fileID: 2885462473627531528}
   worldTargetRef: {fileID: 2856981843309706869, guid: bd96f33b4a44c493cb2ab8c272df956a, type: 3}
+  legHolder: {fileID: 7707739557341034002}
 --- !u!1 &3035293347924280383
 GameObject:
   m_ObjectHideFlags: 0
@@ -12159,6 +12164,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4204798318374061584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7707739557341034002}
+  m_Layer: 0
+  m_Name: LegsHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7707739557341034002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4204798318374061584}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2908410634573979884}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4516544760479462701
 GameObject:
   m_ObjectHideFlags: 0
@@ -22696,6 +22732,7 @@ MonoBehaviour:
   actualTarget: {fileID: 4113697169042448701}
   bottomLeg: {fileID: 8123775318449445330}
   worldTargetRef: {fileID: 2856981843309706869, guid: bd96f33b4a44c493cb2ab8c272df956a, type: 3}
+  legHolder: {fileID: 7707739557341034002}
 --- !u!1 &6231101917092046154
 GameObject:
   m_ObjectHideFlags: 0
@@ -23102,8 +23139,6 @@ MonoBehaviour:
   damageReceiver: {fileID: 4266852299257576042}
   visuals: {fileID: 3968108145566884343}
   death: {fileID: 8238383798174843212}
-  shieldObject: {fileID: 0}
-  spawnUnit: {fileID: 0}
 --- !u!1 &6635646053373502409
 GameObject:
   m_ObjectHideFlags: 0
@@ -23158,6 +23193,7 @@ MonoBehaviour:
   actualTarget: {fileID: 6135667185360117452}
   bottomLeg: {fileID: 862926572945706486}
   worldTargetRef: {fileID: 2856981843309706869, guid: bd96f33b4a44c493cb2ab8c272df956a, type: 3}
+  legHolder: {fileID: 7707739557341034002}
 --- !u!1 &6799249116194134556
 GameObject:
   m_ObjectHideFlags: 0
@@ -24273,8 +24309,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.98258066, y: 0.42470622, z: 0.9702544}
-  m_Center: {x: -0.017155409, y: 0.21449518, z: 0.03457284}
+  m_Size: {x: 0.6998644, y: 0.42000002, z: 0.69218206}
+  m_Center: {x: 0.0038409233, y: 0.22, z: -0.0038409233}
 --- !u!54 &7404101584234501738
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24311,7 +24347,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8465069177703311161}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.7
+  m_Radius: 0.5
   m_Speed: 0.4
   m_Acceleration: 8
   avoidancePriority: 4
@@ -24339,6 +24375,7 @@ MonoBehaviour:
   enemyType: 7
   centerPoint: {fileID: 6876281196967113170}
   core: {fileID: 9199482145124845735}
+  canBeHidden: 1
   isHidden: 0
 --- !u!1 &8507227632060120699
 GameObject:

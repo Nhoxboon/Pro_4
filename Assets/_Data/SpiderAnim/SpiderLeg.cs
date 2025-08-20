@@ -18,6 +18,8 @@ public class SpiderLeg : NhoxBehaviour
     [SerializeField] protected Transform bottomLeg;
     [SerializeField] protected Transform worldTargetRef;
 
+    [SerializeField] protected Transform legHolder;
+
     protected Coroutine moveCoroutine;
 
     protected override void Awake()
@@ -25,6 +27,23 @@ public class SpiderLeg : NhoxBehaviour
         base.Awake();
         CreateWorldTargetRef();
         legSpeed = spiderVisuals.legSpeed;
+    }
+
+    protected void OnEnable() => ParentLegsRef(false);
+
+    protected void OnDisable() => ParentLegsRef(true);
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadLegsHolder();
+    }
+
+    protected void LoadLegsHolder()
+    {
+        if (legHolder != null) return;
+        legHolder = transform.parent.parent.Find("LegsHolder");
+        DebugTool.Log(transform.name + " :LoadLegsHolder", gameObject);
     }
 
     protected void CreateWorldTargetRef()
@@ -73,4 +92,10 @@ public class SpiderLeg : NhoxBehaviour
     public void CanMove(bool enable) => canMove = enable;
 
     public void SetSpiderVisuals(SpiderVisuals visuals) => spiderVisuals = visuals;
+
+    protected void ParentLegsRef(bool parent)
+    {
+        if(worldTargetRef is null) return;
+        worldTargetRef.parent = parent ? legHolder : null;
+    }
 }

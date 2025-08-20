@@ -20,7 +20,7 @@ public class TowerCtrl : NhoxBehaviour
 
     protected void OnEnable() => ResetTower();
 
-    protected virtual void Update()
+    protected virtual void FixedUpdate()
     {
         targeting.LoseTarget();
         targeting.UpdateTarget();

@@ -9,14 +9,6 @@ public class StealthEnemy : Enemy
     [SerializeField] protected float hideDuration = 0.5f;
     protected bool canHideEnemy = true;
 
-    protected override void Awake()
-    {
-        base.Awake();
-
-        InvokeRepeating(nameof(HideItSelf), 0.1f, hideDuration);
-        InvokeRepeating(nameof(HideEnemies), 0.1f, hideDuration);
-    }
-
     protected void HideItSelf() => HideEnemy(hideDuration);
 
     protected void HideEnemies()

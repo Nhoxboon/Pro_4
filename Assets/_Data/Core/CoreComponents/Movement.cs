@@ -10,7 +10,7 @@ public class Movement : CoreComponent
 
     [SerializeField] protected int currentWpIndex;
     [SerializeField] protected int nextWpIndex;
-    [SerializeField] protected List<Transform> myWayPoints;
+    [SerializeField] protected Vector3[] myWayPoints;
 
     [SerializeField] protected NavMeshAgent agent;
 
@@ -23,10 +23,10 @@ public class Movement : CoreComponent
         originalSpeed = agent.speed;
     }
 
-    protected void OnDisable()
+    protected virtual void OnDisable()
     {
         agent.speed = originalSpeed;
-        myWayPoints.Clear();
+        agent.enabled = false;
     }
 
     protected override void LoadComponents()
@@ -51,19 +51,21 @@ public class Movement : CoreComponent
         MoveToWaypoint();
     }
 
-    public void SetUpEnemy(List<Waypoint> newWaypoints, EnemyPortal newPortal)
+    public void SetUpEnemy(EnemyPortal newPortal)
     {
-        myWayPoints = new List<Transform>();
-        foreach (var point in newWaypoints)
-        {
-            myWayPoints.Add(point.transform);
-        }
+        agent.enabled = true;
+        core.Enemy.SetPortal(newPortal);
+        UpdateWaypoints(core.Enemy.MyPortal.currentWaypoints);
 
         CollectTotalDistance();
-
-        if (core.Root.TryGetComponent<Enemy>(out var enemy)) enemy.SetPortal(newPortal);
-
         ResetMovement();
+    }
+
+    protected void UpdateWaypoints(Vector3[] newWayPoints)
+    {
+        myWayPoints = new Vector3[newWayPoints.Length];
+        for (int i = 0; i < myWayPoints.Length; i++)
+            myWayPoints[i] = newWayPoints[i];
     }
 
     protected void MoveToWaypoint()
@@ -79,11 +81,11 @@ public class Movement : CoreComponent
 
     protected virtual bool ShouldChangeWaypoint()
     {
-        if (nextWpIndex >= myWayPoints.Count) return false;
+        if (nextWpIndex >= myWayPoints.Length) return false;
         if (agent.remainingDistance < 0.4f) return true;
 
-        Vector3 currentWaypoint = myWayPoints[currentWpIndex].position;
-        Vector3 nextWaypoint = myWayPoints[nextWpIndex].position;
+        Vector3 currentWaypoint = myWayPoints[currentWpIndex];
+        Vector3 nextWaypoint = myWayPoints[nextWpIndex];
 
         float distanceToNextWp = Vector3.Distance(core.Root.transform.position, nextWaypoint);
         float distanceBetweenPoints = Vector3.Distance(currentWaypoint, nextWaypoint);
@@ -109,14 +111,14 @@ public class Movement : CoreComponent
 
     protected Vector3 GetNextWaypoint()
     {
-        if (nextWpIndex >= myWayPoints.Count) return core.Root.transform.position;
+        if (nextWpIndex >= myWayPoints.Length) return core.Root.transform.position;
 
-        Vector3 targetPoint = myWayPoints[nextWpIndex].position;
+        Vector3 targetPoint = myWayPoints[nextWpIndex];
 
         if (nextWpIndex > 0)
         {
-            float distance = Vector3.Distance(myWayPoints[nextWpIndex].position,
-                myWayPoints[nextWpIndex - 1].position);
+            float distance = Vector3.Distance(myWayPoints[nextWpIndex],
+                myWayPoints[nextWpIndex - 1]);
             totalDistance -= distance;
         }
 
@@ -127,15 +129,15 @@ public class Movement : CoreComponent
     }
 
     public Vector3 GetFinalWaypoint() =>
-        myWayPoints.Count == 0 ? core.Root.transform.position : myWayPoints[^1].position;
+        myWayPoints.Length == 0 ? core.Root.transform.position : myWayPoints[^1];
 
     protected void CollectTotalDistance()
     {
-        for (int i = 0; i < myWayPoints.Count - 1; i++)
+        for (int i = 0; i < myWayPoints.Length - 1; i++)
         {
             float distance = Vector3.Distance(
-                myWayPoints[i].position,
-                myWayPoints[i + 1].position);
+                myWayPoints[i],
+                myWayPoints[i + 1]);
             totalDistance += distance;
         }
     }
@@ -167,8 +169,8 @@ public class Movement : CoreComponent
         agent.ResetPath();
         agent.velocity = Vector3.zero;
 
-        if (myWayPoints.Count > 0 && myWayPoints[0] is not null)
-            agent.SetDestination(myWayPoints[0].position);
+        if (myWayPoints.Length > 0)
+            agent.SetDestination(myWayPoints[0]);
     }
 
     protected bool IsAgentInvalid() => agent is null || !agent.isActiveAndEnabled || !agent.isOnNavMesh;

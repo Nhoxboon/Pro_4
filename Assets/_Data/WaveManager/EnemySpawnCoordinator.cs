@@ -125,7 +125,7 @@ public class EnemySpawnCoordinator : WaveSystemManager
     {
         foreach (EnemyPortal portal in enemyPortals)
         {
-            if (portal.GetActiveEnemies().Count > 0) return false;
+            if (portal.GetActiveEnemies().Count > 0 || portal.GetListEnemies().Count > 0) return false;
         }
 
         return true;

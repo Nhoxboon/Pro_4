@@ -98,13 +98,12 @@ public class Enemy : NhoxBehaviour
 
     public virtual void ResetEnemy()
     {
-        if (hideCoroutine != null) StopCoroutine(hideCoroutine);
-        if (disableHideCoroutine != null) StopCoroutine(disableHideCoroutine);
+        StopAllCoroutines();
+        CancelInvoke();
         canBeHidden = true;
         isHidden = false;
         gameObject.layer = originalLayerIndex;
         
-        core.Movement.ResetMovement();
         core.Visuals.ResetVisuals();
         core.Stats.Health.Init();
         core.Death.SetDead(false);

@@ -75,7 +75,7 @@ public class SpiderNestAttack : TowerAttack
         if (activeSpider != null)
         {
             foreach (var spider in activeSpider)
-                if (spider != null)
+                if (spider is not null)
                     ProjectileSpawner.Instance.Despawn(spider.gameObject);
         }
 

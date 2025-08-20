@@ -18,7 +18,7 @@ public class SpiderMovement : Movement
 
     protected override bool ShouldChangeWaypoint()
     {
-        if (nextWpIndex >= myWayPoints.Count) return false;
+        if (nextWpIndex >= myWayPoints.Length) return false;
         return agent.remainingDistance < 0.2f;
     }
 

@@ -8,7 +8,7 @@ public class FanCtrl : TowerCtrl
     [SerializeField] protected ForwardAttackDisplay forwardAttackDisplay;
     public ForwardAttackDisplay ForwardAttackDisplay => forwardAttackDisplay;
 
-    protected override void Update()
+    protected override void FixedUpdate()
     {
     }
 

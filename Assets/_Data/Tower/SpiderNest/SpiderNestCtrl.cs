@@ -2,7 +2,7 @@
 
 public class SpiderNestCtrl : TowerCtrl
 {
-    protected override void Update()
+    protected override void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.P)) TowerSpawner.Instance.Despawn(gameObject);
         if (!status.IsActive) return;

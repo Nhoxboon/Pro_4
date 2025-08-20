@@ -9,6 +9,8 @@ public class TowerTargeting : TowerComponent
     [SerializeField] protected bool dynamicTargetChange = true;
     [SerializeField] protected LayerMask whatIsEnemy;
 
+    protected Collider[] allocatedColliders = new Collider[100];
+
     protected float targetCheckInterval = 0.1f;
     protected float lastTimeCheckedTarget;
     public Enemy CurrentTarget { get; protected set; }
@@ -57,10 +59,14 @@ public class TowerTargeting : TowerComponent
         List<Enemy> priorityTargets = new List<Enemy>();
         List<Enemy> possibleTargets = new List<Enemy>();
 
-        Collider[] enemies = Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy);
-        foreach (var enemy in enemies)
+        int enemies = Physics.OverlapSphereNonAlloc(AttackCenter, attackRange, allocatedColliders, whatIsEnemy);
+
+        for (int i = 0; i < enemies; i++)
         {
-            if (!enemy.TryGetComponent<Enemy>(out var newEnemy)) continue;
+            if (!allocatedColliders[i].TryGetComponent<Enemy>(out var newEnemy)) continue;
+
+            // float distanceToEnemy = Vector3.Distance(AttackCenter, newEnemy.transform.position);
+            // if(distanceToEnemy > attackRange) continue;
 
             bool isPriority = Array.Exists(enemyPriorityType, t => t == newEnemy.GetEnemyType());
             (isPriority ? priorityTargets : possibleTargets).Add(newEnemy);
@@ -97,8 +103,8 @@ public class TowerTargeting : TowerComponent
     
     public bool AtLeastOneTargetInRange()
     {
-        Collider[] enemyColliders = Physics.OverlapSphere(AttackCenter, attackRange, whatIsEnemy);
-        return enemyColliders.Length > 0;
+        int enemyColliders = Physics.OverlapSphereNonAlloc(AttackCenter, attackRange, allocatedColliders, whatIsEnemy);
+        return enemyColliders > 0;
     }
     
     public void SetTarget(Enemy newTarget) => CurrentTarget = newTarget;

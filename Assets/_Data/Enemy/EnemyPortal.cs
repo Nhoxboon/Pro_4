@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyPortal : NhoxBehaviour
 {
     [SerializeField] protected List<Waypoint> waypointList;
+    public Vector3[] currentWaypoints { get; protected set; }
+
     [SerializeField] protected float spawnCooldown = 5f;
     protected float spawnTimer;
 
@@ -31,7 +33,7 @@ public class EnemyPortal : NhoxBehaviour
             //Or use enemy.SetPortal(this)
             if (newEnemy.TryGetComponent<Enemy>(out var enemy))
             {
-                enemy.Core.Movement.SetUpEnemy(waypointList, this);
+                enemy.Core.Movement.SetUpEnemy(this);
                 PlaceFlyEnemy(newEnemy, enemy.GetEnemyType());
             }
             spawnTimer = spawnCooldown;
@@ -59,6 +61,7 @@ public class EnemyPortal : NhoxBehaviour
         EnemySpawnCoordinator.Instance.HandleWaveCompletion();
     }
 
+    public List<string> GetListEnemies() => enemies;
     public List<GameObject> GetActiveEnemies() => activeEnemies;
 
     [ContextMenu("Collect Waypoints")]
@@ -70,5 +73,10 @@ public class EnemyPortal : NhoxBehaviour
             Waypoint waypoint = child.GetComponent<Waypoint>();
             if (waypoint != null) waypointList.Add(waypoint);
         }
+
+        currentWaypoints = new Vector3[waypointList.Count];
+
+        for (int i = 0; i < currentWaypoints.Length; i++)
+            currentWaypoints[i] = waypointList[i].transform.position;
     }
 }

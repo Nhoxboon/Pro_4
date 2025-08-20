@@ -34,11 +34,12 @@ public class TowerStatus : TowerComponent
     private IEnumerator DeactivateTowerCoroutine(float duration)
     {
         isActive = false;
-        towerCtrl.Rotation.EnableRotation(false);
+        towerCtrl.Rotation?.EnableRotation(false);
         yield return new WaitForSeconds(duration);
-        towerCtrl.Rotation.EnableRotation(true);
+        towerCtrl.Rotation?.EnableRotation(true);
         isActive = true;
         FXSpawner.Instance.Despawn(currentEMPFX.gameObject);
+        currentEMPFX = null;
     }
 
     public void DestroyTower() => TowerSpawner.Instance.Despawn(towerCtrl.gameObject);
