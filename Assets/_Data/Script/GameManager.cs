@@ -84,7 +84,7 @@ public class GameManager : NhoxBehaviour
         ManagerCtrl.Instance.UI.InGameUI.EnableGameOverUI(true);
     }
 
-    public void UpdateGameManager(int levelCurrency, WaveTimingManager newWaveManager)
+    public void PrepareLevel(int levelCurrency, WaveTimingManager newWaveManager)
     {
         isInGame = true;
         enemyKilled = 0;
@@ -93,6 +93,8 @@ public class GameManager : NhoxBehaviour
         currentHP = maxHP;
         OnCurrencyChanged?.Invoke();
         OnHPChanged?.Invoke();
+
+        newWaveManager.ActivateWaveManager();
     }
 
     public void UpdateHP(int amount)

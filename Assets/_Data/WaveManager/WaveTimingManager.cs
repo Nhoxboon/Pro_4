@@ -49,7 +49,7 @@ public class WaveTimingManager : WaveSystemManager
         if (!waveTimerEnabled) return;
         waveTimer -= Time.deltaTime;
         OnWaveTimerUpdated?.Invoke();
-        if (waveTimer <= 0f) EnemySpawnCoordinator.Instance.StartNewWave();
+        if (waveTimer <= 0f) EnemySpawnCoordinator.Instance?.StartNewWave();
     }
 
     public void EnableWaveTimer(bool enable)

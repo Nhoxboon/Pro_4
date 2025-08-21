@@ -55,4 +55,13 @@ public class GridBuilder : MonoBehaviour
         createdTiles.Add(newTile);
         newTile.GetComponent<TileSlot>().TurnIntoBuildSlot(mainPrefab);
     }
+
+    public void DisableShadowIfNeeded()
+    {
+        foreach (var tile in createdTiles)
+        {
+            tile.TryGetComponent<TileSlot>(out var slot);
+            slot?.DisableShadow();
+        }
+    }
 }

@@ -31,6 +31,7 @@ public class TileSlot : MonoBehaviour
         UpdateNavMesh();
 
         TurnIntoBuildSlot(referenceTile);
+        DisableShadow();
     }
 
     public Material GetMaterial() => MeshRenderer.sharedMaterial;
@@ -53,14 +54,6 @@ public class TileSlot : MonoBehaviour
     public List<GameObject> GetAllChildren()
     {
         return (from Transform child in transform select child.gameObject).ToList();
-
-        // Same as above but using a for loop
-        // List<GameObject> children = new List<GameObject>();
-        // foreach (Transform child in transform)
-        // {
-        //     children.Add(child.gameObject);
-        // }
-        // return children;
     }
 
     private void UpdateNavMesh() => MyNavMesh?.BuildNavMesh();
@@ -110,5 +103,18 @@ public class TileSlot : MonoBehaviour
     {
         transform.position += new Vector3(0, verticalDir * 0.1f, 0);
         UpdateNavMesh();
+    }
+
+    public void DisableShadow()
+    {
+        var shadowMode = UnityEngine.Rendering.ShadowCastingMode.On;
+
+        Vector3 point = transform.position + new Vector3(0, 0.49f, 0);
+        Vector3[] direction = { Vector3.left, Vector3.right, Vector3.forward, Vector3.back, };
+
+        int blockedSides = direction.Count(t => Physics.Raycast(point, t, 0.6f));
+        if(blockedSides == direction.Length)
+            shadowMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        MeshRenderer.shadowCastingMode = shadowMode;
     }
 }

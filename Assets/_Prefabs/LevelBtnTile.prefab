@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7373914408693221548}
   - component: {fileID: 7439340189853009819}
   - component: {fileID: 1018115034610607482}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: LevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 3328523184623581906}
   - component: {fileID: 2165754706503076603}
   - component: {fileID: 3618237543761232749}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: LevelBtnTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

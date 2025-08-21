@@ -32,6 +32,7 @@ public class TowerAtkRadiusDisplay : NhoxBehaviour
         lineRenderer.useWorldSpace = true;
         lineRenderer.startWidth = lineWidth;
         lineRenderer.material = FindFirstObjectByType<BuildManager>().AttackRadMat;
+        lineRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 
     public void CreateCircle(bool showRadius, float radius = 0f)

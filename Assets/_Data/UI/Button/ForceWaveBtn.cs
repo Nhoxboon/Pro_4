@@ -2,5 +2,5 @@
 
 public class ForceWaveBtn : BaseBtn
 {
-    protected override void OnClick() => EnemySpawnCoordinator.Instance.StartNewWave();
+    protected override void OnClick() => EnemySpawnCoordinator.Instance?.StartNewWave();
 }

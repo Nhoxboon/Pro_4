@@ -888,7 +888,6 @@ MonoBehaviour:
   - {fileID: 6358538321834538165}
   - {fileID: 7213150116397460633}
   - {fileID: 5742131155869844630}
-  - {fileID: 6104052731084431715}
   uiAnimator: {fileID: 3575121793709575815}
   menuUI: {fileID: 1084572096795372053}
   settingsUI: {fileID: 9055411687655893224}
@@ -8940,8 +8939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 2349690645032887489}
   cameraController: {fileID: 0}
-  minSen: 1
-  maxSen: 10
+  minSen: 60
+  maxSen: 240
   mouseSenPref: MouseSens
 --- !u!1 &4485093715856184170
 GameObject:
@@ -11849,7 +11848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6806871225729374859
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11891,7 +11890,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

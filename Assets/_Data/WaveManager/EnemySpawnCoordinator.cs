@@ -65,6 +65,7 @@ public class EnemySpawnCoordinator : WaveSystemManager
     public void StartNewWave()
     {
         LevelLayoutManager.Instance.UpdateNavMeshes();
+        currentGrid.DisableShadowIfNeeded();
         GiveEnemiesToPortal();
         WaveTimingManager.Instance.EnableWaveTimer(false);
         makingNextWave = false;
@@ -91,10 +92,10 @@ public class EnemySpawnCoordinator : WaveSystemManager
 
     protected void EnableNewPortal(EnemyPortal[] newPortals)
     {
-        foreach (var portal in newPortals)
+        for (int i = 0; i < newPortals.Length; i++)
         {
-            portal.gameObject.SetActive(true);
-            enemyPortals.Add(portal);
+            newPortals[i].gameObject.SetActive(true);
+            enemyPortals.Add(newPortals[i]);
         }
     }
 

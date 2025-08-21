@@ -15,8 +15,8 @@ public class LevelSetup : NhoxBehaviour
     protected override void Start()
     {
         base.Start();
-        UnlockAvailableTowers();
         StartCoroutine(SetupLevelRoutine());
+        UnlockAvailableTowers();
     }
 
     protected override void LoadComponents()
@@ -58,14 +58,15 @@ public class LevelSetup : NhoxBehaviour
         if (!LevelWasLoadedToMainScene()) yield break;
         DestroyExtraObjects();
 
+        // ManagerCtrl.Instance.BuildManager.UpdateBuildManager(WaveTimingManager.Instance);
+
         ManagerCtrl.Instance.LevelManager.UpdateCurrentGrid(myMainGrid);
         ManagerCtrl.Instance.TileManager.ShowGrid(myMainGrid, true);
 
         yield return ManagerCtrl.Instance.TileManager.CurrentActiveCoroutine;
 
         ManagerCtrl.Instance.UI.EnableInGameUI(true);
-        ManagerCtrl.Instance.GameManager.UpdateGameManager(levelCurrency, WaveTimingManager.Instance);
-        WaveTimingManager.Instance.ActivateWaveManager();
+        ManagerCtrl.Instance.GameManager.PrepareLevel(levelCurrency, WaveTimingManager.Instance);
     }
 
     protected bool LevelWasLoadedToMainScene()

@@ -7,6 +7,13 @@ public class ForwardAttackDisplay : NhoxBehaviour
     [SerializeField] protected LineRenderer rightLine;
     [SerializeField] protected float attackRange;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        leftLine.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        rightLine.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; 
+    }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();

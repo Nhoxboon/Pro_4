@@ -89,7 +89,9 @@ public class BuildManager : NhoxBehaviour
         DebugTool.Log(transform.name + " LoadBuildPreviewMat", gameObject);
     }
     #endregion
-    
+
+    // public void UpdateBuildManager(WaveTimingManager newWaveManager) => MakeBuildSlotUnavailable(newWaveManager, currentGridB);
+
     protected bool IsClickingNonBuildSlot()
     {
         return Physics.Raycast(mainCamera.ScreenPointToRay(InputManager.Instance.MousePosition), 
@@ -101,24 +103,28 @@ public class BuildManager : NhoxBehaviour
 
     public void MakeBuildSlotUnavailable(WaveTimingManager waveManager, GridBuilder currentGrid)
     {
-        foreach (var wave in waveManager.LevelWave)
+        if (waveManager is null || currentGrid is null) return;
+        for (int w = 0; w < waveManager.LevelWave.Length; w++)
         {
-            if (wave.nextGrid == null) continue;
+            var wave = waveManager.LevelWave[w];
+            if (wave.nextGrid is null) continue;
+
             List<GameObject> grid = currentGrid.CreatedTiles;
             List<GameObject> nextGrid = wave.nextGrid.CreatedTiles;
+            // int minCount = Mathf.Min(grid.Count, nextGrid.Count);
 
             for (int i = 0; i < grid.Count; i++)
             {
-                TileSlot currentTile = grid[i].GetComponent<TileSlot>();
-                TileSlot nextTile = nextGrid[i].GetComponent<TileSlot>();
+                if (!grid[i].TryGetComponent(out TileSlot currentTile)) continue;
+                if (!nextGrid[i].TryGetComponent(out TileSlot nextTile)) continue;
 
                 bool tileNotTheSame = currentTile.GetMesh() != nextTile.GetMesh() ||
                                       currentTile.GetMaterial() != nextTile.GetMaterial() ||
                                       currentTile.GetAllChildren().Count != nextTile.GetAllChildren().Count;
 
                 if (!tileNotTheSame) continue;
-                BuildSlot buildSlot = grid[i].GetComponent<BuildSlot>();
-                if (buildSlot != null) buildSlot.SetSlotAvailable(false);
+                if (grid[i].TryGetComponent(out BuildSlot buildSlot))
+                    buildSlot.SetSlotAvailable(false);
             }
         }
     }

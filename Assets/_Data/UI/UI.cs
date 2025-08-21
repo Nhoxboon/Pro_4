@@ -21,6 +21,7 @@ public class UI : NhoxBehaviour
     {
         base.Awake();
 
+        fadeImage.ActivateFadeEffect(true);
         SwitchToUI(settingsUI.gameObject);
         SwitchToUI(inGameUI.gameObject);
         if (!ManagerCtrl.Instance.GameManager.IsTestingLevel())
@@ -48,7 +49,7 @@ public class UI : NhoxBehaviour
         if (uiElements is { Length: > 0 }) return;
 
         uiElements = transform.Cast<Transform>()
-            .Where(t => t.name != "UI_SFX")
+            .Where(t => t.name != "UI_SFX" && t.name != "FadeImageUI")
             .Select(t => t.gameObject)
             .ToArray();
         DebugTool.Log(transform.name + " :LoadUIElements", gameObject);

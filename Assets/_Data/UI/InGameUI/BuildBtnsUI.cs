@@ -64,7 +64,10 @@ public class BuildBtnsUI : NhoxBehaviour
         if (!isBuildMenuActive) return;
         for (int i = 0; i < unlockedBtn.Count; i++)
         {
-            if (!InputManager.Instance.IsNumberKeyDown[1 + i]) continue;
+            int keyIndex = 1 + i;
+            if (keyIndex >= InputManager.Instance.IsNumberKeyDown.Length) continue;
+
+            if (!InputManager.Instance.IsNumberKeyDown[keyIndex]) continue;
             SelectNewBtn(i);
             break;
         }

@@ -23,7 +23,7 @@ public class EnemyPortal : NhoxBehaviour
 
     protected void SpawnEnemy()
     {
-        if(!WaveTimingManager.Instance.GameBegun) return;
+        if(WaveTimingManager.Instance is not null &&!WaveTimingManager.Instance.GameBegun) return;
         
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0f && CanSpawn())
@@ -46,7 +46,7 @@ public class EnemyPortal : NhoxBehaviour
         if(enemyType != EnemyType.FlyingEnemy && enemyType != EnemyType.FlyingBoss) return;
         var flyPosition = transform.position + Vector3.up * 2f;
         
-        Transform newFX = FXSpawner.Instance.SpawnParticle("EnemyFlyPortalFX", flyPosition, Quaternion.identity);
+        FXSpawner.Instance.SpawnParticle("EnemyFlyPortalFX", flyPosition, Quaternion.identity);
         newEnemy.position = flyPosition;
     }
 
@@ -58,7 +58,7 @@ public class EnemyPortal : NhoxBehaviour
     {
         if (activeEnemies.Contains(enemyToRemove)) activeEnemies.Remove(enemyToRemove);
 
-        EnemySpawnCoordinator.Instance.HandleWaveCompletion();
+        EnemySpawnCoordinator.Instance?.HandleWaveCompletion();
     }
 
     public List<string> GetListEnemies() => enemies;

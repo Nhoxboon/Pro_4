@@ -47,7 +47,7 @@ public class LevelLayoutManager : WaveSystemManager
     protected void LoadFlyNavMesh()
     {
         if (flyingNavSurface != null) return;
-        flyingNavSurface = transform.Find("FlyRoad").GetComponent<NavMeshSurface>();
+        flyingNavSurface = transform.Find("FlyRoad")?.GetComponent<NavMeshSurface>();
         DebugTool.Log(transform.name + ": LoadNavMeshSurface", gameObject);
     }
 
@@ -132,12 +132,12 @@ public class LevelLayoutManager : WaveSystemManager
     {
         foreach (var col in flyingNavColliders)
             col.enabled = true;
-        flyingNavSurface.BuildNavMesh();
+        flyingNavSurface?.BuildNavMesh();
         foreach (var col in flyingNavColliders)
             col.enabled = false;
 
         currentGrid.UpdateNavMesh();
-        droneNavSurface.BuildNavMesh();
+        droneNavSurface?.BuildNavMesh();
     }
 
     public void UpdateDroneNavMesh()
