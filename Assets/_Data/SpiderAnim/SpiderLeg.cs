@@ -95,7 +95,7 @@ public class SpiderLeg : NhoxBehaviour
 
     protected void ParentLegsRef(bool parent)
     {
-        if(worldTargetRef is null) return;
+        if (worldTargetRef == null || parent && legHolder == null) return;
         worldTargetRef.parent = parent ? legHolder : null;
     }
 }

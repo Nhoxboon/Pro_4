@@ -23,7 +23,7 @@ public class EnemyPortal : NhoxBehaviour
 
     protected void SpawnEnemy()
     {
-        if(WaveTimingManager.Instance is not null &&!WaveTimingManager.Instance.GameBegun) return;
+        if(WaveTimingManager.Instance is not null && !WaveTimingManager.Instance.GameBegun) return;
         
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0f && CanSpawn())

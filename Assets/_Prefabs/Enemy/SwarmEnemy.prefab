@@ -135,7 +135,6 @@ MonoBehaviour:
   currentWpIndex: 0
   nextWpIndex: 0
   myWayPoints: []
-  myPortal: {fileID: 0}
   agent: {fileID: 4486639951410476878}
 --- !u!1 &980189738333642784
 GameObject:
@@ -305,6 +304,7 @@ MonoBehaviour:
   shieldAmount:
     maxValue: 0
     currentValue: 0
+  enemyStatsDataSO: {fileID: 11400000, guid: 27eb06f00f88543d08eb28ac99969257, type: 2}
 --- !u!1 &2765071484057463596
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +443,6 @@ MonoBehaviour:
   damageReceiver: {fileID: 4582675491698797521}
   visuals: {fileID: 5682889707020958486}
   death: {fileID: 7247071015694810770}
-  shieldObject: {fileID: 0}
 --- !u!1 &4343440929119497610
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +684,6 @@ MonoBehaviour:
   - {fileID: 8850991684895834463}
   - {fileID: 5844055547836001969}
   - {fileID: 2319126685463518618}
-  smokeFX: {fileID: 0}
   variants:
   - {fileID: 4723866391970034721}
   - {fileID: 4343440929119497610}
@@ -988,6 +986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 1271610794509977150}
+  deathFXScale: 0.5
 --- !u!1 &8816667325256455062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,4 +1196,5 @@ MonoBehaviour:
   enemyType: 2
   centerPoint: {fileID: 4009218276690228868}
   core: {fileID: 1271610794509977150}
+  canBeHidden: 1
   isHidden: 0

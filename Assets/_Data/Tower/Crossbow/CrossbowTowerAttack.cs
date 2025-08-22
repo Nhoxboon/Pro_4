@@ -22,7 +22,7 @@ public class CrossbowTowerAttack : TowerAttack
             if (hitInfo.transform.TryGetComponent(out Enemy enemy))
             {
                 IDamageable damageable = enemy.Core.DamageReceiver;
-                damageable.TakeDamage(damage);
+                damageable?.TakeDamage(damage);
             }
 
             CreateAttackVFX(hitInfo);

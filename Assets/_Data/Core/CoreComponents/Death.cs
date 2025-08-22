@@ -11,7 +11,7 @@ public class Death : CoreComponent
     {
         SpawnDeathFX();
         DestroyEnemy();
-        ManagerCtrl.Instance.GameManager.UpdateCurrency(1);
+        ManagerCtrl.Instance.GameManager.UpdateCurrency(core.Stats.EnemyStatsDataSO.currency);
     }
 
     public virtual void DestroyEnemy()

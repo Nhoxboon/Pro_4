@@ -9864,6 +9864,7 @@ MonoBehaviour:
   shieldAmount:
     maxValue: 0
     currentValue: 0
+  enemyStatsDataSO: {fileID: 11400000, guid: 27f15fb1a7b414973847f5e255eb5a5b, type: 2}
 --- !u!1 &4035949672349850820
 GameObject:
   m_ObjectHideFlags: 0
@@ -15161,10 +15162,10 @@ MonoBehaviour:
   enemyType: 4
   centerPoint: {fileID: 6535120561716783842}
   core: {fileID: 2384476374438724437}
+  canBeHidden: 1
   isHidden: 0
   enemiesToHide: []
   hideDuration: 0.5
-  smokeFX: {fileID: 1505177477544919158}
 --- !u!1 &8111576616651254284
 GameObject:
   m_ObjectHideFlags: 0

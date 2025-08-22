@@ -1,16 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LevelSetup : NhoxBehaviour
 {
     [SerializeField] protected GridBuilder myMainGrid;
     [SerializeField] protected List<GameObject> extraObjectsToDelete;
+    [SerializeField] protected Material groundMaterial;
 
     [Header("Level Details")] [SerializeField]
     protected int levelCurrency = 600;
 
     [SerializeField] protected TowerUnlockConfigSO towerData;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        ManagerCtrl.Instance?.BuildManager.UpdateBuildManager(WaveTimingManager.Instance, myMainGrid);
+    }
 
     protected override void Start()
     {
@@ -24,12 +32,14 @@ public class LevelSetup : NhoxBehaviour
         base.LoadComponents();
         LoadTowerData();
         LoadGridBuilder();
+        LoadObjToDestroy();
+        LoadGround();
     }
 
     protected void LoadTowerData()
     {
         if (towerData != null) return;
-        towerData = Resources.Load<TowerUnlockConfigSO>("Tower/TowerOnLevelData");
+        towerData = Resources.Load<TowerUnlockConfigSO>("Tower/" + SceneManager.GetActiveScene().name);
         DebugTool.Log(transform.name + ": LoadTowerData", gameObject);
     }
 
@@ -38,6 +48,20 @@ public class LevelSetup : NhoxBehaviour
         if (myMainGrid != null) return;
         myMainGrid = FindFirstObjectByType<GridBuilder>();
         DebugTool.Log(transform.name + ": LoadGridBuilder", gameObject);
+    }
+
+    protected void LoadObjToDestroy()
+    {
+        if (extraObjectsToDelete != null && extraObjectsToDelete.Count > 0) return;
+        extraObjectsToDelete = new List<GameObject> { GameObject.Find("---ObjToDestroy---") };
+        DebugTool.Log(transform.name + ": LoadObjToDestroy", gameObject);
+    }
+
+    protected void LoadGround()
+    {
+        if (groundMaterial != null) return;
+        groundMaterial = GameObject.Find("Ground").GetComponent<MeshRenderer>().sharedMaterial;
+        DebugTool.Log(transform.name + ": LoadGround", gameObject);
     }
 
     protected void UnlockAvailableTowers()
@@ -58,9 +82,8 @@ public class LevelSetup : NhoxBehaviour
         if (!LevelWasLoadedToMainScene()) yield break;
         DestroyExtraObjects();
 
-        // ManagerCtrl.Instance.BuildManager.UpdateBuildManager(WaveTimingManager.Instance);
-
         ManagerCtrl.Instance.LevelManager.UpdateCurrentGrid(myMainGrid);
+        ManagerCtrl.Instance.LevelManager.UpdateGroundColor(groundMaterial.color);
         ManagerCtrl.Instance.TileManager.ShowGrid(myMainGrid, true);
 
         yield return ManagerCtrl.Instance.TileManager.CurrentActiveCoroutine;
@@ -69,10 +92,7 @@ public class LevelSetup : NhoxBehaviour
         ManagerCtrl.Instance.GameManager.PrepareLevel(levelCurrency, WaveTimingManager.Instance);
     }
 
-    protected bool LevelWasLoadedToMainScene()
-    {
-        return ManagerCtrl.Instance.LevelManager is not null;
-    }
+    protected bool LevelWasLoadedToMainScene() => ManagerCtrl.Instance.LevelManager is not null;
 
     protected void DestroyExtraObjects()
     {

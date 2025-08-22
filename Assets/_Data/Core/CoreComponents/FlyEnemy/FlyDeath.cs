@@ -16,11 +16,11 @@ public class FlyDeath : Death
 
     public override void DestroyEnemy()
     {
-        foreach (var harpoon in attachedHarpoons)
-            ProjectileSpawner.Instance.Despawn(harpoon.gameObject);
+        for (int i = 0; i < attachedHarpoons.Count; i++)
+            ProjectileSpawner.Instance.Despawn(attachedHarpoons[i].gameObject);
 
-        foreach(var tower in observingTowers)
-            if(tower.TryGetComponent(out TowerCtrl towerCtrl) && towerCtrl.Attack is HarpoonAttack attack)
+        for (int i = 0; i < observingTowers.Count; i++)
+            if (observingTowers[i].TryGetComponent(out TowerCtrl towerCtrl) && towerCtrl.Attack is HarpoonAttack attack)
                 attack.ResetAttack();
 
         base.DestroyEnemy();

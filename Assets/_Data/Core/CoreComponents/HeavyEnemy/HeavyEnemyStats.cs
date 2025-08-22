@@ -2,13 +2,12 @@
 
 public class HeavyEnemyStats : Stats
 {
-    [SerializeField] protected int shieldValue = 50;
-
     protected override void Awake()
     {
         base.Awake();
 
-        shieldAmount.SetMaxValue(shieldValue);
+        if (enemyStatsDataSO is not ShieldEnemyDataSO stats) return;
+        shieldAmount.SetMaxValue(stats.shield);
         shieldAmount.Init();
     }
 }

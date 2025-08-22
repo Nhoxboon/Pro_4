@@ -5,39 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/ShieldEnemyDataSO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/ShieldEnemyDataSO.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/TowerDisplay/ForwardAttackDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/TowerDisplay/ForwardAttackDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/TowerDisplay/TowerAtkRadiusDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/TowerDisplay/TowerAtkRadiusDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Death.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyDeath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyDeath.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/HeavyEnemyStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/HeavyEnemyStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/ShieldForEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/HeavyEnemy/ShieldForEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Stats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Stats.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/GridBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/GridBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Projectile/Fireball/Fireball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Fireball/Fireball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Projectile/SpiderNest/SpiderNest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/SpiderNest/SpiderNest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData 1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData 1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/TowerOnLevelData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/EntityStatsDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/EnemyDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/EntityStatsDataSO.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/EnemyDataSO.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/SpiderAnim/SpiderLeg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/SpiderAnim/SpiderLeg.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/ForceWaveBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/ForceWaveBtn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Image/FadeImage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Image/FadeImage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildBtnsUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/InGameUI/BuildBtnsUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/EnemySpawnCoordinator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/EnemySpawnCoordinator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTowerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Crossbow/CrossbowTowerAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/WaveTimerText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/TextMP/WaveTimerText.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/LevelLayoutManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/LevelLayoutManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveTimingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/WaveTimingManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Graphics/UI/Font/NewAmsterdam-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Graphics/UI/Font/NewAmsterdam-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/BasicEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/BasicEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/BossUnitEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/BossUnitEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FastEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FastEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingBoss.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingEnemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/FX/DeathFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/FX/DeathFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/FX/ExplosionFX.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/FX/ExplosionFX.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/FX/ExplosionFX_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/FX/ExplosionFX_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/LevelBtnTile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/LevelBtnTile.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/ChainLink.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/ChainLink.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/HeavyEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/HeavyEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/SpiderBoss/SpiderBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/SpiderBoss/SpiderBoss.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/StealthEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/StealthEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/SwarmEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/SwarmEnemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/Fireball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/Fireball.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/Harpoon.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/Harpoon.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/CrossbowTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/CrossbowTower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/UI/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/UI/UI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_2.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_2.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3/NavMesh-FlyRoad.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3/NavMesh-FlyRoad.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Settings/PC_RPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Settings/PC_RPAsset.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,17 +78,27 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/bf/056add9c/Action.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SwarmEnemy/SwarmVisuals.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelBtnTile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelSetup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Projectile/Bullet/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Projectile/Fireball/Fireball.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Projectile/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/EntityStatsDataSO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/EnemyDataSO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/ShieldEnemyDataSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/SpiderAnim/SpiderLegRef.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/TileSystem/GridBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/MenuUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/Slider/KeyboardSenSlider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Utilities/DebugTool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Utilities/GameObjectExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/WaveManager/LevelLayoutManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@eb5635ad590d/Runtime/NavMeshSurface.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@eb5635ad590d/Runtime/NavMeshSurface.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@c58b4ee65782/Editor/Utilities/BindingUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@f3fac7af1578/Runtime/TMP/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@f3fac7af1578/Runtime/UGUI/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
@@ -124,6 +148,18 @@
       <option name="MIXED_MODE_DEBUG" value="0" />
       <method v="2" />
     </configuration>
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.0.47f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath E:\Unity\Project\Pro_4 -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="E:\Unity\Project\Pro_4" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.0.47f1/Unity.app/Contents/MacOS/Unity" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath E:\Unity\Project\Pro_4 -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
@@ -134,6 +170,32 @@
       <option name="REDIRECT_INPUT_PATH" value="" />
       <option name="PTY_MODE" value="Auto" />
       <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/6000.0.47f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath E:\Unity\Project\Pro_4 -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="E:\Unity\Project\Pro_4" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -162,6 +224,23 @@
         <list />
       </option>
       <option name="useMixedMode" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="useMixedMode" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Device" type="UnityDevicePlayer" factoryName="UnityAttachToDevicePlayer">
       <method v="2" />
     </configuration>
     <configuration name="Attach to Device" type="UnityDevicePlayer" factoryName="UnityAttachToDevicePlayer">
@@ -299,6 +378,11 @@
       <workItem from="1755599822201" duration="4321000" />
       <workItem from="1755686452825" duration="14718000" />
       <workItem from="1755772322920" duration="10870000" />
+      <workItem from="1755819283390" duration="610000" />
+      <workItem from="1755820143577" duration="5985000" />
+      <workItem from="1755830929037" duration="6314000" />
+      <workItem from="1755859519589" duration="13542000" />
+      <workItem from="1755876476864" duration="1300000" />
     </task>
     <servers />
   </component>

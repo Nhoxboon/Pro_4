@@ -8,11 +8,14 @@ public class Stats : CoreComponent
     [SerializeField] protected Stat shieldAmount;
     public Stat ShieldAmount => shieldAmount;
 
+    [SerializeField] protected EnemyDataSO enemyStatsDataSO;
+    public EnemyDataSO EnemyStatsDataSO => enemyStatsDataSO;
+
     protected override void Awake()
     {
         base.Awake();
 
-        health.SetMaxValue(10f);
+        health.SetMaxValue(enemyStatsDataSO.health);
         health.Init();
     }
 
@@ -22,11 +25,10 @@ public class Stats : CoreComponent
         LoadEntityStatsDataSO();
     }
 
-    //Todo: Need to define HP for each type of enemy after finish project
     protected void LoadEntityStatsDataSO()
     {
-        // if (entityStatsDataSO != null) return;
-        // entityStatsDataSO = Resources.Load<EntityStatsDataSO>("Enemies/Stats/" + transform.parent.parent.name + "Stats");
-        // DebugTool.Log(transform.name + " LoadEntityStatsDataSO", gameObject);
+        if (enemyStatsDataSO != null) return;
+        enemyStatsDataSO = Resources.Load<EnemyDataSO>("Enemy/" + core.Root.transform.name);
+        DebugTool.Log(transform.name + " LoadEntityStatsDataSO", gameObject);
     }
 }

@@ -6,12 +6,14 @@ public class Fireball : Projectile
     [SerializeField] protected Rigidbody rb;
     [SerializeField] protected float damageRadius = 0.85f;
     [SerializeField] protected TrailRenderer tr;
+    [SerializeField] protected LayerMask whatIsUnInteractive;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadRigidbody();
         LoadTrailRenderer();
+        LoadUnInteractiveLayer();
     }
 
     protected void LoadRigidbody()
@@ -28,8 +30,16 @@ public class Fireball : Projectile
         DebugTool.Log(transform.name + " :LoadTrailRenderer", gameObject);
     }
 
+    protected void LoadUnInteractiveLayer()
+    {
+        if (whatIsUnInteractive != 0) return;
+        whatIsUnInteractive = LayerMask.GetMask("EnemyProjectile");
+        DebugTool.Log(transform.name + " :LoadUnInteractiveLayer", gameObject);
+    }
+
     protected void OnTriggerEnter(Collider other)
     {
+        if((1 << other.gameObject.layer & whatIsUnInteractive) != 0) return;
         DamageEnemies();
         ProjectileSpawner.Instance.Despawn(gameObject);
         SpawnOnHitFX();
@@ -60,5 +70,5 @@ public class Fireball : Projectile
         explosion.gameObject.SetActive(true);
     }
 
-    private void OnDrawGizmos() => Gizmos.DrawWireSphere(transform.position, damageRadius);
+    // private void OnDrawGizmos() => Gizmos.DrawWireSphere(transform.position, damageRadius);
 }

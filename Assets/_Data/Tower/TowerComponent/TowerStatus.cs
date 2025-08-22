@@ -26,7 +26,7 @@ public class TowerStatus : TowerComponent
             FXSpawner.Instance.Despawn(currentEMPFX.gameObject);
 
         currentEMPFX =
-            FXSpawner.Instance.Spawn(empFX, towerCtrl.transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+            FXSpawner.Instance.Spawn(empFX, EMPFXOffset(), Quaternion.identity);
         currentEMPFX.gameObject.SetActive(true);
         deactivatedTowerCoroutine = StartCoroutine(DeactivateTowerCoroutine(duration));
     }
@@ -40,6 +40,15 @@ public class TowerStatus : TowerComponent
         isActive = true;
         FXSpawner.Instance.Despawn(currentEMPFX.gameObject);
         currentEMPFX = null;
+    }
+
+    protected Vector3 EMPFXOffset()
+    {
+        string towerName = towerCtrl.gameObject.name;
+        if (towerName is "HarpoonTower" or "FanTower" or "HammerTower")
+            return towerCtrl.transform.position;
+
+        return towerCtrl.transform.position + new Vector3(0, 0.5f, 0);
     }
 
     public void DestroyTower() => TowerSpawner.Instance.Despawn(towerCtrl.gameObject);

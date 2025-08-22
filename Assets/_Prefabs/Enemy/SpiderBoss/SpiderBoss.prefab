@@ -7213,11 +7213,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   core: {fileID: 9199482145124845735}
   health:
-    maxValue: 400
+    maxValue: 0
     currentValue: 0
   shieldAmount:
     maxValue: 0
     currentValue: 0
+  enemyStatsDataSO: {fileID: 11400000, guid: fc37bbb627c374fdc9d54fc5a45edc6b, type: 2}
 --- !u!1 &3761631182712349976
 GameObject:
   m_ObjectHideFlags: 0

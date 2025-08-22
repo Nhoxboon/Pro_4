@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 6910453083321324757}
+  deathFXScale: 0.5
 --- !u!1 &2218634257299313801
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +238,6 @@ MonoBehaviour:
   - {fileID: 1196612678515421429}
   - {fileID: 6088769199706602095}
   - {fileID: 5356274363353926060}
-  smokeFX: {fileID: 0}
   variants:
   - {fileID: 956275440920717782}
   - {fileID: 7863856104173225201}
@@ -573,6 +573,7 @@ MonoBehaviour:
   enemyType: 2
   centerPoint: {fileID: 7390836657512097688}
   core: {fileID: 6910453083321324757}
+  canBeHidden: 1
   isHidden: 0
 --- !u!1 &3588527583575199870
 GameObject:
@@ -631,8 +632,6 @@ MonoBehaviour:
   damageReceiver: {fileID: 3457186734328535296}
   visuals: {fileID: 8236831602674016434}
   death: {fileID: 1696426408975197114}
-  shieldObject: {fileID: 0}
-  spawnUnit: {fileID: 0}
 --- !u!1 &4177247702336097908
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,6 +972,7 @@ MonoBehaviour:
   shieldAmount:
     maxValue: 0
     currentValue: 0
+  enemyStatsDataSO: {fileID: 11400000, guid: a2eb3875b332f4e45afc4b7c0c4a2a65, type: 2}
 --- !u!1 &7592909569741186155
 GameObject:
   m_ObjectHideFlags: 0

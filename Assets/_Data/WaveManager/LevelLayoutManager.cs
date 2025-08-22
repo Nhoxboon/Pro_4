@@ -88,7 +88,7 @@ public class LevelLayoutManager : WaveSystemManager
     private bool ShouldUpdateTile(TileSlot currentTile, TileSlot newTile)
     {
         return currentTile.GetMesh() != newTile.GetMesh() ||
-               currentTile.GetMaterial() != newTile.GetMaterial() ||
+               currentTile.GetOriginalMaterial() != newTile.GetOriginalMaterial() ||
                currentTile.GetAllChildren().Count != newTile.GetAllChildren().Count ||
                currentTile.transform.rotation != newTile.transform.rotation;
     }
@@ -118,14 +118,16 @@ public class LevelLayoutManager : WaveSystemManager
         newTile.transform.parent = currentGrid.transform;
 
         Vector3 targetPosition = newTile.transform.position + new Vector3(0, yOffset, 0);
-        ManagerCtrl.Instance.TileManager.MoveTile(newTile.transform, targetPosition);
+        ManagerCtrl.Instance.TileManager.DissolveTile(true, newTile.transform);
+        ManagerCtrl.Instance.TileManager.MoveTile(newTile.transform, targetPosition, true);
     }
 
     private void RemoveTile(TileSlot tileToRemove)
     {
         Vector3 targetPosition = tileToRemove.transform.position + new Vector3(0, -yOffset, 0);
-        ManagerCtrl.Instance.TileManager.MoveTile(tileToRemove.transform, targetPosition);
-        Destroy(tileToRemove.gameObject, 1f);
+        ManagerCtrl.Instance.TileManager.DissolveTile(false, tileToRemove.transform);
+        ManagerCtrl.Instance.TileManager.MoveTile(tileToRemove.transform, targetPosition, false);
+        Destroy(tileToRemove.gameObject, 3f); //Warning: Careful or will cause error  because DissolveTile
     }
 
     public void UpdateNavMeshes()
@@ -136,7 +138,7 @@ public class LevelLayoutManager : WaveSystemManager
         foreach (var col in flyingNavColliders)
             col.enabled = false;
 
-        currentGrid.UpdateNavMesh();
+        currentGrid?.UpdateNavMesh();
         droneNavSurface?.BuildNavMesh();
     }
 

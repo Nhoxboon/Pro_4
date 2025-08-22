@@ -82,7 +82,7 @@ MonoBehaviour:
   shieldAmount:
     maxValue: 0
     currentValue: 0
-  shieldValue: 50
+  enemyStatsDataSO: {fileID: 11400000, guid: 01784ba147b64448188558223a6000eb, type: 2}
 --- !u!1 &1404529664726896149
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 32a76832b79e84347ad9df08b12709c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 1138721240290629046}
-  shieldMaterial: {fileID: 0}
+  shieldMaterial: {fileID: 2100000, guid: 32a76832b79e84347ad9df08b12709c3, type: 2}
   defaultShieldGlow: 1
   impactShieldGlow: 3
   impactScaleMultiplier: 0.97
@@ -369,6 +369,7 @@ MonoBehaviour:
   enemyType: 3
   centerPoint: {fileID: 6470490638051283346}
   core: {fileID: 1138721240290629046}
+  canBeHidden: 1
   isHidden: 0
 --- !u!1 &3585986611048096501
 GameObject:

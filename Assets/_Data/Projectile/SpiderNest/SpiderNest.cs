@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(BoxCollider))]
@@ -27,7 +26,7 @@ public class SpiderNest : Projectile
     protected void OnDisable()
     {
         CancelInvoke(nameof(UpdateClosestTarget));
-        despawn.gameObject.SetActive(false);
+        DespawnWhenOutOfTime();
     }
 
     protected void Update()
@@ -80,9 +79,14 @@ public class SpiderNest : Projectile
 
     protected bool HasValidTarget() => currentTarget is not null &&
                                        currentTarget.gameObject.activeInHierarchy &&
-                                       agent.enabled;
+                                       agent.enabled &&
+                                       agent.isOnNavMesh;
 
-    protected void MoveTowardsTarget() => agent.SetDestination(currentTarget.position);
+    protected void MoveTowardsTarget()
+    {
+        if (agent.isOnNavMesh)
+            agent.SetDestination(currentTarget.position);
+    }
 
     protected void CheckDetonation()
     {
@@ -100,6 +104,12 @@ public class SpiderNest : Projectile
     }
 
     protected void UpdateClosestTarget() => currentTarget = FindClosestEnemy();
+
+    protected void DespawnWhenOutOfTime()
+    {
+        despawn.gameObject.SetActive(false);
+        if (agent.enabled) agent.enabled = false;
+    }
 
     protected void Explode()
     {

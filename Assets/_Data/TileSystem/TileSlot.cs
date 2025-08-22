@@ -5,13 +5,23 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 // This class just use in the editor to switch tiles so not causing performance issues
-public class TileSlot : MonoBehaviour
+public class TileSlot : NhoxBehaviour
 {
-    private MeshRenderer MeshRenderer => GetComponent<MeshRenderer>();
-    private MeshFilter MeshFilter => GetComponent<MeshFilter>();
-    private Collider MyCollider => GetComponent<Collider>();
-    private NavMeshSurface MyNavMesh => GetComponentInParent<NavMeshSurface>(true);
-    private TileSetHolder tileSetHolder => GetComponentInParent<TileSetHolder>(true);
+    protected Material originalMaterial;
+    protected MeshRenderer MeshRenderer => GetComponent<MeshRenderer>();
+    protected MeshFilter MeshFilter => GetComponent<MeshFilter>();
+    protected Collider MyCollider => GetComponent<Collider>();
+    protected NavMeshSurface MyNavMesh => GetComponentInParent<NavMeshSurface>(true);
+    protected TileSetHolder tileSetHolder => GetComponentInParent<TileSetHolder>(true);
+
+    public MeshRenderer[] MeshRenderers {get; protected set;}
+
+    protected override void Awake()
+    {
+        base.Awake();
+        MeshRenderers = GetComponentsInChildren<MeshRenderer>();
+        originalMaterial = GetComponent<MeshRenderer>().sharedMaterial;
+    }
 
     public void SwitchTile(GameObject referenceTile)
     {
@@ -34,6 +44,15 @@ public class TileSlot : MonoBehaviour
         DisableShadow();
     }
 
+    public Material GetOriginalMaterial()
+    {
+        if(originalMaterial is null)
+        {
+            TryGetComponent(out MeshRenderer mesh);
+            originalMaterial = mesh?.sharedMaterial;
+        }
+        return originalMaterial;
+    }
     public Material GetMaterial() => MeshRenderer.sharedMaterial;
     public Mesh GetMesh() => MeshFilter.sharedMesh;
 

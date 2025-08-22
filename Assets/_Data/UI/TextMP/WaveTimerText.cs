@@ -16,7 +16,8 @@ public class WaveTimerText : BaseText
     protected override void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        WaveTimingManager.Instance.OnWaveTimerUpdated -= OnWaveTimeChanged;
+        if (WaveTimingManager.Instance != null)
+            WaveTimingManager.Instance.OnWaveTimerUpdated -= OnWaveTimeChanged;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

@@ -5333,6 +5333,7 @@ MonoBehaviour:
   shieldAmount:
     maxValue: 0
     currentValue: 0
+  enemyStatsDataSO: {fileID: 11400000, guid: d0f823b6029f44e19b2a2420ea97fe1d, type: 2}
 --- !u!1 &5682654027506793958
 GameObject:
   m_ObjectHideFlags: 0

@@ -313,3 +313,6 @@ MonoBehaviour:
   rb: {fileID: 6997447033001552828}
   damageRadius: 0.85
   tr: {fileID: 579433604942629746}
+  whatIsUnInteractive:
+    serializedVersion: 2
+    m_Bits: 8192

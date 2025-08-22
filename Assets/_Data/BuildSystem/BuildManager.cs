@@ -20,12 +20,6 @@ public class BuildManager : NhoxBehaviour
 
     protected bool isMouseOverUI;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        MakeBuildSlotUnavailable(WaveTimingManager.Instance, currentGridB);
-    }
-
     protected void Update()
     {
         if (InputManager.Instance.IsEscDown) CancelBuildAction();
@@ -90,7 +84,11 @@ public class BuildManager : NhoxBehaviour
     }
     #endregion
 
-    // public void UpdateBuildManager(WaveTimingManager newWaveManager) => MakeBuildSlotUnavailable(newWaveManager, currentGridB);
+    public void UpdateBuildManager(WaveTimingManager newWaveManager, GridBuilder newCurrentGrid)
+    {
+        currentGridB = newCurrentGrid;
+        MakeBuildSlotUnavailable(newWaveManager, currentGridB);
+    }
 
     protected bool IsClickingNonBuildSlot()
     {
@@ -119,7 +117,7 @@ public class BuildManager : NhoxBehaviour
                 if (!nextGrid[i].TryGetComponent(out TileSlot nextTile)) continue;
 
                 bool tileNotTheSame = currentTile.GetMesh() != nextTile.GetMesh() ||
-                                      currentTile.GetMaterial() != nextTile.GetMaterial() ||
+                                      currentTile.GetOriginalMaterial() != nextTile.GetOriginalMaterial() ||
                                       currentTile.GetAllChildren().Count != nextTile.GetAllChildren().Count;
 
                 if (!tileNotTheSame) continue;

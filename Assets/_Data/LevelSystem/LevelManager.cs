@@ -6,13 +6,25 @@ public class LevelManager : NhoxBehaviour
 {
     protected GridBuilder currentActiveGrid;
     [SerializeField] protected string currentLevelName;
-    public string CurrentLevelName => currentLevelName;
     [SerializeField] protected CameraEffects cameraEffects;
-    
+
+    [Header("Color change Details")] [SerializeField]
+    protected MeshRenderer groundMesh;
+
+    protected Color defaultColor;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        defaultColor = groundMesh.material.color;
+        groundMesh.material = new Material(groundMesh.material);
+    }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadCameraEffects();
+        LoadGround();
     }
 
     protected void LoadCameraEffects()
@@ -20,6 +32,13 @@ public class LevelManager : NhoxBehaviour
         if (cameraEffects != null) return;
         cameraEffects = FindFirstObjectByType<CameraEffects>();
         DebugTool.Log(transform.name + " :LoadCameraEffects", gameObject);
+    }
+
+    protected void LoadGround()
+    {
+        if (groundMesh != null) return;
+        groundMesh = GameObject.Find("Ground").GetComponent<MeshRenderer>();
+        DebugTool.Log(transform.name + " :LoadGround", gameObject);
     }
 
     public void RestartLevel() => StartCoroutine(LoadLevelCoroutine(currentLevelName));
@@ -59,6 +78,7 @@ public class LevelManager : NhoxBehaviour
 
         yield return ManagerCtrl.Instance.TileManager.CurrentActiveCoroutine;
 
+        UpdateGroundColor(defaultColor);
         UnloadCurrentScene();
         ManagerCtrl.Instance.TileManager.EnableMainSceneObjects(true);
         ManagerCtrl.Instance.TileManager.ShowMainGrid(true);
@@ -87,19 +107,37 @@ public class LevelManager : NhoxBehaviour
     protected void EliminateEnemy()
     {
         Enemy[] enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
-        foreach (var enemy in enemies)
-            enemy.Core.Death.DestroyEnemy();
+        for (int i = 0; i < enemies.Length; i++)
+            enemies[i].Core.Death.DestroyEnemy();
     }
 
     protected void EliminateAllTowers()
     {
         TowerCtrl[] towers = FindObjectsByType<TowerCtrl>(FindObjectsSortMode.None);
-        foreach (var tower in towers)
-            tower.Status.DestroyTower();
+        for (int i = 0; i < towers.Length; i++)
+            towers[i].Status.DestroyTower();
     }
 
     public void UpdateCurrentGrid(GridBuilder newGrid) => currentActiveGrid = newGrid;
     public int GetNextLevelIndex() => SceneUtility.GetBuildIndexByScenePath(currentLevelName) + 1;
     public string GetNextLevelName() => "Level_" + GetNextLevelIndex();
     public bool HasNoMoreLevels() => GetNextLevelIndex() >= SceneManager.sceneCountInBuildSettings;
+
+    public void UpdateGroundColor(Color targetColor) => StartCoroutine(UpdateGroundColorCoroutine(targetColor, 1.5f));
+
+    protected IEnumerator UpdateGroundColorCoroutine(Color targetColor, float duration)
+    {
+        float time = 0f;
+        Color startColor = groundMesh.material.color;
+
+        while (time < duration)
+        {
+            Color currentColor = Color.Lerp(startColor, targetColor, time / duration);
+            groundMesh.material.color = currentColor;
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        groundMesh.material.color = targetColor;
+    }
 }

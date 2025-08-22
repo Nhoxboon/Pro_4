@@ -38,7 +38,7 @@ public class ShieldForEnemy : CoreComponent
     protected void LoadShieldMaterial()
     {
         if (shieldMaterial != null) return;
-        shieldMaterial = GetComponent<MeshRenderer>().material;
+        shieldMaterial = GetComponent<MeshRenderer>().sharedMaterial;
         DebugTool.Log(transform.name + " :LoadShieldMaterial", gameObject);
     }
 
