@@ -25,6 +25,7 @@ public class CanonAttack : TowerAttack
         if (newProjectile.TryGetComponent(out Fireball projectile))
             projectile.SetupProjectile(velocity, damage);
         SpawnAttackVFX();
+        AudioManager.Instance.PlaySFX(attackSFX, true);
     }
 
     protected void SpawnAttackVFX()

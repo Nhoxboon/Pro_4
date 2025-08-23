@@ -18,12 +18,12 @@ MonoBehaviour:
   - towerName: Canon
     unlocked: 1
   - towerName: Rapid Fire Gun
-    unlocked: 1
+    unlocked: 0
   - towerName: Hammer
     unlocked: 1
   - towerName: Spider Nest
-    unlocked: 1
+    unlocked: 0
   - towerName: AA Harpoon
-    unlocked: 1
+    unlocked: 0
   - towerName: Only Fan
-    unlocked: 1
+    unlocked: 0

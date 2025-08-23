@@ -243,7 +243,7 @@ NavMeshAgent:
   m_Radius: 0.5
   m_Speed: 1.2
   m_Acceleration: 8
-  avoidancePriority: 11
+  avoidancePriority: 12
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
@@ -1079,7 +1079,7 @@ MonoBehaviour:
   components: []
   root: {fileID: 606742903244266652}
   enemy: {fileID: 4773898930361908873}
-  movement: {fileID: 7104966047596812348}
+  movement: {fileID: 8307596972821483348}
   stats: {fileID: 5839076264608877309}
   damageReceiver: {fileID: 1140845547710648866}
   visuals: {fileID: 1897998562581600260}
@@ -1732,7 +1732,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2639124881219289811}
-  - component: {fileID: 7104966047596812348}
+  - component: {fileID: 8307596972821483348}
   m_Layer: 10
   m_Name: Movement
   m_TagString: Untagged
@@ -1755,7 +1755,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8057984735182269659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7104966047596812348
+--- !u!114 &8307596972821483348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1764,7 +1764,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9059905174381428538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f208509fdbadcc4ea2b4d29d991b27f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2391bfab515b4d23b0858833638c230a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   core: {fileID: 982443769962836378}

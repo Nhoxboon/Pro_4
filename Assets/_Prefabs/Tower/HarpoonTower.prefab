@@ -788,7 +788,8 @@ MonoBehaviour:
   attackSFX: {fileID: 8877394199028422732}
   projectileDefaultPosition: {fileID: 3986862622589933888}
   projectileSpeed: 15
-  initialDamage: 2
+  harpoon: {fileID: 3014174648149542678, guid: ff81e18f8500256499b5b915d6eeb77b, type: 3}
+  initialDamage: 5
   damageOverTime: 10
   overTimeEffectDuration: 4
   slowEffect: 0.7

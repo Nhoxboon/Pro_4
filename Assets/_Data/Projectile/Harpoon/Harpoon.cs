@@ -49,18 +49,23 @@ public class Harpoon : Projectile
     {
         isAttached = true;
         transform.parent = target.transform;
-        if (target.Core.Death is FlyDeath flyDeath)
-            flyDeath.AddAttachedHarpoon(this);
+        // if (target.Core.Death is FlyDeath flyDeath)
+        //     flyDeath.AddAttachedHarpoon(this);
 
         if (tower.TryGetComponent(out TowerCtrl towerCtrl) && towerCtrl.Attack is HarpoonAttack harpoonAttack)
             harpoonAttack.ActivateAttack();
     }
 
-    protected override void ResetProjectile()
+    public void ResetHarpoon(Vector3 newPos, Quaternion newRot, Transform towerHead )
     {
         isAttached = false;
         target = null;
         tower = null;
+        transform.SetParent(towerHead);
+        transform.position = newPos;
+        transform.rotation = newRot;
+        transform.localScale = Vector3.one;
+        transform.localRotation = Quaternion.identity;
     }
 
     public Transform GetConnectionPoint() => connectionPoint;

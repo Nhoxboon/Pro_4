@@ -2695,7 +2695,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 129
   attackSFX: {fileID: 2178885908611645249}
-  damage: 2
+  damage: 5
 --- !u!1 &8898529852686503657
 GameObject:
   m_ObjectHideFlags: 0

@@ -128,10 +128,14 @@ public class HammerVisuals : TowerVisuals
     public override void ResetVisual()
     {
         base.ResetVisual();
-        hammer.localPosition = hammerOriginalPosition;
+        if (hammerOriginalPosition != Vector3.zero)
+            hammer.localPosition = hammerOriginalPosition;
+
         hammerHolder.localScale = Vector3.one;
         sideWire.localScale = Vector3.one;
-        sideHandle.localPosition = sideHandleOriginalPosition;
+
+        if (sideHandleOriginalPosition != Vector3.zero)
+            sideHandle.localPosition = sideHandleOriginalPosition;
         valveRotation.SetRotationSpeed(3);
     }
 }

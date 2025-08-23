@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -26,6 +27,8 @@ public class Enemy : NhoxBehaviour
     }
 
     protected virtual void OnEnable() => ResetEnemy();
+
+    protected virtual void OnDisable() => CancelInvoke();
 
     protected void Update() => core.LogicUpdate();
 
@@ -99,11 +102,10 @@ public class Enemy : NhoxBehaviour
     public virtual void ResetEnemy()
     {
         StopAllCoroutines();
-        CancelInvoke();
         canBeHidden = true;
         isHidden = false;
         gameObject.layer = originalLayerIndex;
-        
+
         core.Visuals.ResetVisuals();
         core.Stats.Health.Init();
         core.Death.SetDead(false);
@@ -113,8 +115,8 @@ public class Enemy : NhoxBehaviour
                 flyBossCore.SpawnUnit.ResetSpawnUnit();
                 break;
             case HeavyEnemyCore heavyEnemyCore:
-                heavyEnemyCore.ShieldObject.EnableShield();
                 core.Stats.ShieldAmount.Init();
+                heavyEnemyCore.ShieldObject.EnableShield();
                 break;
         }
     }

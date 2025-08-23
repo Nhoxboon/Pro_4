@@ -6,7 +6,7 @@ public class HarpoonAttack : TowerAttack
     [Header("Harpoon Details")] 
     [SerializeField] protected Transform projectileDefaultPosition;
     [SerializeField] protected float projectileSpeed = 15f;
-    protected string projectile = "Harpoon";
+    [SerializeField] protected GameObject harpoon;
 
     protected bool reachedTarget;
     protected bool busyWithAttack;
@@ -14,11 +14,11 @@ public class HarpoonAttack : TowerAttack
     protected Harpoon currentProjectile;
     protected Coroutine damageOverTimeCoroutine;
 
-    [Header("Damage Details")] 
-    [SerializeField] protected float initialDamage = 10f;
-    [SerializeField] protected float damageOverTime = 5f;
+    [Header("Damage Details")]
+    [SerializeField] protected float initialDamage = 5f;
+    [SerializeField] protected float damageOverTime = 10f;
     [SerializeField] protected float overTimeEffectDuration = 4f;
-    [Range(0, 1)] 
+    [Range(0, 1)]
     [SerializeField] protected float slowEffect = 0.7f;
 
     protected override void Start()
@@ -32,6 +32,7 @@ public class HarpoonAttack : TowerAttack
         base.LoadComponents();
         LoadGunPoint();
         LoadProjectileDefaultPosition();
+        LoadHarpoon();
     }
 
     protected void LoadProjectileDefaultPosition()
@@ -39,6 +40,13 @@ public class HarpoonAttack : TowerAttack
         if (projectileDefaultPosition != null) return;
         projectileDefaultPosition = towerCtrl.Rotation.TowerHead.Find("tower_harpoon/harpoon");
         DebugTool.Log(transform.name + " :LoadProjectileDefaultPosition", gameObject);
+    }
+
+    protected void LoadHarpoon()
+    {
+        if (harpoon != null) return;
+        harpoon = Resources.Load<GameObject>("Projectile/Harpoon");
+        DebugTool.Log(transform.name + " :LoadHarpoon", gameObject);
     }
 
     protected override bool CanAttack() => base.CanAttack() && !busyWithAttack;
@@ -52,24 +60,24 @@ public class HarpoonAttack : TowerAttack
         if (hitInfo.collider.TryGetComponent(out Enemy enemy))
             towerCtrl.Targeting.SetTarget(enemy);
         busyWithAttack = true;
-        
+
         currentProjectile.SetupHarpoon(towerCtrl.Targeting.CurrentTarget, projectileSpeed, towerCtrl.transform);
         if(towerCtrl.Visuals is HarpoonVisuals visuals)
             visuals.EnableChainVisuals(true, currentProjectile.GetConnectionPoint());
-        
+
+        AudioManager.Instance.PlaySFX(attackSFX, true);
         StartCoroutine(ResetAttackCoroutine());
     }
 
     protected void CreateProjectile()
     {
-        Transform newProjectile =
-            ProjectileSpawner.Instance.Spawn(projectile, projectileDefaultPosition.position, Quaternion.identity);
-        newProjectile.gameObject.SetActive(true);
-        newProjectile.SetParent(towerCtrl.Rotation.TowerHead);
-        newProjectile.localRotation = Quaternion.identity;
-        newProjectile.localScale = Vector3.one;
+        if(currentProjectile is not null) return;
+        GameObject newProjectile = Instantiate(harpoon, projectileDefaultPosition.position,
+            projectileDefaultPosition.rotation, towerCtrl.Rotation.TowerHead);
+        newProjectile.transform.localScale = Vector3.one;
+        newProjectile.transform.localRotation = Quaternion.identity;
 
-        currentProjectile = newProjectile.TryGetComponent(out Harpoon harpoon) ? harpoon : null;
+        currentProjectile = newProjectile.TryGetComponent(out Harpoon projectile) ? projectile : null;
     }
 
     public void ActivateAttack()
@@ -80,7 +88,7 @@ public class HarpoonAttack : TowerAttack
             ResetAttack();
             return;
         }
-        
+
         reachedTarget = true;
         if(currentEnemy.Core.Death is FlyDeath death)
             death.AddObservingTower(towerCtrl.transform);
@@ -89,7 +97,8 @@ public class HarpoonAttack : TowerAttack
         currentEnemy.Core.Movement.SlowEnemy(slowEffect, overTimeEffectDuration);
         IDamageable damageable = towerCtrl.Targeting.CurrentTarget.Core.DamageReceiver;
         damageable?.TakeDamage(initialDamage);
-        
+
+        if(damageOverTimeCoroutine != null) StopCoroutine(damageOverTimeCoroutine);
         damageOverTimeCoroutine = StartCoroutine(DamageOverTimeCoroutine(damageable));
     }
 
@@ -113,7 +122,7 @@ public class HarpoonAttack : TowerAttack
         yield return new WaitForSeconds(1);
         ResetAttackIfMissed();
     }
-    
+
     protected void ResetAttackIfMissed()
     {
         if (reachedTarget) return;
@@ -123,15 +132,13 @@ public class HarpoonAttack : TowerAttack
     public override void ResetAttack()
     {
         base.ResetAttack();
-        if (damageOverTimeCoroutine != null) StopCoroutine(damageOverTimeCoroutine);
+        StopAllCoroutines();
         reachedTarget = false;
         busyWithAttack = false;
-        
+
         if (towerCtrl.Visuals is HarpoonVisuals visuals)
             visuals.EnableChainVisuals(false);
-        if (currentProjectile is null) return;
-        ProjectileSpawner.Instance.Despawn(currentProjectile.gameObject);
-        currentProjectile = null;
-        CreateProjectile();
+        currentProjectile?.ResetHarpoon(projectileDefaultPosition.position, projectileDefaultPosition.rotation,
+            towerCtrl.Rotation.TowerHead);
     }
 }

@@ -2659,6 +2659,17 @@ PrefabInstance:
       addedObject: {fileID: 1623487529}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3a815acbacc90e4cad65b812b924052, type: 3}
+--- !u!114 &40691698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6479149782166414983, guid: e3a815acbacc90e4cad65b812b924052, type: 3}
+  m_PrefabInstance: {fileID: 40691697}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d18bf7a4441e485c9713229bb69151ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &42459077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9460,6 +9471,17 @@ PrefabInstance:
       addedObject: {fileID: 1666058876}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d79d6a2c84ed2bc44aed2b7f9fd39785, type: 3}
+--- !u!114 &110684666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3197998506556868298, guid: d79d6a2c84ed2bc44aed2b7f9fd39785, type: 3}
+  m_PrefabInstance: {fileID: 110684665}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710bffe0e0204a339259484eae797329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &111962994
 GameObject:
   m_ObjectHideFlags: 0
@@ -66583,22 +66605,28 @@ MonoBehaviour:
     newPortals: []
     enemyTypes:
     - enemyType: 0
-      count: 120
-  - nextGrid: {fileID: 1560549667}
-    newPortals:
-    - {fileID: 1434651939}
-    enemyTypes:
-    - enemyType: 0
-      count: 0
+      count: 40
     - enemyType: 1
-      count: 4
+      count: 20
   - nextGrid: {fileID: 0}
     newPortals: []
     enemyTypes:
     - enemyType: 0
-      count: 0
+      count: 50
     - enemyType: 1
-      count: 6
+      count: 30
+    - enemyType: 2
+      count: 50
+  - nextGrid: {fileID: 110684666}
+    newPortals:
+    - {fileID: 40691698}
+    enemyTypes:
+    - enemyType: 0
+      count: 50
+    - enemyType: 1
+      count: 30
+    - enemyType: 3
+      count: 15
 --- !u!1 &1125740073
 GameObject:
   m_ObjectHideFlags: 0
@@ -85245,17 +85273,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2569384236162911740, guid: e3a815acbacc90e4cad65b812b924052, type: 3}
   m_PrefabInstance: {fileID: 40691697}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1434651939 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6479149782166414983, guid: e3a815acbacc90e4cad65b812b924052, type: 3}
-  m_PrefabInstance: {fileID: 40691697}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18bf7a4441e485c9713229bb69151ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1437339016
 GameObject:
   m_ObjectHideFlags: 0
@@ -92479,17 +92496,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 249098384479176950, guid: d79d6a2c84ed2bc44aed2b7f9fd39785, type: 3}
   m_PrefabInstance: {fileID: 110684665}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1560549667 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3197998506556868298, guid: d79d6a2c84ed2bc44aed2b7f9fd39785, type: 3}
-  m_PrefabInstance: {fileID: 110684665}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 710bffe0e0204a339259484eae797329, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1563766829
 GameObject:
   m_ObjectHideFlags: 0

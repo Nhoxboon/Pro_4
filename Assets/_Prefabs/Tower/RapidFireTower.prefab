@@ -2288,7 +2288,7 @@ MonoBehaviour:
   - {fileID: 1776291923158021594}
   - {fileID: 5742272050030156844}
   - {fileID: 6039423667575937782}
-  damage: 5
+  damage: 3
   projectileSpeed: 15
 --- !u!1 &7822253015594232760
 GameObject:

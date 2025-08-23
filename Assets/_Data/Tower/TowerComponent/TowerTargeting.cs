@@ -30,7 +30,7 @@ public class TowerTargeting : TowerComponent
         DebugTool.Log(transform.name + " :LoadLayerMask", gameObject);
     }
 
-    public void UpdateTarget()
+    public virtual void UpdateTarget()
     {
         if (CurrentTarget is null || !CurrentTarget.gameObject.activeInHierarchy)
         {

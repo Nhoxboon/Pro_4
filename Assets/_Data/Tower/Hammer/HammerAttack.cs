@@ -19,6 +19,7 @@ public class HammerAttack : TowerAttack
 
         foreach (var enemy in ValidEnemyTargets())
             enemy.Core.Movement.SlowEnemy(slowMultiplier, slowDuration);
+        AudioManager.Instance.PlaySFX(attackSFX, true);
     }
 
     protected void HammerAttackAnimation()

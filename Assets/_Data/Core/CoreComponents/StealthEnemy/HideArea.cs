@@ -5,6 +5,8 @@ public class HideArea : CoreComponent
 {
     [SerializeField] protected StealthEnemy enemy;
 
+    protected void OnDisable() => enemy.EnemiesToHide.Clear();
+
     protected override void LoadComponents()
     {
         base.LoadComponents();

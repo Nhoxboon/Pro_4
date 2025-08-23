@@ -77,8 +77,8 @@ public class Visuals : CoreComponent
     protected void CollectDefaultMaterials()
     {
         originalMat = new List<Material>();
-        foreach (MeshRenderer mesh in myRenderers)
-            originalMat.Add(mesh.material);
+        for (int i = 0; i < myRenderers.Length; i++)
+            originalMat.Add(myRenderers[i].sharedMaterial);
     }
 
     public void MakeTransparent(bool transparent)
@@ -87,7 +87,7 @@ public class Visuals : CoreComponent
             CollectDefaultMaterials();
         
         for (int i = 0; i < myRenderers.Length; i++)
-            myRenderers[i].material = transparent ? transparentMat : originalMat?[i];
+            myRenderers[i].sharedMaterial = transparent ? transparentMat : originalMat?[i];
     }
 
     public virtual void ResetVisuals()

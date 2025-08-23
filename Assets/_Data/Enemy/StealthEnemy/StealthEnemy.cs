@@ -35,6 +35,9 @@ public class StealthEnemy : Enemy
         base.ResetEnemy();
         InvokeRepeating(nameof(HideItSelf), 0.1f, hideDuration);
         InvokeRepeating(nameof(HideEnemies), 0.1f, hideDuration);
+
+        if (core.Visuals is not StealthVisuals visuals) return;
+        visuals.EnableSmoke(true);
         canHideEnemy = true;
     }
 }

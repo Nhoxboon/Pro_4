@@ -50,6 +50,7 @@ public class RapidFireAttack : TowerAttack
             projectile.TryGetComponent(out Bullet bullet);
             bullet.SetupBullet(hitInfo.point, damageable, damage, projectileSpeed);
 
+            AudioManager.Instance.PlaySFX(attackSFX, true);
             PlayRecoilVFX(gunPoint);
 
             base.Attack();

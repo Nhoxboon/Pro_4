@@ -20,7 +20,7 @@ MonoBehaviour:
   - towerName: Rapid Fire Gun
     unlocked: 1
   - towerName: Hammer
-    unlocked: 0
+    unlocked: 1
   - towerName: Spider Nest
     unlocked: 0
   - towerName: AA Harpoon

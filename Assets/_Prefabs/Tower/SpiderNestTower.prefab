@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerCtrl: {fileID: 7371467646370622111}
-  attackCooldown: 2
+  attackCooldown: 3
   gunPoint: {fileID: 0}
   whatIsTargetable:
     serializedVersion: 2
