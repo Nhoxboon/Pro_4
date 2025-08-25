@@ -6,43 +6,54 @@
   <component name="ChangeListManager">
     <list default="true" id="a6258a6e-c3f2-4b08-8729-6bd4b2728e1b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pro_4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyDeath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyDeath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/StealthEnemy/HideArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/StealthEnemy/HideArea.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Visuals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Visuals.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/StealthEnemy/StealthEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/StealthEnemy/StealthEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Enemy/EnemyPortal.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/FX/FXSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/FX/FXSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Player/Castle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Projectile/Fireball/Fireball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Fireball/Fireball.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Projectile/Harpoon/Harpoon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Projectile/Harpoon/Harpoon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/Level_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/Level_1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/Level_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Tower/Level_2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Canon/CanonAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Canon/CanonAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/BasicEnemy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/BasicEnemy.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/BossUnitEnemy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/BossUnitEnemy.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/FastEnemy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/FastEnemy.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/FlyingBoss.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/FlyingBoss.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/HeavyEnemy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/HeavyEnemy.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/SpiderBoss.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/SpiderBoss.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/StealthEnemy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/StealthEnemy.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/SwarmEnemy.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Resources/Enemy/SwarmEnemy.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/EnemyDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/ScriptableObject/EnemyDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerVisuals.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerVisuals.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonTargeting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonTargeting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerTargeting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerTargeting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FastEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FastEnemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/FlyingBoss.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/Harpoon.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/Harpoon.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/CrossbowTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/CrossbowTower.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonRotation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonRotation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/Tower/TowerComponent/TowerAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/Button/QuitBtn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/Button/QuitBtn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/UI/UI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Data/WaveManager/LevelLayoutManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Data/WaveManager/LevelLayoutManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/HeavyEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/HeavyEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/SpiderBoss/SpiderBoss.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/SpiderBoss/SpiderBoss.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/SpiderBoss/SpiderBoss.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Enemy/SpiderBoss/SpiderBoss.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/Fireball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Projectile/Fireball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/CanonTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/CanonTower.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/HammerTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/HammerTower.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/HarpoonTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/HarpoonTower.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/RapidFireTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/RapidFireTower.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/Tower/SpiderNestTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/Tower/SpiderNestTower.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Prefabs/UI/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefabs/UI/UI.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameLevel/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameLevel/Level_1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameLevel/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameLevel/Level_2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/GameLevel/Level_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/GameLevel/Level_3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1/NavMesh-FlyRoad.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1/NavMesh-FlyRoad.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1/NavMesh-GridBuilder.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_1/NavMesh-GridBuilder.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3/NavMesh-GridBuilderTest.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Level_3/NavMesh-GridBuilderTest.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/LevelSystemTest.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/LevelSystemTest.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Test.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Test.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Test.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Settings/PC_RPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Settings/PC_RPAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,11 +76,15 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3f983fe377b2489e8ed44032915da13e1df600/3c/5e4308eb/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/bf/056add9c/Action.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/BuildSystem/BuildManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/FlyEnemy/FlyMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/SwarmEnemy/SwarmVisuals.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Core/CoreComponents/Visuals.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Enemy/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/FX/FXSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelBtnTile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/LevelSystem/LevelSetup.cs" root0="FORCE_HIGHLIGHTING" />
@@ -78,6 +93,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Projectile/Harpoon/ChainLink.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Projectile/Harpoon/Harpoon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Projectile/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Script/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Script/InputManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/EnemyDataSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/ScriptableObject/ShieldEnemyDataSO.cs" root0="FORCE_HIGHLIGHTING" />
@@ -85,14 +101,23 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Data/TileSystem/GridBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/TileSystem/TileManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/TileSystem/TileSlot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Canon/CanonAttack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Hammer/HammerVisuals.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonCtrl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonAttack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/Harpoon/HarpoonRotation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/Tower/RapidFire/RapidFireAttack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/Button/QuitBtn.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/InGameUI/InGameUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/MenuUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/Slider/KeyboardSenSlider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/TextMP/WaveTimerText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/UI/UI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Utilities/DebugTool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Utilities/GameObjectExtensionMethods.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/WaveManager/EnemySpawnCoordinator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/WaveManager/LevelLayoutManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Data/WaveManager/WaveTimingManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Data/Waypoint/Waypoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ai.navigation@eb5635ad590d/Runtime/NavMeshSurface.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.timeline@c58b4ee65782/Editor/Utilities/BindingUtility.cs" root0="SKIP_HIGHLIGHTING" />
@@ -383,6 +408,18 @@
       <workItem from="1755957536974" duration="24000" />
       <workItem from="1755959094467" duration="3486000" />
       <workItem from="1755964884835" duration="22167000" />
+      <workItem from="1755991176608" duration="297000" />
+      <workItem from="1756033872612" duration="887000" />
+      <workItem from="1756038381968" duration="7883000" />
+      <workItem from="1756048007814" duration="4772000" />
+      <workItem from="1756093821101" duration="1066000" />
+      <workItem from="1756100902654" duration="957000" />
+      <workItem from="1756103242813" duration="998000" />
+      <workItem from="1756105745183" duration="730000" />
+      <workItem from="1756107371739" duration="8001000" />
+      <workItem from="1756115982747" duration="549000" />
+      <workItem from="1756116666645" duration="1228000" />
+      <workItem from="1756118508299" duration="262000" />
     </task>
     <servers />
   </component>

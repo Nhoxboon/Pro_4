@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be775cff4e364ba396e0becd06c6f7dc, type: 3}
   m_Name: HeavyEnemy
   m_EditorClassIdentifier: 
-  health: 20
+  health: 30
+  threads: 15
   currency: 20
   shield: 50

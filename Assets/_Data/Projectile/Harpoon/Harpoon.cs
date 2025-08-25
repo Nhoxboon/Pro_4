@@ -41,12 +41,16 @@ public class Harpoon : Projectile
 
     protected void MoveTowardsTarget()
     {
+        if (target is null) return;
         transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-        transform.forward = target.transform.position - transform.position;
+        Vector3 direction = target.transform.position - transform.position;
+        if (direction.sqrMagnitude > 0.001f)
+            transform.forward = direction;
     }
 
     protected void AttachToTarget()
     {
+        if (target is null) return;
         isAttached = true;
         transform.parent = target.transform;
         // if (target.Core.Death is FlyDeath flyDeath)

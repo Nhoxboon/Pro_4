@@ -17,9 +17,9 @@ public class UI : NhoxBehaviour
     [Header("UI SFX")] public AudioSource onHoverSFX;
     public AudioSource onClickSFX;
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
 
         fadeImage.ActivateFadeEffect(true);
         SwitchToUI(settingsUI.gameObject);

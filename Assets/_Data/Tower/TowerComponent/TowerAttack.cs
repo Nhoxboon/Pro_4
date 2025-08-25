@@ -46,7 +46,7 @@ public abstract class TowerAttack : TowerComponent
 
     public void DoAttack()
     {
-        if(CanAttack()) Attack();
+        if(CanAttack() && ManagerCtrl.Instance.GameManager.IsInGame) Attack();
     }
     
     public virtual void ResetAttack()

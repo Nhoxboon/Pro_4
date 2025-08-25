@@ -33,7 +33,7 @@ public class Fireball : Projectile
     protected void LoadUnInteractiveLayer()
     {
         if (whatIsUnInteractive != 0) return;
-        whatIsUnInteractive = LayerMask.GetMask("EnemyProjectile");
+        whatIsUnInteractive = LayerMask.GetMask("EnemyProjectile", "FlyRoad");
         DebugTool.Log(transform.name + " :LoadUnInteractiveLayer", gameObject);
     }
 

@@ -19,6 +19,7 @@ public class FlyMovement : Movement
         currentWpIndex = 0;
         nextWpIndex = 0;
         totalDistance = 0;
+        agent.isStopped = false;
 
         if (IsAgentInvalid()) return;
 

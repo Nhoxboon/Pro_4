@@ -85,6 +85,10 @@ public class HammerVisuals : TowerVisuals
 
     protected IEnumerator HammerAttackCoroutine()
     {
+        if(hammer.localPosition != hammerOriginalPosition)
+            hammer.localPosition = hammerOriginalPosition;
+        if (sideHandle.localPosition != sideHandleOriginalPosition)
+            sideHandle.localPosition = sideHandleOriginalPosition;
         valveRotation.SetRotationSpeed(25);
         StartCoroutine(ChangePositionCoroutine(hammer, -attackYOffset, attackDuration));
         StartCoroutine(ChangeScaleCoroutine(hammerHolder, 7f, attackDuration));
@@ -128,6 +132,7 @@ public class HammerVisuals : TowerVisuals
     public override void ResetVisual()
     {
         base.ResetVisual();
+        reloadDuration = towerCtrl.Attack.AttackCooldown - attackDuration;
         if (hammerOriginalPosition != Vector3.zero)
             hammer.localPosition = hammerOriginalPosition;
 

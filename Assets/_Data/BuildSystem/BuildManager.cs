@@ -129,6 +129,7 @@ public class BuildManager : NhoxBehaviour
 
     public void BuildTower(string towerToBuild, int towerPrice, float towerCenterY, Transform previewTower)
     {
+        if(!ManagerCtrl.Instance.GameManager.IsInGame) return;
         if (!CanBuild(towerPrice))
         {
             ManagerCtrl.Instance.UI.InGameUI.ShakeCurrencyUI();

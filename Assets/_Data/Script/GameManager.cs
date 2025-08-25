@@ -54,8 +54,7 @@ public class GameManager : NhoxBehaviour
     public bool IsTestingLevel()
     {
         LevelManager levelManager = FindFirstObjectByType<LevelManager>();
-        if (levelManager == null) return true;
-        return false;
+        return levelManager == null;
     }
 
     public void LevelCompleted() => StartCoroutine(LevelCompletedCoroutine());
@@ -77,7 +76,9 @@ public class GameManager : NhoxBehaviour
     public IEnumerator LevelFailedCoroutine()
     {
         isInGame = false;
+        ManagerCtrl.Instance.BuildManager.CancelBuildAction();
         currentWaveManager.DeactivateWaveManager();
+        FXSpawner.Instance.DespawnAllFX();
         cameraEffects.FocusOnCastle();
 
         yield return cameraEffects.CameraCoroutine;
@@ -103,11 +104,15 @@ public class GameManager : NhoxBehaviour
         OnHPChanged?.Invoke();
         ManagerCtrl.Instance.UI.InGameUI.ShakeHPUI();
 
-        if (currentHP <= 0 || !isInGame) StartCoroutine(LevelFailedCoroutine());
+        if (currentHP > 0 && isInGame) return;
+        currentHP = 0;
+        OnHPChanged?.Invoke();
+        StartCoroutine(LevelFailedCoroutine());
     }
 
     public void UpdateCurrency(int amount)
     {
+        if(!isInGame) return;
         enemyKilled++;
         currency += amount;
         OnCurrencyChanged?.Invoke();

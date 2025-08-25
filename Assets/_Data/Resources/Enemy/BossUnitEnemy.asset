@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: BossUnitEnemy
   m_EditorClassIdentifier: 
   health: 10
+  threads: 2
   currency: 2

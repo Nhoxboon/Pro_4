@@ -35,8 +35,11 @@ public class HarpoonRotation : TowerRotation
         Vector3 directionToTarget = towerCtrl.Targeting.DirectionToTarget(towerBody);
         directionToTarget.y = 0;
 
-        Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
-        towerBody.rotation = Quaternion.Slerp(towerBody.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+        if (directionToTarget.sqrMagnitude > 0.001f)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
+            towerBody.rotation = Quaternion.Slerp(towerBody.rotation, lookRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 
     public override void ResetRotation()

@@ -71,6 +71,12 @@ public class Movement : CoreComponent
     protected void MoveToWaypoint()
     {
         if (IsAgentInvalid()) return;
+        if(!ManagerCtrl.Instance.GameManager.IsInGame && agent.isActiveAndEnabled)
+        {
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
+            return;
+        }
 
         FaceTarget(agent.steeringTarget);
 
@@ -166,6 +172,7 @@ public class Movement : CoreComponent
         totalDistance = 0;
 
         if (IsAgentInvalid()) return;
+        agent.isStopped = false;
         agent.ResetPath();
         agent.velocity = Vector3.zero;
 

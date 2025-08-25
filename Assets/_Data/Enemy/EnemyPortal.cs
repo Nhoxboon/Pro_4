@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,7 +23,7 @@ public class EnemyPortal : NhoxBehaviour
 
     protected void SpawnEnemy()
     {
-        if(WaveTimingManager.Instance is not null && !WaveTimingManager.Instance.GameBegun) return;
+        if (!IsSpawningAllowed()) return;
         
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0f && CanSpawn())
@@ -46,18 +46,33 @@ public class EnemyPortal : NhoxBehaviour
         if(enemyType != EnemyType.FlyingEnemy && enemyType != EnemyType.FlyingBoss) return;
         var flyPosition = transform.position + Vector3.up * 2f;
         
-        FXSpawner.Instance.SpawnParticle("EnemyFlyPortalFX", flyPosition, Quaternion.identity);
+        FXSpawner.Instance.SpawnParticle("EnemyFlyPortalFX", flyPosition, transform.rotation);
         newEnemy.position = flyPosition;
     }
 
     protected bool CanSpawn() => enemies.Count > 0;
+
+    protected bool IsSpawningAllowed()
+    {
+        if(WaveTimingManager.Instance is not null && !WaveTimingManager.Instance.GameBegun)
+            return false;
+
+        return ManagerCtrl.Instance is null || ManagerCtrl.Instance.GameManager.IsInGame;
+    }
+
     
     public void AddEnemyToList(string enemyName) => enemies.Add(enemyName);
 
     public void RemoveActiveEnemy(GameObject enemyToRemove)
     {
-        if (activeEnemies.Contains(enemyToRemove)) activeEnemies.Remove(enemyToRemove);
+        if (activeEnemies.Contains(enemyToRemove))
+            activeEnemies.Remove(enemyToRemove);
+        StartCoroutine(CheckWaveCompletionNextFrame());
+    }
 
+    private IEnumerator CheckWaveCompletionNextFrame()
+    {
+        yield return null;
         EnemySpawnCoordinator.Instance?.HandleWaveCompletion();
     }
 

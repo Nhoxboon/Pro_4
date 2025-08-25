@@ -1398,6 +1398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 425519795615567484}
   - component: {fileID: 1503542219467970168}
+  - component: {fileID: 619392759420595659}
   m_Layer: 5
   m_Name: BGMVolumeSlider
   m_TagString: Untagged
@@ -1479,6 +1480,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &619392759420595659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607803474688789119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd731082f7b74f63bbd84c2c4ff04b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1503542219467970168}
+  audioMixer: {fileID: 24100000, guid: 2bdf44e3ea3aa714b9b742fb46143dd7, type: 2}
+  mixerMultiplier: 25
+  bgmParameter: backgroundVolume
 --- !u!1 &671416198350434067
 GameObject:
   m_ObjectHideFlags: 0
@@ -7278,6 +7295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 378940626152173123}
   - component: {fileID: 4591564888425727120}
+  - component: {fileID: 2125390605000160257}
   m_Layer: 5
   m_Name: SFXVolumeSlider
   m_TagString: Untagged
@@ -7359,6 +7377,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2125390605000160257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3579589547522489228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28158c59107448d28b2a158f0aeef63b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 4591564888425727120}
+  audioMixer: {fileID: 24100000, guid: 2bdf44e3ea3aa714b9b742fb46143dd7, type: 2}
+  mixerMultiplier: 25
+  sfxParameter: sfxVolume
 --- !u!1 &3600666294614901735
 GameObject:
   m_ObjectHideFlags: 0
@@ -11354,11 +11388,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5811630690242796286}
-  - {fileID: 5005624175275231172}
   - {fileID: 455960943772189225}
   - {fileID: 1099451848516068914}
   - {fileID: 1317026040628142399}
   - {fileID: 1663213566000969161}
+  - {fileID: 5005624175275231172}
   - {fileID: 4634128204797403100}
   m_Father: {fileID: 4970191123909937935}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17524,6 +17558,10 @@ PrefabInstance:
     - target: {fileID: 3921793321152934487, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: m_text
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921793321152934487, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
+      propertyPath: m_fontSize
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 6561162994434982770, guid: 4bcb51eb18e4ba84bbf9fbb5944ce0ca, type: 3}
       propertyPath: m_Sprite

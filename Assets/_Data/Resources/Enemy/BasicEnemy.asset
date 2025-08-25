@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: BasicEnemy
   m_EditorClassIdentifier: 
   health: 10
+  threads: 5
   currency: 5

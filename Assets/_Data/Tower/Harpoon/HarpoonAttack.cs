@@ -131,7 +131,10 @@ public class HarpoonAttack : TowerAttack
 
     public override void ResetAttack()
     {
-        base.ResetAttack();
+        lastAttackTime = Time.time;
+        if (gunPoint)
+            gunPoint.localRotation = Quaternion.identity;
+
         StopAllCoroutines();
         reachedTarget = false;
         busyWithAttack = false;

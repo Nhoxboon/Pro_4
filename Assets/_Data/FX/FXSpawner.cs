@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FXSpawner : Spawner
@@ -19,7 +21,7 @@ public class FXSpawner : Spawner
 
         instance = this;
     }
-    
+
     public Transform SpawnParticle(string prefabName, Vector3 spawnPos, Quaternion rotation, float time = 1)
     {
         Transform fx = Spawn(prefabName, spawnPos, rotation);
@@ -39,5 +41,17 @@ public class FXSpawner : Spawner
         fx.cachedParticle.Play();
         yield return new WaitForSeconds(time);
         fx.cachedParticle.Stop();
+    }
+
+    public void DespawnAllFX()
+    {
+        List<Transform> activeFX = holder.Cast<Transform>().Where(child => child.gameObject.activeSelf).ToList();
+
+        foreach (Transform fx in activeFX)
+            Despawn(fx.gameObject);
+
+        if (fxCoroutine == null) return;
+        StopCoroutine(fxCoroutine);
+        fxCoroutine = null;
     }
 }

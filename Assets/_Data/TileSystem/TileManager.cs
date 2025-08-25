@@ -33,6 +33,7 @@ public class TileManager : NhoxBehaviour
 
     [SerializeField] protected float dissolveDuration = 1.2f;
     protected List<Transform> dissolveObj = new();
+    public List<Transform> DissolveObj => dissolveObj;
 
     protected override void Start()
     {

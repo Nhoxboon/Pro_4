@@ -7,9 +7,11 @@ public class QuitBtn : BaseBtn
     
     protected void Quit()
     {
+#if UNITY_EDITOR
         if (EditorApplication.isPlaying)
             EditorApplication.isPlaying = false;
         else
+#endif
             Application.Quit();
     }
 }

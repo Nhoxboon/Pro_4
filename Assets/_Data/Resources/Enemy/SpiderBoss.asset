@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353ef4a5624a4f70923b9e6d4cd9ae32, type: 3}
   m_Name: SpiderBoss
   m_EditorClassIdentifier: 
-  health: 100
+  health: 500
+  threads: 30
   currency: 100

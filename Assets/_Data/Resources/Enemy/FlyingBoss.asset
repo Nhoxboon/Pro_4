@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: FlyingBoss
   m_EditorClassIdentifier: 
   health: 30
+  threads: 20
   currency: 10

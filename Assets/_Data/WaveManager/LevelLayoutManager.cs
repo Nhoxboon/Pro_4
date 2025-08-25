@@ -108,6 +108,7 @@ public class LevelLayoutManager : WaveSystemManager
             AddTile(t);
         }
 
+        while (ManagerCtrl.Instance.TileManager.DissolveObj.Count > 0) yield return null;
         onCompleteCallback?.Invoke();
     }
 
